@@ -119,7 +119,7 @@
         var liTmpl = "";
         for (var i = 0, len = data.link.length; i < len; i++) {
           var minSrc = 'img-min/' + data.link[i] + '.jpg';
-          var src = 'img/' + data.link[i];
+          var src = 'http://7xoqky.com1.z0.glb.clouddn.com/' + data.link[i];
           var type = data.type[i];
           var data_size = data.size[i];
           var target = src + (type === 'video' ? '.mp4' : '.jpg');
