@@ -119,11 +119,17 @@
         var liTmpl = "";
         for (var i = 0, len = data.link.length; i < len; i++) {
           var minSrc = 'img-min/' + data.link[i] + '.jpg';
-          var src = 'http://7xoqky.com1.z0.glb.clouddn.com/' + data.link[i];
-          var type = data.type[i];
+          // exif 标记了旋转
+          // 使用七牛存储时，imageMogr2/auto-orient 可以解决图片旋转问题
+          var src = 'http://7xoqky.com1.z0.glb.clouddn.com/' + data.link[i] + '.' + data.type[i] + '?imageMogr2/auto-orient';
+          var target = src;
+          var type ;
+          if(['jpg','png'].indexOf(data.type[i]) != -1)
+            type = 'image';
+          else
+            type = 'video';
           var data_size = data.size[i];
-          var target = src + (type === 'video' ? '.mp4' : '.jpg');
-          src += '.jpg';
+
 
           liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
                 <a href="' + src + '" itemprop="contentUrl" data-size="' + data_size + '" data-type="' + type + '" data-target="' + target + '">\

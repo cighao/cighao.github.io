@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://cighao.com/2015/08/31/introduction-of-SSD/</loc>
+    <loc>http://cighao.com/2018/07/20/openstack-swift-study-02-related%20documents/</loc>
     
-    <lastmod>2018-08-27T02:50:32.900Z</lastmod>
+    <lastmod>2018-09-09T05:10:40.158Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://cighao.com/photo/ins.json</loc>
     
-    <lastmod>2018-08-25T05:38:26.287Z</lastmod>
+    <lastmod>2018-09-08T15:31:01.777Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2015/08/31/introduction-of-SSD/</loc>
+    
+    <lastmod>2018-08-27T02:50:32.900Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://cighao.com/resume/resume.html</loc>
     
     <lastmod>2018-07-28T09:04:01.400Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/2018/07/20/openstack-swift-study-02-related%20documents/</loc>
-    
-    <lastmod>2018-07-20T12:41:42.654Z</lastmod>
     
   </url>
   
