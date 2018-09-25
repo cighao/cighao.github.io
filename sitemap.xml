@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://cighao.com/photo/ins.json</loc>
+    <loc>http://cighao.com/2018/07/20/openstack-swift-study-02-related%20documents/</loc>
     
-    <lastmod>2018-09-09T05:42:37.219Z</lastmod>
+    <lastmod>2018-09-23T13:24:49.376Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cighao.com/2018/07/20/openstack-swift-study-02-related%20documents/</loc>
+    <loc>http://cighao.com/2018/09/22/openstack-swift-study-03-log/</loc>
     
-    <lastmod>2018-09-09T05:10:40.158Z</lastmod>
+    <lastmod>2018-09-23T13:07:51.300Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2018/07/12/openstack-swift-study-01-install%20swift/</loc>
+    
+    <lastmod>2018-09-23T13:07:17.020Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/photo/ins.json</loc>
+    
+    <lastmod>2018-09-09T05:42:37.219Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>http://cighao.com/photo/index.html</loc>
     
     <lastmod>2018-08-25T02:31:28.713Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/2018/07/12/openstack-swift-study-01-install%20swift/</loc>
-    
-    <lastmod>2018-08-13T03:47:15.149Z</lastmod>
     
   </url>
   

@@ -175,6 +175,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-get-set-size-by-probability-algorithm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/17/get-set-size-by-probability-algorithm/">利用概率算法估算集合大小</a>
+    </h1>
+  
+
+        
+        <a href="/2016/10/17/get-set-size-by-probability-algorithm/" class="archive-article-date">
+  	<time datetime="2016-10-17T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a><strong>原理</strong></h3><p>设集合 $ X $ 中有 $ n $ 个元素，如果有放回地随机均匀和独立地从 $ X $中选取元素，设取第 $ k $ 次时，恰好第一次重复出现之前所选取的元素。如果 $n$ 足够大，那么 $k$ 的期望趋近为：</p>
+<p>$$ E(k) =  \beta \sqrt{n} $$</p>
+<p>其中，</p>
+<p>$$ \beta = \sqrt{\pi/2} \approx 1.253 $$</p>
+        
+          <a class="article-more-a" href="/2016/10/17/get-set-size-by-probability-algorithm/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/10/17/get-set-size-by-probability-algorithm/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-catalan-number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -913,88 +994,9 @@
 
 
   
-    <article id="post-leveldb-source-analysis-01-introduction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/13/leveldb-source-analysis-01-introduction/">LevelDB 源码分析（一）：简介</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/13/leveldb-source-analysis-01-introduction/" class="archive-article-date">
-  	<time datetime="2016-08-13T06:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="LSM-tree"><a href="#LSM-tree" class="headerlink" title="LSM tree"></a><strong>LSM tree</strong></h2><p>LevelDB 中一个核心的结构就是 LSM tree，所以这里先介绍下 LSM tree。</p>
-<p>在 key-value store 中 Log-Structured Merge-Trees (LSM-trees) 应用得相当广泛。与其他的索引结构(如B-tree)相比，LSM-trees 的主要优点是能够维持顺序的写操作。在B树中小的更新会带来较多的随机写，为了提高性能，LSM-trees 可以批量处理 key-value 对，然后将他们顺序写入。</p>
-        
-          <a class="article-more-a" href="/2016/08/13/leveldb-source-analysis-01-introduction/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">LevelDB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/13/leveldb-source-analysis-01-introduction/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
