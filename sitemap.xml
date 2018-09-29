@@ -2,6 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/2018/09/29/openstack-swift-study-08-configure-ntp/</loc>
+    
+    <lastmod>2018-09-29T09:48:16.896Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2018/09/29/openstack-swift-study-06-start-proxy/</loc>
+    
+    <lastmod>2018-09-29T09:40:44.503Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2018/09/29/openstack-swift-study-07-ssbench/</loc>
+    
+    <lastmod>2018-09-29T08:28:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2018/09/29/openstack-swift-study-04-middleware/</loc>
+    
+    <lastmod>2018-09-29T07:55:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2018/09/29/openstack-swift-study-05-debug/</loc>
+    
+    <lastmod>2018-09-29T07:13:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/photo/index.html</loc>
+    
+    <lastmod>2018-09-27T11:16:08.391Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/2018/07/20/openstack-swift-study-02-related%20documents/</loc>
     
     <lastmod>2018-09-25T06:12:06.889Z</lastmod>
@@ -33,13 +75,6 @@
     <loc>http://cighao.com/2015/08/31/introduction-of-SSD/</loc>
     
     <lastmod>2018-08-27T02:50:32.900Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/photo/index.html</loc>
-    
-    <lastmod>2018-08-25T02:31:28.713Z</lastmod>
     
   </url>
   

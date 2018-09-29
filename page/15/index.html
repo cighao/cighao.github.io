@@ -175,6 +175,434 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-GA-algorithm-achieved-by-matlab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/03/GA-algorithm-achieved-by-matlab/">遗传算法的 matlab 实现</a>
+    </h1>
+  
+
+        
+        <a href="/2015/11/03/GA-algorithm-achieved-by-matlab/" class="archive-article-date">
+  	<time datetime="2015-11-03T09:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[xv,fv]</span>=<span class="title">myGA</span><span class="params">(fitness,a,b,NP,NG,Pc,Pm,eps)</span></span></span><br><span class="line"><span class="comment">% fitness:待优化的目标函数</span></span><br><span class="line"><span class="comment">% a:自变量的下界</span></span><br><span class="line"><span class="comment">% b:自变量的上界</span></span><br><span class="line"><span class="comment">% NP:种群个体数20-100</span></span><br><span class="line"><span class="comment">% NG:最大进化代数100-500</span></span><br><span class="line"><span class="comment">% Pc:杂交概率0.4-0.99</span></span><br><span class="line"><span class="comment">% Pm:变异概率0.0001-0.1</span></span><br><span class="line"><span class="comment">% eps:自变量离散精度</span></span><br><span class="line"><span class="comment">% xm:目标函数取最大值时的自变量值</span></span><br><span class="line"><span class="comment">% fv:目标函数的最大值</span></span><br><span class="line">L=<span class="built_in">ceil</span>(<span class="built_in">log2</span>((b-a)/<span class="built_in">eps</span>+<span class="number">1</span>));      <span class="comment">%根据离散精度确定二进制编码需要的码长</span></span><br><span class="line">x=<span class="built_in">zeros</span>(NP,L);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:NP</span><br><span class="line">    x(<span class="built_in">i</span>,:)=Initial(L);                <span class="comment">%种群初始化</span></span><br><span class="line">    fx(<span class="built_in">i</span>)=fitness(Dec(a,b,x(<span class="built_in">i</span>,:),L)); <span class="comment">%个体适应值</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:NG</span><br><span class="line">    sumfx=sum(fx);          <span class="comment">%所有个体适应值之和</span></span><br><span class="line">    Px=fx/sumfx;            <span class="comment">%所有个体适应值的平均值</span></span><br><span class="line">    PPx(<span class="number">1</span>)=Px(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:NP              <span class="comment">%用于轮盘赌策略的概率累加</span></span><br><span class="line">        PPx(<span class="built_in">i</span>)=PPx(<span class="built_in">i</span><span class="number">-1</span>)+Px(<span class="built_in">i</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:NP</span><br><span class="line">        sita=<span class="built_in">rand</span>();</span><br><span class="line">        <span class="keyword">for</span> n=<span class="number">1</span>:NP</span><br><span class="line">            <span class="keyword">if</span> sita&lt;=PPx(n)</span><br><span class="line">                SelFather=n;  <span class="comment">%根据轮盘赌策略确定的父亲</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        Selmother=<span class="built_in">floor</span>(<span class="built_in">rand</span>()*(NP<span class="number">-1</span>))+<span class="number">1</span>;  <span class="comment">%随机选择母亲   </span></span><br><span class="line">        posCut=<span class="built_in">floor</span>(<span class="built_in">rand</span>()*(L<span class="number">-2</span>))+<span class="number">1</span>;     <span class="comment">%随机确定交叉点</span></span><br><span class="line">        r1=<span class="built_in">rand</span>();</span><br><span class="line">        <span class="keyword">if</span> r1&lt;=Pc                         <span class="comment">%交叉</span></span><br><span class="line">            nx(<span class="built_in">i</span>,<span class="number">1</span>:posCut)=x(SelFather,<span class="number">1</span>:posCut);</span><br><span class="line">            nx(<span class="built_in">i</span>,(posCut+<span class="number">1</span>):L)=x(Selmother,(posCut+<span class="number">1</span>):L);</span><br><span class="line">            r2=<span class="built_in">rand</span>();</span><br><span class="line">            <span class="keyword">if</span> r2&lt;=Pm                     <span class="comment">%变异</span></span><br><span class="line">                posMut=<span class="built_in">round</span>(<span class="built_in">rand</span>()*(L<span class="number">-1</span>)+<span class="number">1</span>);</span><br><span class="line">                nx(<span class="built_in">i</span>,posMut)=<span class="number">1</span>-nx(<span class="built_in">i</span>,posMut);</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            nx(<span class="built_in">i</span>,:)=x(SelFather,:);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    x=nx;</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:NP</span><br><span class="line">        fx(<span class="built_in">i</span>)=fitness(Dec(a,b,x(<span class="built_in">i</span>,:),L));  <span class="comment">%子代适应值</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">fv=-<span class="built_in">inf</span>;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:NP</span><br><span class="line">    fitx=fitness(Dec(a,b,x(<span class="built_in">i</span>,:),L)); </span><br><span class="line">    <span class="keyword">if</span> fitx&gt;fv</span><br><span class="line">        fv=fitx;                       <span class="comment">%取个体中的最好的值作为最终结果</span></span><br><span class="line">        xv=Dec(a,b,x(<span class="built_in">i</span>,:),L);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 初始化函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">result</span>=<span class="title">Initial</span><span class="params">(length)</span>        </span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span></span><br><span class="line">    r=<span class="built_in">rand</span>();</span><br><span class="line">    result(<span class="built_in">i</span>)=<span class="built_in">round</span>(r);         <span class="comment">%round四舍五入取整</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%二进制编码转换为十进制编码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span>=<span class="title">Dec</span><span class="params">(a,b,x,L)</span>                </span></span><br><span class="line">base=<span class="number">2.</span>^((L<span class="number">-1</span>):<span class="number">-1</span>:<span class="number">0</span>);</span><br><span class="line">y=<span class="built_in">dot</span>(base,x);<span class="comment">%dot向量的点乘</span></span><br><span class="line">y=a+y*(b-a)/(<span class="number">2</span>^L<span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fy = @(x) x.^2 -2*x +1;</span><br><span class="line">[xv,fv]=myGA(fy,-5,5,100,300,0.5,0.001,0.00001)</span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<blockquote>
+<p>xv = -4.9733<br>fv =  35.6798</p>
+</blockquote>
+<h3 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a><strong>写在后面</strong></h3><p>这里遗传算法求的是函数的最大值，如果要求最小值只要在原来的函数的基础上乘以 -1 作为新的函数来求就可以了。</p>
+<p>这里的所优化的函数必须是单变量的函数，如果要求多变量函数的极值需要做一些修改。</p>
+
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">遗传算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/11/03/GA-algorithm-achieved-by-matlab/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2048game-by-javascript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/02/2048game-by-javascript/">基于javascript实现的2048小游戏</a>
+    </h1>
+  
+
+        
+        <a href="/2015/11/02/2048game-by-javascript/" class="archive-article-date">
+  	<time datetime="2015-11-02T03:55:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-游戏规则"><a href="#1-游戏规则" class="headerlink" title="1. 游戏规则"></a>1. 游戏规则</h2><ul>
+<li>用键盘上下左右键控制数字走向</li>
+<li>当点击了一个方向时，格子中的数字会全部往那个方向移动，直到不能再移动，如果有相同的数字则会合并</li>
+<li>当格子内的最大数字达到2048时获胜</li>
+<li>当格子中不再有可移动和可合并的数字时，游戏结束</li>
+</ul>
+<p><a href="http://cighao.github.io/2048-game" target="_blank" rel="noopener">演示地址</a><br>
+        
+          <a class="article-more-a" href="/2015/11/02/2048game-by-javascript/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Web 前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/11/02/2048game-by-javascript/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-date-object-of-javascript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/24/date-object-of-javascript/">JavaScript之日期和时间(date对象)</a>
+    </h1>
+  
+
+        
+        <a href="/2015/10/24/date-object-of-javascript/" class="archive-article-date">
+  	<time datetime="2015-10-24T12:48:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-创建具有当前日期和时间的Date对象"><a href="#1-创建具有当前日期和时间的Date对象" class="headerlink" title="1. 创建具有当前日期和时间的Date对象"></a>1. 创建具有当前日期和时间的Date对象</h2><p>在JavaScript时需要使用日期和时间时，需要先创建一个date对象，代码如下，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDate= <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure></p>
+<p>变量myDate就是一个Date对象，包含了创建对象时的日期和时间信息。JavaScript提供了很多方法用于获取、设置和编辑Date对象里的数据。关于Date对象的方法可以看本文的最后。<br>
+        
+          <a class="article-more-a" href="/2015/10/24/date-object-of-javascript/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Web 前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/10/24/date-object-of-javascript/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-object-of-javascript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/22/object-of-javascript/">JavaScript之DOM对象和内置对象</a>
+    </h1>
+  
+
+        
+        <a href="/2015/10/22/object-of-javascript/" class="archive-article-date">
+  	<time datetime="2015-10-22T13:47:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-window-和document-对象"><a href="#1-window-和document-对象" class="headerlink" title="1. window 和document 对象"></a>1. window 和document 对象</h2><p>浏览器每次加载和显示页面时，都在内存里创建页面及其全部元素的一个内部表示体系，也就是DOM。在DOM 里，页面的元素具有一个逻辑化、层级化的结构，就像一个由父对象和子对象组成的树形结构。这些对象及其相互关系构成了Web 页面及显示页面的浏览器的抽象模型。每个对象都有“属性”列表来描述它，而利用JavaScript可以使用一些方法来操作这些属性。</p>
+<p>这个层级树的最顶端是浏览器window对象，它是DOM 树里一切对象的根。window对象具有一些子对象，如下图所示。图中第一个子对象是document，这也是最经常使用的对象。浏览器加载的任何HTML页面都会创建一个document对象，包含全部HTML内容及其他构成页面显示的资源。利用JavaScript以父子对象的形式就可以访问这些信息。这些对象都具有自己的属性和方法。<br><img src="/img/articles/objectofjavascript.jpg" alt="DOM对象"><br>
+        
+          <a class="article-more-a" href="/2015/10/22/object-of-javascript/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Web 前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/10/22/object-of-javascript/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-produce-number-of-combinations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/11/produce-number-of-combinations/">随机生成正整数 1-n 的一个排列</a>
+    </h1>
+  
+
+        
+        <a href="/2015/10/11/produce-number-of-combinations/" class="archive-article-date">
+  	<time datetime="2015-10-11T04:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="主要思想"><a href="#主要思想" class="headerlink" title="主要思想"></a><strong>主要思想</strong></h3><p>随机生成一个数组a[]，将数组 a[] 排序后，排序后的数组中的数据在原来数组中的位置所组成的一个序列即为正整数 1, 2, 3, …, n 的一个随机排列。</p>
+        
+          <a class="article-more-a" href="/2015/10/11/produce-number-of-combinations/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/10/11/produce-number-of-combinations/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-algorithm-related-to-graph" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -591,421 +1019,6 @@
 
 
   
-    <article id="post-regular-expressions-of-python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/22/regular-expressions-of-python/">python 正则表达式的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/22/regular-expressions-of-python/" class="archive-article-date">
-  	<time datetime="2015-08-22T05:43:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-常用符号"><a href="#1-常用符号" class="headerlink" title="1. 常用符号"></a>1. 常用符号</h2><p>. ：匹配任意字符，换行符 \n 除外<br>* ：匹配前一个字符0次或无限次<br>? ：匹配前一个字符0次或1次<br>.* ：贪心算法，尽可能的匹配多的字符<br>.*? ：非贪心算法<br>() ：括号内的数据作为结果返回<br>
-        
-          <a class="article-more-a" href="/2015/08/22/regular-expressions-of-python/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/22/regular-expressions-of-python/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-validateCode-of-java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/21/validateCode-of-java/">基于 Java 实现的图片验证码</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/21/validateCode-of-java/" class="archive-article-date">
-  	<time datetime="2015-08-21T09:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这里主要用到了三个文件，两个servlet类，一个JSP页面。两个servlet分别为<code>drawCode.java</code>和<code>ValidateServlet.java</code>，前者用来产生验证码，后者用来检验验证码是否正确，JSP页面为<code>login.jsp</code>，作为前台的交互。<br><strong>drawCode 类</strong><br>step1： 定义 BufferImage 对象<br>step2： 获得 Graphics 对象<br>step3： 通过 Random 产生随机验证码信息<br>step4： 使用 Graphics 绘制图片<br>step5： 记录验证码信息到 session 中<br>step6： 使用 ImageIO 输出图片</p>
-        
-          <a class="article-more-a" href="/2015/08/21/validateCode-of-java/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/21/validateCode-of-java/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-c-file-operation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/20/c-file-operation/">C语言中的文件操作</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/20/c-file-operation/" class="archive-article-date">
-  	<time datetime="2015-08-20T08:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><p><strong>文件</strong>：记录在外部介质上的数据的集合。</p>
-<p><strong>分类</strong>：</p>
-<ul>
-<li>文本文件（存储的是ASCII码）</li>
-<li>二进制文件（存储的是二进制）</li>
-</ul>
-<p><strong>文件的指针</strong>：指向一个结构体的指针。（结构体主要包括：缓冲区地址、缓冲区当前存储的字符位置、对当前文件读还是写、是否出错等）<br>
-        
-          <a class="article-more-a" href="/2015/08/20/c-file-operation/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/20/c-file-operation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-socket-scan-with-python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/29/socket-scan-with-python/">基于 python socket 的端口扫描程序</a>
-    </h1>
-  
-
-        
-        <a href="/2015/03/29/socket-scan-with-python/" class="archive-article-date">
-  	<time datetime="2015-03-29T13:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-03-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    ip_start=input(<span class="string">'请输入开始IP：(默认:127.0.0.1)'</span>)</span><br><span class="line">    <span class="keyword">if</span> ip_start==<span class="string">''</span>:</span><br><span class="line">        ip_start=<span class="string">'127.0.0.1'</span></span><br><span class="line">        ip_end=<span class="string">'127.0.0.1'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ip_end=input(<span class="string">'请输入结束IP：'</span>)</span><br><span class="line">        <span class="keyword">if</span> ip_end==<span class="string">''</span>:</span><br><span class="line">            ip_end=<span class="string">'127.0.0.1'</span></span><br><span class="line">    s=input(<span class="string">'请输入目标主机开始端口：(默认扫描常用端口)'</span>)</span><br><span class="line">    <span class="keyword">if</span> s==<span class="string">''</span>:</span><br><span class="line">        portList=[<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">25</span>, <span class="number">80</span>, <span class="number">135</span>, <span class="number">137</span>, <span class="number">139</span>, <span class="number">445</span>, <span class="number">1433</span>, <span class="number">1502</span>, <span class="number">3306</span>, <span class="number">3389</span>, <span class="number">8080</span>, <span class="number">9015</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        startport=int(s)</span><br><span class="line">        s=input(<span class="string">'请输入目标主机结束端口：(默认:65535)'</span>)</span><br><span class="line">        <span class="keyword">if</span> s==<span class="string">''</span>:</span><br><span class="line">            endport=<span class="number">65535</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            endport=int(s)</span><br><span class="line">        portList=[i <span class="keyword">for</span> i <span class="keyword">in</span> range(startport,endport+<span class="number">1</span>)]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        <span class="comment">#ip_start&lt;ip_end</span></span><br><span class="line">        x1=ip_start.rfind(<span class="string">'.'</span>);                      </span><br><span class="line">        x2=ip_end.rfind(<span class="string">'.'</span>)</span><br><span class="line">        <span class="keyword">if</span> int(ip_start[x1+<span class="number">1</span>:])&gt;int(ip_end[x2+<span class="number">1</span>:]):</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#开始扫描端口</span></span><br><span class="line">        <span class="keyword">for</span> port <span class="keyword">in</span> portList:</span><br><span class="line">            print(<span class="string">'正在扫描%s ：%d'</span> %(ip_start,port))</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                sk = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">                sk.settimeout(<span class="number">10</span>)</span><br><span class="line">                sk.connect((ip_start,port))</span><br><span class="line">                sk.settimeout(<span class="keyword">None</span>)</span><br><span class="line">                print(<span class="string">'Server %s port %d OK!'</span> % (ip_start,port))</span><br><span class="line">                sk.close()</span><br><span class="line"></span><br><span class="line">                <span class="comment">#结果保存在文件中</span></span><br><span class="line">                f=open(<span class="string">"IP_Port.txt"</span>,<span class="string">'a'</span>)</span><br><span class="line">                f.write(ip_start+<span class="string">' : '</span>+str(port)+<span class="string">'\n'</span>)</span><br><span class="line">                f.close()               </span><br><span class="line">            <span class="keyword">except</span> Exception:</span><br><span class="line">                print(<span class="string">'Server %s port %d is not connected!'</span> % (ip_start,port))</span><br><span class="line">            </span><br><span class="line">        <span class="comment">#更新ip_start</span></span><br><span class="line">        i=ip_start.rfind(<span class="string">'.'</span>)</span><br><span class="line">        x=int(ip_start[i+<span class="number">1</span>:])+<span class="number">1</span></span><br><span class="line">        ip_start=ip_start[:i+<span class="number">1</span>]+str(x)</span><br><span class="line">        </span><br><span class="line">    print(<span class="string">'扫描完成，结果保存在IP_Port.txt文件中'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">端口扫描</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/03/29/socket-scan-with-python/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-decompose-prime-number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/29/decompose-prime-number/">分解质因数</a>
-    </h1>
-  
-
-        
-        <a href="/2015/03/29/decompose-prime-number/" class="archive-article-date">
-  	<time datetime="2015-03-29T13:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-03-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>转载自： <a href="http://www.2cto.com/kf/201311/258904.html" target="_blank" rel="noopener">http://www.2cto.com/kf/201311/258904.html</a></p>
-<h2 id="1-原理和方法"><a href="#1-原理和方法" class="headerlink" title="1. 原理和方法"></a>1. 原理和方法</h2><p>把一个合数分解为若干个质因数的乘积的形式，即求质因数的过程叫做分解质因数，分解质因数只针对合数。<br>求一个数分解质因数，要从最小的质数除起，一直除到结果为质数为止。分解质因数的算式的叫短除法，和除法的性质差不多，还可以用来求多个个数的公因式：<br>以24为例：<br>2 – 24<br>2 – 12<br>2 – 6<br>3 （3是质数，结束）<br>得出 $24=2*2*2*3 = 2^3*3$<br>可先用素数筛选法，筛选出符合条件的质因数，然后for循环遍历即可，通过一道题目来show一下这部分。<br>
-        
-          <a class="article-more-a" href="/2015/03/29/decompose-prime-number/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/03/29/decompose-prime-number/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
@@ -1148,11 +1161,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">

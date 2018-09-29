@@ -175,6 +175,422 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/" class="archive-article-date">
+  	<time datetime="2016-03-13T12:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Disksim 中所有的工作都是由事件来完成，每个部件都有自己的事件，通过事件来驱动其他部件事件的状态的改变。</p>
+<p>今天我们来看看 ssd.c 中的第一个函数 <code>ssd_event_arrive(curr)</code>，他是 ssdmodel 的入口函数。</p>
+<p>在进入 <code>ssd_event_arrive</code> 函数后我们可以用 gdb 工具的 bt 命令来查看下函数的堆栈情况，看看是在什么函数里调用了 ssd_event_arrive 才进入到 ssdmodel 的。</p>
+<p>disksim 会在两种情况下进入到 ssdmodel　中，第一种情况是在建立 disksim 时，也就是 <code>disksim_setup_disksim</code> 函数中；第二种中就是在 disksim 模拟磁盘操作时，也就是在 <code>disksim_run_simulation</code> 函数中</p>
+        
+          <a class="article-more-a" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-with-ssdmodel-source-analysis-003-how-to-run" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/">disksim with ssdmodel 源码解析（三）：初次使用介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/" class="archive-article-date">
+  	<time datetime="2016-03-12T06:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>disksim 是由卡内基梅隆大学开发的一个磁盘模拟器，其目的是：理解存储系统的性能，对新的存储结构进行评估。 包含许多存储元件的模型：<code>device drivers</code>, <code>buses</code>, <code>controllers</code>, <code>adapters</code>, <code>disk drives</code>。</p>
+<p>ssdmodel 是微软基于 disksim-4.0 开发的一个插件，主要是针对 SSD 的。</p>
+<p>前面已经介绍过了 <a href="../../../../2015/09/09/disksim-with-ssdmodel-source-analysis-001-how-to-install/">disksim-4.0 的安装</a>，包括安装 ssdmodel 模块。</p>
+<p>下面主要介绍下 disksim-4.0 的使用。</p>
+        
+          <a class="article-more-a" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/">disksim with ssdmodel 源码解析（二）：输入参数的介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/" class="archive-article-date">
+  	<time datetime="2016-03-06T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>disksim 的参数以文件的方式输入，可在valid文件夹中找到示例，如果安装了 ssdmodel 模块在 ssdmodel/valid 文件夹里也有对应的参数文件示例。根据 disksim 官方手册介绍，参数配置文件主要包括以下三个部分：</p>
+<ul>
+<li><strong>blocks delimited by{}, 块的定义</strong></li>
+<li><strong>instantiations, 实例化</strong></li>
+<li><strong>topology specifications, 拓扑结构说明</strong></li>
+</ul>
+        
+          <a class="article-more-a" href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-add-copyright-to-hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/01/add-copyright-to-hexo/">在 Hexo 中给文章添加版权信息</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/01/add-copyright-to-hexo/" class="archive-article-date">
+  	<time datetime="2016-03-01T12:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="step-1"><a href="#step-1" class="headerlink" title="step 1"></a><strong>step 1</strong></h3><p><code>layout\_partial\post\</code> 目录下新建 <code>copyright.ejs</code> 内如如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-footer-copyright"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	添加你的版权信息</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/03/01/add-copyright-to-hexo/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/01/add-copyright-to-hexo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-introduction-of-map-in-python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/01/introduction-of-map-in-python/">python 并行化之 map 函数的介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/01/introduction-of-map-in-python/" class="archive-article-date">
+  	<time datetime="2016-03-01T04:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于 python 并行化编程有一个特别简洁的做法就是使用 map 函数。</p>
+<p>map 函数一手包办了序列操作，参数传递和结果保存等一系列的操作。</p>
+<p>python 在 Pool 中封装了 map 方法，所以使用起来也特别方便。</p>
+        
+          <a class="article-more-a" href="/2016/03/01/introduction-of-map-in-python/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/01/introduction-of-map-in-python/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-introduction-of-xPath" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -592,399 +1008,6 @@
 
 
   
-    <article id="post-coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/">为 SSD 编程（3）：页、块和闪存转换层</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/25/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/" class="archive-article-date">
-  	<time datetime="2016-02-25T08:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在这个部分，我会解释写操作在页和块级是如何处理的，以及写入放大和损耗均衡计算的基本概念。此外，我描述了闪存转换层（FTL）的概念，以及应用了闪存转换层的两个技术：逻辑块地址映射和垃圾回收。更详细的说，我解释了在混合逻辑块映射背景下的写操作是怎么实现的。</p>
-        
-          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">为 SSD 编程（2）：SSD的架构和基准</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/" class="archive-article-date">
-  	<time datetime="2016-02-25T07:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本第二部分包含了“为SSD编程”的6个内容，包括1、2两节，你可以参考<a href="../../../../2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">目录</a>。这是我在阅读了各种关于SSD的文档之后，为了分享我所学到的东西写的一系列文章。如果你没有时间慢慢看，你可以直接跳转到<a href="../../../../2016/02/25/coding-for-ssds-part-6-a-summary-what-every-programmer-should-know-about-solid-state-drives/">第六部分</a>，这部分总结了所有其他部分的内容。</p>
-<p>在本部分，我将解释NAND闪存的基本知识、闪存单元类型、和基本SSD内部架构。同样包括了SSD基准和如何解释这些基准。</p>
-        
-          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-coding-for-ssds-part-1-introduction-and-table-of-contents" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">为 SSD 编程（1）：简介和目录</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/" class="archive-article-date">
-  	<time datetime="2016-02-25T06:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>简介</strong></p>
-<p>我想为我的<a href="http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/" target="_blank" rel="noopener">键值对存储项目</a>弄一个固态硬盘（SSD）最佳存储解决方案。为此，我必须确保我完全了解SSD是如何工作的，这样就可以优化我的hash表实例来适合SSD的内部特征。网上有很多不完全和相悖的的信息，找到关于SSD的可靠信息并不简单。为了找到适当的文献和基准以说服自己，我必须要进行大量的阅读。如果我要为SSD编程，我需要知道我在做什么。</p>
-        
-          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-fundamental-of-flash-memory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/fundamental-of-flash-memory/">闪存基础(转)</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/25/fundamental-of-flash-memory/" class="archive-article-date">
-  	<time datetime="2016-02-25T05:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>目前绝大多数SSD都是以NAND FLASH为存储介质的。SSD工作原理很多都是基于NAND FLASH特性的。比如，NAND FLASH在写之前必须先擦除，而不能覆盖写，于是SSD 才需要垃圾回收（Garbage Collection，或者叫 Recycle）；NAND FLASH 每个块（Block）擦写次数达到一定值，这个块就不能用了（数据丢失，或者写入不了），所以SSD 固件必须做 Wear Leveling，让数据平均写在所有块上，而不是盯着几个块拼命写（不然没几天SSD就报废了）。还有类似很多例子，SSD很多实现都是在为NAND FLASH服务的。所以，欲攻SSD，NAND FLASH首当其冲。 NAND FLASH是一种非易失性存储器，也就是说，掉电了，数据也不会丢失。NAND FLASH基本存储单元 (Cell) 是一种类NMOS的双层浮空栅 (Floating Gate) MOS管组成, 如下图所示:</p>
-        
-          <a class="article-more-a" href="/2016/02/25/fundamental-of-flash-memory/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/25/fundamental-of-flash-memory/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-the-basic-principle-of-SSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/the-basic-principle-of-SSD/">SSD基本工作原理(转)</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/25/the-basic-principle-of-SSD/" class="archive-article-date">
-  	<time datetime="2016-02-25T03:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>SSD 主要由 SSD 控制器，FLASH 存储阵列，板上DRAM（可选），以及跟HOST接口（诸如SATA，SAS, PCIe等）组成。 </p>
-<p><img src="http://www.ssdfans.com/wp-content/uploads/2014/10/102814_0720_SSD1.png" alt=""></p>
-        
-          <a class="article-more-a" href="/2016/02/25/the-basic-principle-of-SSD/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/25/the-basic-principle-of-SSD/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
@@ -1127,11 +1150,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">

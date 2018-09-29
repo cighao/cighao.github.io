@@ -175,6 +175,423 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-with-ssdmodel-source-analysis-010-gc-analysis-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/">disksim with ssdmodel 源码解析（十）：GC分析(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/" class="archive-article-date">
+  	<time datetime="2016-03-19T07:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>垃圾回收(gc)是 SSD 中很重要的一个过程，在 ssdmodel 模块中进行垃圾回收，是在 <code>ssd_activate_elem()</code> 函数中触发的。每次有请求过来时，都会进行垃圾回收的判断，当满足一定的要求时就会进行垃圾回收，垃圾回收结束之后，会退出该函数，并不会继续处理进来的请求，请求会放在下一次来完成，如果没有达到垃圾回收的条件，那么会响应该请求。整个流程如下：</p>
+        
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-with-ssdmodel-source-analysis-009-syssim_driver2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/">disksim with ssdmodel 源码解析（九）：syssim_driver 系统级接口(二)</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/" class="archive-article-date">
+  	<time datetime="2016-03-19T04:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面介绍了 <code>syssim_driver</code> 这个 disksim 系统级接口。程序的作者留给我们的只是应用该接口的一个小例子。例子有很多的局限性，所以我们要通过一些修改才能唯我所用。</p>
+<p>原程序最大的局限性就在于，每次发送请求都是等上一个请求全部完成了才发送下一个请求。很显然这是不切实际的，所以这一块是要我们修改的。还有一点就是要将原程序中随机生成的 trace 数据改成我们自定义的数据，可以改成从文件中去读取我们自己的 trace 。</p>
+<p>原来程序的调用方式是 <code>syssim &lt;parameters file&gt; &lt;output file&gt; &lt;max. block number&gt;</code> ，<code>max. block number</code> 表示的是最大的 blkno 主要是在随机生成 trace 时用到，这里我们用不上这个参数，直接把这个参数换成我们的 trace 文件就好了。然后采用这样的方式调用该程序：<code>syssim &lt;parameters file&gt; &lt;output file&gt; &lt;trace file&gt;</code></p>
+        
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-with-ssdmodel-source-analysis-008-syssim_driver1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/">disksim with ssdmodel 源码解析（八）：syssim_driver 系统级接口(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/" class="archive-article-date">
+  	<time datetime="2016-03-19T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>disksim 提供了一个系统级的调用接口，我们调用这个接口可以不停的给 disksim 发送请求，当请求完成时接口会触发一个回调函数做相应的操作。下面重点来介绍下这个接口。</p>
+<p>接口的实现是在 <code>src/syssim_driver.c</code> 这个文件中。调用方式是 <code>syssim &lt;parameters file&gt; &lt;output file&gt; &lt;max. block number&gt;</code>。</p>
+<p>在 <code>syssim_driver.c</code> 的 main 函数中，首先是调用函数 <code>disksim_interface_initialize()</code> 实例化一个接口，然后循环1000次，产生随机的1000个请求通过函数 <code>disksim_interface_request_arrive()</code> 发送给 disksim，并通过函数 <code>disksim_interface_internal_event()</code> 处理相应请求的事件。最后调用函数 <code>disksim_interface_shutdown()</code> 关闭接口。</p>
+        
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-matplotlib-demo-003-dashes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/19/matplotlib-demo-003-dashes/">matplotlib 画图（三）：线的连续与间断</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/19/matplotlib-demo-003-dashes/" class="archive-article-date">
+  	<time datetime="2016-03-19T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/articles/matplotlib/dashes.jpg" alt=""></p>
+        
+          <a class="article-more-a" href="/2016/03/19/matplotlib-demo-003-dashes/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Matplotlib</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/19/matplotlib-demo-003-dashes/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-with-ssdmodel-source-analysis-007-block-arranged" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/">disksim with ssdmodel 源码解析（七）：block的组织形式</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/" class="archive-article-date">
+  	<time datetime="2016-03-18T13:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们知道，在一个SSD中会有很多的 element (也就是chip)，每个element中会有很多个 plane，每个 plane 中会包含很多个 block。</p>
+<p>在访问 SSD 时通常都会向设备发送需要访问的 block number ，因此了解 block 在 SSD 中的组织形式十分重要。在 disksim 的 ssdmodel 模块中一共定义了三种 block 在 SSD 中的组织形式。</p>
+<p>在 <code>ssd.h</code> 文件中我们可以看到三条宏定义，分别是：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_CONCAT    1 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_PAIRWISE_STRIPE 	2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_FULL_STRIPE	3</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-matplotlib-demo-002-fill" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -591,422 +1008,6 @@
 
 
   
-    <article id="post-disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/" class="archive-article-date">
-  	<time datetime="2016-03-13T12:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 Disksim 中所有的工作都是由事件来完成，每个部件都有自己的事件，通过事件来驱动其他部件事件的状态的改变。</p>
-<p>今天我们来看看 ssd.c 中的第一个函数 <code>ssd_event_arrive(curr)</code>，他是 ssdmodel 的入口函数。</p>
-<p>在进入 <code>ssd_event_arrive</code> 函数后我们可以用 gdb 工具的 bt 命令来查看下函数的堆栈情况，看看是在什么函数里调用了 ssd_event_arrive 才进入到 ssdmodel 的。</p>
-<p>disksim 会在两种情况下进入到 ssdmodel　中，第一种情况是在建立 disksim 时，也就是 <code>disksim_setup_disksim</code> 函数中；第二种中就是在 disksim 模拟磁盘操作时，也就是在 <code>disksim_run_simulation</code> 函数中</p>
-        
-          <a class="article-more-a" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-disksim-with-ssdmodel-source-analysis-003-how-to-run" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/">disksim with ssdmodel 源码解析（三）：初次使用介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/" class="archive-article-date">
-  	<time datetime="2016-03-12T06:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>disksim 是由卡内基梅隆大学开发的一个磁盘模拟器，其目的是：理解存储系统的性能，对新的存储结构进行评估。 包含许多存储元件的模型：<code>device drivers</code>, <code>buses</code>, <code>controllers</code>, <code>adapters</code>, <code>disk drives</code>。</p>
-<p>ssdmodel 是微软基于 disksim-4.0 开发的一个插件，主要是针对 SSD 的。</p>
-<p>前面已经介绍过了 <a href="../../../../2015/09/09/disksim-with-ssdmodel-source-analysis-001-how-to-install/">disksim-4.0 的安装</a>，包括安装 ssdmodel 模块。</p>
-<p>下面主要介绍下 disksim-4.0 的使用。</p>
-        
-          <a class="article-more-a" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/">disksim with ssdmodel 源码解析（二）：输入参数的介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/" class="archive-article-date">
-  	<time datetime="2016-03-06T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>disksim 的参数以文件的方式输入，可在valid文件夹中找到示例，如果安装了 ssdmodel 模块在 ssdmodel/valid 文件夹里也有对应的参数文件示例。根据 disksim 官方手册介绍，参数配置文件主要包括以下三个部分：</p>
-<ul>
-<li><strong>blocks delimited by{}, 块的定义</strong></li>
-<li><strong>instantiations, 实例化</strong></li>
-<li><strong>topology specifications, 拓扑结构说明</strong></li>
-</ul>
-        
-          <a class="article-more-a" href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-add-copyright-to-hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/01/add-copyright-to-hexo/">在 Hexo 中给文章添加版权信息</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/01/add-copyright-to-hexo/" class="archive-article-date">
-  	<time datetime="2016-03-01T12:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="step-1"><a href="#step-1" class="headerlink" title="step 1"></a><strong>step 1</strong></h3><p><code>layout\_partial\post\</code> 目录下新建 <code>copyright.ejs</code> 内如如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-footer-copyright"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	添加你的版权信息</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/03/01/add-copyright-to-hexo/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/01/add-copyright-to-hexo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-introduction-of-map-in-python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/01/introduction-of-map-in-python/">python 并行化之 map 函数的介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/01/introduction-of-map-in-python/" class="archive-article-date">
-  	<time datetime="2016-03-01T04:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>关于 python 并行化编程有一个特别简洁的做法就是使用 map 函数。</p>
-<p>map 函数一手包办了序列操作，参数传递和结果保存等一系列的操作。</p>
-<p>python 在 Pool 中封装了 map 方法，所以使用起来也特别方便。</p>
-        
-          <a class="article-more-a" href="/2016/03/01/introduction-of-map-in-python/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/01/introduction-of-map-in-python/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -1149,11 +1150,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
