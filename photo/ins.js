@@ -121,7 +121,8 @@
           var minSrc = 'img-min/' + data.link[i] + '.jpg';
           // exif 标记了旋转
           // 使用七牛存储时，imageMogr2/auto-orient 可以解决图片旋转问题
-          var src = 'http://7xoqky.com1.z0.glb.clouddn.com/' + data.link[i] + '.' + data.type[i] + '?imageMogr2/auto-orient';
+          //var src = 'http://7xoqky.com1.z0.glb.clouddn.com/' + data.link[i] + '.' + data.type[i] + '?imageMogr2/auto-orient';
+          var src = 'img/' + data.link[i] + '.' + data.type[i];
           var target = src;
           var type ;
           if(['jpg','png'].indexOf(data.type[i]) != -1)

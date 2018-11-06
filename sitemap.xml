@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/</loc>
+    
+    <lastmod>2018-10-28T10:58:44.712Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/2018/09/29/openstack-swift-study-08-configure-ntp/</loc>
     
     <lastmod>2018-09-29T09:48:16.896Z</lastmod>
@@ -600,13 +607,6 @@
     <loc>http://cighao.com/2016/04/12/disksim-with-ssdmodel-source-analysis-020-get-results/</loc>
     
     <lastmod>2016-04-12T10:40:40.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/</loc>
-    
-    <lastmod>2016-04-12T08:38:08.000Z</lastmod>
     
   </url>
   

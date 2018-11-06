@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="陈浩的个人博客">
 <meta property="og:description" content="今天主要介绍后台 GC 操作与普通 GC 操作的区别。 普通 GC 是指当一个写请求到来时，如果这个 element 上没有空闲的 page 了或者空闲的 page 到达了预先设定的下限，那么就会触发相应的 GC 操作等 GC 结束后才会进行写入操作。很明显这是会影响响应时间的。 后台 GC 是指当 SSD 处于空闲状态时，来检查 SSD 是否是需要进行 GC，如果不需要就不用进行 GC 了，如果">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2016-04-12T08:38:08.000Z">
+<meta property="og:updated_time" content="2018-10-28T10:58:44.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="disksim with ssdmodel 源码解析（十五）：GC 分析(二)">
 <meta name="twitter:description" content="今天主要介绍后台 GC 操作与普通 GC 操作的区别。 普通 GC 是指当一个写请求到来时，如果这个 element 上没有空闲的 page 了或者空闲的 page 到达了预先设定的下限，那么就会触发相应的 GC 操作等 GC 结束后才会进行写入操作。很明显这是会影响响应时间的。 后台 GC 是指当 SSD 处于空闲状态时，来检查 SSD 是否是需要进行 GC，如果不需要就不用进行 GC 了，如果">
@@ -212,6 +212,8 @@
 <p>我们假设这样的一种情况，当一个 element 上的请求全部完成了，恰恰这个时候 element 上没有多余的 page 可以用了。</p>
 <p>如果有后台 GC，这个时候从 <code>ssd_media_access_request_element()</code> 进入到 <code>ssd_activate_elem()</code> 时，会进行 GC 的判断，由于没有空闲块了，那么就会进行 GC 操作，这个时候该 element 上已经没有请求了，所以这个时候 GC 操作对 SSD 的响应时间是没有影响的。</p>
 <p>如果没有后台 GC，只是普通 GC 的话，由于该 element 的队列上已经没有请求了，所以这个不会进行 GC 的判断，当该 element 上的下一个请求到来时，会触发 GC 操作，下一个请求的响应时间自然提高了。</p>
+<p>在 disksim with ssdmodel 中，是先检查 free block &lt;= low, 判断是否要进行 GC 操作；再分配 active block 给写请求。eg: 当 free block = 5, low = 4 时，如果此时当前 active block 刚好写满，则需要分配新的 active block，分配一个 active block, 写入一个新的page, 此时 free block = 4. 如果没有启用background gc, 此时不做 gc。等处理下一个请求时，检查 free block &lt;= low 成立，所以此时需要gc(惊讶地发现是某个 block 上的第一次写完成之后才会触发gc)；如果启用了 background gc, 此时写完该 active block 的第一个 page 后，就进行gc。</p>
+<p>总结前台 GC 和 后台 GC，对于所有的读写请求，处理之前都会判断 free block &lt;= low 是否成立，若成立，则进行 GC，判断完成后，如果是写请求，则需要分配 active block。如果设置了后台 GC，每次写完成之后都要判断 free block &lt;= low 是否成立，若成立，则进行 GC。如果没有设置后台 GC，则不操作。</p>
 
       
 
@@ -510,14 +512,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Web 前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -530,11 +524,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color2">Web 前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,7 +540,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,6 +553,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,15 +588,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">黑客</a>
+                <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,6 +605,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">黑客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,11 +680,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Nodejs</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
