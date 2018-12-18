@@ -175,6 +175,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-coding-for-ssds-part-4-advanced-functionalities-and-internal-parallelism" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-4-advanced-functionalities-and-internal-parallelism/">为 SSD 编程（4）：高级功能和内部并行</a>
+    </h1>
+  
+
+        
+        <a href="/2016/02/25/coding-for-ssds-part-4-advanced-functionalities-and-internal-parallelism/" class="archive-article-date">
+  	<time datetime="2016-02-25T09:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在这个部分，我将简要的介绍固态硬盘（SSD）的一些主要功能，如TRIM和预留空间。还会介绍SSD中不同等级的内部并行。</p>
+<h2 id="5-高级功能"><a href="#5-高级功能" class="headerlink" title="5. 高级功能"></a><strong>5. 高级功能</strong></h2><h3 id="5-1-TRIM"><a href="#5-1-TRIM" class="headerlink" title="5.1 TRIM "></a><strong>5.1 TRIM </strong></h3><p>让我们假设一个程序向SSD所有的逻辑块地址都写入文件，这个SSD当然会被装满。然后删除这些文件。文件系统会报告所有的地方都是空的，尽管硬盘实际上还是满的，因为SSD主控没法知道逻辑数据是什么时候被主机删掉的。SSD主控只会在这些逻辑块地址被复写的时候才知道这些是空闲空间。此时，垃圾回收进程将会擦除与这些文件相关的块，为进来的写操作提供空的页。其结果就是，擦除操作并非在知道保存有无用数据之后立刻执行，而是被延迟了，这将严重影响性能。</p>
+        
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-4-advanced-functionalities-and-internal-parallelism/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-4-advanced-functionalities-and-internal-parallelism/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -895,85 +974,6 @@
 
 
   
-    <article id="post-socket-TCP-by-java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/03/socket-TCP-by-java/">Java Socket 实现 TCP 编程</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/03/socket-TCP-by-java/" class="archive-article-date">
-  	<time datetime="2016-02-03T08:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-Socket-实现-TCP-的通信模型"><a href="#1-Socket-实现-TCP-的通信模型" class="headerlink" title="1. Socket 实现 TCP 的通信模型"></a><strong>1. Socket 实现 TCP 的通信模型</strong></h3><p>TCP 的通信分为服务器端和客户端，整个通信过程可以分为三个步骤：1.建立连接；2.开始通信；3.结束通信。</p>
-<p>首先服务器端建立监听 socket，等待并接受连接请求，然后客户端创建连接 socket 向服务器发送请求，服务器接受请求后创建连接 socket，接着服务器端和客户端的 socket 通过 InputStream 和 Outputstream 进行通信。最后通信结束时，关闭 socket 及相关资源。</p>
-        
-          <a class="article-more-a" href="/2016/02/03/socket-TCP-by-java/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/03/socket-TCP-by-java/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
@@ -1096,6 +1096,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
@@ -1104,7 +1108,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1125,10 +1129,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1160,11 +1160,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
+                <a href="javascript:void(0)" class="js-tag color3">黑客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1177,10 +1181,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">黑客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1201,10 +1201,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">LevelDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1248,11 +1244,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
