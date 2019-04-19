@@ -175,6 +175,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-with-ssdmodel-source-analysis-012-write-requests" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/">disksim with ssdmodel 源码解析（十二）：写操作分析</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/" class="archive-article-date">
+  	<time datetime="2016-03-23T04:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这里主要介绍的如何写入具体的一个页，而不是介绍写请求的整个流程(这个后面会介绍)。</p>
+<p>回顾前面的知识，在 ssdmodel 在每个 element 的元数据中都有一个 <code>lba_table[]</code> 表来维持该 element 中的逻辑地址到物理地址的映射关系，下标表示逻辑地址，值表示物理地址。</p>
+<p>在每个 block 的元数据中还有一个 <code>page[]</code> 表，表的大小等于 block 中 page 的数量，page[] 的值表示物理页所对应的逻辑页是多少。下标表示该 page 在 block 中的序号，值表示该 page 的逻辑页号。</p>
+<p>当一个写请求到达时，如果它的逻辑页地址为 lpn，写入的物理页为 active page，那么会令 <code>lba_table[lpn] = active page</code>。</p>
+<p>当下一个写请求到达时，如果还是和上一个写请求的逻辑页号一样，首先会把 lpn 对应的物理块的 page[] 值置为 -1，再更新 lba_table[lpn] 到当前的 active page。</p>
+<p>介绍具体的写操作之前先介绍下相关的 element 和 block 中的元数据的属性(<strong>仅列举本文中提到的，其他的忽略</strong>)。</p>
+        
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -354,7 +441,7 @@
 
         
         <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/" class="archive-article-date">
-  	<time datetime="2016-03-19T07:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+  	<time datetime="2016-03-19T12:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
       </header>
@@ -894,88 +981,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-disksim-with-ssdmodel-source-analysis-005--work-flow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-005--work-flow/">disksim with ssdmodel 源码解析（五）：程序流程介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/16/disksim-with-ssdmodel-source-analysis-005--work-flow/" class="archive-article-date">
-  	<time datetime="2016-03-16T05:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>程序的主函数(main函数)在 <code>src/disksim_main.c</code> 文件里，代码很简洁，如下：</p>
-        
-          <a class="article-more-a" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-005--work-flow/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-005--work-flow/">展开全文 >></a>
         </p>
       
 
