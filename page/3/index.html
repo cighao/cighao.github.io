@@ -175,6 +175,182 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-3.0-with-flashsim-source-analysis-04-initialization" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-04-initialization/">disksim-3.0 with flashsim 源码分析（四）：初始化</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-04-initialization/" class="archive-article-date">
+  	<time datetime="2017-02-27T01:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 disksim_main.c  中会先调用 <code>disksim_initialize_disksim_structure()</code> 和 <code>disksim_setup_disksim()</code> 来初始化 disksim。然后调用 <code>initFlash()</code> 来初始化闪存。</p>
+<p>下面主要介绍闪存的初始化过程。</p>
+<p><code>ninitFlash()</code> 函数主要分为两个步骤，首先是调用 <code>nand_init()</code> 初始化闪存基本信息，然后调用 FTL 的 <code>init()</code> 函数，初始化FTL。</p>
+        
+          <a class="article-more-a" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-04-initialization/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">flashsim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-04-initialization/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-3.0-with-flashsim-source-analysis-03-callFsim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/disksim-3.0-with-flashsim-source-analysis-03-callFsim/">disksim-3.0 with flashsim 源码分析（三）：callFsim()函数介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/21/disksim-3.0-with-flashsim-source-analysis-03-callFsim/" class="archive-article-date">
+  	<time datetime="2017-02-21T11:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>disksim-3.0 with flashim 和前面的 disksim-4.0 with ssdmodel 在逻辑上基本相似，只是多了些 FTL 层的东西。和前面介绍的 disksim-4.0 with ssdmodel 一样，程序仍然是从 <code>disksim_device.c</code> 中的 <code>device_event_arrive()</code> 函数中进入到 ssd 模块的。</p>
+<p>进入到 ssd 模块后首先进入的是 disksim_simpleflash.c 文件，这就类似于 disksim-4.0 with ssdmodel 中的 ssd.c 文件，他们实现的功能有很多是相同的。</p>
+<p>最后在 <code>simpleflash_get_acctime()</code> 函数中调用 <code>callFsim()</code> 函数。<code>callFsim()</code> 函数以后的内容才是 flashsim 重点实现的部分。</p>
+        
+          <a class="article-more-a" href="/2017/02/21/disksim-3.0-with-flashsim-source-analysis-03-callFsim/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">flashsim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/21/disksim-3.0-with-flashsim-source-analysis-03-callFsim/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -849,168 +1025,9 @@
 
 
   
-    <article id="post-solve-eight-queens-problem-by-backtracking-algorithm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/20/solve-eight-queens-problem-by-backtracking-algorithm/">回溯法求解八皇后问题</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/20/solve-eight-queens-problem-by-backtracking-algorithm/" class="archive-article-date">
-  	<time datetime="2016-10-20T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h3><p>该问题是国际西洋棋棋手马克斯·贝瑟尔于1848年提出的，在8×8格的国际象棋上摆放八个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法。</p>
-        
-          <a class="article-more-a" href="/2016/10/20/solve-eight-queens-problem-by-backtracking-algorithm/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/20/solve-eight-queens-problem-by-backtracking-algorithm/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-get-set-size-by-probability-algorithm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/17/get-set-size-by-probability-algorithm/">利用概率算法估算集合大小</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/17/get-set-size-by-probability-algorithm/" class="archive-article-date">
-  	<time datetime="2016-10-17T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a><strong>原理</strong></h3><p>设集合 $ X $ 中有 $ n $ 个元素，如果有放回地随机均匀和独立地从 $ X $中选取元素，设取第 $ k $ 次时，恰好第一次重复出现之前所选取的元素。如果 $n$ 足够大，那么 $k$ 的期望趋近为：</p>
-<p>$$ E(k) =  \beta \sqrt{n} $$</p>
-<p>其中，</p>
-<p>$$ \beta = \sqrt{\pi/2} \approx 1.253 $$</p>
-        
-          <a class="article-more-a" href="/2016/10/17/get-set-size-by-probability-algorithm/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/17/get-set-size-by-probability-algorithm/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1299,6 +1316,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
               </li>
             
             <div class="clearfix"></div>

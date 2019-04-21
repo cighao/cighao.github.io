@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/2019/04/21/introduction-of-neo4j-04-blogs/</loc>
+    
+    <lastmod>2019-04-21T18:15:50.880Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2019/03/29/problems-in-dailylife/</loc>
+    
+    <lastmod>2019-04-21T16:20:16.530Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/2019/04/21/introduction-of-neo4j-03-python-driver/</loc>
     
     <lastmod>2019-04-21T08:13:03.919Z</lastmod>

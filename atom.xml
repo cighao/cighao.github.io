@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cighao.com/"/>
-  <updated>2019-04-21T08:13:03.919Z</updated>
+  <updated>2019-04-21T18:15:50.880Z</updated>
   <id>http://cighao.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Neo4j 介绍(四)：关于 neo4j 的一些博客</title>
+    <link href="http://cighao.com/2019/04/21/introduction-of-neo4j-04-blogs/"/>
+    <id>http://cighao.com/2019/04/21/introduction-of-neo4j-04-blogs/</id>
+    <published>2019-04-21T19:35:22.000Z</published>
+    <updated>2019-04-21T18:15:50.880Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一些关于 neo4j 的资料。</p><a id="more"></a><p><a href="https://neo4j.com/docs/java-reference/current/extending-neo4j/" target="_blank" rel="noopener">https://neo4j.com/docs/java-reference/current/extending-neo4j/</a></p><p><a href="http://qinxuye.me/article/introduction-to-neo4j/" target="_blank" rel="noopener">http://qinxuye.me/article/introduction-to-neo4j/</a></p><p>Spring Boot 配置 Neo4j: <a href="https://blog.csdn.net/wgangyiii/article/details/79139120" target="_blank" rel="noopener">https://blog.csdn.net/wgangyiii/article/details/79139120</a></p><p>Neo4j 安装：<br><a href="https://blog.csdn.net/wgangyiii/article/details/79150315" target="_blank" rel="noopener">https://blog.csdn.net/wgangyiii/article/details/79150315</a><br><a href="http://www.k6k4.com/blog/show/aaavurkwu1547605733514" target="_blank" rel="noopener">http://www.k6k4.com/blog/show/aaavurkwu1547605733514</a></p><p><a href="https://neo4j.com/docs/operations-manual/3.4/reference/configuration-settings/" target="_blank" rel="noopener">https://neo4j.com/docs/operations-manual/3.4/reference/configuration-settings/</a></p><p>transaction logs: <a href="https://neo4j.com/docs/operations-manual/current/configuration/transaction-logs/" target="_blank" rel="noopener">https://neo4j.com/docs/operations-manual/current/configuration/transaction-logs/</a></p><p><a href="http://www.k6k4.com/circle/show/aakfimepl1547605663377" target="_blank" rel="noopener">http://www.k6k4.com/circle/show/aakfimepl1547605663377</a></p><p><a href="https://dengziming.github.io/tags/neo4j/" target="_blank" rel="noopener">https://dengziming.github.io/tags/neo4j/</a></p><p><a href="http://ju.outofmemory.cn/entry/306362" target="_blank" rel="noopener">http://ju.outofmemory.cn/entry/306362</a></p><p>利用 IDEA 创建第一个hello world 的 mvn 项目，<br><a href="https://blog.csdn.net/YF_Li123/article/details/79953731" target="_blank" rel="noopener">https://blog.csdn.net/YF_Li123/article/details/79953731</a></p><p>Java 访问 neo4j<br><a href="https://blog.csdn.net/qq_15783243/article/details/78091712" target="_blank" rel="noopener">https://blog.csdn.net/qq_15783243/article/details/78091712</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录一些关于 neo4j 的资料。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Neo4j" scheme="http://cighao.com/tags/Neo4j/"/>
+    
+  </entry>
   
   <entry>
     <title>Neo4j 介绍(三)：使用 python 访问 neo4j</title>
@@ -54,6 +74,26 @@
     
     
       <category term="Neo4j" scheme="http://cighao.com/tags/Neo4j/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日常遇到的一些小问题的解决方案</title>
+    <link href="http://cighao.com/2019/03/29/problems-in-dailylife/"/>
+    <id>http://cighao.com/2019/03/29/problems-in-dailylife/</id>
+    <published>2019-03-29T18:35:22.000Z</published>
+    <updated>2019-04-21T16:20:16.530Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录平时走过的坑。</p><a id="more"></a><h3 id="1-VirtualBox-中让虚拟机的分辨率自适应窗口大小"><a href="#1-VirtualBox-中让虚拟机的分辨率自适应窗口大小" class="headerlink" title="1. VirtualBox 中让虚拟机的分辨率自适应窗口大小"></a>1. VirtualBox 中让虚拟机的分辨率自适应窗口大小</h3><p>(1) 打开虚拟机 Devices -&gt; Install Guest Additions…(it’s like inserting a cd to cdrom drive)</p><p>(2) 在虚拟机中运行以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir --p /media/cdrom</span><br><span class="line">sudo mount -t auto /dev/cdrom /media/cdrom/</span><br><span class="line">cd /media/cdrom/</span><br><span class="line">sudo sh VBoxLinuxAdditions.run</span><br></pre></td></tr></table></figure><p>可以在虚拟机窗口的下面选择调整大小。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录平时走过的坑。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="http://cighao.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
@@ -443,58 +483,6 @@
     
       &lt;p&gt;flashsim中读写操作的函数调用流程是： &lt;code&gt;callFsim()&lt;/code&gt;  –&amp;gt;  &lt;code&gt;send_flash_request()&lt;/code&gt; –&amp;gt; &lt;code&gt;opm_write()&lt;/code&gt; –&amp;gt; &lt;code&gt;nand_page_write()&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;callFsim()&lt;/code&gt;: 主要解决的是缓冲区中映射表的查找和替换。&lt;br&gt;&lt;code&gt;send_flash_request()&lt;/code&gt;: 通过判断当前使用的是什么类型的FTL，然后将读写请求发送到该 FTL 中去处理。&lt;br&gt;&lt;code&gt;opm_write()&lt;/code&gt;: FTL 中的读写操作，&lt;br&gt;&lt;code&gt;nand_page_write()&lt;/code&gt;: 最底层的读写操作的实现。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="SSD" scheme="http://cighao.com/tags/SSD/"/>
-    
-      <category term="Disksim" scheme="http://cighao.com/tags/Disksim/"/>
-    
-      <category term="flashsim" scheme="http://cighao.com/tags/flashsim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>disksim-3.0 with flashsim 源码分析（四）：初始化</title>
-    <link href="http://cighao.com/2017/02/27/disksim-3.0-with-flashsim-source-analysis-04-initialization/"/>
-    <id>http://cighao.com/2017/02/27/disksim-3.0-with-flashsim-source-analysis-04-initialization/</id>
-    <published>2017-02-27T01:23:22.000Z</published>
-    <updated>2017-02-27T05:25:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在 disksim_main.c  中会先调用 <code>disksim_initialize_disksim_structure()</code> 和 <code>disksim_setup_disksim()</code> 来初始化 disksim。然后调用 <code>initFlash()</code> 来初始化闪存。</p><p>下面主要介绍闪存的初始化过程。</p><p><code>ninitFlash()</code> 函数主要分为两个步骤，首先是调用 <code>nand_init()</code> 初始化闪存基本信息，然后调用 FTL 的 <code>init()</code> 函数，初始化FTL。</p><a id="more"></a><h3 id="nand-init-函数"><a href="#nand-init-函数" class="headerlink" title="nand_init() 函数"></a><strong>nand_init() 函数</strong></h3><p>初始化闪存信息。</p><p>首先开辟一个名为 nand_blk[] 的数组空间，保存的是 SSD 的所有块。数组中每个成员为如下的结构体：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">nand_blk_info</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">blk_state</span> <span class="title">state</span>;</span>     <span class="comment">// 该块的状态，包含三个属性：free，ec(erase counter), update_ec</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sect_state</span> <span class="title">sect</span>[<span class="title">SECT_NUM_PER_BLK</span>];</span>   <span class="comment">// 该块下所有 sector 状态的集合。包含三个属性：free, valid, lsn</span></span><br><span class="line">    _s16 fpc;    <span class="comment">// free sector counter</span></span><br><span class="line">    _s16 ipc;    <span class="comment">// invalid sector counter</span></span><br><span class="line">    _s16 lwn;    <span class="comment">// last written sector number</span></span><br><span class="line">    <span class="keyword">int</span> page_status[PAGE_NUM_PER_BLK]; <span class="comment">//该块下所有page状态的集合，值为0和1</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>然后，初始化全局变量 <code>nand_blk_num</code>，<code>min_fb_num</code> 和 <code>free_blk_num</code>。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nand_blk_num = blk_num;        <span class="comment">// SSD总的block的数量</span></span><br><span class="line">free_blk_num = nand_blk_num;   <span class="comment">// free block number，初始化的时候所有的block都是空闲</span></span><br><span class="line">min_fb_num = min_free_blk_num; <span class="comment">// min free block number</span></span><br></pre></td></tr></table></figure><p>接下来就是初始化 nand_blk[] 了：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (blk_no = <span class="number">0</span>; blk_no &lt; blk_num; blk_no++) &#123;  <span class="comment">// 初始化每个block</span></span><br><span class="line">    nand_blk[blk_no].state.<span class="built_in">free</span> = <span class="number">1</span>;</span><br><span class="line">    nand_blk[blk_no].state.ec = <span class="number">0</span>;</span><br><span class="line">    nand_blk[blk_no].fpc = SECT_NUM_PER_BLK;</span><br><span class="line">    nand_blk[blk_no].ipc = <span class="number">0</span>;</span><br><span class="line">    nand_blk[blk_no].lwn = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;SECT_NUM_PER_BLK; i++)&#123;</span><br><span class="line">        nand_blk[blk_no].sect[i].<span class="built_in">free</span> = <span class="number">1</span>;</span><br><span class="line">        nand_blk[blk_no].sect[i].valid = <span class="number">0</span>;</span><br><span class="line">        nand_blk[blk_no].sect[i].lsn = <span class="number">-1</span>; <span class="comment">//初始化为-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; PAGE_NUM_PER_BLK; i++)&#123;</span><br><span class="line">        nand_blk[blk_no].page_status[i] = <span class="number">-1</span>;   <span class="comment">// 0: data, 1: map table</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="init-函数"><a href="#init-函数" class="headerlink" title="init() 函数"></a><strong>init() 函数</strong></h3><p>初始化FTL，以 DFTL 为例：</p><p>首先初始化全局变量  <code>opagemap_num</code>, <code>mapdir_num</code> 和 <code>extra_blk_num</code>。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">opagemap_num = blk_num * PAGE_NUM_PER_BLK;  <span class="comment">// 表示一共有多少个映射记录</span></span><br><span class="line">mapdir_num = (opagemap_num / MAP_ENTRIES_PER_PAGE); <span class="comment">// 映射表需要存在多少个闪存页上，即GTD的大小</span></span><br><span class="line"><span class="keyword">if</span>((opagemap_num % MAP_ENTRIES_PER_PAGE) != <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"opagemap_num % MAP_ENTRIES_PER_PAGE is not zero\n"</span>); </span><br><span class="line">    mapdir_num++;</span><br><span class="line">&#125;</span><br><span class="line">extra_blk_num = extra_num;</span><br></pre></td></tr></table></figure><p>然后初始化数组 <code>opagemap[]</code> 和 <code>mapdir[]</code></p><p>opagemap[]存储的是闪存的映射表，存储所有闪存的映射信息。数组的大小为 opagemap_num，数组的每个元素是如下的结构体:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">opm_entry</span> &#123;</span> <span class="comment">//单个的映射记录</span></span><br><span class="line">    _u32 <span class="built_in">free</span>  : <span class="number">1</span>;</span><br><span class="line">    _u32 ppn   : <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">int</span>  cache_status;</span><br><span class="line">    <span class="keyword">int</span>  cache_age;</span><br><span class="line">    <span class="keyword">int</span>  map_status;</span><br><span class="line">    <span class="keyword">int</span>  map_age;</span><br><span class="line">    <span class="keyword">int</span>  update;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(i = 0; i&lt;TOTAL_MAP_ENTRIES; i++)&#123;</span><br><span class="line">    opagemap[i].cache_status = 0;</span><br><span class="line">    opagemap[i].cache_age = 0;</span><br><span class="line">    opagemap[i].map_status = 0;</span><br><span class="line">    opagemap[i].map_age = 0;</span><br><span class="line">    opagemap[i].update = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>mapdir[] 保存的是GTD，也就是映射页(translation page)的映射。数组的大小为 mapdir_num，数组的每个元素是如下的结构:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">omap_dir</span>&#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> ppn;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>然后初始化其他变量:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">free_blk_no[<span class="number">0</span>] = nand_get_free_blk(<span class="number">0</span>);</span><br><span class="line">free_page_no[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">free_blk_no[<span class="number">1</span>] = nand_get_free_blk(<span class="number">0</span>);</span><br><span class="line">free_page_no[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//略</span></span><br></pre></td></tr></table></figure></p><p>最后，由于SSD的映射表是持久化到闪存上的，所以初始化的时候需要模拟写入映射表:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;mapdir_num; i++)&#123;</span><br><span class="line">    opm_write(i*SECT_NUM_PER_PAGE, SECT_NUM_PER_PAGE, <span class="number">2</span>);  <span class="comment">//在闪存上写入映射表</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在 disksim_main.c  中会先调用 &lt;code&gt;disksim_initialize_disksim_structure()&lt;/code&gt; 和 &lt;code&gt;disksim_setup_disksim()&lt;/code&gt; 来初始化 disksim。然后调用 &lt;code&gt;initFlash()&lt;/code&gt; 来初始化闪存。&lt;/p&gt;
-&lt;p&gt;下面主要介绍闪存的初始化过程。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ninitFlash()&lt;/code&gt; 函数主要分为两个步骤，首先是调用 &lt;code&gt;nand_init()&lt;/code&gt; 初始化闪存基本信息，然后调用 FTL 的 &lt;code&gt;init()&lt;/code&gt; 函数，初始化FTL。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="SSD" scheme="http://cighao.com/tags/SSD/"/>
-    
-      <category term="Disksim" scheme="http://cighao.com/tags/Disksim/"/>
-    
-      <category term="flashsim" scheme="http://cighao.com/tags/flashsim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>disksim-3.0 with flashsim 源码分析（三）：callFsim()函数介绍</title>
-    <link href="http://cighao.com/2017/02/21/disksim-3.0-with-flashsim-source-analysis-03-callFsim/"/>
-    <id>http://cighao.com/2017/02/21/disksim-3.0-with-flashsim-source-analysis-03-callFsim/</id>
-    <published>2017-02-21T11:23:22.000Z</published>
-    <updated>2017-03-03T08:14:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>disksim-3.0 with flashim 和前面的 disksim-4.0 with ssdmodel 在逻辑上基本相似，只是多了些 FTL 层的东西。和前面介绍的 disksim-4.0 with ssdmodel 一样，程序仍然是从 <code>disksim_device.c</code> 中的 <code>device_event_arrive()</code> 函数中进入到 ssd 模块的。</p><p>进入到 ssd 模块后首先进入的是 disksim_simpleflash.c 文件，这就类似于 disksim-4.0 with ssdmodel 中的 ssd.c 文件，他们实现的功能有很多是相同的。</p><p>最后在 <code>simpleflash_get_acctime()</code> 函数中调用 <code>callFsim()</code> 函数。<code>callFsim()</code> 函数以后的内容才是 flashsim 重点实现的部分。</p><a id="more"></a><p><code>callFsim()</code>函数位于 <code>ssd_interface.c</code> 文件中，接下来重点介绍下这个函数。</p><h2 id="callFsim"><a href="#callFsim" class="headerlink" title="callFsim()"></a><strong>callFsim()</strong></h2><p><strong>函数形式</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">double callFsim(secno,scount,operation)</span><br></pre></td></tr></table></figure></p><p><strong>参数说明</strong><br>secno： 请求的起始地址(单位是sector，512B)<br>scount： 请求的长度(单位是sector，512B)<br>operation： 请求的类型(0:读，1：写)</p><p><strong>返回值</strong> </p><p>处理这个请求花费的时间</p><p> <strong>函数实现</strong> </p><p>首先，将 secno 和 scount 按照闪存的页大小(4KB)对齐，用blkno表示请求的起始逻辑页地址，bcount表示请求的长度是多是个页。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">blkno = secno / SECT_NUM_PER_PAGE;    <span class="comment">// page number</span></span><br><span class="line">blkno += page_num_for_2nd_map_table;  <span class="comment">// 低地址留给GTD，所以其他的地址都要加上一个偏移量</span></span><br><span class="line">bcount = (secno + scount <span class="number">-1</span>)/SECT_NUM_PER_PAGE - (secno)/SECT_NUM_PER_PAGE + <span class="number">1</span>;  <span class="comment">//按照页对齐</span></span><br></pre></td></tr></table></figure><p>bcount 变量表达的含义是这个请求需要访问多少个页，所以需要循环 bcount 次，每次请求一个页。</p><p>每次请求一个页时，首先要查映射表，并处理和映射表相关的操作(命中或者不命中情况下的各种操作)，这个在前面已经介绍过了(<a href="../../../../2016/12/10/disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache/">戳这里</a>)。处理完映射表相关的操作后直接调用 <code>send_flash_request(blk_no, block_cnt, operation,mapdir_flag)</code>，将请求发送到下一层。这样，针对一个页面的请求就完成了，这个过程循环 bcount 次，这个大请求也就完成了。</p><p>在所有请求结束之后，在 callFsim() 函数中会调用 <code>calculate_delay_flash()</code> 函数，并将 <code>calculate_delay_flash()</code> 的返回值作为 <code>callFsim()</code> 函数的返回值返回，表示的是处理整个大请求用了多少时间。</p><h2 id="send-flash-request"><a href="#send-flash-request" class="headerlink" title="send_flash_request()"></a><strong>send_flash_request()</strong></h2><p><strong>函数形式</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">send_flash_request(start_blk_no, block_cnt, operation, mapdir_flag)</span><br></pre></td></tr></table></figure></p><p><strong>参数说明</strong></p><p>start_blk_no： 请求的起始地址(单位是sector，512B)<br>block_cnt： 请求的长度(单位是sector，512B)<br>operation： operation:请求的类型(1:读，0：写)<br>mapdir_flag： 请求的页的类型(0：映射页，1：数据页)</p><p><strong>函数实现</strong></p><p>在 send_flash_request() 函数内部会根据当前 ftl 的不同(DFTL,FAST等)，调用不同的 write 或 read 函数去执行请求。</p><h2 id="calculate-delay-flash"><a href="#calculate-delay-flash" class="headerlink" title="calculate_delay_flash()"></a><strong>calculate_delay_flash()</strong></h2><p>在 <code>ssd_interface.h</code> 中定义了如下的变量，用以计算处理一个上层发来的大请求所耗费的时间，</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">flash_oob_read_num：读 oob 的次数</span><br><span class="line">flash_oob_write_num：写 oob 的次数</span><br><span class="line">flash_read_num：写闪存的次数</span><br><span class="line">flash_write_num：读闪存的次数</span><br><span class="line">flash_erase_num：擦除操作的次数</span><br><span class="line">flash_gc_read_num：擦出操作中读的次数</span><br><span class="line">flash_gc_write_num：擦出操作中写的次数</span><br></pre></td></tr></table></figure><p>上面7个变量对应一个请求中可能发生的耗时的7种类型的操作。这七个变量是全局变量，可以在多个文件中共享。</p><p>在初始化的时候，这个7个变量全部为0，<code>reset_flash_stat()</code> 函数的功能就是初始化这7个变量，将它们的值全部置为0。</p><p>当上层的一个大请求处理完成之后，也就是在 <code>callFsim()</code> 函数的尾部会调用 <code>calculate_delay_flash()</code> 来计算在这个请求处理的阶段的耗时。</p><p><code>calculate_delay_flash()</code> 计算耗时的原理是，将每个操作的次数乘以每个操作的耗时，然后求和。返回求和后的值。在 <code>calculate_delay_flash()</code> 函数返回之前还会调用一次 <code>reset_flash_stat()</code> 函数来重置上述7个变量的计数器，用以记录下个请求的数据。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;disksim-3.0 with flashim 和前面的 disksim-4.0 with ssdmodel 在逻辑上基本相似，只是多了些 FTL 层的东西。和前面介绍的 disksim-4.0 with ssdmodel 一样，程序仍然是从 &lt;code&gt;disksim_device.c&lt;/code&gt; 中的 &lt;code&gt;device_event_arrive()&lt;/code&gt; 函数中进入到 ssd 模块的。&lt;/p&gt;
-&lt;p&gt;进入到 ssd 模块后首先进入的是 disksim_simpleflash.c 文件，这就类似于 disksim-4.0 with ssdmodel 中的 ssd.c 文件，他们实现的功能有很多是相同的。&lt;/p&gt;
-&lt;p&gt;最后在 &lt;code&gt;simpleflash_get_acctime()&lt;/code&gt; 函数中调用 &lt;code&gt;callFsim()&lt;/code&gt; 函数。&lt;code&gt;callFsim()&lt;/code&gt; 函数以后的内容才是 flashsim 重点实现的部分。&lt;/p&gt;
     
     </summary>
     

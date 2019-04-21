@@ -175,6 +175,166 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-understand-pattern-under-reflection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/06/understand-pattern-under-reflection/">通过 Java 的反射了解集合泛型的本质</a>
+    </h1>
+  
+
+        
+        <a href="/2015/12/06/understand-pattern-under-reflection/" class="archive-article-date">
+  	<time datetime="2015-12-06T13:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于 Java 反射机制可以<a href="../../../../2015/12/06/reflection-in-java/">点击这里</a> 。</p>
+<p>下面开始正题吧，以集合中的 ArrayList 为例来介绍吧。<br>当我们要新建一个 ArrayList 对象时可以用下面的语句：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList()</span><br></pre></td></tr></table></figure></p>
+<p>还可以在新建这个对象时给他规定 ArrayList 中对象的类型，比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; list1 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2015/12/06/understand-pattern-under-reflection/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/12/06/understand-pattern-under-reflection/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-load-class-dynamic-in-java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/06/load-class-dynamic-in-java/">Java 动态加载类</a>
+    </h1>
+  
+
+        
+        <a href="/2015/12/06/load-class-dynamic-in-java/" class="archive-article-date">
+  	<time datetime="2015-12-06T11:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-什么是动态加载类"><a href="#1-什么是动态加载类" class="headerlink" title="1. 什么是动态加载类"></a>1. 什么是动态加载类</h2><p>在编译时刻加载类是静态加载类；运行时刻加载类是动态加载类。</p>
+<p>在前面的介绍 <a href="../../../../2015/12/06/reflection-in-java/">Java反射机制</a> 时提到了 <strong><em>Class.forName()</em></strong> 函数，它不仅表示了类的类类型，还表示了动态加载类。</p>
+<h2 id="2-动态加载类具体分析"><a href="#2-动态加载类具体分析" class="headerlink" title="2. 动态加载类具体分析"></a>2. 动态加载类具体分析</h2><p>首先我们用一个案例来引入动态加载类的机制。<br>下面我们先编写一个类：<br>
+        
+          <a class="article-more-a" href="/2015/12/06/load-class-dynamic-in-java/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/12/06/load-class-dynamic-in-java/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-reflection-in-java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -417,6 +577,85 @@
 
 
   
+    <article id="post-states-of-session" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/05/states-of-session/">Java Web 中 Session 的钝化和活化</a>
+    </h1>
+  
+
+        
+        <a href="/2015/12/05/states-of-session/" class="archive-article-date">
+  	<time datetime="2015-12-05T09:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于 Session 中的对象，主要有两组状态：(1)绑定和解除绑定，(2)钝化和活化。</p>
+<p>Session的钝化机制: 本质就在于把服务器中不经常使用的 Session 对象暂时序列化到系统文件系统或是数据库系统中，当被使用时反序列化到内存中，整个过程由服务器自动完成。</p>
+        
+          <a class="article-more-a" href="/2015/12/05/states-of-session/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/12/05/states-of-session/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-install-request-to-python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -472,85 +711,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2015/12/05/install-request-to-python/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-states-of-session" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/05/states-of-session/">Java Web 中 Session 的钝化和活化</a>
-    </h1>
-  
-
-        
-        <a href="/2015/12/05/states-of-session/" class="archive-article-date">
-  	<time datetime="2015-12-05T09:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对于 Session 中的对象，主要有两组状态：(1)绑定和解除绑定，(2)钝化和活化。</p>
-<p>Session的钝化机制: 本质就在于把服务器中不经常使用的 Session 对象暂时序列化到系统文件系统或是数据库系统中，当被使用时反序列化到内存中，整个过程由服务器自动完成。</p>
-        
-          <a class="article-more-a" href="/2015/12/05/states-of-session/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/05/states-of-session/">展开全文 >></a>
         </p>
       
 
@@ -834,179 +994,9 @@
 
 
   
-    <article id="post-introduction-of-SA" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/03/introduction-of-SA/">模拟退火算法简介</a>
-    </h1>
-  
-
-        
-        <a href="/2015/12/03/introduction-of-SA/" class="archive-article-date">
-  	<time datetime="2015-12-03T08:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>模拟退火算法 <em>(Simulated Annealing，SA)</em> 最早的思想是由 <em>N. Metropolis</em> 等人于1953年提出。1983年, <em>S. Kirkpatrick</em> 等成功地将退火思想引入到组合优化领域。它是基于 <em>Monte-Carlo</em> 迭代求解策略的一种随机寻优算法，其出发点是基于物理中固体物质的退火过程与一般组合优化问题之间的相似性。模拟退火算法从某一较高初温出发，伴随温度参数的不断下降,结合概率突跳特性在解空间中随机寻找目标函数的全局最优解，即在局部最优解能概率性地跳出并最终趋于全局最优。<br>
-        
-          <a class="article-more-a" href="/2015/12/03/introduction-of-SA/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">模拟退火算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/03/introduction-of-SA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-introduction-of-PSO" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/30/introduction-of-PSO/">粒子群优化算法简介</a>
-    </h1>
-  
-
-        
-        <a href="/2015/11/30/introduction-of-PSO/" class="archive-article-date">
-  	<time datetime="2015-11-30T14:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h2><p><em>Boyd</em> 和 <em>Richerson</em> 在研究人类的决策过程中，提出了个体学习和文化传递的概念。他们认为，人们在决策过程中使用两类重要的信息：一类是自身的经验，一类是他人的经验。也就是说，人们通常是根据自身的经验和别人的经验来进行自己的决策。这也是粒子群算法产生的启发之一。</p>
-<p>1995年，美国社会心理学家 <em>James Kennedy</em> 和电气工程师 <em>Russell Eberhart</em> 受早期对鸟类、鱼类群体行为以及人工生命的研究的启发，并利用生物学家 <em>Frank Heppner</em> 的生物群体模型，模拟自然界的生物群体的行为来构造了一种随机的优化算法，由此首次正式提出了粒子群算法的概念。粒子群算法有以下特点：</p>
-<ul>
-<li>分散式搜寻；</li>
-<li>具有记忆性；</li>
-<li>需要调整的参数较少，容易实现；</li>
-<li>适合在连续性的范围内搜寻。
-        
-          <a class="article-more-a" href="/2015/11/30/introduction-of-PSO/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">粒子群算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/11/30/introduction-of-PSO/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/13/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/15/">Next &raquo;</a>
     </nav>
   
 
@@ -1295,6 +1285,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
               </li>
             
             <div class="clearfix"></div>
