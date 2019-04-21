@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cighao.com/"/>
-  <updated>2019-04-21T08:06:39.503Z</updated>
+  <updated>2019-04-21T08:13:03.919Z</updated>
   <id>http://cighao.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://cighao.com/2019/04/21/introduction-of-neo4j-03-python-driver/"/>
     <id>http://cighao.com/2019/04/21/introduction-of-neo4j-03-python-driver/</id>
     <published>2019-04-21T09:35:22.000Z</published>
-    <updated>2019-04-21T08:06:39.503Z</updated>
+    <updated>2019-04-21T08:13:03.919Z</updated>
     
-    <content type="html"><![CDATA[<p>这里主要介绍使用 python 访问 neo4j 的方法。</p><a id="more"></a><p>python driver 的地址：<a href="https://github.com/neo4j/neo4j-python-driver" target="_blank" rel="noopener">https://github.com/neo4j/neo4j-python-driver</a></p><p>需要安装　python 3 版本，然后安装　pip3, 通过 pip3　安装驱动可以把驱动安装到　python 3 对应的库。</p><p>安装驱动：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install git+https://github.com/neo4j/neo4j-python-driver.git#egg=neo4j</span><br></pre></td></tr></table></figure></p><p>有可能会在运行时报错，</p><blockquote></blockquote><p>File “/usr/local/lib/python3.4/dist-packages/neobolt/direct.py”, line 123, in supports<br>    return self.version_info() &gt;= (3, 2)<br>TypeError: unorderable types: str() &gt;= int()</p><p>定位到报错的文件，发现报错的是　<code>direct.py</code>　文件的　<code>supports()</code> 函数。报错的原因的类型不匹配，通过调试发现，<code>self.version_info()</code>　返回的是字符串数组 <code>(&#39;dev&#39;,)</code>, 运行　<code>self.version_info() &gt;= (3, 2)</code>　显然就会报错。没有找到有效的解决办法。<code>supports()</code> 函数主要是进行版本检查的，不是核心业务代码，所以目前的解决办法是，直接在　<code>supports()</code>　函数的第一行添加 <code>return True</code>, 默认版本检查通过。然后运行，发现没有报错。</p>]]></content>
+    <content type="html"><![CDATA[<p>这里主要介绍使用 python 访问 neo4j 的方法。</p><a id="more"></a><p>python driver 的地址：<a href="https://github.com/neo4j/neo4j-python-driver" target="_blank" rel="noopener">https://github.com/neo4j/neo4j-python-driver</a></p><p>需要安装 python 3 版本，然后安装 pip3, 通过 pip3 安装驱动可以把驱动安装到 python 3 对应的库。</p><p>安装驱动：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install git+https://github.com/neo4j/neo4j-python-driver.git#egg=neo4j</span><br></pre></td></tr></table></figure></p><p>有可能会在运行时报错，</p><blockquote><p>File “/usr/local/lib/python3.4/dist-packages/neobolt/direct.py”, line 123, in supports<br>    return self.version_info() &gt;= (3, 2)<br>TypeError: unorderable types: str() &gt;= int()</p></blockquote><p>定位到报错的文件，发现报错的是　<code>direct.py</code>　文件的　<code>supports()</code> 函数。报错的原因的类型不匹配，通过调试发现，<code>self.version_info()</code>　返回的是字符串数组 <code>(&#39;dev&#39;,)</code>, 运行　<code>self.version_info() &gt;= (3, 2)</code>　显然就会报错。没有找到有效的解决办法。<code>supports()</code> 函数主要是进行版本检查的，不是核心业务代码，所以目前的解决办法是，直接在　<code>supports()</code>　函数的第一行添加 <code>return True</code>, 默认版本检查通过。然后运行，发现没有报错。</p>]]></content>
     
     <summary type="html">
     
