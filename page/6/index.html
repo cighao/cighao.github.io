@@ -175,6 +175,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-with-ssdmodel-source-analysis-022-time-calculation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/28/disksim-with-ssdmodel-source-analysis-022-time-calculation/">disksim with ssdmodel 源码解析（二十二）：读写和擦除时间的计算</a>
+    </h1>
+  
+
+        
+        <a href="/2016/06/28/disksim-with-ssdmodel-source-analysis-022-time-calculation/" class="archive-article-date">
+  	<time datetime="2016-06-28T06:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ssdmodel模块中，SSD 的读写和擦除时间都是通过计算算出来的。在配置文件中可以配置 SSD 相应的参数，程序中会通过相应的参数计算出读写一个 page 和擦除一个 block 所需的时间。</p>
+        
+          <a class="article-more-a" href="/2016/06/28/disksim-with-ssdmodel-source-analysis-022-time-calculation/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/06/28/disksim-with-ssdmodel-source-analysis-022-time-calculation/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-find-peaks-of-signal" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -889,90 +971,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/04/14/draw-picture-with-matlab-003-introduction-of-handle-graphics/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-draw-picture-with-matlab-002-basic-knowledge" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/13/draw-picture-with-matlab-002-basic-knowledge/">matlab 画图（二）： 基本作图技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/13/draw-picture-with-matlab-002-basic-knowledge/" class="archive-article-date">
-  	<time datetime="2016-04-13T11:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-创建图"><a href="#1-创建图" class="headerlink" title="1. 创建图"></a><strong>1. 创建图</strong></h2><p>matlab 中创建图是使用 plot() 函数。</p>
-<p>根据输入的不同，plot 函数有不同的窗体。如果y是向量的形式，plot(y)则在y对应的轴上作出一个分段线状图。如果指定要求含两个向量时，则plot(x,y)作出一个y相对于x的图表。</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y=[<span class="number">1</span> <span class="number">2</span> <span class="number">10</span> <span class="number">4</span> <span class="number">5</span> <span class="number">3</span> <span class="number">2</span>];</span><br><span class="line">plot(y)</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/04/13/draw-picture-with-matlab-002-basic-knowledge/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/04/13/draw-picture-with-matlab-002-basic-knowledge/">展开全文 >></a>
         </p>
       
 

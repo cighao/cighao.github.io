@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="陈浩的个人博客">
 <meta property="og:description" content="这里主要介绍 neo4j 的源码安装，在 IDEA 中修改和启动。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-10T07:45:21.438Z">
+<meta property="og:updated_time" content="2019-04-20T16:53:59.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neo4j 介绍(一)：安装">
 <meta name="twitter:description" content="这里主要介绍 neo4j 的源码安装，在 IDEA 中修改和启动。">
@@ -272,6 +272,7 @@
 <p>配置文件的设置可以参考官方文档： <a href="https://neo4j.com/docs/operations-manual/current/reference/configuration-settings" target="_blank" rel="noopener">https://neo4j.com/docs/operations-manual/current/reference/configuration-settings</a> 和 <a href="https://neo4j.com/docs/operations-manual/current/configuration/" target="_blank" rel="noopener">https://neo4j.com/docs/operations-manual/current/configuration/</a></p>
 <p>然后运行 <code>community/server/src/main/java/org/neo4j/server</code>　中的　<code>CommunityEntryPoint</code> 类</p>
 <p>有可能会出现报错，提示某些符号找不到(主要是提示scala代码里声明的类找不到)，但是在 neo4j 目录下运行 <code>mvn clean</code> 之后，再用 IDEA 编译运行，就不报错了。</p>
+<p>有时候还会提示找不到某些类，解决办法，通过搜索找到该类所在的文件，发现该文件左(右)下角有个黄(红)色的j，如果是这样，那么在 file 里打开project structure 找到 modules，找到该文件对应的 modules 其中有个 sources，点击右边第一个×，然后点击下面的 add content root 按钮，重新选择该 modules 的代码。</p>
 
       
 
@@ -388,7 +389,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/13/introduction-of-neo4j-01-start/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/13/introduction-of-neo4j-02-start/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         

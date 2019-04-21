@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>Neo4j 介绍(二)：main 函数 | 陈浩的个人博客</title>
+  <title>Neo4j 介绍(三)：使用 python 访问 neo4j | 陈浩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里主要介绍 neo4j 的 main 函数的一些流程。">
+  <meta name="description" content="这里主要介绍使用 python 访问 neo4j 的方法。">
 <meta name="keywords" content="Neo4j">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Neo4j 介绍(二)：main 函数">
-<meta property="og:url" content="http://cighao.com/2019/04/13/introduction-of-neo4j-01-start/index.html">
+<meta property="og:title" content="Neo4j 介绍(三)：使用 python 访问 neo4j">
+<meta property="og:url" content="http://cighao.com/2019/04/21/introduction-of-neo4j-03-python-driver/index.html">
 <meta property="og:site_name" content="陈浩的个人博客">
-<meta property="og:description" content="这里主要介绍 neo4j 的 main 函数的一些流程。">
+<meta property="og:description" content="这里主要介绍使用 python 访问 neo4j 的方法。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://cighao.com/img/articles/neo4j/neo4j-0201.png">
-<meta property="og:updated_time" content="2019-04-13T09:02:20.303Z">
+<meta property="og:updated_time" content="2019-04-21T08:06:39.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Neo4j 介绍(二)：main 函数">
-<meta name="twitter:description" content="这里主要介绍 neo4j 的 main 函数的一些流程。">
-<meta name="twitter:image" content="http://cighao.com/img/articles/neo4j/neo4j-0201.png">
+<meta name="twitter:title" content="Neo4j 介绍(三)：使用 python 访问 neo4j">
+<meta name="twitter:description" content="这里主要介绍使用 python 访问 neo4j 的方法。">
   
     <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
   
@@ -180,39 +178,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-introduction-of-neo4j-01-start" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-introduction-of-neo4j-03-python-driver" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Neo4j 介绍(二)：main 函数
+      Neo4j 介绍(三)：使用 python 访问 neo4j
     </h1>
   
 
         
-        <a href="/2019/04/13/introduction-of-neo4j-01-start/" class="archive-article-date">
-  	<time datetime="2019-04-13T09:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-13</time>
+        <a href="/2019/04/21/introduction-of-neo4j-03-python-driver/" class="archive-article-date">
+  	<time datetime="2019-04-21T09:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这里主要介绍 neo4j 的 main 函数的一些流程。</p>
-<p><img src="/img/articles/neo4j/neo4j-0201.png" alt=""></p>
+        <p>这里主要介绍使用 python 访问 neo4j 的方法。</p>
 <a id="more"></a>
-<p>main 函数在 <code>CommunityEntryPoint</code> 类中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String[] args )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> status = ServerBootstrapper.start( <span class="keyword">new</span> CommunityBootstrapper(), args );</span><br><span class="line">    <span class="keyword">if</span> ( status != <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        System.exit( status );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>首先通过 <code>ServerBootstrapper.start(new CommunityBootstrapper(), args)</code> 进入到 <code>ServerBootstrapper.start(Bootstrapper boot, String... argv)</code> 方法， 在该方法的末尾通过 <code>boot.start(args.homeDir(), args.configFile(), args.configOverrides())</code> 调用进入到 <code>ServerBootstrapper.start(File homeDir, Optional&lt;File&gt; configFile, Map&lt;String, String&gt; configOverrides)</code>, 在该方法的末尾通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server = createNeoServer(config, dependencies);</span><br><span class="line">server.start();</span><br></pre></td></tr></table></figure></p>
-<p>启动。</p>
-<p>通过 <code>createNeoServer(config, dependencies)</code> 会进入到，<code>ServerBootstrapper.createNeoServer(Config config, GraphDatabaseDependencies dependencies)</code>, 在该函数的最后通过 <code>createNeoServer(graphFactory, config, dependencies)</code> 会进入到 <code>CommunityBootstrapper.createNeoServer(GraphFactory graphFactory, Config config, GraphDatabaseDependencies dependencies)</code>, 该函数只有一个语句 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return new CommunityNeoServer(config, graphFactory, dependencies);</span><br></pre></td></tr></table></figure>
-<p>最终是新建了一个 <code>CommunityNeoServer</code> 对象返回到了 <code>ServerBootstrapper.start()</code> 中， 并调用了 <code>CommunityNeoServer</code> 对象的 <code>start()</code> 方法，完成了 neo4j 的启动。</p>
-<p>这样我们发现，整个启动的核心代码都在 <code>CommunityNeoServer.start()</code> 中，<code>CommunityNeoServer</code> 继承自 <code>AbstractNeoServer</code>， 并且没有重写 <code>AbstractNeoServer</code> 的 <code>start()</code> 方法，所以启动的核心代码都在 <code>AbstractNeoServer.start()</code> 函数中。 <code>AbstractNeoServer.start()</code> 中只有一行代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">life.start();</span><br></pre></td></tr></table></figure>
-<p>这里的 <code>life</code> 是 <code>AbstractNeoServer</code> 类的一个变量，是 <code>LifeSupport</code> 类的一个实例。<code>lift.start()</code> 会跳去执行 <code>LifeSupport.start()</code> 方法。</p>
+<p>python driver 的地址：<a href="https://github.com/neo4j/neo4j-python-driver" target="_blank" rel="noopener">https://github.com/neo4j/neo4j-python-driver</a></p>
+<p>需要安装　python 3 版本，然后安装　pip3, 通过 pip3　安装驱动可以把驱动安装到　python 3 对应的库。</p>
+<p>安装驱动：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install git+https://github.com/neo4j/neo4j-python-driver.git#egg=neo4j</span><br></pre></td></tr></table></figure></p>
+<p>有可能会在运行时报错，</p>
+<blockquote>
+</blockquote>
+<p>File “/usr/local/lib/python3.4/dist-packages/neobolt/direct.py”, line 123, in supports<br>    return self.version_info() &gt;= (3, 2)<br>TypeError: unorderable types: str() &gt;= int()</p>
+<p>定位到报错的文件，发现报错的是　<code>direct.py</code>　文件的　<code>supports()</code> 函数。报错的原因的类型不匹配，通过调试发现，<code>self.version_info()</code>　返回的是字符串数组 <code>(&#39;dev&#39;,)</code>, 运行　<code>self.version_info() &gt;= (3, 2)</code>　显然就会报错。没有找到有效的解决办法。<code>supports()</code> 函数主要是进行版本检查的，不是核心业务代码，所以目前的解决办法是，直接在　<code>supports()</code>　函数的第一行添加 <code>return True</code>, 默认版本检查通过。然后运行，发现没有报错。</p>
 
       
 
@@ -315,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="https://img.fanhaobai.com/qrcode.php?url=http://cighao.com/2019/04/13/introduction-of-neo4j-01-start/" alt="微信分享二维码">
+      <img src="https://img.fanhaobai.com/qrcode.php?url=http://cighao.com/2019/04/21/introduction-of-neo4j-03-python-driver/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -330,8 +325,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/03/21/introduction-of-neo4j-01-install/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Neo4j 介绍(一)：安装</div>
+    <a href="/2019/04/13/introduction-of-neo4j-02-start/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Neo4j 介绍(二)：main 函数</div>
       <i class="icon-circle-right"></i>
     </a>
   

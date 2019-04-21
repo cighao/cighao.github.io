@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>Archives | 陈浩的个人博客</title>
+  <title>Neo4j 介绍(二)：main 函数 | 陈浩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="陈浩的个人博客">
-<meta property="og:url" content="http://cighao.com/archives/page/16/index.html">
+  <meta name="description" content="这里主要介绍 neo4j 的 main 函数的一些流程。">
+<meta name="keywords" content="Neo4j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neo4j 介绍(二)：main 函数">
+<meta property="og:url" content="http://cighao.com/2019/04/13/introduction-of-neo4j-02-start/index.html">
 <meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:description" content="这里主要介绍 neo4j 的 main 函数的一些流程。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://cighao.com/img/articles/neo4j/neo4j-0201.png">
+<meta property="og:updated_time" content="2019-04-13T09:02:20.303Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈浩的个人博客">
+<meta name="twitter:title" content="Neo4j 介绍(二)：main 函数">
+<meta name="twitter:description" content="这里主要介绍 neo4j 的 main 函数的一些流程。">
+<meta name="twitter:image" content="http://cighao.com/img/articles/neo4j/neo4j-0201.png">
   
     <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
   
@@ -173,438 +180,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-introduction-of-neo4j-02-start" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Neo4j 介绍(二)：main 函数
+    </h1>
+  
+
+        
+        <a href="/2019/04/13/introduction-of-neo4j-02-start/" class="archive-article-date">
+  	<time datetime="2019-04-13T09:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-13</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这里主要介绍 neo4j 的 main 函数的一些流程。</p>
+<p><img src="/img/articles/neo4j/neo4j-0201.png" alt=""></p>
+<a id="more"></a>
+<p>main 函数在 <code>CommunityEntryPoint</code> 类中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String[] args )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> status = ServerBootstrapper.start( <span class="keyword">new</span> CommunityBootstrapper(), args );</span><br><span class="line">    <span class="keyword">if</span> ( status != <span class="number">0</span> )</span><br><span class="line">    &#123;</span><br><span class="line">        System.exit( status );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先通过 <code>ServerBootstrapper.start(new CommunityBootstrapper(), args)</code> 进入到 <code>ServerBootstrapper.start(Bootstrapper boot, String... argv)</code> 方法， 在该方法的末尾通过 <code>boot.start(args.homeDir(), args.configFile(), args.configOverrides())</code> 调用进入到 <code>ServerBootstrapper.start(File homeDir, Optional&lt;File&gt; configFile, Map&lt;String, String&gt; configOverrides)</code>, 在该方法的末尾通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server = createNeoServer(config, dependencies);</span><br><span class="line">server.start();</span><br></pre></td></tr></table></figure></p>
+<p>启动。</p>
+<p>通过 <code>createNeoServer(config, dependencies)</code> 会进入到，<code>ServerBootstrapper.createNeoServer(Config config, GraphDatabaseDependencies dependencies)</code>, 在该函数的最后通过 <code>createNeoServer(graphFactory, config, dependencies)</code> 会进入到 <code>CommunityBootstrapper.createNeoServer(GraphFactory graphFactory, Config config, GraphDatabaseDependencies dependencies)</code>, 该函数只有一个语句 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return new CommunityNeoServer(config, graphFactory, dependencies);</span><br></pre></td></tr></table></figure>
+<p>最终是新建了一个 <code>CommunityNeoServer</code> 对象返回到了 <code>ServerBootstrapper.start()</code> 中， 并调用了 <code>CommunityNeoServer</code> 对象的 <code>start()</code> 方法，完成了 neo4j 的启动。</p>
+<p>这样我们发现，整个启动的核心代码都在 <code>CommunityNeoServer.start()</code> 中，<code>CommunityNeoServer</code> 继承自 <code>AbstractNeoServer</code>， 并且没有重写 <code>AbstractNeoServer</code> 的 <code>start()</code> 方法，所以启动的核心代码都在 <code>AbstractNeoServer.start()</code> 函数中。 <code>AbstractNeoServer.start()</code> 中只有一行代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">life.start();</span><br></pre></td></tr></table></figure>
+<p>这里的 <code>life</code> 是 <code>AbstractNeoServer</code> 类的一个变量，是 <code>LifeSupport</code> 类的一个实例。<code>lift.start()</code> 会跳去执行 <code>LifeSupport.start()</code> 方法。</p>
+
+      
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>无以生计，卖文苟延<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/15/traversal-of-graph/" class="archive-article-date">
-  	<time datetime="2015-09-15T08:17:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/15/traversal-of-graph/">图的深度优先遍历(DFS)和广度优先遍历(BFS)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图论</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Neo4j</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="https://img.fanhaobai.com/qrcode.php?url=http://cighao.com/2019/04/13/introduction-of-neo4j-02-start/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/09/disksim-with-ssdmodel-source-analysis-001-how-to-install/" class="archive-article-date">
-  	<time datetime="2015-09-09T15:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/04/21/introduction-of-neo4j-03-python-driver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Neo4j 介绍(三)：使用 python 访问 neo4j
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/21/introduction-of-neo4j-01-install/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Neo4j 介绍(一)：安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/09/disksim-with-ssdmodel-source-analysis-001-how-to-install/">disksim with ssdmodel 源码解析（一）：disksim及ssdmodel模块扩展的安装</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/31/introduction-of-SSD/" class="archive-article-date">
-  	<time datetime="2015-08-31T13:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/31/introduction-of-SSD/">固态硬盘(SSD)原理及相关介绍</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/27/install-ubuntu-on-window7/" class="archive-article-date">
-  	<time datetime="2015-08-27T07:58:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/27/install-ubuntu-on-window7/">windows7下安装ubuntu及相关问题的解决方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/22/regular-expressions-of-python/" class="archive-article-date">
-  	<time datetime="2015-08-22T05:43:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/22/regular-expressions-of-python/">python 正则表达式的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/21/validateCode-of-java/" class="archive-article-date">
-  	<time datetime="2015-08-21T09:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/21/validateCode-of-java/">基于 Java 实现的图片验证码</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/20/c-file-operation/" class="archive-article-date">
-  	<time datetime="2015-08-20T08:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/20/c-file-operation/">C语言中的文件操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/03/29/socket-scan-with-python/" class="archive-article-date">
-  	<time datetime="2015-03-29T13:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-03-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/03/29/socket-scan-with-python/">基于 python socket 的端口扫描程序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">端口扫描</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/03/29/decompose-prime-number/" class="archive-article-date">
-  	<time datetime="2015-03-29T13:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-03-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/03/29/decompose-prime-number/">分解质因数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/03/29/install-mysql-on-windows/" class="archive-article-date">
-  	<time datetime="2015-03-29T05:12:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-03-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/03/29/install-mysql-on-windows/">mysql windows 下zip安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/15/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/14/">14</a><a class="page-number" href="/archives/page/15/">15</a><span class="page-number current">16</span>
-    </nav>
-  
 
 
           </div>
@@ -627,8 +386,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
