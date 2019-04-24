@@ -175,6 +175,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-draw-picture-with-matlab-004-handle-graphics-demo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/16/draw-picture-with-matlab-004-handle-graphics-demo/">matlab 画图（四）： 句柄作图示例</a>
+    </h1>
+  
+
+        
+        <a href="/2016/04/16/draw-picture-with-matlab-004-handle-graphics-demo/" class="archive-article-date">
+  	<time datetime="2016-04-16T13:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="../../../../2016/04/14/draw-picture-with-matlab-003-introduction-of-handle-graphics/">前面</a>介绍了句柄作图，现在举个例子详细说明下。</p>
+<p>先看一个简单的例子。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0</span>:<span class="number">0.1</span>:<span class="built_in">pi</span>;</span><br><span class="line">plot(x, <span class="built_in">sin</span>(x), <span class="string">'o-'</span>, x, <span class="built_in">cos</span>(x), <span class="string">':+'</span>);</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/04/16/draw-picture-with-matlab-004-handle-graphics-demo/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/04/16/draw-picture-with-matlab-004-handle-graphics-demo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-disksim-with-ssdmodel-source-analysis-021-warm-up-ssd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -901,91 +985,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/03/29/the-note-of-SSD-studying-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-disksim-with-ssdmodel-source-analysis-016-gc-analysis-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/">disksim with ssdmodel 源码解析（十六）：GC 分析(三)</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/" class="archive-article-date">
-  	<time datetime="2016-03-29T06:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天这篇文章主要介绍什么时候会触发 GC。</p>
-<p>判断是否需要进行 GC 操作是分为两种不同的情况来判断的：有 copyback 和没有 copyback 。</p>
-<p>在 <code>ssd_clean.c</code> 中的 <code>ssd_clean_element()</code> 函数中会根据是否有 copyback 来调用不同的函数区执行 GC 操作。</p>
-<p>下面分别介绍在这两种情况下，达到什么条件时会触发 GC 操作。</p>
-        
-          <a class="article-more-a" href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/">展开全文 >></a>
         </p>
       
 

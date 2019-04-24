@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/2019/04/24/introduction-of-neo4j-05-java-driver/</loc>
+    
+    <lastmod>2019-04-24T20:20:20.105Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/2019/04/21/introduction-of-neo4j-04-blogs/</loc>
     
     <lastmod>2019-04-21T18:15:50.880Z</lastmod>
