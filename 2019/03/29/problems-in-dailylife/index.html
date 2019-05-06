@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="陈浩的个人博客">
 <meta property="og:description" content="记录平时走过的坑。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-21T16:20:16.530Z">
+<meta property="og:updated_time" content="2019-05-05T16:44:42.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常遇到的一些小问题的解决方案">
 <meta name="twitter:description" content="记录平时走过的坑。">
@@ -206,7 +206,7 @@
 				<a href="#" onclick="javascript:return openct(this);" title="展开">[+]</a>
 			</p>
 		</div>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-VirtualBox-中让虚拟机的分辨率自适应窗口大小"><span class="toc-text">1. VirtualBox 中让虚拟机的分辨率自适应窗口大小</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-VirtualBox-中让虚拟机的分辨率自适应窗口大小"><span class="toc-text">1. VirtualBox 中让虚拟机的分辨率自适应窗口大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-win10-安装-ubuntu"><span class="toc-text">2. win10 安装 ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-sudo-usr-bin-sudo-必须属于用户-ID-0"><span class="toc-text">3. sudo: /usr/bin/sudo 必须属于用户  ID 0</span></a></li></ol>
 	</div>
 </div>
 
@@ -244,7 +244,17 @@
 <p>(2) 在虚拟机中运行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir --p /media/cdrom</span><br><span class="line">sudo mount -t auto /dev/cdrom /media/cdrom/</span><br><span class="line">cd /media/cdrom/</span><br><span class="line">sudo sh VBoxLinuxAdditions.run</span><br></pre></td></tr></table></figure>
 <p>可以在虚拟机窗口的下面选择调整大小。</p>
-
+<h3 id="2-win10-安装-ubuntu"><a href="#2-win10-安装-ubuntu" class="headerlink" title="2. win10 安装 ubuntu"></a>2. win10 安装 ubuntu</h3><p><a href="https://segmentfault.com/a/1190000014523888" target="_blank" rel="noopener">https://segmentfault.com/a/1190000014523888</a></p>
+<h3 id="3-sudo-usr-bin-sudo-必须属于用户-ID-0"><a href="#3-sudo-usr-bin-sudo-必须属于用户-ID-0" class="headerlink" title="3. sudo: /usr/bin/sudo 必须属于用户  ID 0"></a>3. sudo: /usr/bin/sudo 必须属于用户  ID 0</h3><p>一不小心把 /usr 目录的权限设置成了普通的用户，导致 sudo 用不了，输入 sudo 提示：</p>
+<blockquote>
+<p>sudo: /usr/bin/sudo 必须属于用户  ID 0(的用户)并且设置 setuid 位</p>
+</blockquote>
+<p>重启进入 recovery 模式。</p>
+<p>recovery模式 –&gt; 选择 root</p>
+<p>进入命令行，执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown root:root /usr/bin/sudo</span><br><span class="line">chmod 4755 /usr/bin/sudo</span><br></pre></td></tr></table></figure></p>
+<p>reboot 重启。</p>
+<p>不过还是建议把整个 usr 目录的所有者改成 root：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R root:root /usr</span><br></pre></td></tr></table></figure>
       
 
       
@@ -398,7 +408,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-VirtualBox-中让虚拟机的分辨率自适应窗口大小"><span class="toc-number">1.</span> <span class="toc-text">1. VirtualBox 中让虚拟机的分辨率自适应窗口大小</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-VirtualBox-中让虚拟机的分辨率自适应窗口大小"><span class="toc-number">1.</span> <span class="toc-text">1. VirtualBox 中让虚拟机的分辨率自适应窗口大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-win10-安装-ubuntu"><span class="toc-number">2.</span> <span class="toc-text">2. win10 安装 ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-sudo-usr-bin-sudo-必须属于用户-ID-0"><span class="toc-number">3.</span> <span class="toc-text">3. sudo: /usr/bin/sudo 必须属于用户  ID 0</span></a></li></ol>
                     </div>
                 </span>
             </div>

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="陈浩的个人博客">
 <meta property="og:description" content="这里主要介绍使用 python 访问 neo4j 的方法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-21T08:13:03.919Z">
+<meta property="og:updated_time" content="2019-04-24T20:59:52.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neo4j 介绍(三)：使用 python 访问 neo4j">
 <meta name="twitter:description" content="这里主要介绍使用 python 访问 neo4j 的方法。">
@@ -208,6 +208,27 @@
 <p>File “/usr/local/lib/python3.4/dist-packages/neobolt/direct.py”, line 123, in supports<br>    return self.version_info() &gt;= (3, 2)<br>TypeError: unorderable types: str() &gt;= int()</p>
 </blockquote>
 <p>定位到报错的文件，发现报错的是　<code>direct.py</code>　文件的　<code>supports()</code> 函数。报错的原因的类型不匹配，通过调试发现，<code>self.version_info()</code>　返回的是字符串数组 <code>(&#39;dev&#39;,)</code>, 运行　<code>self.version_info() &gt;= (3, 2)</code>　显然就会报错。没有找到有效的解决办法。<code>supports()</code> 函数主要是进行版本检查的，不是核心业务代码，所以目前的解决办法是，直接在　<code>supports()</code>　函数的第一行添加 <code>return True</code>, 默认版本检查通过。然后运行，发现没有报错。</p>
+<p>示例：</p>
+<pre><code class="python"><span class="keyword">from</span> neo4j <span class="keyword">import</span> GraphDatabase
+
+driver = GraphDatabase.driver(<span class="string">"bolt://localhost:7687"</span>, auth=(<span class="string">"neo4j"</span>, <span class="string">"123456"</span>))
+
+<span class="function"><span class="keyword">def</span> <span class="title">add_friend</span><span class="params">(tx, name, friend_name)</span>:</span>
+    tx.run(<span class="string">"MERGE (a:Person {name: $name}) "</span>
+           <span class="string">"MERGE (a)-[:KNOWS]-&gt;(friend:Person {name: $friend_name})"</span>,
+           name=name, friend_name=friend_name)
+
+<span class="function"><span class="keyword">def</span> <span class="title">print_friends</span><span class="params">(tx, name)</span>:</span>
+    <span class="keyword">for</span> record <span class="keyword">in</span> tx.run(<span class="string">"MATCH (a:Person)-[:KNOWS]-&gt;(friend) WHERE a.name = $name "</span>
+                         <span class="string">"RETURN friend.name ORDER BY friend.name"</span>, name=name):
+        print(record[<span class="string">"friend.name"</span>])
+
+<span class="keyword">with</span> driver.session() <span class="keyword">as</span> session:
+    session.write_transaction(add_friend, <span class="string">"Arthur"</span>, <span class="string">"Guinevere"</span>)
+    session.write_transaction(add_friend, <span class="string">"Arthur"</span>, <span class="string">"Lancelot"</span>)
+    session.write_transaction(add_friend, <span class="string">"Arthur"</span>, <span class="string">"Merlin"</span>)
+    session.read_transaction(print_friends, <span class="string">"Arthur"</span>)
+</code></pre>
 
       
 
