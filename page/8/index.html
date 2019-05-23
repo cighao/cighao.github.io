@@ -175,6 +175,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-the-note-of-SSD-studying-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/29/the-note-of-SSD-studying-1/">SSD 编程学习笔记（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/29/the-note-of-SSD-studying-1/" class="archive-article-date">
+  	<time datetime="2016-03-29T14:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>看论文时整理的一些笔记，比较混乱，估计也只有自己能看懂吧。</p>
+<h3 id="影响SSD性能的一些因素"><a href="#影响SSD性能的一些因素" class="headerlink" title="影响SSD性能的一些因素"></a><strong>影响SSD性能的一些因素</strong></h3><p><strong>数据组织方式</strong>：如果能提供一种有效的方式来组织 SSD chip 上的数据，不仅可以有助于负载均衡，对磨损平衡也能产生积极影响。</p>
+<p><strong>并行性</strong>：存储组件可以协调地组织在一起实现操作上的并行性。</p>
+<p><strong>写操作的顺序</strong>：解决 SSD 上小的随机的写操作是一个很棘手的问题。</p>
+<p><strong>负载管理</strong>：SSD 的性能是受负载影响的。比如，有些设计对连续的负载有很好的性能，但是对非连续的负载就不能体现出很好的性能，反之亦然。</p>
+        
+          <a class="article-more-a" href="/2016/03/29/the-note-of-SSD-studying-1/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/29/the-note-of-SSD-studying-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-disksim-with-ssdmodel-source-analysis-016-gc-analysis-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -901,90 +983,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-disksim-with-ssdmodel-source-analysis-008-syssim_driver1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/">disksim with ssdmodel 源码解析（八）：syssim_driver 系统级接口(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/" class="archive-article-date">
-  	<time datetime="2016-03-19T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>disksim 提供了一个系统级的调用接口，我们调用这个接口可以不停的给 disksim 发送请求，当请求完成时接口会触发一个回调函数做相应的操作。下面重点来介绍下这个接口。</p>
-<p>接口的实现是在 <code>src/syssim_driver.c</code> 这个文件中。调用方式是 <code>syssim &lt;parameters file&gt; &lt;output file&gt; &lt;max. block number&gt;</code>。</p>
-<p>在 <code>syssim_driver.c</code> 的 main 函数中，首先是调用函数 <code>disksim_interface_initialize()</code> 实例化一个接口，然后循环1000次，产生随机的1000个请求通过函数 <code>disksim_interface_request_arrive()</code> 发送给 disksim，并通过函数 <code>disksim_interface_internal_event()</code> 处理相应请求的事件。最后调用函数 <code>disksim_interface_shutdown()</code> 关闭接口。</p>
-        
-          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/">展开全文 >></a>
         </p>
       
 

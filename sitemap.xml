@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/resume/resume.html</loc>
+    
+    <lastmod>2019-05-23T19:52:18.290Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2019/01/13/draw-picture-with-matlab-010-group-and-stack-bar/</loc>
+    
+    <lastmod>2019-05-16T05:47:31.846Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2019/04/21/introduction-of-neo4j-03-python-driver/</loc>
+    
+    <lastmod>2019-05-13T07:36:42.018Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/2019/03/21/introduction-of-neo4j-01-install/</loc>
     
     <lastmod>2019-05-06T11:40:10.511Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>http://cighao.com/2019/03/29/problems-in-dailylife/</loc>
     
     <lastmod>2019-05-05T16:44:42.238Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/2019/04/21/introduction-of-neo4j-03-python-driver/</loc>
-    
-    <lastmod>2019-04-24T20:59:52.992Z</lastmod>
     
   </url>
   
@@ -47,13 +61,6 @@
     <loc>http://cighao.com/2018/11/20/tool-sites-for-writing-papers/</loc>
     
     <lastmod>2018-12-18T01:02:42.215Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/resume/resume.html</loc>
-    
-    <lastmod>2018-11-25T14:14:16.865Z</lastmod>
     
   </url>
   

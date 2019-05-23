@@ -644,6 +644,89 @@
 
 
   
+    <article id="post-draw-picture-with-matlab-010-group-and-stack-bar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/13/draw-picture-with-matlab-010-group-and-stack-bar/">matlab 画图（十）： 分组和堆叠的条形图</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/13/draw-picture-with-matlab-010-group-and-stack-bar/" class="archive-article-date">
+  	<time datetime="2019-01-13T13:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>可以通过在Y数据中添加零行来自行完成,无论您希望将条组分开,然后相应地修改x轴 tick marks 和 tick labels.这是一个例子：</p>
+<p><a href="https://codeday.me/bug/20190119/550326.html" target="_blank" rel="noopener">https://codeday.me/bug/20190119/550326.html</a></p>
+        
+          <a class="article-more-a" href="/2019/01/13/draw-picture-with-matlab-010-group-and-stack-bar/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/13/draw-picture-with-matlab-010-group-and-stack-bar/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-tool-sites-for-writing-papers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -866,113 +949,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/29/openstack-swift-study-07-ssbench/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-openstack-swift-study-06-start-proxy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/29/openstack-swift-study-06-start-proxy/">Openstack Swift学习(六)：服务启动源码分析</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/29/openstack-swift-study-06-start-proxy/" class="archive-article-date">
-  	<time datetime="2018-09-29T07:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>先介绍下 swift 的代码结构：</p>
-<ul>
-<li>bin/: Executable scripts that are the processes run by the deployer</li>
-<li>doc/: Documentation</li>
-<li>etc/: Sample config files</li>
-<li>examples/: Config snippets used in the docs</li>
-<li>swift/: Core code<ul>
-<li>account/: account server</li>
-<li>cli/: code that backs some of the CLI tools in bin/</li>
-<li>common/: code shared by different modules<ul>
-<li>middleware/: “standard”, officially-supported middleware</li>
-<li>ring/: code implementing Swift’s ring</li>
-</ul>
-</li>
-<li>container/: container server</li>
-<li>locale/: internationalization (translation) data</li>
-<li>obj/: object server</li>
-<li>proxy/: proxy server</li>
-</ul>
-</li>
-<li>test/: Unit, functional, and probe tests</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/09/29/openstack-swift-study-06-start-proxy/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">openstack swift</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">分布式存储</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对象存储</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/29/openstack-swift-study-06-start-proxy/">展开全文 >></a>
         </p>
       
 

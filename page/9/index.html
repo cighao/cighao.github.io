@@ -175,6 +175,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-with-ssdmodel-source-analysis-008-syssim_driver1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/">disksim with ssdmodel 源码解析（八）：syssim_driver 系统级接口(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/" class="archive-article-date">
+  	<time datetime="2016-03-19T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>disksim 提供了一个系统级的调用接口，我们调用这个接口可以不停的给 disksim 发送请求，当请求完成时接口会触发一个回调函数做相应的操作。下面重点来介绍下这个接口。</p>
+<p>接口的实现是在 <code>src/syssim_driver.c</code> 这个文件中。调用方式是 <code>syssim &lt;parameters file&gt; &lt;output file&gt; &lt;max. block number&gt;</code>。</p>
+<p>在 <code>syssim_driver.c</code> 的 main 函数中，首先是调用函数 <code>disksim_interface_initialize()</code> 实例化一个接口，然后循环1000次，产生随机的1000个请求通过函数 <code>disksim_interface_request_arrive()</code> 发送给 disksim，并通过函数 <code>disksim_interface_internal_event()</code> 处理相应请求的事件。最后调用函数 <code>disksim_interface_shutdown()</code> 关闭接口。</p>
+        
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-matplotlib-demo-003-dashes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -899,93 +983,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/">disksim with ssdmodel 源码解析（二）：输入参数的介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/" class="archive-article-date">
-  	<time datetime="2016-03-06T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>disksim 的参数以文件的方式输入，可在valid文件夹中找到示例，如果安装了 ssdmodel 模块在 ssdmodel/valid 文件夹里也有对应的参数文件示例。根据 disksim 官方手册介绍，参数配置文件主要包括以下三个部分：</p>
-<ul>
-<li><strong>blocks delimited by{}, 块的定义</strong></li>
-<li><strong>instantiations, 实例化</strong></li>
-<li><strong>topology specifications, 拓扑结构说明</strong></li>
-</ul>
-        
-          <a class="article-more-a" href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/">展开全文 >></a>
         </p>
       
 
