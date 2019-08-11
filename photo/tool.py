@@ -51,7 +51,7 @@ def compress(choose, des_dir, src_dir, file_list):
 def compress_photo():
     '''调用压缩图片的函数
     '''
-    src_dir, des_dir = "img/", "img/"
+    src_dir, des_dir = ".", "."
     file_list_src = list_img_file(src_dir)
     compress('4', des_dir, src_dir, file_list_src)
 
@@ -62,7 +62,7 @@ def cut_photo():
     ----------
     调用Graphics类中的裁剪算法，将src_dir目录下的文件进行裁剪（裁剪成正方形）
     """
-    src_dir = "img/"
+    src_dir = "."
     
     # business logic
     file_list = list_img_file(src_dir)
