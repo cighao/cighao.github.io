@@ -188,7 +188,7 @@
 
         
         <a href="/2016/03/29/the-note-of-SSD-studying-1/" class="archive-article-date">
-  	<time datetime="2016-03-29T14:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-29</time>
+  	<time datetime="2016-03-30T05:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-29</time>
 </a>
         
       </header>
@@ -264,13 +264,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/28/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/">disksim with ssdmodel 源码解析（十六）：GC 分析(三)</a>
+      <a class="article-title" href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/">disksim with ssdmodel 源码解析（十六）：GC 分析(三)</a>
     </h1>
   
 
         
-        <a href="/2016/03/28/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/" class="archive-article-date">
-  	<time datetime="2016-03-29T06:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-28</time>
+        <a href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/" class="archive-article-date">
+  	<time datetime="2016-03-29T21:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-29</time>
 </a>
         
       </header>
@@ -282,7 +282,7 @@
 <p>在 <code>ssd_clean.c</code> 中的 <code>ssd_clean_element()</code> 函数中会根据是否有 copyback 来调用不同的函数区执行 GC 操作。</p>
 <p>下面分别介绍在这两种情况下，达到什么条件时会触发 GC 操作。</p>
         
-          <a class="article-more-a" href="/2016/03/28/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/#more">more >></a>
         
       
 
@@ -312,7 +312,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/28/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/">展开全文 >></a>
         </p>
       
 
@@ -355,7 +355,7 @@
 
         
         <a href="/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/" class="archive-article-date">
-  	<time datetime="2016-03-27T17:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-27</time>
+  	<time datetime="2016-03-28T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-27</time>
 </a>
         
       </header>
@@ -439,7 +439,7 @@
 
         
         <a href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/" class="archive-article-date">
-  	<time datetime="2016-03-24T12:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-24</time>
+  	<time datetime="2016-03-25T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-24</time>
 </a>
         
       </header>
@@ -522,7 +522,7 @@
 
         
         <a href="/2016/03/23/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/" class="archive-article-date">
-  	<time datetime="2016-03-23T13:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
+  	<time datetime="2016-03-24T04:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
 </a>
         
       </header>
@@ -600,13 +600,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/22/disksim-with-ssdmodel-source-analysis-012-write-requests/">disksim with ssdmodel 源码解析（十二）：写操作分析</a>
+      <a class="article-title" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/">disksim with ssdmodel 源码解析（十二）：写操作分析</a>
     </h1>
   
 
         
-        <a href="/2016/03/22/disksim-with-ssdmodel-source-analysis-012-write-requests/" class="archive-article-date">
-  	<time datetime="2016-03-23T04:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
+        <a href="/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/" class="archive-article-date">
+  	<time datetime="2016-03-23T19:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
 </a>
         
       </header>
@@ -620,7 +620,7 @@
 <p>当下一个写请求到达时，如果还是和上一个写请求的逻辑页号一样，首先会把 lpn 对应的物理块的 page[] 值置为 -1，再更新 lba_table[lpn] 到当前的 active page。</p>
 <p>介绍具体的写操作之前先介绍下相关的 element 和 block 中的元数据的属性(<strong>仅列举本文中提到的，其他的忽略</strong>)。</p>
         
-          <a class="article-more-a" href="/2016/03/22/disksim-with-ssdmodel-source-analysis-012-write-requests/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/#more">more >></a>
         
       
 
@@ -650,7 +650,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/22/disksim-with-ssdmodel-source-analysis-012-write-requests/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/">展开全文 >></a>
         </p>
       
 
@@ -687,13 +687,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/22/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/">disksim with ssdmodel 源码解析（十一）：地址映射</a>
+      <a class="article-title" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/">disksim with ssdmodel 源码解析（十一）：地址映射</a>
     </h1>
   
 
         
-        <a href="/2016/03/22/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/" class="archive-article-date">
-  	<time datetime="2016-03-23T02:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
+        <a href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/" class="archive-article-date">
+  	<time datetime="2016-03-23T17:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
 </a>
         
       </header>
@@ -704,7 +704,7 @@
 <p>由于 SSD 与主机的接口使用的还是以前的 HDD 的接口，所以操作系统给 SSD 发出请求时仍然是以扇区(sector，512B)为单位。例如一条trace数据为 (0.0,0,512,8,0)，表示的是要对第512个扇区进行操作。由于 SSD 读写操作的基本单位时页(page, 4KB)，所以操作系统给 SSD 发请求时的地址通常都是 8 的整数倍。</p>
 <p>SSD 地址映射最简单的方式就是以页为单位一对一映射(类似cache的全相联映射)，当然这是很费内存的。在 ssdmodel 中为了减少内存开销，通常是以一个 element 为单位在其内部进行以 page 为单位的一一映射。 在 element(chip) 的元数据里面有一个 <code>lba_table[]</code> 的数组，表示的逻辑页到物理页的映射。比如 <code>lab_table[lpn] = ppn</code>，代表的是该 element 上的逻辑页号 lpn 对应着该 element 上的物理页号 ppn。</p>
         
-          <a class="article-more-a" href="/2016/03/22/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/#more">more >></a>
         
       
 
@@ -734,7 +734,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/22/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/">展开全文 >></a>
         </p>
       
 
@@ -771,13 +771,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/21/matplotlib-demo-004-text-and-label/">matplotlib 画图（四）：text 和 label 的设置</a>
+      <a class="article-title" href="/2016/03/22/matplotlib-demo-004-text-and-label/">matplotlib 画图（四）：text 和 label 的设置</a>
     </h1>
   
 
         
-        <a href="/2016/03/21/matplotlib-demo-004-text-and-label/" class="archive-article-date">
-  	<time datetime="2016-03-22T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-21</time>
+        <a href="/2016/03/22/matplotlib-demo-004-text-and-label/" class="archive-article-date">
+  	<time datetime="2016-03-22T17:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
 </a>
         
       </header>
@@ -786,7 +786,7 @@
       
         <p><img src="/img/articles/matplotlib/test-and-label.jpg" alt=""></p>
         
-          <a class="article-more-a" href="/2016/03/21/matplotlib-demo-004-text-and-label/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/22/matplotlib-demo-004-text-and-label/#more">more >></a>
         
       
 
@@ -816,7 +816,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/21/matplotlib-demo-004-text-and-label/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/22/matplotlib-demo-004-text-and-label/">展开全文 >></a>
         </p>
       
 
@@ -859,7 +859,7 @@
 
         
         <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/" class="archive-article-date">
-  	<time datetime="2016-03-19T12:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+  	<time datetime="2016-03-19T22:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
       </header>
@@ -935,13 +935,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/">disksim with ssdmodel 源码解析（九）：syssim_driver 系统级接口(二)</a>
+      <a class="article-title" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/">disksim with ssdmodel 源码解析（九）：syssim_driver 系统级接口(二)</a>
     </h1>
   
 
         
-        <a href="/2016/03/18/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/" class="archive-article-date">
-  	<time datetime="2016-03-19T04:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-18</time>
+        <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/" class="archive-article-date">
+  	<time datetime="2016-03-19T19:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
       </header>
@@ -952,7 +952,7 @@
 <p>原程序最大的局限性就在于，每次发送请求都是等上一个请求全部完成了才发送下一个请求。很显然这是不切实际的，所以这一块是要我们修改的。还有一点就是要将原程序中随机生成的 trace 数据改成我们自定义的数据，可以改成从文件中去读取我们自己的 trace 。</p>
 <p>原来程序的调用方式是 <code>syssim &lt;parameters file&gt; &lt;output file&gt; &lt;max. block number&gt;</code> ，<code>max. block number</code> 表示的是最大的 blkno 主要是在随机生成 trace 时用到，这里我们用不上这个参数，直接把这个参数换成我们的 trace 文件就好了。然后采用这样的方式调用该程序：<code>syssim &lt;parameters file&gt; &lt;output file&gt; &lt;trace file&gt;</code></p>
         
-          <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/#more">more >></a>
         
       
 
@@ -982,7 +982,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/">展开全文 >></a>
         </p>
       
 
@@ -1122,6 +1122,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Web 前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -1138,23 +1146,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Web 前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">图论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1222,6 +1222,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
@@ -1230,7 +1234,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1270,6 +1274,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
@@ -1282,11 +1290,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1298,15 +1306,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
             
             <div class="clearfix"></div>
