@@ -182,13 +182,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/">disksim-3.0 with flashsim 源码分析（六）：垃圾回收</a>
+      <a class="article-title" href="/2017/02/28/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/">disksim-3.0 with flashsim 源码分析（六）：垃圾回收</a>
     </h1>
   
 
         
-        <a href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/" class="archive-article-date">
-  	<time datetime="2017-02-27T22:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-27</time>
+        <a href="/2017/02/28/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/" class="archive-article-date">
+  	<time datetime="2017-02-27T22:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
 </a>
         
       </header>
@@ -197,7 +197,7 @@
       
         <p>仍然以DFTL为例，在 <code>dftl.c</code> 文件中有一个 <code>opm_write（）</code> 函数，前面对这个函数也进行过介绍，这个函数主要是实现 dftl 的写操作逻辑。在这个函数中会进行 GC 操作的判断，先调用 <code>nand_get_free_blk(0)</code> 函数，如果返回 -1 ，则表示需要进行垃圾回收，当整个 SSD 的空闲页大于阈值的时候就停止垃圾回收。这部分的代码，如下所示：</p>
         
-          <a class="article-more-a" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/#more">more >></a>
+          <a class="article-more-a" href="/2017/02/28/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/#more">more >></a>
         
       
 
@@ -231,7 +231,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/02/28/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/">展开全文 >></a>
         </p>
       
 
@@ -268,13 +268,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-05-write-operation/">disksim-3.0 with flashsim 源码分析（五）：写操作</a>
+      <a class="article-title" href="/2017/02/28/disksim-3.0-with-flashsim-source-analysis-05-write-operation/">disksim-3.0 with flashsim 源码分析（五）：写操作</a>
     </h1>
   
 
         
-        <a href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-05-write-operation/" class="archive-article-date">
-  	<time datetime="2017-02-27T21:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-27</time>
+        <a href="/2017/02/28/disksim-3.0-with-flashsim-source-analysis-05-write-operation/" class="archive-article-date">
+  	<time datetime="2017-02-27T21:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-28</time>
 </a>
         
       </header>
@@ -284,7 +284,7 @@
         <p>flashsim中读写操作的函数调用流程是： <code>callFsim()</code>  –&gt;  <code>send_flash_request()</code> –&gt; <code>opm_write()</code> –&gt; <code>nand_page_write()</code>。</p>
 <p><code>callFsim()</code>: 主要解决的是缓冲区中映射表的查找和替换。<br><code>send_flash_request()</code>: 通过判断当前使用的是什么类型的FTL，然后将读写请求发送到该 FTL 中去处理。<br><code>opm_write()</code>: FTL 中的读写操作，<br><code>nand_page_write()</code>: 最底层的读写操作的实现。</p>
         
-          <a class="article-more-a" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-05-write-operation/#more">more >></a>
+          <a class="article-more-a" href="/2017/02/28/disksim-3.0-with-flashsim-source-analysis-05-write-operation/#more">more >></a>
         
       
 
@@ -318,7 +318,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-05-write-operation/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/02/28/disksim-3.0-with-flashsim-source-analysis-05-write-operation/">展开全文 >></a>
         </p>
       
 
@@ -443,13 +443,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/21/disksim-3.0-with-flashsim-source-analysis-03-callFsim/">disksim-3.0 with flashsim 源码分析（三）：callFsim()函数介绍</a>
+      <a class="article-title" href="/2017/02/22/disksim-3.0-with-flashsim-source-analysis-03-callFsim/">disksim-3.0 with flashsim 源码分析（三）：callFsim()函数介绍</a>
     </h1>
   
 
         
-        <a href="/2017/02/21/disksim-3.0-with-flashsim-source-analysis-03-callFsim/" class="archive-article-date">
-  	<time datetime="2017-02-22T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-21</time>
+        <a href="/2017/02/22/disksim-3.0-with-flashsim-source-analysis-03-callFsim/" class="archive-article-date">
+  	<time datetime="2017-02-22T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
 </a>
         
       </header>
@@ -460,7 +460,7 @@
 <p>进入到 ssd 模块后首先进入的是 disksim_simpleflash.c 文件，这就类似于 disksim-4.0 with ssdmodel 中的 ssd.c 文件，他们实现的功能有很多是相同的。</p>
 <p>最后在 <code>simpleflash_get_acctime()</code> 函数中调用 <code>callFsim()</code> 函数。<code>callFsim()</code> 函数以后的内容才是 flashsim 重点实现的部分。</p>
         
-          <a class="article-more-a" href="/2017/02/21/disksim-3.0-with-flashsim-source-analysis-03-callFsim/#more">more >></a>
+          <a class="article-more-a" href="/2017/02/22/disksim-3.0-with-flashsim-source-analysis-03-callFsim/#more">more >></a>
         
       
 
@@ -494,7 +494,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/21/disksim-3.0-with-flashsim-source-analysis-03-callFsim/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/02/22/disksim-3.0-with-flashsim-source-analysis-03-callFsim/">展开全文 >></a>
         </p>
       
 
@@ -531,13 +531,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/10/disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache/">disksim-3.0 with flashsim 源码分析（二）：DFTL 中的 cache</a>
+      <a class="article-title" href="/2016/12/11/disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache/">disksim-3.0 with flashsim 源码分析（二）：DFTL 中的 cache</a>
     </h1>
   
 
         
-        <a href="/2016/12/10/disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache/" class="archive-article-date">
-  	<time datetime="2016-12-10T23:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-10</time>
+        <a href="/2016/12/11/disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache/" class="archive-article-date">
+  	<time datetime="2016-12-10T23:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-11</time>
 </a>
         
       </header>
@@ -546,7 +546,7 @@
       
         <p>DFTL<a href="#References">[1]</a> 是一个页级映射的 FTL，它将映射表存在闪存中，并将一部分映射表放在 SSD 的缓存中。缓存中的映射表经常会被换进换出，DFTL 中采用了  segmented-LRU<a href="#References">[2]</a> 的方式管理缓存。</p>
         
-          <a class="article-more-a" href="/2016/12/10/disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache/#more">more >></a>
+          <a class="article-more-a" href="/2016/12/11/disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache/#more">more >></a>
         
       
 
@@ -580,7 +580,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/10/disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/12/11/disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache/">展开全文 >></a>
         </p>
       
 
@@ -617,13 +617,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/disksim-3.0-with-flashsim-source-analysis-01-how-to-install/">disksim-3.0 with flashsim 源码分析（一）：disksim-3.0 和 flashsim 的安装</a>
+      <a class="article-title" href="/2016/12/07/disksim-3.0-with-flashsim-source-analysis-01-how-to-install/">disksim-3.0 with flashsim 源码分析（一）：disksim-3.0 和 flashsim 的安装</a>
     </h1>
   
 
         
-        <a href="/2016/12/06/disksim-3.0-with-flashsim-source-analysis-01-how-to-install/" class="archive-article-date">
-  	<time datetime="2016-12-07T07:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-06</time>
+        <a href="/2016/12/07/disksim-3.0-with-flashsim-source-analysis-01-how-to-install/" class="archive-article-date">
+  	<time datetime="2016-12-07T07:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-07</time>
 </a>
         
       </header>
@@ -632,7 +632,7 @@
       
         <p>这个版本的 flashsim 模拟器需要和 disksim-3.0 结合使用，使用的是 C (C89 标准) 语言开发的。github 上有一个可独立使用的 flashsim 模拟器，但是跟这个不是同一个，那个模拟器 bug 较多，不推荐使用。 </p>
         
-          <a class="article-more-a" href="/2016/12/06/disksim-3.0-with-flashsim-source-analysis-01-how-to-install/#more">more >></a>
+          <a class="article-more-a" href="/2016/12/07/disksim-3.0-with-flashsim-source-analysis-01-how-to-install/#more">more >></a>
         
       
 
@@ -666,7 +666,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/06/disksim-3.0-with-flashsim-source-analysis-01-how-to-install/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/12/07/disksim-3.0-with-flashsim-source-analysis-01-how-to-install/">展开全文 >></a>
         </p>
       
 
@@ -703,13 +703,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/flashsim-source-analysis-05-initialization/">flashsim 源码分析（五）： flashsim 的初始化</a>
+      <a class="article-title" href="/2016/11/23/flashsim-source-analysis-05-initialization/">flashsim 源码分析（五）： flashsim 的初始化</a>
     </h1>
   
 
         
-        <a href="/2016/11/22/flashsim-source-analysis-05-initialization/" class="archive-article-date">
-  	<time datetime="2016-11-23T00:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-22</time>
+        <a href="/2016/11/23/flashsim-source-analysis-05-initialization/" class="archive-article-date">
+  	<time datetime="2016-11-23T00:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-23</time>
 </a>
         
       </header>
@@ -720,7 +720,7 @@
 <p>当需要模拟一个 SSD 时，首先需要调用 <code>load_config()</code>， 这个函数会读取配置文件，将配置文件中的信息保存在一些全局变量中。</p>
 <h3 id="flashsim-的初始化"><a href="#flashsim-的初始化" class="headerlink" title="flashsim 的初始化"></a><strong>flashsim 的初始化</strong></h3>
         
-          <a class="article-more-a" href="/2016/11/22/flashsim-source-analysis-05-initialization/#more">more >></a>
+          <a class="article-more-a" href="/2016/11/23/flashsim-source-analysis-05-initialization/#more">more >></a>
         
       
 
@@ -750,7 +750,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/22/flashsim-source-analysis-05-initialization/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/11/23/flashsim-source-analysis-05-initialization/">展开全文 >></a>
         </p>
       
 
@@ -787,13 +787,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/13/flashsim-source-analysis-04-achievement-of-bus-channel-lock/">flashsim 源码分析（四）： 总线上锁机制的实现</a>
+      <a class="article-title" href="/2016/11/14/flashsim-source-analysis-04-achievement-of-bus-channel-lock/">flashsim 源码分析（四）： 总线上锁机制的实现</a>
     </h1>
   
 
         
-        <a href="/2016/11/13/flashsim-source-analysis-04-achievement-of-bus-channel-lock/" class="archive-article-date">
-  	<time datetime="2016-11-14T00:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-13</time>
+        <a href="/2016/11/14/flashsim-source-analysis-04-achievement-of-bus-channel-lock/" class="archive-article-date">
+  	<time datetime="2016-11-14T00:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-14</time>
 </a>
         
       </header>
@@ -803,7 +803,7 @@
         <p>flashsim 模拟器是事件驱动型的。每一个请求对应一个事件(event对象)。event 对象会在闪存内部的各个器件之间相互传递，从而来模拟闪存处理IO请求。</p>
 <p>前面介绍了，<a href="(../../../../2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/">总线通道(bus channel)中的交叉操作</a>)。现在结合源码来了解下，flashsim 是如何来模拟总线占用的。</p>
         
-          <a class="article-more-a" href="/2016/11/13/flashsim-source-analysis-04-achievement-of-bus-channel-lock/#more">more >></a>
+          <a class="article-more-a" href="/2016/11/14/flashsim-source-analysis-04-achievement-of-bus-channel-lock/#more">more >></a>
         
       
 
@@ -833,7 +833,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/13/flashsim-source-analysis-04-achievement-of-bus-channel-lock/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/11/14/flashsim-source-analysis-04-achievement-of-bus-channel-lock/">展开全文 >></a>
         </p>
       
 
@@ -870,13 +870,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/">flashsim 源码分析（三）： 总线通道中的交叉</a>
+      <a class="article-title" href="/2016/11/12/flashsim-source-analysis-03-bus-channel-interleaving/">flashsim 源码分析（三）： 总线通道中的交叉</a>
     </h1>
   
 
         
-        <a href="/2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/" class="archive-article-date">
-  	<time datetime="2016-11-12T00:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-11</time>
+        <a href="/2016/11/12/flashsim-source-analysis-03-bus-channel-interleaving/" class="archive-article-date">
+  	<time datetime="2016-11-12T00:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-12</time>
 </a>
         
       </header>
@@ -886,7 +886,7 @@
         <p>在 SSD 的读写中，很多过程都需要占用总线，有效利用总线的空闲时间可以降低 SSD 的响应时间。如果交叉地进行读写操作，这样可以提高总线的利用效率。</p>
 <p>每一个总线通道(bus channel)上连接一个 package 里的所有 die。每个总线通道都是独立和并行的，不同通道上的操作是互相不干扰的。</p>
         
-          <a class="article-more-a" href="/2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/#more">more >></a>
+          <a class="article-more-a" href="/2016/11/12/flashsim-source-analysis-03-bus-channel-interleaving/#more">more >></a>
         
       
 
@@ -916,7 +916,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/11/12/flashsim-source-analysis-03-bus-channel-interleaving/">展开全文 >></a>
         </p>
       
 
@@ -953,13 +953,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/">flashsim 源码分析（二）： flashsim 中的面向对象设计</a>
+      <a class="article-title" href="/2016/11/10/flashsim-source-analysis-02-object-oriented-component-design/">flashsim 源码分析（二）： flashsim 中的面向对象设计</a>
     </h1>
   
 
         
-        <a href="/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/" class="archive-article-date">
-  	<time datetime="2016-11-10T05:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-09</time>
+        <a href="/2016/11/10/flashsim-source-analysis-02-object-oriented-component-design/" class="archive-article-date">
+  	<time datetime="2016-11-10T05:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-10</time>
 </a>
         
       </header>
@@ -970,7 +970,7 @@
 <p>flashsim 所模拟的闪存的硬件架构如下图所示。</p>
 <p><img src="/img/articles/flashsim/flashsim-02-01.jpg" alt=""></p>
         
-          <a class="article-more-a" href="/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/#more">more >></a>
+          <a class="article-more-a" href="/2016/11/10/flashsim-source-analysis-02-object-oriented-component-design/#more">more >></a>
         
       
 
@@ -1000,7 +1000,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/11/10/flashsim-source-analysis-02-object-oriented-component-design/">展开全文 >></a>
         </p>
       
 

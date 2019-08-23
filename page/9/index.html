@@ -348,13 +348,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/">disksim with ssdmodel 源码解析（七）：block的组织形式</a>
+      <a class="article-title" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-007-block-arranged/">disksim with ssdmodel 源码解析（七）：block的组织形式</a>
     </h1>
   
 
         
-        <a href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/" class="archive-article-date">
-  	<time datetime="2016-03-19T04:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-18</time>
+        <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-007-block-arranged/" class="archive-article-date">
+  	<time datetime="2016-03-19T04:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
       </header>
@@ -366,7 +366,7 @@
 <p>在 <code>ssd.h</code> 文件中我们可以看到三条宏定义，分别是：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_CONCAT    1 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_PAIRWISE_STRIPE 	2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_FULL_STRIPE	3</span></span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-007-block-arranged/#more">more >></a>
         
       
 
@@ -396,7 +396,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-007-block-arranged/">展开全文 >></a>
         </p>
       
 
@@ -433,13 +433,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/17/matplotlib-demo-002-fill/">matplotlib 画图（二）：图形填充</a>
+      <a class="article-title" href="/2016/03/18/matplotlib-demo-002-fill/">matplotlib 画图（二）：图形填充</a>
     </h1>
   
 
         
-        <a href="/2016/03/17/matplotlib-demo-002-fill/" class="archive-article-date">
-  	<time datetime="2016-03-18T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-17</time>
+        <a href="/2016/03/18/matplotlib-demo-002-fill/" class="archive-article-date">
+  	<time datetime="2016-03-18T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-18</time>
 </a>
         
       </header>
@@ -448,7 +448,7 @@
       
         <p><img src="/img/articles/matplotlib/fill.jpg" alt=""></p>
         
-          <a class="article-more-a" href="/2016/03/17/matplotlib-demo-002-fill/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/18/matplotlib-demo-002-fill/#more">more >></a>
         
       
 
@@ -478,7 +478,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/17/matplotlib-demo-002-fill/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/18/matplotlib-demo-002-fill/">展开全文 >></a>
         </p>
       
 
@@ -515,13 +515,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">disksim with ssdmodel 源码解析（六）：disksim_setup_disksim</a>
+      <a class="article-title" href="/2016/03/17/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">disksim with ssdmodel 源码解析（六）：disksim_setup_disksim</a>
     </h1>
   
 
         
-        <a href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/" class="archive-article-date">
-  	<time datetime="2016-03-16T21:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-16</time>
+        <a href="/2016/03/17/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/" class="archive-article-date">
+  	<time datetime="2016-03-16T21:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-17</time>
 </a>
         
       </header>
@@ -531,7 +531,7 @@
         <p><code>disksim_setup_disksim()</code> 是在 main 函数中被调用的，主要用来设置 disksim 各种参数，为磁盘模拟做准备。函数的源码在 <code>disksim.c</code> 文件中。对于函数的功能主要有以下几个方面：</p>
 <h3 id="1-设置对齐方式"><a href="#1-设置对齐方式" class="headerlink" title="1. 设置对齐方式"></a><strong>1. 设置对齐方式</strong></h3><p>通过调用 <code>setEndian()</code> 这个函数来设置大端对齐还是小端对齐。</p>
         
-          <a class="article-more-a" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/17/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/#more">more >></a>
         
       
 
@@ -561,7 +561,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/17/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">展开全文 >></a>
         </p>
       
 
@@ -762,13 +762,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/15/sort-large-number-of-int-numbers/">一种时间复杂度为 O(N) 整数排序算法</a>
+      <a class="article-title" href="/2016/03/16/sort-large-number-of-int-numbers/">一种时间复杂度为 O(N) 整数排序算法</a>
     </h1>
   
 
         
-        <a href="/2016/03/15/sort-large-number-of-int-numbers/" class="archive-article-date">
-  	<time datetime="2016-03-16T00:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-15</time>
+        <a href="/2016/03/16/sort-large-number-of-int-numbers/" class="archive-article-date">
+  	<time datetime="2016-03-16T00:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-16</time>
 </a>
         
       </header>
@@ -782,7 +782,7 @@
 <li>数据量很大</li>
 </ul>
         
-          <a class="article-more-a" href="/2016/03/15/sort-large-number-of-int-numbers/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/16/sort-large-number-of-int-numbers/#more">more >></a>
         
       
 
@@ -812,7 +812,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/15/sort-large-number-of-int-numbers/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/16/sort-large-number-of-int-numbers/">展开全文 >></a>
         </p>
       
 
@@ -849,13 +849,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍</a>
+      <a class="article-title" href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍</a>
     </h1>
   
 
         
-        <a href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/" class="archive-article-date">
-  	<time datetime="2016-03-14T03:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-13</time>
+        <a href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/" class="archive-article-date">
+  	<time datetime="2016-03-14T03:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-14</time>
 </a>
         
       </header>
@@ -867,7 +867,7 @@
 <p>在进入 <code>ssd_event_arrive</code> 函数后我们可以用 gdb 工具的 bt 命令来查看下函数的堆栈情况，看看是在什么函数里调用了 ssd_event_arrive 才进入到 ssdmodel 的。</p>
 <p>disksim 会在两种情况下进入到 ssdmodel　中，第一种情况是在建立 disksim 时，也就是 <code>disksim_setup_disksim</code> 函数中；第二种中就是在 disksim 模拟磁盘操作时，也就是在 <code>disksim_run_simulation</code> 函数中</p>
         
-          <a class="article-more-a" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/#more">more >></a>
         
       
 
@@ -897,7 +897,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">展开全文 >></a>
         </p>
       
 
@@ -934,13 +934,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/">disksim with ssdmodel 源码解析（三）：初次使用介绍</a>
+      <a class="article-title" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-003-how-to-run/">disksim with ssdmodel 源码解析（三）：初次使用介绍</a>
     </h1>
   
 
         
-        <a href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/" class="archive-article-date">
-  	<time datetime="2016-03-12T22:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-12</time>
+        <a href="/2016/03/13/disksim-with-ssdmodel-source-analysis-003-how-to-run/" class="archive-article-date">
+  	<time datetime="2016-03-12T22:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-13</time>
 </a>
         
       </header>
@@ -952,7 +952,7 @@
 <p>前面已经介绍过了 <a href="../../../../2015/09/09/disksim-with-ssdmodel-source-analysis-001-how-to-install/">disksim-4.0 的安装</a>，包括安装 ssdmodel 模块。</p>
 <p>下面主要介绍下 disksim-4.0 的使用。</p>
         
-          <a class="article-more-a" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-003-how-to-run/#more">more >></a>
         
       
 
@@ -982,7 +982,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/13/disksim-with-ssdmodel-source-analysis-003-how-to-run/">展开全文 >></a>
         </p>
       
 

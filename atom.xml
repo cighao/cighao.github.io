@@ -18,8 +18,8 @@
   
   <entry>
     <title>Neo4j 介绍(五)：使用 java 访问 neo4j</title>
-    <link href="http://cighao.com/2019/04/24/introduction-of-neo4j-05-java-driver/"/>
-    <id>http://cighao.com/2019/04/24/introduction-of-neo4j-05-java-driver/</id>
+    <link href="http://cighao.com/2019/04/25/introduction-of-neo4j-05-java-driver/"/>
+    <id>http://cighao.com/2019/04/25/introduction-of-neo4j-05-java-driver/</id>
     <published>2019-04-25T05:35:22.000Z</published>
     <updated>2019-04-24T20:20:20.105Z</updated>
     
@@ -38,8 +38,8 @@
   
   <entry>
     <title>Neo4j 介绍(四)：关于 neo4j 的一些博客</title>
-    <link href="http://cighao.com/2019/04/21/introduction-of-neo4j-04-blogs/"/>
-    <id>http://cighao.com/2019/04/21/introduction-of-neo4j-04-blogs/</id>
+    <link href="http://cighao.com/2019/04/22/introduction-of-neo4j-04-blogs/"/>
+    <id>http://cighao.com/2019/04/22/introduction-of-neo4j-04-blogs/</id>
     <published>2019-04-22T05:35:22.000Z</published>
     <updated>2019-04-21T18:15:50.880Z</updated>
     
@@ -99,8 +99,8 @@
   
   <entry>
     <title>日常遇到的一些小问题的解决方案</title>
-    <link href="http://cighao.com/2019/03/29/problems-in-dailylife/"/>
-    <id>http://cighao.com/2019/03/29/problems-in-dailylife/</id>
+    <link href="http://cighao.com/2019/03/30/problems-in-dailylife/"/>
+    <id>http://cighao.com/2019/03/30/problems-in-dailylife/</id>
     <published>2019-03-30T04:35:22.000Z</published>
     <updated>2019-05-05T16:44:42.238Z</updated>
     
@@ -119,8 +119,8 @@
   
   <entry>
     <title>Neo4j 介绍(一)：安装</title>
-    <link href="http://cighao.com/2019/03/21/introduction-of-neo4j-01-install/"/>
-    <id>http://cighao.com/2019/03/21/introduction-of-neo4j-01-install/</id>
+    <link href="http://cighao.com/2019/03/22/introduction-of-neo4j-01-install/"/>
+    <id>http://cighao.com/2019/03/22/introduction-of-neo4j-01-install/</id>
     <published>2019-03-22T04:35:22.000Z</published>
     <updated>2019-05-06T11:40:10.511Z</updated>
     
@@ -139,8 +139,8 @@
   
   <entry>
     <title>matlab 画图（十）： 分组和堆叠的条形图</title>
-    <link href="http://cighao.com/2019/01/13/draw-picture-with-matlab-010-group-and-stack-bar/"/>
-    <id>http://cighao.com/2019/01/13/draw-picture-with-matlab-010-group-and-stack-bar/</id>
+    <link href="http://cighao.com/2019/01/14/draw-picture-with-matlab-010-group-and-stack-bar/"/>
+    <id>http://cighao.com/2019/01/14/draw-picture-with-matlab-010-group-and-stack-bar/</id>
     <published>2019-01-14T00:20:22.000Z</published>
     <updated>2019-05-16T05:47:31.846Z</updated>
     
@@ -162,8 +162,8 @@
   
   <entry>
     <title>论文写作常用工具</title>
-    <link href="http://cighao.com/2018/11/20/tool-sites-for-writing-papers/"/>
-    <id>http://cighao.com/2018/11/20/tool-sites-for-writing-papers/</id>
+    <link href="http://cighao.com/2018/11/21/tool-sites-for-writing-papers/"/>
+    <id>http://cighao.com/2018/11/21/tool-sites-for-writing-papers/</id>
     <published>2018-11-21T04:20:22.000Z</published>
     <updated>2018-12-18T01:02:42.215Z</updated>
     
@@ -183,8 +183,8 @@
   
   <entry>
     <title>Openstack Swift学习(八)：配置ntp</title>
-    <link href="http://cighao.com/2018/09/29/openstack-swift-study-08-configure-ntp/"/>
-    <id>http://cighao.com/2018/09/29/openstack-swift-study-08-configure-ntp/</id>
+    <link href="http://cighao.com/2018/09/30/openstack-swift-study-08-configure-ntp/"/>
+    <id>http://cighao.com/2018/09/30/openstack-swift-study-08-configure-ntp/</id>
     <published>2018-09-30T00:20:22.000Z</published>
     <updated>2018-09-29T09:48:16.896Z</updated>
     
@@ -207,8 +207,8 @@
   
   <entry>
     <title>Openstack Swift学习(七)：ssbench 使用</title>
-    <link href="http://cighao.com/2018/09/29/openstack-swift-study-07-ssbench/"/>
-    <id>http://cighao.com/2018/09/29/openstack-swift-study-07-ssbench/</id>
+    <link href="http://cighao.com/2018/09/30/openstack-swift-study-07-ssbench/"/>
+    <id>http://cighao.com/2018/09/30/openstack-swift-study-07-ssbench/</id>
     <published>2018-09-29T23:20:22.000Z</published>
     <updated>2018-09-29T08:28:34.000Z</updated>
     
@@ -231,8 +231,8 @@
   
   <entry>
     <title>Openstack Swift学习(六)：服务启动源码分析</title>
-    <link href="http://cighao.com/2018/09/29/openstack-swift-study-06-start-proxy/"/>
-    <id>http://cighao.com/2018/09/29/openstack-swift-study-06-start-proxy/</id>
+    <link href="http://cighao.com/2018/09/30/openstack-swift-study-06-start-proxy/"/>
+    <id>http://cighao.com/2018/09/30/openstack-swift-study-06-start-proxy/</id>
     <published>2018-09-29T22:20:22.000Z</published>
     <updated>2018-09-29T09:40:44.503Z</updated>
     
@@ -276,8 +276,8 @@
   
   <entry>
     <title>Openstack Swift学习(五)：debug 总结</title>
-    <link href="http://cighao.com/2018/09/29/openstack-swift-study-05-debug/"/>
-    <id>http://cighao.com/2018/09/29/openstack-swift-study-05-debug/</id>
+    <link href="http://cighao.com/2018/09/30/openstack-swift-study-05-debug/"/>
+    <id>http://cighao.com/2018/09/30/openstack-swift-study-05-debug/</id>
     <published>2018-09-29T21:20:22.000Z</published>
     <updated>2018-09-29T07:13:32.000Z</updated>
     
@@ -325,8 +325,8 @@
   
   <entry>
     <title>Openstack Swift学习(三)：log 配置</title>
-    <link href="http://cighao.com/2018/09/22/openstack-swift-study-03-log/"/>
-    <id>http://cighao.com/2018/09/22/openstack-swift-study-03-log/</id>
+    <link href="http://cighao.com/2018/09/23/openstack-swift-study-03-log/"/>
+    <id>http://cighao.com/2018/09/23/openstack-swift-study-03-log/</id>
     <published>2018-09-22T21:20:22.000Z</published>
     <updated>2018-09-23T13:07:51.300Z</updated>
     
@@ -350,8 +350,8 @@
   
   <entry>
     <title>Openstack Swift学习(二)：相关文档</title>
-    <link href="http://cighao.com/2018/07/20/openstack-swift-study-02-related%20documents/"/>
-    <id>http://cighao.com/2018/07/20/openstack-swift-study-02-related documents/</id>
+    <link href="http://cighao.com/2018/07/21/openstack-swift-study-02-related%20documents/"/>
+    <id>http://cighao.com/2018/07/21/openstack-swift-study-02-related documents/</id>
     <published>2018-07-20T21:20:22.000Z</published>
     <updated>2018-09-25T06:12:06.889Z</updated>
     
@@ -375,8 +375,8 @@
   
   <entry>
     <title>Openstack Swift学习(一)：安装</title>
-    <link href="http://cighao.com/2018/07/12/openstack-swift-study-01-install%20swift/"/>
-    <id>http://cighao.com/2018/07/12/openstack-swift-study-01-install swift/</id>
+    <link href="http://cighao.com/2018/07/13/openstack-swift-study-01-install%20swift/"/>
+    <id>http://cighao.com/2018/07/13/openstack-swift-study-01-install swift/</id>
     <published>2018-07-12T21:20:22.000Z</published>
     <updated>2018-09-23T13:07:17.020Z</updated>
     
@@ -401,8 +401,8 @@
   
   <entry>
     <title>samsung ssd 960 evo 测评[译]</title>
-    <link href="http://cighao.com/2017/09/16/translation-of-samsung-ssd-960-evo-review/"/>
-    <id>http://cighao.com/2017/09/16/translation-of-samsung-ssd-960-evo-review/</id>
+    <link href="http://cighao.com/2017/09/17/translation-of-samsung-ssd-960-evo-review/"/>
+    <id>http://cighao.com/2017/09/17/translation-of-samsung-ssd-960-evo-review/</id>
     <published>2017-09-17T00:20:22.000Z</published>
     <updated>2017-09-16T08:05:25.000Z</updated>
     
@@ -425,8 +425,8 @@
   
   <entry>
     <title>samsung ssd 850 evo 测评[译]</title>
-    <link href="http://cighao.com/2017/09/12/translation-of-samsung-ssd-850-evo-review/"/>
-    <id>http://cighao.com/2017/09/12/translation-of-samsung-ssd-850-evo-review/</id>
+    <link href="http://cighao.com/2017/09/13/translation-of-samsung-ssd-850-evo-review/"/>
+    <id>http://cighao.com/2017/09/13/translation-of-samsung-ssd-850-evo-review/</id>
     <published>2017-09-13T00:20:22.000Z</published>
     <updated>2017-09-16T08:05:19.000Z</updated>
     
@@ -448,8 +448,8 @@
   
   <entry>
     <title>最佳固态硬盘花落谁家[译]</title>
-    <link href="http://cighao.com/2017/08/26/translation-of-best-ssd/"/>
-    <id>http://cighao.com/2017/08/26/translation-of-best-ssd/</id>
+    <link href="http://cighao.com/2017/08/27/translation-of-best-ssd/"/>
+    <id>http://cighao.com/2017/08/27/translation-of-best-ssd/</id>
     <published>2017-08-27T00:20:22.000Z</published>
     <updated>2017-09-16T08:41:12.000Z</updated>
     
@@ -471,8 +471,8 @@
   
   <entry>
     <title>在 linux 上首次使用 SSD</title>
-    <link href="http://cighao.com/2017/03/20/ssd-first-used-on-linux/"/>
-    <id>http://cighao.com/2017/03/20/ssd-first-used-on-linux/</id>
+    <link href="http://cighao.com/2017/03/21/ssd-first-used-on-linux/"/>
+    <id>http://cighao.com/2017/03/21/ssd-first-used-on-linux/</id>
     <published>2017-03-20T23:40:22.000Z</published>
     <updated>2017-03-20T08:26:50.000Z</updated>
     
