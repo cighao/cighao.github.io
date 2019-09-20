@@ -175,6 +175,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-with-ssdmodel-source-analysis-018-gc-analysis-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/">disksim with ssdmodel 源码解析（十八）：GC 分析(五)</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/31/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/" class="archive-article-date">
+  	<time datetime="2016-03-31T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面介绍了在没有 copyback 情况下利用贪心算法来实现 GC。今天来介绍一下在没有 copyback 的情况下利用随机算法来实现 GC 操作。</p>
+<p>接着理一理程序的流程：</p>
+<p><code>ssd_activate_elem()</code> —&gt; <code>ssd_invoke_element_cleaning()</code> —&gt; <code>_ssd_invoke_element_cleaning()</code> —&gt; <code>ssd_clean_element()</code> —&gt; <code>(if no copyback)</code> —&gt; <code>ssd_clean_element_no_copyback()</code> —&gt; <code>(if达到gc条件)</code> —&gt; <code>(if随机算法)</code> —&gt; <code>ssd_clean_blocks_random()</code></p>
+        
+          <a class="article-more-a" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-disksim-with-ssdmodel-source-analysis-017-gc-analysis-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -934,88 +1018,6 @@
 
 
   
-    <article id="post-disksim-with-ssdmodel-source-analysis-010-gc-analysis-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/">disksim with ssdmodel 源码解析（十）：GC分析(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/" class="archive-article-date">
-  	<time datetime="2016-03-19T22:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>垃圾回收(gc)是 SSD 中很重要的一个过程，在 ssdmodel 模块中进行垃圾回收，是在 <code>ssd_activate_elem()</code> 函数中触发的。每次有请求过来时，都会进行垃圾回收的判断，当满足一定的要求时就会进行垃圾回收，垃圾回收结束之后，会退出该函数，并不会继续处理进来的请求，请求会放在下一次来完成，如果没有达到垃圾回收的条件，那么会响应该请求。整个流程如下：</p>
-        
-          <a class="article-more-a" href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -1315,6 +1317,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

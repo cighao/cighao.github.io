@@ -522,23 +522,30 @@
   
 
   
-
+    <section id="comments">
+        <div id="disqus_thread"></div>
+        <script>
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+          /*
+          var disqus_config = function () {
+            this.page.url = post.link;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = post.link; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+          */
+          (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://cighao.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+    </section>
   
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "http://cighao.com/2016/08/15/leveldb-source-analysis-02-structure/",
-  owner: 'cighao',
-  repo: 'cighao.github.io',
-  oauth: {
-    client_id: 'a1300a8081afafcad3ed',
-    client_secret: 'edbc40b9ab2860d3ea254791ff1fcc5e91799d42',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
+
   
 
 
@@ -834,6 +841,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

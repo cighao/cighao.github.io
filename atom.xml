@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cighao.com/"/>
-  <updated>2019-09-04T12:45:17.257Z</updated>
+  <updated>2019-09-19T17:55:48.118Z</updated>
   <id>http://cighao.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cassandra install and test with YCSB</title>
+    <link href="http://cighao.com/2019/09/19/cassandra-introduction-01-install%20and%20test/"/>
+    <id>http://cighao.com/2019/09/19/cassandra-introduction-01-install and test/</id>
+    <published>2019-09-19T08:20:22.000Z</published>
+    <updated>2019-09-19T17:55:48.118Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-install-cassandra"><a href="#1-install-cassandra" class="headerlink" title="1. install cassandra"></a>1. install cassandra</h2><p><a href="https://blog.pythian.com/how-to-build-your-very-own-cassandra-4-0-release/" target="_blank" rel="noopener">https://blog.pythian.com/how-to-build-your-very-own-cassandra-4-0-release/</a></p><p>(1) Make sure you have your prerequisites</p><p>Java SDK 1.8 or Java 1.11 Open Source or Oracle<br>Ant 1.8<br>Git CLI client<br>Python &gt;=2.7&lt;3.0</p><a id="more"></a><p>(2) Download the GIT repository<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitbox.apache.org/repos/asf/cassandra.git</span><br></pre></td></tr></table></figure></p><p>(3) Build your new Cassandra release<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd cassandra</span><br><span class="line">ant</span><br></pre></td></tr></table></figure></p><p>(4) Run Cassandra<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ./bin</span><br><span class="line">./cassandra</span><br></pre></td></tr></table></figure></p><p>(5) Have fun<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./nodetool status</span><br><span class="line">./cqlsh</span><br></pre></td></tr></table></figure></p><p>(6) Some problems you may encounter:<br>(6.1) package org.apache.tools.ant.taskdefs.optional.junit does not exist</p><p>Solution: <code>sudo yum install ant-junit</code></p><h2 id="2-cpp-driver"><a href="#2-cpp-driver" class="headerlink" title="2. cpp driver:"></a>2. cpp driver:</h2><p><a href="https://docs.datastax.com/en/developer/cpp-driver/2.13/topics/building/" target="_blank" rel="noopener">https://docs.datastax.com/en/developer/cpp-driver/2.13/topics/building/</a></p><h2 id="3-ycsb"><a href="#3-ycsb" class="headerlink" title="3. ycsb"></a>3. ycsb</h2><p>(1) install (<a href="https://github.com/brianfrankcooper/YCSB" target="_blank" rel="noopener">https://github.com/brianfrankcooper/YCSB</a>)</p><p>YCSB requires the use of Maven 3. </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/brianfrankcooper/YCSB.git</span><br><span class="line">mvn -pl com.yahoo.ycsb:cassandra-binding -am clean package</span><br></pre></td></tr></table></figure><p>(2) test </p><p><a href="https://github.com/brianfrankcooper/YCSB/tree/master/cassandra" target="_blank" rel="noopener">https://github.com/brianfrankcooper/YCSB/tree/master/cassandra</a><br><a href="https://blog.csdn.net/hs794502825/article/details/17334915" target="_blank" rel="noopener">https://blog.csdn.net/hs794502825/article/details/17334915</a></p><p>for cassandra:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> ./cqlsh</span><br><span class="line">cqlsh&gt; create keyspace ycsb WITH REPLICATION = &#123;&apos;class&apos; : &apos;SimpleStrategy&apos;, &apos;replication_factor&apos;: 1 &#125;;</span><br><span class="line">cqlsh&gt; USE ycsb;</span><br><span class="line">cqlsh&gt; create table usertable (</span><br><span class="line">    y_id varchar primary key,</span><br><span class="line">    field0 varchar,</span><br><span class="line">    field1 varchar,</span><br><span class="line">    field2 varchar,</span><br><span class="line">    field3 varchar,</span><br><span class="line">    field4 varchar,</span><br><span class="line">    field5 varchar,</span><br><span class="line">    field6 varchar,</span><br><span class="line">    field7 varchar,</span><br><span class="line">    field8 varchar,</span><br><span class="line">    field9 varchar);</span><br></pre></td></tr></table></figure></p><p>for ycsb:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/ycsb load cassandra-cql -P workloads/workloada -p hosts=localhost</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-install-cassandra&quot;&gt;&lt;a href=&quot;#1-install-cassandra&quot; class=&quot;headerlink&quot; title=&quot;1. install cassandra&quot;&gt;&lt;/a&gt;1. install cassandra&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.pythian.com/how-to-build-your-very-own-cassandra-4-0-release/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.pythian.com/how-to-build-your-very-own-cassandra-4-0-release/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(1) Make sure you have your prerequisites&lt;/p&gt;
+&lt;p&gt;Java SDK 1.8 or Java 1.11 Open Source or Oracle&lt;br&gt;Ant 1.8&lt;br&gt;Git CLI client&lt;br&gt;Python &amp;gt;=2.7&amp;lt;3.0&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Cassandra" scheme="http://cighao.com/tags/Cassandra/"/>
+    
+  </entry>
   
   <entry>
     <title>阿里数据库内核月报（汇总）</title>
@@ -119,12 +141,12 @@
   
   <entry>
     <title>日常遇到的一些小问题的解决方案</title>
-    <link href="http://cighao.com/2019/03/30/problems-in-dailylife/"/>
-    <id>http://cighao.com/2019/03/30/problems-in-dailylife/</id>
-    <published>2019-03-30T04:35:22.000Z</published>
-    <updated>2019-05-05T16:44:42.238Z</updated>
+    <link href="http://cighao.com/2019/03/29/problems-in-dailylife/"/>
+    <id>http://cighao.com/2019/03/29/problems-in-dailylife/</id>
+    <published>2019-03-29T18:35:22.000Z</published>
+    <updated>2019-09-17T13:49:28.178Z</updated>
     
-    <content type="html"><![CDATA[<p>记录平时走过的坑。</p><a id="more"></a><h3 id="1-VirtualBox-中让虚拟机的分辨率自适应窗口大小"><a href="#1-VirtualBox-中让虚拟机的分辨率自适应窗口大小" class="headerlink" title="1. VirtualBox 中让虚拟机的分辨率自适应窗口大小"></a>1. VirtualBox 中让虚拟机的分辨率自适应窗口大小</h3><p>(1) 打开虚拟机 Devices -&gt; Install Guest Additions…(it’s like inserting a cd to cdrom drive)</p><p>(2) 在虚拟机中运行以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir --p /media/cdrom</span><br><span class="line">sudo mount -t auto /dev/cdrom /media/cdrom/</span><br><span class="line">cd /media/cdrom/</span><br><span class="line">sudo sh VBoxLinuxAdditions.run</span><br></pre></td></tr></table></figure><p>可以在虚拟机窗口的下面选择调整大小。</p><h3 id="2-win10-安装-ubuntu"><a href="#2-win10-安装-ubuntu" class="headerlink" title="2. win10 安装 ubuntu"></a>2. win10 安装 ubuntu</h3><p><a href="https://segmentfault.com/a/1190000014523888" target="_blank" rel="noopener">https://segmentfault.com/a/1190000014523888</a></p><h3 id="3-sudo-usr-bin-sudo-必须属于用户-ID-0"><a href="#3-sudo-usr-bin-sudo-必须属于用户-ID-0" class="headerlink" title="3. sudo: /usr/bin/sudo 必须属于用户  ID 0"></a>3. sudo: /usr/bin/sudo 必须属于用户  ID 0</h3><p>一不小心把 /usr 目录的权限设置成了普通的用户，导致 sudo 用不了，输入 sudo 提示：</p><blockquote><p>sudo: /usr/bin/sudo 必须属于用户  ID 0(的用户)并且设置 setuid 位</p></blockquote><p>重启进入 recovery 模式。</p><p>recovery模式 –&gt; 选择 root</p><p>进入命令行，执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown root:root /usr/bin/sudo</span><br><span class="line">chmod 4755 /usr/bin/sudo</span><br></pre></td></tr></table></figure></p><p>reboot 重启。</p><p>不过还是建议把整个 usr 目录的所有者改成 root：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R root:root /usr</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>记录平时走过的坑。</p><a id="more"></a><h3 id="1-VirtualBox-中让虚拟机的分辨率自适应窗口大小"><a href="#1-VirtualBox-中让虚拟机的分辨率自适应窗口大小" class="headerlink" title="1. VirtualBox 中让虚拟机的分辨率自适应窗口大小"></a>1. VirtualBox 中让虚拟机的分辨率自适应窗口大小</h3><p>(1) 打开虚拟机 Devices -&gt; Install Guest Additions…(it’s like inserting a cd to cdrom drive)</p><p>(2) 在虚拟机中运行以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir --p /media/cdrom</span><br><span class="line">sudo mount -t auto /dev/cdrom /media/cdrom/</span><br><span class="line">cd /media/cdrom/</span><br><span class="line">sudo sh VBoxLinuxAdditions.run</span><br></pre></td></tr></table></figure><p>可以在虚拟机窗口的下面选择调整大小。</p><h3 id="2-win10-安装-ubuntu"><a href="#2-win10-安装-ubuntu" class="headerlink" title="2. win10 安装 ubuntu"></a>2. win10 安装 ubuntu</h3><p><a href="https://segmentfault.com/a/1190000014523888" target="_blank" rel="noopener">https://segmentfault.com/a/1190000014523888</a></p><h3 id="3-sudo-usr-bin-sudo-必须属于用户-ID-0"><a href="#3-sudo-usr-bin-sudo-必须属于用户-ID-0" class="headerlink" title="3. sudo: /usr/bin/sudo 必须属于用户  ID 0"></a>3. sudo: /usr/bin/sudo 必须属于用户  ID 0</h3><p>一不小心把 /usr 目录的权限设置成了普通的用户，导致 sudo 用不了，输入 sudo 提示：</p><blockquote><p>sudo: /usr/bin/sudo 必须属于用户  ID 0(的用户)并且设置 setuid 位</p></blockquote><p>重启进入 recovery 模式。</p><p>recovery模式 –&gt; 选择 root</p><p>进入命令行，执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown root:root /usr/bin/sudo</span><br><span class="line">chmod 4755 /usr/bin/sudo</span><br></pre></td></tr></table></figure></p><p>reboot 重启。</p><p>不过还是建议把整个 usr 目录的所有者改成 root：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R root:root /usr</span><br></pre></td></tr></table></figure><h3 id="gcc-error-parser-lex-c-No-such-file-or-directory"><a href="#gcc-error-parser-lex-c-No-such-file-or-directory" class="headerlink" title="gcc: error: parser_lex.c: No such file or directory"></a>gcc: error: parser_lex.c: No such file or directory</h3><p>从 <a href="https://github.com/filebench/filebench" target="_blank" rel="noopener">https://github.com/filebench/filebench</a> 安装 filebench 时，遇到 gcc: error: parser_lex.c: No such file or directory</p><p>Solution: <code>sudo yum install flex</code> 即可。</p>]]></content>
     
     <summary type="html">
     
@@ -456,29 +478,6 @@
     
       &lt;p&gt;原文：&lt;a href=&quot;http://www.anandtech.com/show/8747/samsung-ssd-850-evo-review&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.anandtech.com/show/8747/samsung-ssd-850-evo-review&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;三星在SSD领域一直都使我印象深刻。三星早期的SSD并不是很好，但自从推出SSD 830以来，三星在SSD领域做出了很多杰出的贡献，为SSD的性能，成本和可靠性设定了较高的标准。三星是第一家在客户端SSD中使用TLC NAND的制造商。这个行业的其他厂商花了两年的时间才能跟上三星的步伐，甚至在今天，SanDisk仍是除三星外唯一一家拥有TLC SSD的厂商。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="SSD" scheme="http://cighao.com/tags/SSD/"/>
-    
-      <category term="翻译" scheme="http://cighao.com/tags/%E7%BF%BB%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最佳固态硬盘花落谁家[译]</title>
-    <link href="http://cighao.com/2017/08/27/translation-of-best-ssd/"/>
-    <id>http://cighao.com/2017/08/27/translation-of-best-ssd/</id>
-    <published>2017-08-27T00:20:22.000Z</published>
-    <updated>2017-09-16T08:41:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文：<a href="http://www.anandtech.com/show/9799/best-ssds" target="_blank" rel="noopener">http://www.anandtech.com/show/9799/best-ssds</a></p><p>虽然下一代的64层或者更多层的3D NAND还没有正式上市，但是距离上市也越来越近了。东芝和西部数据最近在Computex上宣布推出首款采用3D NAND的主流客户端SSD。镁光和海力士在新的下一代3D NAND以及基于它们的SSD方面应该也不会太过于落后。随着闪存生产商逐渐实现 3D NAND 的满负荷生产，当前正在持续的NAND缺货现象将会逐渐得到缓解，SSD的价格也会渐渐停止上升。然而，这些新的SSD目前还没正式对外销售，所以这篇文章的介绍也不会带来任何的重大变化。</p><a id="more"></a><p>如果您正在考虑在大容量或高性能的SSD上进行大量投资，请考虑等到秋季，在64层及以上的SSD开始出货之前。那个时候，你将有更多的选择，并且三星在 NVMe SSD 领域的领先地位可能会面临几个挑战。<br>和往常一样，下面显示的价格只是正在写这篇文章时的价格。我们并不试图去预测在什么时候什么地点会有最佳的折扣。相反，这篇文章应该被视为交易时比较的一个基准。在这里推荐的所有驱动器都是至少在一种容量或者外形尺寸上测试的模型。但是，在大多数情况下，我们尚未测试每一种容量和各种不同外形尺寸的驱动器。对于在本文中没有提到的驱动器，我们的SSD Bench数据库可以提供性能信息和比较的参数。</p><h3 id="Premium-SATA-drives-Samsung-850-PRO"><a href="#Premium-SATA-drives-Samsung-850-PRO" class="headerlink" title="Premium SATA drives: Samsung 850 PRO"></a><strong>Premium SATA drives: Samsung 850 PRO</strong></h3><p><img src="http://images.anandtech.com/doci/9799/850pro_678x452_575px.jpg" alt=""></p><p>随着 SanDisk Extreme Pro正在逐渐被 3D TLC 和具有三年保修期的驱动器所替代，Samsung 850 PRO 作为消费级的高性能 SATA SSD的地位仍然很牢固。ADATA 和 Mushkin 正在提供使用美光3D MLC的驱动器，但是，它们的保修期都很短（特别是Mushkin的产品），而且低功耗的SSD主控限制了其性能。大多数主要的SSD制造商正在计划停止在消费级市场上提供 MLC SSD， 以支持 3D TLC。因此，Samsung 850 PRO 不太可能被更好的 SATA SSD 所取代。相反，NVMe SSD正在掩盖850 PRO的性能，而且正在不断增长的3D TLC的SATA SSD正在以更优惠的价格提供和850 PRO相当的性能。</p><p><img src="/img/articles/best-ssd/01.jpg" alt=""></p><h3 id="Value-amp-Mainstream-SATA-Crucial-MX300-Mushkin-Reactor-1TB"><a href="#Value-amp-Mainstream-SATA-Crucial-MX300-Mushkin-Reactor-1TB" class="headerlink" title="Value &amp; Mainstream SATA: Crucial MX300, Mushkin Reactor 1TB"></a><strong>Value &amp; Mainstream SATA: Crucial MX300, Mushkin Reactor 1TB</strong></h3><p><img src="http://images.anandtech.com/doci/9216/IMG_3441_575px.jpg" alt=""></p><p>Mushkin 的 Reactor 在价格方面仍然可以同TLC SSD进行竞争，所以直到它被基于3D MLC的后继者取代，它都值得买。否则，Crucial MX300将会继续在TLC SSD中提供最佳的性价比。ADATA SU800 有时候会便宜一些，但速度也比较慢。而 Samsung 850 EVO仍然是最快的 SATA TLC SSD，但也显然更贵。<br>Toshiba/Western Digital/SanDisk 的64层3D TLC即将到来，这最有可能对产品领域造成震动。许多品牌的基于Phison的SATA SSD最终都会将转向3D NAND。而NAND厂商本身将会引入模型直接与Crucial MX300进行竞争，同时希望Samsung 850 EVO也是这样。</p><p><img src="/img/articles/best-ssd/02.jpg" alt=""></p><h3 id="Standard-amp-M-2-PCIe-Intel-SSD-600p-and-Samsung-960-EVO"><a href="#Standard-amp-M-2-PCIe-Intel-SSD-600p-and-Samsung-960-EVO" class="headerlink" title="Standard &amp; M.2 PCIe: Intel SSD 600p and Samsung 960 EVO"></a><strong>Standard &amp; M.2 PCIe: Intel SSD 600p and Samsung 960 EVO</strong></h3><p><img src="http://images.anandtech.com/doci/10833/IMGP3588_678x452.jpg" alt=""></p><p>NVMe可以选择的参数值越来越多了。Intel SSD 600p仍然是最便宜，最慢的，尽管  Western Digital WD Black 在价格方面正在和它逐渐接近，但是性能却远远不如它。Samsung 960 EVO提供和 960 PRO相同的主控，都是同类型中最好的NVMe SSD主控，这使得 960 EVO可以提供与许多 MLV NVMe SSD相当的性能。<br>如果要选择绝对最佳的性能或者2TB M.2 PCIe，显然要选择Samsung 960 RPO。然而，把它用在大多数的客户端负载上就显得有点杀鸡焉用牛刀了，这种场合下便宜的NVMe SSD就足够了快了。</p><p><img src="/img/articles/best-ssd/03.jpg" alt=""></p><h3 id="M-2-SATA-Samsung-850-EVO-and-Crucial-MX300"><a href="#M-2-SATA-Samsung-850-EVO-and-Crucial-MX300" class="headerlink" title="M.2 SATA: Samsung 850 EVO and Crucial MX300"></a><strong>M.2 SATA: Samsung 850 EVO and Crucial MX300</strong></h3><p><img src="http://images.anandtech.com/doci/9216/m.2_575px.jpg" alt=""></p><p>M.2 SATA SSD可供选择的配置要远远小于2.5的SSD了。但是在最好的驱动中，有几种可以采用两种形式：Crucial MX 300 通常是最便宜的 M.2 SATA 之一，其性能和功耗非常适合笔记本电脑。目前 WD Blue的价格也在同它接近，但是其性能和功耗都很差，即将推出的基于 3D NAND 的 WD Blue应该这两个方面都会有所提高。Samsung 850 EVO可以提供很高的性能，但是它比 Crucial MX300的价格要高一些。</p><p><img src="/img/articles/best-ssd/04.jpg" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原文：&lt;a href=&quot;http://www.anandtech.com/show/9799/best-ssds&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.anandtech.com/show/9799/best-ssds&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;虽然下一代的64层或者更多层的3D NAND还没有正式上市，但是距离上市也越来越近了。东芝和西部数据最近在Computex上宣布推出首款采用3D NAND的主流客户端SSD。镁光和海力士在新的下一代3D NAND以及基于它们的SSD方面应该也不会太过于落后。随着闪存生产商逐渐实现 3D NAND 的满负荷生产，当前正在持续的NAND缺货现象将会逐渐得到缓解，SSD的价格也会渐渐停止上升。然而，这些新的SSD目前还没正式对外销售，所以这篇文章的介绍也不会带来任何的重大变化。&lt;/p&gt;
     
     </summary>
     

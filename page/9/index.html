@@ -175,6 +175,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-with-ssdmodel-source-analysis-010-gc-analysis-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/">disksim with ssdmodel 源码解析（十）：GC分析(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/" class="archive-article-date">
+  	<time datetime="2016-03-19T22:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>垃圾回收(gc)是 SSD 中很重要的一个过程，在 ssdmodel 模块中进行垃圾回收，是在 <code>ssd_activate_elem()</code> 函数中触发的。每次有请求过来时，都会进行垃圾回收的判断，当满足一定的要求时就会进行垃圾回收，垃圾回收结束之后，会退出该函数，并不会继续处理进来的请求，请求会放在下一次来完成，如果没有达到垃圾回收的条件，那么会响应该请求。整个流程如下：</p>
+        
+          <a class="article-more-a" href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-disksim-with-ssdmodel-source-analysis-009-syssim_driver2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -926,91 +1008,6 @@
 
 
   
-    <article id="post-disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/" class="archive-article-date">
-  	<time datetime="2016-03-14T03:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 Disksim 中所有的工作都是由事件来完成，每个部件都有自己的事件，通过事件来驱动其他部件事件的状态的改变。</p>
-<p>今天我们来看看 ssd.c 中的第一个函数 <code>ssd_event_arrive(curr)</code>，他是 ssdmodel 的入口函数。</p>
-<p>在进入 <code>ssd_event_arrive</code> 函数后我们可以用 gdb 工具的 bt 命令来查看下函数的堆栈情况，看看是在什么函数里调用了 ssd_event_arrive 才进入到 ssdmodel 的。</p>
-<p>disksim 会在两种情况下进入到 ssdmodel　中，第一种情况是在建立 disksim 时，也就是 <code>disksim_setup_disksim</code> 函数中；第二种中就是在 disksim 模拟磁盘操作时，也就是在 <code>disksim_run_simulation</code> 函数中</p>
-        
-          <a class="article-more-a" href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
@@ -1310,6 +1307,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

@@ -175,6 +175,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-GA-algorithm-achieved-by-matlab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/04/GA-algorithm-achieved-by-matlab/">遗传算法的 matlab 实现</a>
+    </h1>
+  
+
+        
+        <a href="/2015/11/04/GA-algorithm-achieved-by-matlab/" class="archive-article-date">
+  	<time datetime="2015-11-04T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[xv,fv]</span>=<span class="title">myGA</span><span class="params">(fitness,a,b,NP,NG,Pc,Pm,eps)</span></span></span><br><span class="line"><span class="comment">% fitness:待优化的目标函数</span></span><br><span class="line"><span class="comment">% a:自变量的下界</span></span><br><span class="line"><span class="comment">% b:自变量的上界</span></span><br><span class="line"><span class="comment">% NP:种群个体数20-100</span></span><br><span class="line"><span class="comment">% NG:最大进化代数100-500</span></span><br><span class="line"><span class="comment">% Pc:杂交概率0.4-0.99</span></span><br><span class="line"><span class="comment">% Pm:变异概率0.0001-0.1</span></span><br><span class="line"><span class="comment">% eps:自变量离散精度</span></span><br><span class="line"><span class="comment">% xm:目标函数取最大值时的自变量值</span></span><br><span class="line"><span class="comment">% fv:目标函数的最大值</span></span><br><span class="line">L=<span class="built_in">ceil</span>(<span class="built_in">log2</span>((b-a)/<span class="built_in">eps</span>+<span class="number">1</span>));      <span class="comment">%根据离散精度确定二进制编码需要的码长</span></span><br><span class="line">x=<span class="built_in">zeros</span>(NP,L);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:NP</span><br><span class="line">    x(<span class="built_in">i</span>,:)=Initial(L);                <span class="comment">%种群初始化</span></span><br><span class="line">    fx(<span class="built_in">i</span>)=fitness(Dec(a,b,x(<span class="built_in">i</span>,:),L)); <span class="comment">%个体适应值</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:NG</span><br><span class="line">    sumfx=sum(fx);          <span class="comment">%所有个体适应值之和</span></span><br><span class="line">    Px=fx/sumfx;            <span class="comment">%所有个体适应值的平均值</span></span><br><span class="line">    PPx(<span class="number">1</span>)=Px(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:NP              <span class="comment">%用于轮盘赌策略的概率累加</span></span><br><span class="line">        PPx(<span class="built_in">i</span>)=PPx(<span class="built_in">i</span><span class="number">-1</span>)+Px(<span class="built_in">i</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:NP</span><br><span class="line">        sita=<span class="built_in">rand</span>();</span><br><span class="line">        <span class="keyword">for</span> n=<span class="number">1</span>:NP</span><br><span class="line">            <span class="keyword">if</span> sita&lt;=PPx(n)</span><br><span class="line">                SelFather=n;  <span class="comment">%根据轮盘赌策略确定的父亲</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        Selmother=<span class="built_in">floor</span>(<span class="built_in">rand</span>()*(NP<span class="number">-1</span>))+<span class="number">1</span>;  <span class="comment">%随机选择母亲   </span></span><br><span class="line">        posCut=<span class="built_in">floor</span>(<span class="built_in">rand</span>()*(L<span class="number">-2</span>))+<span class="number">1</span>;     <span class="comment">%随机确定交叉点</span></span><br><span class="line">        r1=<span class="built_in">rand</span>();</span><br><span class="line">        <span class="keyword">if</span> r1&lt;=Pc                         <span class="comment">%交叉</span></span><br><span class="line">            nx(<span class="built_in">i</span>,<span class="number">1</span>:posCut)=x(SelFather,<span class="number">1</span>:posCut);</span><br><span class="line">            nx(<span class="built_in">i</span>,(posCut+<span class="number">1</span>):L)=x(Selmother,(posCut+<span class="number">1</span>):L);</span><br><span class="line">            r2=<span class="built_in">rand</span>();</span><br><span class="line">            <span class="keyword">if</span> r2&lt;=Pm                     <span class="comment">%变异</span></span><br><span class="line">                posMut=<span class="built_in">round</span>(<span class="built_in">rand</span>()*(L<span class="number">-1</span>)+<span class="number">1</span>);</span><br><span class="line">                nx(<span class="built_in">i</span>,posMut)=<span class="number">1</span>-nx(<span class="built_in">i</span>,posMut);</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            nx(<span class="built_in">i</span>,:)=x(SelFather,:);</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    x=nx;</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:NP</span><br><span class="line">        fx(<span class="built_in">i</span>)=fitness(Dec(a,b,x(<span class="built_in">i</span>,:),L));  <span class="comment">%子代适应值</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">fv=-<span class="built_in">inf</span>;</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:NP</span><br><span class="line">    fitx=fitness(Dec(a,b,x(<span class="built_in">i</span>,:),L)); </span><br><span class="line">    <span class="keyword">if</span> fitx&gt;fv</span><br><span class="line">        fv=fitx;                       <span class="comment">%取个体中的最好的值作为最终结果</span></span><br><span class="line">        xv=Dec(a,b,x(<span class="built_in">i</span>,:),L);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 初始化函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">result</span>=<span class="title">Initial</span><span class="params">(length)</span>        </span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span></span><br><span class="line">    r=<span class="built_in">rand</span>();</span><br><span class="line">    result(<span class="built_in">i</span>)=<span class="built_in">round</span>(r);         <span class="comment">%round四舍五入取整</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%二进制编码转换为十进制编码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span>=<span class="title">Dec</span><span class="params">(a,b,x,L)</span>                </span></span><br><span class="line">base=<span class="number">2.</span>^((L<span class="number">-1</span>):<span class="number">-1</span>:<span class="number">0</span>);</span><br><span class="line">y=<span class="built_in">dot</span>(base,x);<span class="comment">%dot向量的点乘</span></span><br><span class="line">y=a+y*(b-a)/(<span class="number">2</span>^L<span class="number">-1</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fy = @(x) x.^2 -2*x +1;</span><br><span class="line">[xv,fv]=myGA(fy,-5,5,100,300,0.5,0.001,0.00001)</span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<blockquote>
+<p>xv = -4.9733<br>fv =  35.6798</p>
+</blockquote>
+<h3 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a><strong>写在后面</strong></h3><p>这里遗传算法求的是函数的最大值，如果要求最小值只要在原来的函数的基础上乘以 -1 作为新的函数来求就可以了。</p>
+<p>这里的所优化的函数必须是单变量的函数，如果要求多变量函数的极值需要做一些修改。</p>
+
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">遗传算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/11/04/GA-algorithm-achieved-by-matlab/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2048game-by-javascript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -927,92 +1019,6 @@
 
 
   
-    <article id="post-regular-expressions-of-python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/22/regular-expressions-of-python/">python 正则表达式的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/22/regular-expressions-of-python/" class="archive-article-date">
-  	<time datetime="2015-08-22T20:43:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-常用符号"><a href="#1-常用符号" class="headerlink" title="1. 常用符号"></a>1. 常用符号</h2><p>. ：匹配任意字符，换行符 \n 除外<br>* ：匹配前一个字符0次或无限次<br>? ：匹配前一个字符0次或1次<br>.* ：贪心算法，尽可能的匹配多的字符<br>.*? ：非贪心算法<br>() ：括号内的数据作为结果返回<br>
-        
-          <a class="article-more-a" href="/2015/08/22/regular-expressions-of-python/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/22/regular-expressions-of-python/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
@@ -1312,6 +1318,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

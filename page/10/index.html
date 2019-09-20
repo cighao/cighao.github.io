@@ -175,6 +175,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/" class="archive-article-date">
+  	<time datetime="2016-03-14T03:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Disksim 中所有的工作都是由事件来完成，每个部件都有自己的事件，通过事件来驱动其他部件事件的状态的改变。</p>
+<p>今天我们来看看 ssd.c 中的第一个函数 <code>ssd_event_arrive(curr)</code>，他是 ssdmodel 的入口函数。</p>
+<p>在进入 <code>ssd_event_arrive</code> 函数后我们可以用 gdb 工具的 bt 命令来查看下函数的堆栈情况，看看是在什么函数里调用了 ssd_event_arrive 才进入到 ssdmodel 的。</p>
+<p>disksim 会在两种情况下进入到 ssdmodel　中，第一种情况是在建立 disksim 时，也就是 <code>disksim_setup_disksim</code> 函数中；第二种中就是在 disksim 模拟磁盘操作时，也就是在 <code>disksim_run_simulation</code> 函数中</p>
+        
+          <a class="article-more-a" href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/14/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-disksim-with-ssdmodel-source-analysis-003-how-to-run" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -923,84 +1008,6 @@
 
 
   
-    <article id="post-coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/26/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/">为 SSD 编程（3）：页、块和闪存转换层</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/26/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/" class="archive-article-date">
-  	<time datetime="2016-02-26T00:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在这个部分，我会解释写操作在页和块级是如何处理的，以及写入放大和损耗均衡计算的基本概念。此外，我描述了闪存转换层（FTL）的概念，以及应用了闪存转换层的两个技术：逻辑块地址映射和垃圾回收。更详细的说，我解释了在混合逻辑块映射背景下的写操作是怎么实现的。</p>
-        
-          <a class="article-more-a" href="/2016/02/26/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/26/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
@@ -1300,6 +1307,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/2019/09/19/cassandra-introduction-01-install%20and%20test/</loc>
+    
+    <lastmod>2019-09-19T17:55:48.118Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2019/03/29/problems-in-dailylife/</loc>
+    
+    <lastmod>2019-09-17T13:49:28.178Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/2019/09/03/taobao-database-kernel/</loc>
     
     <lastmod>2019-09-04T12:45:17.257Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>http://cighao.com/2019/03/22/introduction-of-neo4j-01-install/</loc>
     
     <lastmod>2019-05-06T11:40:10.511Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/2019/03/30/problems-in-dailylife/</loc>
-    
-    <lastmod>2019-05-05T16:44:42.238Z</lastmod>
     
   </url>
   
