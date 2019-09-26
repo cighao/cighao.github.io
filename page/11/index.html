@@ -175,29 +175,29 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-coding-for-ssds-part-5-access-patterns-and-system-optimizations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/26/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/">为 SSD 编程（3）：页、块和闪存转换层</a>
+      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-5-access-patterns-and-system-optimizations/">为 SSD 编程（5）：访问模式和系统优化</a>
     </h1>
   
 
         
-        <a href="/2016/02/26/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/" class="archive-article-date">
-  	<time datetime="2016-02-26T00:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-26</time>
+        <a href="/2016/02/25/coding-for-ssds-part-5-access-patterns-and-system-optimizations/" class="archive-article-date">
+  	<time datetime="2016-02-25T15:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在这个部分，我会解释写操作在页和块级是如何处理的，以及写入放大和损耗均衡计算的基本概念。此外，我描述了闪存转换层（FTL）的概念，以及应用了闪存转换层的两个技术：逻辑块地址映射和垃圾回收。更详细的说，我解释了在混合逻辑块映射背景下的写操作是怎么实现的。</p>
+        <p>在之前的章节中我叙述了固态硬盘大部分的内部工作，我可以提供数据来帮助理解应该使用哪种访问模式一起为何这种模式确实比其它的好。在这个部分，我解释了写入和读取是如何完成的，以及并发的写入和读取会相互干扰。我同样介绍了文件系统级可以提升性能的一点优化方法。</p>
         
-          <a class="article-more-a" href="/2016/02/26/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-5-access-patterns-and-system-optimizations/#more">more >></a>
         
       
 
@@ -223,7 +223,164 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/26/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-5-access-patterns-and-system-optimizations/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding-for-ssds-part-4-advanced-functionalities-and-internal-parallelism" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-4-advanced-functionalities-and-internal-parallelism/">为 SSD 编程（4）：高级功能和内部并行</a>
+    </h1>
+  
+
+        
+        <a href="/2016/02/25/coding-for-ssds-part-4-advanced-functionalities-and-internal-parallelism/" class="archive-article-date">
+  	<time datetime="2016-02-25T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在这个部分，我将简要的介绍固态硬盘（SSD）的一些主要功能，如TRIM和预留空间。还会介绍SSD中不同等级的内部并行。</p>
+<h2 id="5-高级功能"><a href="#5-高级功能" class="headerlink" title="5. 高级功能"></a><strong>5. 高级功能</strong></h2><h3 id="5-1-TRIM"><a href="#5-1-TRIM" class="headerlink" title="5.1 TRIM "></a><strong>5.1 TRIM </strong></h3><p>让我们假设一个程序向SSD所有的逻辑块地址都写入文件，这个SSD当然会被装满。然后删除这些文件。文件系统会报告所有的地方都是空的，尽管硬盘实际上还是满的，因为SSD主控没法知道逻辑数据是什么时候被主机删掉的。SSD主控只会在这些逻辑块地址被复写的时候才知道这些是空闲空间。此时，垃圾回收进程将会擦除与这些文件相关的块，为进来的写操作提供空的页。其结果就是，擦除操作并非在知道保存有无用数据之后立刻执行，而是被延迟了，这将严重影响性能。</p>
+        
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-4-advanced-functionalities-and-internal-parallelism/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-4-advanced-functionalities-and-internal-parallelism/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/">为 SSD 编程（3）：页、块和闪存转换层</a>
+    </h1>
+  
+
+        
+        <a href="/2016/02/25/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/" class="archive-article-date">
+  	<time datetime="2016-02-25T13:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在这个部分，我会解释写操作在页和块级是如何处理的，以及写入放大和损耗均衡计算的基本概念。此外，我描述了闪存转换层（FTL）的概念，以及应用了闪存转换层的两个技术：逻辑块地址映射和垃圾回收。更详细的说，我解释了在混合逻辑块映射背景下的写操作是怎么实现的。</p>
+        
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-3-pages-blocks-and-the-flash-translation-layer/">展开全文 >></a>
         </p>
       
 
@@ -260,13 +417,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/26/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">为 SSD 编程（2）：SSD的架构和基准</a>
+      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">为 SSD 编程（2）：SSD的架构和基准</a>
     </h1>
   
 
         
-        <a href="/2016/02/26/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/" class="archive-article-date">
-  	<time datetime="2016-02-25T23:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-26</time>
+        <a href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/" class="archive-article-date">
+  	<time datetime="2016-02-25T12:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
 </a>
         
       </header>
@@ -276,7 +433,7 @@
         <p>本第二部分包含了“为SSD编程”的6个内容，包括1、2两节，你可以参考<a href="../../../../2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">目录</a>。这是我在阅读了各种关于SSD的文档之后，为了分享我所学到的东西写的一系列文章。如果你没有时间慢慢看，你可以直接跳转到<a href="../../../../2016/02/25/coding-for-ssds-part-6-a-summary-what-every-programmer-should-know-about-solid-state-drives/">第六部分</a>，这部分总结了所有其他部分的内容。</p>
 <p>在本部分，我将解释NAND闪存的基本知识、闪存单元类型、和基本SSD内部架构。同样包括了SSD基准和如何解释这些基准。</p>
         
-          <a class="article-more-a" href="/2016/02/26/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/#more">more >></a>
         
       
 
@@ -302,7 +459,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/26/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">展开全文 >></a>
         </p>
       
 
@@ -339,13 +496,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/26/coding-for-ssds-part-1-introduction-and-table-of-contents/">为 SSD 编程（1）：简介和目录</a>
+      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">为 SSD 编程（1）：简介和目录</a>
     </h1>
   
 
         
-        <a href="/2016/02/26/coding-for-ssds-part-1-introduction-and-table-of-contents/" class="archive-article-date">
-  	<time datetime="2016-02-25T22:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-26</time>
+        <a href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/" class="archive-article-date">
+  	<time datetime="2016-02-25T11:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
 </a>
         
       </header>
@@ -355,7 +512,7 @@
         <p><strong>简介</strong></p>
 <p>我想为我的<a href="http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/" target="_blank" rel="noopener">键值对存储项目</a>弄一个固态硬盘（SSD）最佳存储解决方案。为此，我必须确保我完全了解SSD是如何工作的，这样就可以优化我的hash表实例来适合SSD的内部特征。网上有很多不完全和相悖的的信息，找到关于SSD的可靠信息并不简单。为了找到适当的文献和基准以说服自己，我必须要进行大量的阅读。如果我要为SSD编程，我需要知道我在做什么。</p>
         
-          <a class="article-more-a" href="/2016/02/26/coding-for-ssds-part-1-introduction-and-table-of-contents/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/#more">more >></a>
         
       
 
@@ -381,7 +538,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/26/coding-for-ssds-part-1-introduction-and-table-of-contents/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">展开全文 >></a>
         </p>
       
 
@@ -418,13 +575,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/26/fundamental-of-flash-memory/">闪存基础(转)</a>
+      <a class="article-title" href="/2016/02/25/fundamental-of-flash-memory/">闪存基础(转)</a>
     </h1>
   
 
         
-        <a href="/2016/02/26/fundamental-of-flash-memory/" class="archive-article-date">
-  	<time datetime="2016-02-25T21:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-26</time>
+        <a href="/2016/02/25/fundamental-of-flash-memory/" class="archive-article-date">
+  	<time datetime="2016-02-25T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
 </a>
         
       </header>
@@ -433,7 +590,7 @@
       
         <p>目前绝大多数SSD都是以NAND FLASH为存储介质的。SSD工作原理很多都是基于NAND FLASH特性的。比如，NAND FLASH在写之前必须先擦除，而不能覆盖写，于是SSD 才需要垃圾回收（Garbage Collection，或者叫 Recycle）；NAND FLASH 每个块（Block）擦写次数达到一定值，这个块就不能用了（数据丢失，或者写入不了），所以SSD 固件必须做 Wear Leveling，让数据平均写在所有块上，而不是盯着几个块拼命写（不然没几天SSD就报废了）。还有类似很多例子，SSD很多实现都是在为NAND FLASH服务的。所以，欲攻SSD，NAND FLASH首当其冲。 NAND FLASH是一种非易失性存储器，也就是说，掉电了，数据也不会丢失。NAND FLASH基本存储单元 (Cell) 是一种类NMOS的双层浮空栅 (Floating Gate) MOS管组成, 如下图所示:</p>
         
-          <a class="article-more-a" href="/2016/02/26/fundamental-of-flash-memory/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/25/fundamental-of-flash-memory/#more">more >></a>
         
       
 
@@ -459,7 +616,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/26/fundamental-of-flash-memory/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/25/fundamental-of-flash-memory/">展开全文 >></a>
         </p>
       
 
@@ -502,7 +659,7 @@
 
         
         <a href="/2016/02/25/the-basic-principle-of-SSD/" class="archive-article-date">
-  	<time datetime="2016-02-25T19:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
+  	<time datetime="2016-02-25T08:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
 </a>
         
       </header>
@@ -575,13 +732,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/24/add-donate-to-hexo/">Hexo 博客添加打赏功能</a>
+      <a class="article-title" href="/2016/02/23/add-donate-to-hexo/">Hexo 博客添加打赏功能</a>
     </h1>
   
 
         
-        <a href="/2016/02/24/add-donate-to-hexo/" class="archive-article-date">
-  	<time datetime="2016-02-24T03:28:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-24</time>
+        <a href="/2016/02/23/add-donate-to-hexo/" class="archive-article-date">
+  	<time datetime="2016-02-23T16:28:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-23</time>
 </a>
         
       </header>
@@ -590,7 +747,7 @@
       
         <p>基本思路是将微信和支付宝的收款二维码放到每篇文章的最后，打赏的时候扫下二维码就可以了。</p>
         
-          <a class="article-more-a" href="/2016/02/24/add-donate-to-hexo/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/23/add-donate-to-hexo/#more">more >></a>
         
       
 
@@ -616,7 +773,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/24/add-donate-to-hexo/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/23/add-donate-to-hexo/">展开全文 >></a>
         </p>
       
 
@@ -653,13 +810,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/15/optimization-of-hexo/">Hexo 主题优化</a>
+      <a class="article-title" href="/2016/02/14/optimization-of-hexo/">Hexo 主题优化</a>
     </h1>
   
 
         
-        <a href="/2016/02/15/optimization-of-hexo/" class="archive-article-date">
-  	<time datetime="2016-02-14T22:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-15</time>
+        <a href="/2016/02/14/optimization-of-hexo/" class="archive-article-date">
+  	<time datetime="2016-02-14T11:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-14</time>
 </a>
         
       </header>
@@ -669,7 +826,7 @@
         <p><strong>写在前面</strong></p>
 <p>之前写过一些关于 Hexo 主题优化的文章，今天在这里把之前写的和新的东西做一个汇总，这样更加直观和便于查找。</p>
         
-          <a class="article-more-a" href="/2016/02/15/optimization-of-hexo/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/14/optimization-of-hexo/#more">more >></a>
         
       
 
@@ -695,7 +852,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/15/optimization-of-hexo/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/14/optimization-of-hexo/">展开全文 >></a>
         </p>
       
 
@@ -732,13 +889,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/06/regular-expressions-of-java/">Java 正则表达式(转)</a>
+      <a class="article-title" href="/2016/02/05/regular-expressions-of-java/">Java 正则表达式(转)</a>
     </h1>
   
 
         
-        <a href="/2016/02/06/regular-expressions-of-java/" class="archive-article-date">
-  	<time datetime="2016-02-05T21:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-06</time>
+        <a href="/2016/02/05/regular-expressions-of-java/" class="archive-article-date">
+  	<time datetime="2016-02-05T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-05</time>
 </a>
         
       </header>
@@ -752,7 +909,7 @@
 <p>Java正则表达式和Perl的是最为相似的。</p>
 <p>java.util.regex包主要包括以下三个类：<br>
         
-          <a class="article-more-a" href="/2016/02/06/regular-expressions-of-java/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/05/regular-expressions-of-java/#more">more >></a>
         
       
 
@@ -782,169 +939,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/06/regular-expressions-of-java/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-visitors-increase-of-csdnblog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/05/visitors-increase-of-csdnblog/">利用 HttpClient 刷 CSDN 博客文章浏览量</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/05/visitors-increase-of-csdnblog/" class="archive-article-date">
-  	<time datetime="2016-02-04T22:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-HttpClient-的相关解释"><a href="#1-HttpClient-的相关解释" class="headerlink" title="1. HttpClient 的相关解释"></a><strong>1. HttpClient 的相关解释</strong></h3><p>Apache HttpComponents 包含了两大部分：</p>
-<p><strong>HttpComponents Core ==&gt;&gt; HttpCore</strong></p>
-<p>实现了一系列的底层传输的功能，这些底层功能，可以用来去建立自己的client和server。</p>
-<p>支持两种I/O模式：阻塞型Blocking，基于典型的Java的I/O模型；非阻塞型Non-Blocking，基于Java的NIO，事件驱动型。</p>
-<p>在线文档： <a href="http://hc.apache.org/httpcomponents-core-ga/tutorial/html/" target="_blank" rel="noopener">HttpCore Tutorial</a>；<a href="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/translation/HttpCore-Simplified%20Chinese.pdf" target="_blank" rel="noopener">中文版</a></p>
-<p>示例代码：<a href="http://hc.apache.org/httpcomponents-core-ga/examples.html" target="_blank" rel="noopener">HttpCore Examples</a></p>
-        
-          <a class="article-more-a" href="/2016/02/05/visitors-increase-of-csdnblog/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/05/visitors-increase-of-csdnblog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-socket-TCP-by-java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/04/socket-TCP-by-java/">Java Socket 实现 TCP 编程</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/04/socket-TCP-by-java/" class="archive-article-date">
-  	<time datetime="2016-02-04T00:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-Socket-实现-TCP-的通信模型"><a href="#1-Socket-实现-TCP-的通信模型" class="headerlink" title="1. Socket 实现 TCP 的通信模型"></a><strong>1. Socket 实现 TCP 的通信模型</strong></h3><p>TCP 的通信分为服务器端和客户端，整个通信过程可以分为三个步骤：1.建立连接；2.开始通信；3.结束通信。</p>
-<p>首先服务器端建立监听 socket，等待并接受连接请求，然后客户端创建连接 socket 向服务器发送请求，服务器接受请求后创建连接 socket，接着服务器端和客户端的 socket 通过 InputStream 和 Outputstream 进行通信。最后通信结束时，关闭 socket 及相关资源。</p>
-        
-          <a class="article-more-a" href="/2016/02/04/socket-TCP-by-java/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/04/socket-TCP-by-java/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/05/regular-expressions-of-java/">展开全文 >></a>
         </p>
       
 
@@ -1092,6 +1087,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -1104,7 +1103,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1112,7 +1111,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1120,11 +1119,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1133,6 +1128,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1156,15 +1155,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1184,15 +1183,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1205,6 +1204,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">LevelDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1268,15 +1271,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

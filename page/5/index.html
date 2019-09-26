@@ -175,30 +175,118 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-leveldb-source-analysis-06-arena" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-paper-reading-03-cost-aware-buffer-management-for-flash" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/17/leveldb-source-analysis-06-arena/">LevelDB 源码分析（六）：Arena</a>
+      <a class="article-title" href="/2016/08/19/paper-reading-03-cost-aware-buffer-management-for-flash/">论文阅读：针对闪存的成本感知的缓冲区管理策略（DASFAA 2015）</a>
     </h1>
   
 
         
-        <a href="/2016/08/17/leveldb-source-analysis-06-arena/" class="archive-article-date">
-  	<time datetime="2016-08-16T22:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-17</time>
+        <a href="/2016/08/19/paper-reading-03-cost-aware-buffer-management-for-flash/" class="archive-article-date">
+  	<time datetime="2016-08-19T09:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>LevelDB 的简单的内存池，它所作的工作十分简单，申请内存时，将申请到的内存块放入 <code>std::vector blocks_</code> 中，在 Arena 的生命周期结束后，统一释放掉所有申请到的内存，内部结构如下图所示：</p>
-<p><img src="/img/articles/leveldb/leveldb-06-01.jpg" alt=""></p>
+        <p>原文：Jiang Z, Zhang Y, Wang J, et al. A cost-aware buffer management policy for flash-based storage devices[C]. International Conference on Database Systems for Advanced Applications. Springer International Publishing, 2015: 175-190. <a href="http://link.springer.com/chapter/10.1007/978-3-319-18120-2_11" target="_blank" rel="noopener">[下载]</a></p>
+<h2 id="1-Abstract"><a href="#1-Abstract" class="headerlink" title="1. Abstract"></a><strong>1. Abstract</strong></h2><p>由于读写的不对称性，传统的基于磁盘的缓冲区管理策略在闪存中并不能达到最优。这篇文章提出了一种针对闪存的名叫 CARF 的成本感知的缓冲区管理策略。提出了一种新颖的低开销的能够准确地确定驱逐页的成本模型。而且，这个成本模型能区分读写操作，还有更好的扫描抵抗力(<strong>scan resistance</strong>)。基于人工的trace和基准测试的trace表明，CARF的性能比当前最好的闪存管理策略还要高27.9%。</p>
         
-          <a class="article-more-a" href="/2016/08/17/leveldb-source-analysis-06-arena/#more">more >></a>
+          <a class="article-more-a" href="/2016/08/19/paper-reading-03-cost-aware-buffer-management-for-flash/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文阅读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/08/19/paper-reading-03-cost-aware-buffer-management-for-flash/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leveldb-source-analysis-07-skiplist" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/17/leveldb-source-analysis-07-skiplist/">LevelDB 源码分析（七）：Skiplist</a>
+    </h1>
+  
+
+        
+        <a href="/2016/08/17/leveldb-source-analysis-07-skiplist/" class="archive-article-date">
+  	<time datetime="2016-08-17T07:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>LevelDB 中的 memtable 只是一个封装类，它的底层实现是一个跳表。跳表是一种基于随机数的平衡数据结构，其他的平衡数据结构还有红黑树、AVL树，但跳表的原理比它们简单很多。跳表有点像链表，只不过每个节点是多层结构，通过在每个节点中增加向前的指针提高查找效率。</p>
+<p>在 <code>/leveldb/db</code> 文件夹下有跳表的实现 <code>skiplist.h</code> 和跳表的测试程序 <code>skiplist_test.cc</code>。</p>
+<p>LevelDB 的 skiplist 是一个模板类，key 是跳表每个节点存储的信息类，跳表是一个顺序结构，comparator 是跳表 key 的比较器。</p>
+        
+          <a class="article-more-a" href="/2016/08/17/leveldb-source-analysis-07-skiplist/#more">more >></a>
         
       
 
@@ -224,7 +312,86 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/17/leveldb-source-analysis-06-arena/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/08/17/leveldb-source-analysis-07-skiplist/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leveldb-source-analysis-06-arena" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/16/leveldb-source-analysis-06-arena/">LevelDB 源码分析（六）：Arena</a>
+    </h1>
+  
+
+        
+        <a href="/2016/08/16/leveldb-source-analysis-06-arena/" class="archive-article-date">
+  	<time datetime="2016-08-16T12:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>LevelDB 的简单的内存池，它所作的工作十分简单，申请内存时，将申请到的内存块放入 <code>std::vector blocks_</code> 中，在 Arena 的生命周期结束后，统一释放掉所有申请到的内存，内部结构如下图所示：</p>
+<p><img src="/img/articles/leveldb/leveldb-06-01.jpg" alt=""></p>
+        
+          <a class="article-more-a" href="/2016/08/16/leveldb-source-analysis-06-arena/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">LevelDB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/08/16/leveldb-source-analysis-06-arena/">展开全文 >></a>
         </p>
       
 
@@ -261,13 +428,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/17/leveldb-source-analysis-05-status/">LevelDB 源码分析（五）：Status</a>
+      <a class="article-title" href="/2016/08/16/leveldb-source-analysis-05-status/">LevelDB 源码分析（五）：Status</a>
     </h1>
   
 
         
-        <a href="/2016/08/17/leveldb-source-analysis-05-status/" class="archive-article-date">
-  	<time datetime="2016-08-16T21:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-17</time>
+        <a href="/2016/08/16/leveldb-source-analysis-05-status/" class="archive-article-date">
+  	<time datetime="2016-08-16T11:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-16</time>
 </a>
         
       </header>
@@ -279,7 +446,7 @@
 <p>通常的错误处理（如:errno）是返回一个错误号，然后根据错误号可以获得出错的描述信息。</p>
 <p>LevelDB 将错误号和错误信息封装成 Status 类，来统一进行处理。 </p>
         
-          <a class="article-more-a" href="/2016/08/17/leveldb-source-analysis-05-status/#more">more >></a>
+          <a class="article-more-a" href="/2016/08/16/leveldb-source-analysis-05-status/#more">more >></a>
         
       
 
@@ -305,7 +472,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/17/leveldb-source-analysis-05-status/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/08/16/leveldb-source-analysis-05-status/">展开全文 >></a>
         </p>
       
 
@@ -348,7 +515,7 @@
 
         
         <a href="/2016/08/16/leveldb-source-analysis-04-slice/" class="archive-article-date">
-  	<time datetime="2016-08-16T19:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-16</time>
+  	<time datetime="2016-08-16T09:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-16</time>
 </a>
         
       </header>
@@ -422,13 +589,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/16/leveldb-source-analysis-03-official-document/">LevelDB 源码分析（三）：相关文档</a>
+      <a class="article-title" href="/2016/08/15/leveldb-source-analysis-03-official-document/">LevelDB 源码分析（三）：相关文档</a>
     </h1>
   
 
         
-        <a href="/2016/08/16/leveldb-source-analysis-03-official-document/" class="archive-article-date">
-  	<time datetime="2016-08-15T23:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-16</time>
+        <a href="/2016/08/15/leveldb-source-analysis-03-official-document/" class="archive-article-date">
+  	<time datetime="2016-08-15T13:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-15</time>
 </a>
         
       </header>
@@ -438,7 +605,7 @@
         <p>在 leveldb 源码目录的 <code>doc</code> 目录下有关于 leveldb 的一些文档，这篇文章是对 <code>index.html</code> 文件的翻译。</p>
 <p>leveldb 库提供了一个持久化的 key-value 数据库。key 和 value 都是任意大小的字节数组。所有的 key 是根据用户指定的比较器有序的存储在 key-value 数据库中。</p>
         
-          <a class="article-more-a" href="/2016/08/16/leveldb-source-analysis-03-official-document/#more">more >></a>
+          <a class="article-more-a" href="/2016/08/15/leveldb-source-analysis-03-official-document/#more">more >></a>
         
       
 
@@ -468,7 +635,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/16/leveldb-source-analysis-03-official-document/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/08/15/leveldb-source-analysis-03-official-document/">展开全文 >></a>
         </p>
       
 
@@ -505,13 +672,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/15/leveldb-source-analysis-02-structure/">LevelDB 源码分析（二）：主体结构</a>
+      <a class="article-title" href="/2016/08/14/leveldb-source-analysis-02-structure/">LevelDB 源码分析（二）：主体结构</a>
     </h1>
   
 
         
-        <a href="/2016/08/15/leveldb-source-analysis-02-structure/" class="archive-article-date">
-  	<time datetime="2016-08-14T23:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-15</time>
+        <a href="/2016/08/14/leveldb-source-analysis-02-structure/" class="archive-article-date">
+  	<time datetime="2016-08-14T13:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-14</time>
 </a>
         
       </header>
@@ -521,7 +688,7 @@
         <p>本文转载自：<a href="http://www.cnblogs.com/haippy/archive/2011/12/04/2276064.html。" target="_blank" rel="noopener">http://www.cnblogs.com/haippy/archive/2011/12/04/2276064.html。</a></p>
 <p>对原文略有删减。</p>
         
-          <a class="article-more-a" href="/2016/08/15/leveldb-source-analysis-02-structure/#more">more >></a>
+          <a class="article-more-a" href="/2016/08/14/leveldb-source-analysis-02-structure/#more">more >></a>
         
       
 
@@ -547,7 +714,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/15/leveldb-source-analysis-02-structure/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/08/14/leveldb-source-analysis-02-structure/">展开全文 >></a>
         </p>
       
 
@@ -584,13 +751,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/14/leveldb-source-analysis-01-introduction/">LevelDB 源码分析（一）：简介</a>
+      <a class="article-title" href="/2016/08/13/leveldb-source-analysis-01-introduction/">LevelDB 源码分析（一）：简介</a>
     </h1>
   
 
         
-        <a href="/2016/08/14/leveldb-source-analysis-01-introduction/" class="archive-article-date">
-  	<time datetime="2016-08-13T21:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-14</time>
+        <a href="/2016/08/13/leveldb-source-analysis-01-introduction/" class="archive-article-date">
+  	<time datetime="2016-08-13T11:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-13</time>
 </a>
         
       </header>
@@ -600,7 +767,7 @@
         <h2 id="LSM-tree"><a href="#LSM-tree" class="headerlink" title="LSM tree"></a><strong>LSM tree</strong></h2><p>LevelDB 中一个核心的结构就是 LSM tree，所以这里先介绍下 LSM tree。</p>
 <p>在 key-value store 中 Log-Structured Merge-Trees (LSM-trees) 应用得相当广泛。与其他的索引结构(如B-tree)相比，LSM-trees 的主要优点是能够维持顺序的写操作。在B树中小的更新会带来较多的随机写，为了提高性能，LSM-trees 可以批量处理 key-value 对，然后将他们顺序写入。</p>
         
-          <a class="article-more-a" href="/2016/08/14/leveldb-source-analysis-01-introduction/#more">more >></a>
+          <a class="article-more-a" href="/2016/08/13/leveldb-source-analysis-01-introduction/#more">more >></a>
         
       
 
@@ -626,7 +793,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/14/leveldb-source-analysis-01-introduction/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/08/13/leveldb-source-analysis-01-introduction/">展开全文 >></a>
         </p>
       
 
@@ -669,7 +836,7 @@
 
         
         <a href="/2016/08/04/wifi-password-crack/" class="archive-article-date">
-  	<time datetime="2016-08-04T18:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-04</time>
+  	<time datetime="2016-08-04T08:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-04</time>
 </a>
         
       </header>
@@ -749,7 +916,7 @@
 
         
         <a href="/2016/07/20/paper-reading-02-the-multilevel-parallelism-inside-SSDs/" class="archive-article-date">
-  	<time datetime="2016-07-20T19:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-20</time>
+  	<time datetime="2016-07-20T09:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-20</time>
 </a>
         
       </header>
@@ -794,172 +961,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/20/paper-reading-02-the-multilevel-parallelism-inside-SSDs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-paper-reading-01-a-pso-based-buffer-management-for-ssd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/20/paper-reading-01-a-pso-based-buffer-management-for-ssd/">论文阅读：SSD中基于PSO的缓冲区管理算法（ICITCS 2015）</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/20/paper-reading-01-a-pso-based-buffer-management-for-ssd/" class="archive-article-date">
-  	<time datetime="2016-07-20T00:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原文：Wang Y L, Lee B J, Lee J J, et al. A PSO-based Buffer Management Scheme for Improving Hit Ratio of Solid State Drive[C]. IT Convergence and Security (ICITCS), 2015 5th International Conference on. IEEE, 2015: 1-5.  <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7292929" target="_blank" rel="noopener">[下载]</a></p>
-<h2 id="1-Abstract"><a href="#1-Abstract" class="headerlink" title="1. Abstract"></a><strong>1. Abstract</strong></h2><p>随着闪存的普及和基于闪存的固态硬盘(SSD)具有耐冲击性，非易失性，低能耗和高I/O速度等优点，固态硬盘被广泛应用于企业计算环境。同时，固态硬盘还具有异地更新和读，写，擦除操作之间的非对称I/O延迟的特性，固态硬盘的写入和擦除操作要比读操作慢很多。因此，缓冲器替换算法需要很好地反映这种不对称性。该文中提出了一种以粒子群优化算法（PSO）为基础的缓冲管理算法来准确预测在缓冲区中的每个逻辑页中存的是热数据还是冷数据。该预测是页面级FTL方案的一个关键标准。被预测为热数据的页面将被保持在缓冲器，从而提高固态硬盘缓冲区的命中率。仿真结果表明，这篇论文提出的方案在读写命中次数和命中率方面要优于现有方案。</p>
-        
-          <a class="article-more-a" href="/2016/07/20/paper-reading-01-a-pso-based-buffer-management-for-ssd/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文阅读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/20/paper-reading-01-a-pso-based-buffer-management-for-ssd/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-c-linux-fork" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/15/c-linux-fork/">Linux C 中的fork</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/15/c-linux-fork/" class="archive-article-date">
-  	<time datetime="2016-07-15T20:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一个进程，包括代码、数据和分配给进程的资源。fork（）函数通过系统调用创建一个与原来进程几乎完全相同的进程，也就是两个进程可以做完全相同的事，但如果初始参数或者传入的变量不同，两个进程也可以做不同的事。</p>
-<p>一个进程调用fork（）函数后，系统先给新的进程分配资源，例如存储数据和代码的空间。然后把原来的进程的所有值都复制到新的新进程中，只有少数值与原来的进程的值不同。相当于克隆了一个自己。</p>
-        
-          <a class="article-more-a" href="/2016/07/15/c-linux-fork/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/15/c-linux-fork/">展开全文 >></a>
         </p>
       
 
@@ -1107,6 +1108,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -1119,7 +1124,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1127,7 +1132,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1135,11 +1140,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1148,6 +1149,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1171,15 +1176,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1199,15 +1204,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1220,6 +1225,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">LevelDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1283,15 +1292,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

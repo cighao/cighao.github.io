@@ -175,30 +175,117 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-c-getopt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-paper-reading-01-a-pso-based-buffer-management-for-ssd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/15/c-getopt/">C语言中的 getopt</a>
+      <a class="article-title" href="/2016/07/19/paper-reading-01-a-pso-based-buffer-management-for-ssd/">论文阅读：SSD中基于PSO的缓冲区管理算法（ICITCS 2015）</a>
     </h1>
   
 
         
-        <a href="/2016/07/15/c-getopt/" class="archive-article-date">
-  	<time datetime="2016-07-14T23:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-15</time>
+        <a href="/2016/07/19/paper-reading-01-a-pso-based-buffer-management-for-ssd/" class="archive-article-date">
+  	<time datetime="2016-07-19T14:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>平时在写程序时常常需要对命令行参数进行处理，当命令行参数个数较多时，如果按照顺序一个一个定义参数含义很容易造成混乱，而且如果程序只按顺序处理参数的话，一些“可选参数”的功能将很难实现。</p>
-<p>我们可以用 <code>getopt()</code>、<code>getopt_long()</code>、<code>getopt_long_only()</code> 这几个函数来解决这个问题。</p>
+        <p>原文：Wang Y L, Lee B J, Lee J J, et al. A PSO-based Buffer Management Scheme for Improving Hit Ratio of Solid State Drive[C]. IT Convergence and Security (ICITCS), 2015 5th International Conference on. IEEE, 2015: 1-5.  <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7292929" target="_blank" rel="noopener">[下载]</a></p>
+<h2 id="1-Abstract"><a href="#1-Abstract" class="headerlink" title="1. Abstract"></a><strong>1. Abstract</strong></h2><p>随着闪存的普及和基于闪存的固态硬盘(SSD)具有耐冲击性，非易失性，低能耗和高I/O速度等优点，固态硬盘被广泛应用于企业计算环境。同时，固态硬盘还具有异地更新和读，写，擦除操作之间的非对称I/O延迟的特性，固态硬盘的写入和擦除操作要比读操作慢很多。因此，缓冲器替换算法需要很好地反映这种不对称性。该文中提出了一种以粒子群优化算法（PSO）为基础的缓冲管理算法来准确预测在缓冲区中的每个逻辑页中存的是热数据还是冷数据。该预测是页面级FTL方案的一个关键标准。被预测为热数据的页面将被保持在缓冲器，从而提高固态硬盘缓冲区的命中率。仿真结果表明，这篇论文提出的方案在读写命中次数和命中率方面要优于现有方案。</p>
         
-          <a class="article-more-a" href="/2016/07/15/c-getopt/#more">more >></a>
+          <a class="article-more-a" href="/2016/07/19/paper-reading-01-a-pso-based-buffer-management-for-ssd/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文阅读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/19/paper-reading-01-a-pso-based-buffer-management-for-ssd/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-c-linux-fork" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/15/c-linux-fork/">Linux C 中的fork</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/15/c-linux-fork/" class="archive-article-date">
+  	<time datetime="2016-07-15T10:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一个进程，包括代码、数据和分配给进程的资源。fork（）函数通过系统调用创建一个与原来进程几乎完全相同的进程，也就是两个进程可以做完全相同的事，但如果初始参数或者传入的变量不同，两个进程也可以做不同的事。</p>
+<p>一个进程调用fork（）函数后，系统先给新的进程分配资源，例如存储数据和代码的空间。然后把原来的进程的所有值都复制到新的新进程中，只有少数值与原来的进程的值不同。相当于克隆了一个自己。</p>
+        
+          <a class="article-more-a" href="/2016/07/15/c-linux-fork/#more">more >></a>
         
       
 
@@ -224,7 +311,86 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/15/c-getopt/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/07/15/c-linux-fork/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-c-getopt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/c-getopt/">C语言中的 getopt</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/14/c-getopt/" class="archive-article-date">
+  	<time datetime="2016-07-14T13:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>平时在写程序时常常需要对命令行参数进行处理，当命令行参数个数较多时，如果按照顺序一个一个定义参数含义很容易造成混乱，而且如果程序只按顺序处理参数的话，一些“可选参数”的功能将很难实现。</p>
+<p>我们可以用 <code>getopt()</code>、<code>getopt_long()</code>、<code>getopt_long_only()</code> 这几个函数来解决这个问题。</p>
+        
+          <a class="article-more-a" href="/2016/07/14/c-getopt/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/14/c-getopt/">展开全文 >></a>
         </p>
       
 
@@ -261,13 +427,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/14/c-string-h/">C语言 string 库</a>
+      <a class="article-title" href="/2016/07/13/c-string-h/">C语言 string 库</a>
     </h1>
   
 
         
-        <a href="/2016/07/14/c-string-h/" class="archive-article-date">
-  	<time datetime="2016-07-14T01:41:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
+        <a href="/2016/07/13/c-string-h/" class="archive-article-date">
+  	<time datetime="2016-07-13T15:41:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-13</time>
 </a>
         
       </header>
@@ -277,7 +443,7 @@
         <p>来源于<a href="http://www.runoob.com/" target="_blank" rel="noopener">菜鸟教程</a></p>
 <p><code>string.h</code> 封装了与字符串操作相关的一些函数。</p>
         
-          <a class="article-more-a" href="/2016/07/14/c-string-h/#more">more >></a>
+          <a class="article-more-a" href="/2016/07/13/c-string-h/#more">more >></a>
         
       
 
@@ -303,7 +469,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/14/c-string-h/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/07/13/c-string-h/">展开全文 >></a>
         </p>
       
 
@@ -346,7 +512,7 @@
 
         
         <a href="/2016/07/12/c-linux-socket/" class="archive-article-date">
-  	<time datetime="2016-07-12T17:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
+  	<time datetime="2016-07-12T07:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
 </a>
         
       </header>
@@ -428,7 +594,7 @@
 
         
         <a href="/2016/07/09/delete-link-node-with-second-pointer/" class="archive-article-date">
-  	<time datetime="2016-07-09T16:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-09</time>
+  	<time datetime="2016-07-09T06:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-09</time>
 </a>
         
       </header>
@@ -501,13 +667,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/get-the-password-of-jianshu/">抓包获取简书的登录密码</a>
+      <a class="article-title" href="/2016/07/07/get-the-password-of-jianshu/">抓包获取简书的登录密码</a>
     </h1>
   
 
         
-        <a href="/2016/07/08/get-the-password-of-jianshu/" class="archive-article-date">
-  	<time datetime="2016-07-08T04:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-08</time>
+        <a href="/2016/07/07/get-the-password-of-jianshu/" class="archive-article-date">
+  	<time datetime="2016-07-07T18:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-07</time>
 </a>
         
       </header>
@@ -516,7 +682,7 @@
       
         <p>现在某些网站在用户登录的过程中都是使用明文来传输用户密码的，这就使得用户密码完全暴露在网络中。通过抓包工具就很容易抓取密码。这里就以抓取<a href="http://www.jianshu.com/" target="_blank" rel="noopener">简书</a>的登录密码为例来介绍下抓包的过程。</p>
         
-          <a class="article-more-a" href="/2016/07/08/get-the-password-of-jianshu/#more">more >></a>
+          <a class="article-more-a" href="/2016/07/07/get-the-password-of-jianshu/#more">more >></a>
         
       
 
@@ -542,7 +708,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/08/get-the-password-of-jianshu/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/07/07/get-the-password-of-jianshu/">展开全文 >></a>
         </p>
       
 
@@ -579,13 +745,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/02/my-source/">代码集锦</a>
+      <a class="article-title" href="/2016/07/01/my-source/">代码集锦</a>
     </h1>
   
 
         
-        <a href="/2016/07/02/my-source/" class="archive-article-date">
-  	<time datetime="2016-07-01T23:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-02</time>
+        <a href="/2016/07/01/my-source/" class="archive-article-date">
+  	<time datetime="2016-07-01T13:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-01</time>
 </a>
         
       </header>
@@ -594,7 +760,7 @@
       
         <p>平时练习的一些代码汇总。不定期更新……</p>
         
-          <a class="article-more-a" href="/2016/07/02/my-source/#more">more >></a>
+          <a class="article-more-a" href="/2016/07/01/my-source/#more">more >></a>
         
       
 
@@ -620,7 +786,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/02/my-source/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/07/01/my-source/">展开全文 >></a>
         </p>
       
 
@@ -657,13 +823,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/29/disksim-with-ssdmodel-source-analysis-022-time-calculation/">disksim with ssdmodel 源码解析（二十二）：读写和擦除时间的计算</a>
+      <a class="article-title" href="/2016/06/28/disksim-with-ssdmodel-source-analysis-022-time-calculation/">disksim with ssdmodel 源码解析（二十二）：读写和擦除时间的计算</a>
     </h1>
   
 
         
-        <a href="/2016/06/29/disksim-with-ssdmodel-source-analysis-022-time-calculation/" class="archive-article-date">
-  	<time datetime="2016-06-28T21:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-29</time>
+        <a href="/2016/06/28/disksim-with-ssdmodel-source-analysis-022-time-calculation/" class="archive-article-date">
+  	<time datetime="2016-06-28T11:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-28</time>
 </a>
         
       </header>
@@ -672,7 +838,7 @@
       
         <p>ssdmodel模块中，SSD 的读写和擦除时间都是通过计算算出来的。在配置文件中可以配置 SSD 相应的参数，程序中会通过相应的参数计算出读写一个 page 和擦除一个 block 所需的时间。</p>
         
-          <a class="article-more-a" href="/2016/06/29/disksim-with-ssdmodel-source-analysis-022-time-calculation/#more">more >></a>
+          <a class="article-more-a" href="/2016/06/28/disksim-with-ssdmodel-source-analysis-022-time-calculation/#more">more >></a>
         
       
 
@@ -702,7 +868,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/06/29/disksim-with-ssdmodel-source-analysis-022-time-calculation/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/06/28/disksim-with-ssdmodel-source-analysis-022-time-calculation/">展开全文 >></a>
         </p>
       
 
@@ -739,13 +905,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/01/find-peaks-of-signal/">求离散采样信号的波峰和波谷</a>
+      <a class="article-title" href="/2016/05/31/find-peaks-of-signal/">求离散采样信号的波峰和波谷</a>
     </h1>
   
 
         
-        <a href="/2016/06/01/find-peaks-of-signal/" class="archive-article-date">
-  	<time datetime="2016-06-01T00:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-01</time>
+        <a href="/2016/05/31/find-peaks-of-signal/" class="archive-article-date">
+  	<time datetime="2016-05-31T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-31</time>
 </a>
         
       </header>
@@ -755,7 +921,7 @@
         <p>给定一组离散信号的序列，求其波峰和波谷的位置。</p>
 <h2 id="一-假设说明"><a href="#一-假设说明" class="headerlink" title="一.假设说明"></a>一.假设说明</h2><p>我们假设原始波形是有噪声的，所以先对原始波形进行滤波后再求它的波峰和波谷。求出来的波峰和波谷的位置也是按照滤波后的波形来求的。</p>
         
-          <a class="article-more-a" href="/2016/06/01/find-peaks-of-signal/#more">more >></a>
+          <a class="article-more-a" href="/2016/05/31/find-peaks-of-signal/#more">more >></a>
         
       
 
@@ -781,171 +947,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/06/01/find-peaks-of-signal/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-draw-picture-with-matlab-009-xticklabe-rotate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/14/draw-picture-with-matlab-009-xticklabe-rotate/">matlab 画图（九）： 横坐标标签倾斜设置</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/14/draw-picture-with-matlab-009-xticklabe-rotate/" class="archive-article-date">
-  	<time datetime="2016-05-13T23:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/articles/matlab/matlab-pic-009-rotation-01.jpg" alt=""></p>
-        
-          <a class="article-more-a" href="/2016/05/14/draw-picture-with-matlab-009-xticklabe-rotate/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/14/draw-picture-with-matlab-009-xticklabe-rotate/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-draw-picture-with-matlab-008-plotyy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/30/draw-picture-with-matlab-008-plotyy/">matlab 画图（八）： 双坐标绘图</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/30/draw-picture-with-matlab-008-plotyy/" class="archive-article-date">
-  	<time datetime="2016-04-30T04:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/articles/matlab/matlab-pic-008-plotyy-01.jpg" alt=""></p>
-        
-          <a class="article-more-a" href="/2016/04/30/draw-picture-with-matlab-008-plotyy/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/04/30/draw-picture-with-matlab-008-plotyy/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/05/31/find-peaks-of-signal/">展开全文 >></a>
         </p>
       
 
@@ -1093,6 +1095,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -1105,7 +1111,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1113,7 +1119,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1121,11 +1127,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1134,6 +1136,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1157,15 +1163,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1185,15 +1191,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1206,6 +1212,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">LevelDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,15 +1279,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

@@ -175,29 +175,31 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-disksim-with-ssdmodel-source-analysis-010-gc-analysis-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/">disksim with ssdmodel 源码解析（十）：GC分析(一)</a>
+      <a class="article-title" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/">disksim with ssdmodel 源码解析（十一）：地址映射</a>
     </h1>
   
 
         
-        <a href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/" class="archive-article-date">
-  	<time datetime="2016-03-19T22:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-20</time>
+        <a href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/" class="archive-article-date">
+  	<time datetime="2016-03-23T07:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>垃圾回收(gc)是 SSD 中很重要的一个过程，在 ssdmodel 模块中进行垃圾回收，是在 <code>ssd_activate_elem()</code> 函数中触发的。每次有请求过来时，都会进行垃圾回收的判断，当满足一定的要求时就会进行垃圾回收，垃圾回收结束之后，会退出该函数，并不会继续处理进来的请求，请求会放在下一次来完成，如果没有达到垃圾回收的条件，那么会响应该请求。整个流程如下：</p>
+        <p> SSD 中的逻辑地址到物理地址的映射方式有很多中，这里主要是介绍 ssdmodel 中的映射方式。</p>
+<p>由于 SSD 与主机的接口使用的还是以前的 HDD 的接口，所以操作系统给 SSD 发出请求时仍然是以扇区(sector，512B)为单位。例如一条trace数据为 (0.0,0,512,8,0)，表示的是要对第512个扇区进行操作。由于 SSD 读写操作的基本单位时页(page, 4KB)，所以操作系统给 SSD 发请求时的地址通常都是 8 的整数倍。</p>
+<p>SSD 地址映射最简单的方式就是以页为单位一对一映射(类似cache的全相联映射)，当然这是很费内存的。在 ssdmodel 中为了减少内存开销，通常是以一个 element 为单位在其内部进行以 page 为单位的一一映射。 在 element(chip) 的元数据里面有一个 <code>lba_table[]</code> 的数组，表示的逻辑页到物理页的映射。比如 <code>lab_table[lpn] = ppn</code>，代表的是该 element 上的逻辑页号 lpn 对应着该 element 上的物理页号 ppn。</p>
         
-          <a class="article-more-a" href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/#more">more >></a>
         
       
 
@@ -227,7 +229,171 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/20/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-matplotlib-demo-004-text-and-label" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/22/matplotlib-demo-004-text-and-label/">matplotlib 画图（四）：text 和 label 的设置</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/22/matplotlib-demo-004-text-and-label/" class="archive-article-date">
+  	<time datetime="2016-03-22T07:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/articles/matplotlib/test-and-label.jpg" alt=""></p>
+        
+          <a class="article-more-a" href="/2016/03/22/matplotlib-demo-004-text-and-label/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Matplotlib</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/22/matplotlib-demo-004-text-and-label/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-with-ssdmodel-source-analysis-010-gc-analysis-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/">disksim with ssdmodel 源码解析（十）：GC分析(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/" class="archive-article-date">
+  	<time datetime="2016-03-19T12:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>垃圾回收(gc)是 SSD 中很重要的一个过程，在 ssdmodel 模块中进行垃圾回收，是在 <code>ssd_activate_elem()</code> 函数中触发的。每次有请求过来时，都会进行垃圾回收的判断，当满足一定的要求时就会进行垃圾回收，垃圾回收结束之后，会退出该函数，并不会继续处理进来的请求，请求会放在下一次来完成，如果没有达到垃圾回收的条件，那么会响应该请求。整个流程如下：</p>
+        
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/">展开全文 >></a>
         </p>
       
 
@@ -270,7 +436,7 @@
 
         
         <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-009-syssim_driver2/" class="archive-article-date">
-  	<time datetime="2016-03-19T19:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+  	<time datetime="2016-03-19T09:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
       </header>
@@ -354,7 +520,7 @@
 
         
         <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/" class="archive-article-date">
-  	<time datetime="2016-03-19T18:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+  	<time datetime="2016-03-19T08:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
       </header>
@@ -438,7 +604,7 @@
 
         
         <a href="/2016/03/19/matplotlib-demo-003-dashes/" class="archive-article-date">
-  	<time datetime="2016-03-19T17:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+  	<time datetime="2016-03-19T07:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
       </header>
@@ -514,13 +680,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-007-block-arranged/">disksim with ssdmodel 源码解析（七）：block的组织形式</a>
+      <a class="article-title" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/">disksim with ssdmodel 源码解析（七）：block的组织形式</a>
     </h1>
   
 
         
-        <a href="/2016/03/19/disksim-with-ssdmodel-source-analysis-007-block-arranged/" class="archive-article-date">
-  	<time datetime="2016-03-19T04:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
+        <a href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/" class="archive-article-date">
+  	<time datetime="2016-03-18T18:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-18</time>
 </a>
         
       </header>
@@ -532,7 +698,7 @@
 <p>在 <code>ssd.h</code> 文件中我们可以看到三条宏定义，分别是：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_CONCAT    1 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_PAIRWISE_STRIPE 	2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_FULL_STRIPE	3</span></span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-007-block-arranged/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/#more">more >></a>
         
       
 
@@ -562,7 +728,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/19/disksim-with-ssdmodel-source-analysis-007-block-arranged/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/">展开全文 >></a>
         </p>
       
 
@@ -599,13 +765,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/18/matplotlib-demo-002-fill/">matplotlib 画图（二）：图形填充</a>
+      <a class="article-title" href="/2016/03/17/matplotlib-demo-002-fill/">matplotlib 画图（二）：图形填充</a>
     </h1>
   
 
         
-        <a href="/2016/03/18/matplotlib-demo-002-fill/" class="archive-article-date">
-  	<time datetime="2016-03-18T02:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-18</time>
+        <a href="/2016/03/17/matplotlib-demo-002-fill/" class="archive-article-date">
+  	<time datetime="2016-03-17T16:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-17</time>
 </a>
         
       </header>
@@ -614,7 +780,7 @@
       
         <p><img src="/img/articles/matplotlib/fill.jpg" alt=""></p>
         
-          <a class="article-more-a" href="/2016/03/18/matplotlib-demo-002-fill/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/17/matplotlib-demo-002-fill/#more">more >></a>
         
       
 
@@ -644,7 +810,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/18/matplotlib-demo-002-fill/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/17/matplotlib-demo-002-fill/">展开全文 >></a>
         </p>
       
 
@@ -681,13 +847,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/17/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">disksim with ssdmodel 源码解析（六）：disksim_setup_disksim</a>
+      <a class="article-title" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">disksim with ssdmodel 源码解析（六）：disksim_setup_disksim</a>
     </h1>
   
 
         
-        <a href="/2016/03/17/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/" class="archive-article-date">
-  	<time datetime="2016-03-16T21:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-17</time>
+        <a href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/" class="archive-article-date">
+  	<time datetime="2016-03-16T11:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-16</time>
 </a>
         
       </header>
@@ -697,7 +863,7 @@
         <p><code>disksim_setup_disksim()</code> 是在 main 函数中被调用的，主要用来设置 disksim 各种参数，为磁盘模拟做准备。函数的源码在 <code>disksim.c</code> 文件中。对于函数的功能主要有以下几个方面：</p>
 <h3 id="1-设置对齐方式"><a href="#1-设置对齐方式" class="headerlink" title="1. 设置对齐方式"></a><strong>1. 设置对齐方式</strong></h3><p>通过调用 <code>setEndian()</code> 这个函数来设置大端对齐还是小端对齐。</p>
         
-          <a class="article-more-a" href="/2016/03/17/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/#more">more >></a>
         
       
 
@@ -727,7 +893,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/17/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">展开全文 >></a>
         </p>
       
 
@@ -770,7 +936,7 @@
 
         
         <a href="/2016/03/16/disksim-with-ssdmodel-source-analysis-005--work-flow/" class="archive-article-date">
-  	<time datetime="2016-03-16T20:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-16</time>
+  	<time datetime="2016-03-16T10:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-16</time>
 </a>
         
       </header>
@@ -810,175 +976,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-005--work-flow/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-matplotlib-demo-001-barh" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/matplotlib-demo-001-barh/">matplotlib 画图（一）：横向柱状图</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/16/matplotlib-demo-001-barh/" class="archive-article-date">
-  	<time datetime="2016-03-16T18:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/articles/matplotlib/barh.jpg" alt=""></p>
-        
-          <a class="article-more-a" href="/2016/03/16/matplotlib-demo-001-barh/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Matplotlib</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/16/matplotlib-demo-001-barh/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sort-large-number-of-int-numbers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/sort-large-number-of-int-numbers/">一种时间复杂度为 O(N) 整数排序算法</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/16/sort-large-number-of-int-numbers/" class="archive-article-date">
-  	<time datetime="2016-03-16T00:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>问题是这样的，对于一组具有如下特性的数据：</p>
-<ul>
-<li>都是非负整数</li>
-<li>没有重复的数据</li>
-<li>数据量很大</li>
-</ul>
-        
-          <a class="article-more-a" href="/2016/03/16/sort-large-number-of-int-numbers/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/16/sort-large-number-of-int-numbers/">展开全文 >></a>
         </p>
       
 
@@ -1126,6 +1123,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -1138,7 +1139,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1146,7 +1147,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1154,11 +1155,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1167,6 +1164,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1190,15 +1191,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1218,15 +1219,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1239,6 +1240,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">LevelDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1302,15 +1307,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

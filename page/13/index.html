@@ -175,30 +175,30 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-selector-of-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-format-composing-by-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/17/selector-of-CSS/">CSS 选择器</a>
+      <a class="article-title" href="/2016/01/17/format-composing-by-CSS/">CSS 格式化排版</a>
     </h1>
   
 
         
-        <a href="/2016/01/17/selector-of-CSS/" class="archive-article-date">
-  	<time datetime="2016-01-17T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-17</time>
+        <a href="/2016/01/17/format-composing-by-CSS/" class="archive-article-date">
+  	<time datetime="2016-01-17T09:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是选择器"><a href="#什么是选择器" class="headerlink" title="什么是选择器"></a>什么是选择器</h2><p>每一条css样式声明（定义）由两部分组成，形式如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择器&#123;</span><br><span class="line">    样式;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在{}之前的部分就是“选择器”，“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+        <h2 id="1-字体排版"><a href="#1-字体排版" class="headerlink" title="1. 字体排版"></a>1. 字体排版</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a><strong>字体</strong></h3><p>我们可以使用css样式为网页中的文字设置字体、字号、颜色等样式属性。下面我们来看一个例子，下面代码实现：为网页中的文字设置字体为宋体。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;<span class="attribute">font-family</span>:<span class="string">"宋体"</span>;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里注意不要设置不常用的字体，因为如果用户本地电脑上如果没有安装你设置的字体，就会显示浏览器默认的字体。（因为用户是否可以看到你设置的字体样式取决于用户本地电脑上是否安装你设置的字体。）</p>
         
-          <a class="article-more-a" href="/2016/01/17/selector-of-CSS/#more">more >></a>
+          <a class="article-more-a" href="/2016/01/17/format-composing-by-CSS/#more">more >></a>
         
       
 
@@ -228,7 +228,173 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/01/17/selector-of-CSS/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/01/17/format-composing-by-CSS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-succession-of-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/succession-of-CSS/">CSS 中的继承性，特殊性，层叠性和重要性</a>
+    </h1>
+  
+
+        
+        <a href="/2016/01/17/succession-of-CSS/" class="archive-article-date">
+  	<time datetime="2016-01-17T08:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-继承性"><a href="#1-继承性" class="headerlink" title="1. 继承性"></a>1. 继承性</h2><p>CSS的某些样式是具有继承性的，那么什么是继承呢？继承是一种规则，它允许样式不仅应用于某个特定 html 标签元素，而且应用于其后代。比如下面代码：如某种颜色应用于 p 标签，这个颜色设置不仅应用 p 标签，还应用于 p 标签中的所有子元素文本，这里子元素为 span 标签。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;<span class="attribute">color</span>:red;&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>三年级时，我还是一个<span class="tag">&lt;<span class="name">span</span>&gt;</span>胆小如鼠<span class="tag">&lt;/<span class="name">span</span>&gt;</span>的小男孩。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/01/17/succession-of-CSS/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Web 前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/01/17/succession-of-CSS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-selector-of-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/16/selector-of-CSS/">CSS 选择器</a>
+    </h1>
+  
+
+        
+        <a href="/2016/01/16/selector-of-CSS/" class="archive-article-date">
+  	<time datetime="2016-01-16T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是选择器"><a href="#什么是选择器" class="headerlink" title="什么是选择器"></a>什么是选择器</h2><p>每一条css样式声明（定义）由两部分组成，形式如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择器&#123;</span><br><span class="line">    样式;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在{}之前的部分就是“选择器”，“选择器”指明了{}中的“样式”的作用对象，也就是“样式”作用于网页中的哪些元素。</p>
+        
+          <a class="article-more-a" href="/2016/01/16/selector-of-CSS/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Web 前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/01/16/selector-of-CSS/">展开全文 >></a>
         </p>
       
 
@@ -271,7 +437,7 @@
 
         
         <a href="/2016/01/10/the-module-of-nodejs/" class="archive-article-date">
-  	<time datetime="2016-01-10T17:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-10</time>
+  	<time datetime="2016-01-10T06:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-10</time>
 </a>
         
       </header>
@@ -344,13 +510,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/10/toTop-by-javascript/">利用 javascript 实现回到顶部效果</a>
+      <a class="article-title" href="/2016/01/09/toTop-by-javascript/">利用 javascript 实现回到顶部效果</a>
     </h1>
   
 
         
-        <a href="/2016/01/10/toTop-by-javascript/" class="archive-article-date">
-  	<time datetime="2016-01-10T07:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-10</time>
+        <a href="/2016/01/09/toTop-by-javascript/" class="archive-article-date">
+  	<time datetime="2016-01-09T20:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-09</time>
 </a>
         
       </header>
@@ -366,7 +532,7 @@
 <li>再返回顶部的过程中，如果滚动鼠标滚轮可以暂停到当前位置。</li>
 </ol>
         
-          <a class="article-more-a" href="/2016/01/10/toTop-by-javascript/#more">more >></a>
+          <a class="article-more-a" href="/2016/01/09/toTop-by-javascript/#more">more >></a>
         
       
 
@@ -396,7 +562,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/01/10/toTop-by-javascript/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/01/09/toTop-by-javascript/">展开全文 >></a>
         </p>
       
 
@@ -433,13 +599,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/19/introduction-of-abstractFactory/">设计模式之抽象工厂模式</a>
+      <a class="article-title" href="/2015/12/18/introduction-of-abstractFactory/">设计模式之抽象工厂模式</a>
     </h1>
   
 
         
-        <a href="/2015/12/19/introduction-of-abstractFactory/" class="archive-article-date">
-  	<time datetime="2015-12-19T03:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-19</time>
+        <a href="/2015/12/18/introduction-of-abstractFactory/" class="archive-article-date">
+  	<time datetime="2015-12-18T16:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-18</time>
 </a>
         
       </header>
@@ -452,7 +618,7 @@
 <p><strong>抽象工厂模式与工厂模式的区别</strong></p>
 <p>(1) 工厂模式是一种极端情况的抽象工厂模式，而抽象工厂模式可以看成是工厂模式的推广。<br>(2) 工厂模式用来创建一个产品的等级结构，而抽象工厂模式是用来创建多个产品的等级结构。<br>(3) 工厂模式只有一个抽象产品类，而抽象工厂模式有多个抽象产品类。<br>
         
-          <a class="article-more-a" href="/2015/12/19/introduction-of-abstractFactory/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/18/introduction-of-abstractFactory/#more">more >></a>
         
       
 
@@ -482,7 +648,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/19/introduction-of-abstractFactory/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/18/introduction-of-abstractFactory/">展开全文 >></a>
         </p>
       
 
@@ -519,13 +685,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/19/introduction-of-ngrok/">Ngrok： 一个提供内网到外网映射的工具</a>
+      <a class="article-title" href="/2015/12/18/introduction-of-ngrok/">Ngrok： 一个提供内网到外网映射的工具</a>
     </h1>
   
 
         
-        <a href="/2015/12/19/introduction-of-ngrok/" class="archive-article-date">
-  	<time datetime="2015-12-19T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-19</time>
+        <a href="/2015/12/18/introduction-of-ngrok/" class="archive-article-date">
+  	<time datetime="2015-12-18T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-18</time>
 </a>
         
       </header>
@@ -538,7 +704,7 @@
 <p>在本机开发好的网站想让客户测试不再需要上传到服务器上面，使用 ngrok 轻松解决，仅需一条命令；微信开发也不需要再上传到服务器，本站服务器帮您解决80端口问题，实现微信服务器直接访问到您本机的web服务。</p>
 <p>
         
-          <a class="article-more-a" href="/2015/12/19/introduction-of-ngrok/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/18/introduction-of-ngrok/#more">more >></a>
         
       
 
@@ -564,7 +730,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/19/introduction-of-ngrok/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/18/introduction-of-ngrok/">展开全文 >></a>
         </p>
       
 
@@ -601,13 +767,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/18/introduction-of-Factory/">设计模式之工厂模式</a>
+      <a class="article-title" href="/2015/12/17/introduction-of-Factory/">设计模式之工厂模式</a>
     </h1>
   
 
         
-        <a href="/2015/12/18/introduction-of-Factory/" class="archive-article-date">
-  	<time datetime="2015-12-18T03:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-18</time>
+        <a href="/2015/12/17/introduction-of-Factory/" class="archive-article-date">
+  	<time datetime="2015-12-17T16:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-17</time>
 </a>
         
       </header>
@@ -617,7 +783,7 @@
         <p><strong>工厂模式：</strong> 定义一个用于创建对象的接口，让子类决定实例化哪一个类，工厂方法使一个类的实例化延迟到其子类。</p>
 <p><strong>类图：</strong><br><img src="/img/articles/factory1.png" alt="工厂模式类图"></p>
         
-          <a class="article-more-a" href="/2015/12/18/introduction-of-Factory/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/17/introduction-of-Factory/#more">more >></a>
         
       
 
@@ -647,7 +813,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/18/introduction-of-Factory/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/17/introduction-of-Factory/">展开全文 >></a>
         </p>
       
 
@@ -684,13 +850,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/18/introduction-of-singleton/">设计模式之单例模式</a>
+      <a class="article-title" href="/2015/12/17/introduction-of-singleton/">设计模式之单例模式</a>
     </h1>
   
 
         
-        <a href="/2015/12/18/introduction-of-singleton/" class="archive-article-date">
-  	<time datetime="2015-12-18T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-18</time>
+        <a href="/2015/12/17/introduction-of-singleton/" class="archive-article-date">
+  	<time datetime="2015-12-17T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-17</time>
 </a>
         
       </header>
@@ -700,7 +866,7 @@
         <h2 id="1-了解设计模式"><a href="#1-了解设计模式" class="headerlink" title="1. 了解设计模式"></a>1. 了解设计模式</h2><p>设计模式： 是一套反复使用，多数人知晓得的，经过分类编目的，代码设计经验的总结。<br>目的： 使用设计模式是为了可重用代码、让代码更容易被他人理解，保证代码可靠性。</p>
 <h2 id="2-单例模式的介绍"><a href="#2-单例模式的介绍" class="headerlink" title="2. 单例模式的介绍"></a>2. 单例模式的介绍</h2><p>定义：确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p>
         
-          <a class="article-more-a" href="/2015/12/18/introduction-of-singleton/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/17/introduction-of-singleton/#more">more >></a>
         
       
 
@@ -730,7 +896,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/18/introduction-of-singleton/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/17/introduction-of-singleton/">展开全文 >></a>
         </p>
       
 
@@ -767,13 +933,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/18/sort-the-score-of-students/">如何给数百万考生的成绩排序</a>
+      <a class="article-title" href="/2015/12/17/sort-the-score-of-students/">如何给数百万考生的成绩排序</a>
     </h1>
   
 
         
-        <a href="/2015/12/18/sort-the-score-of-students/" class="archive-article-date">
-  	<time datetime="2015-12-18T01:13:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-18</time>
+        <a href="/2015/12/17/sort-the-score-of-students/" class="archive-article-date">
+  	<time datetime="2015-12-17T14:13:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-17</time>
 </a>
         
       </header>
@@ -783,7 +949,7 @@
         <p>这个问题是在联系中科大的导师时被导师问到的，那个时候已经通过了中科大的免试研究生的面试，然后联系了一个导师，得知我人在合肥时让我去他办公室聊聊，其实大概就是了解下专业水平吧。问了很多问题，这是其中一个。虽然距离现在已经过去了好几个月，但是突然想到了这个问题，就想把它写下来。</p>
 <p>下面来说说这个问题吧，忽略内存的问题，假设这些考试成绩是可以一次被装载进内存的。由于数据比较多，哪怕是利用快速排序算法，性能也不是很好。其实这个时候我们可以好好分析下问题，被排序的对象是分数，分析下分数的特征，分数都是整数而且范围都在 0-100 之间。其实这个时候就应该要联想到桶排序了，下面来解决下这个问题。</p>
         
-          <a class="article-more-a" href="/2015/12/18/sort-the-score-of-students/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/17/sort-the-score-of-students/#more">more >></a>
         
       
 
@@ -813,180 +979,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/18/sort-the-score-of-students/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-interceptor-of-struts" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/17/interceptor-of-struts/">Struts2 拦截器浅析</a>
-    </h1>
-  
-
-        
-        <a href="/2015/12/17/interceptor-of-struts/" class="archive-article-date">
-  	<time datetime="2015-12-17T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Struts2-框架执行流程"><a href="#1-Struts2-框架执行流程" class="headerlink" title="1. Struts2 框架执行流程"></a>1. Struts2 框架执行流程</h2><p>下面这个是 Struts2 框架的一个流程图<br><img src="/img/articles/struts2.png" alt="Struts2执行流程"></p>
-        
-          <a class="article-more-a" href="/2015/12/17/interceptor-of-struts/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/17/interceptor-of-struts/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-learn-more-about-Struts2 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/15/learn-more-about-Struts2 /">深入了解 Struts2</a>
-    </h1>
-  
-
-        
-        <a href="/2015/12/15/learn-more-about-Struts2 /" class="archive-article-date">
-  	<time datetime="2015-12-15T20:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-访问-Servlet"><a href="#1-访问-Servlet" class="headerlink" title="1. 访问 Servlet"></a>1. 访问 Servlet</h2><p>Struts2 提供了三种方式 让 action 访问 Servlet：<br>(1) ActionContext<br>(2) 实现 ***Aware接口<br>(3) ServletActionContext</p>
-<h2 id="2-动态方法调用"><a href="#2-动态方法调用" class="headerlink" title="2. 动态方法调用"></a>2. 动态方法调用</h2><p>动态方法调用是为了解决一个 Action 对应多个请求的处理，以免 Action 太多。<br>这里用前面的  <a href="../../../../2015/12/14/first-project-of-struts2/">Struts2 的第一个小示例</a> 继续讨论。</p>
-        
-          <a class="article-more-a" href="/2015/12/15/learn-more-about-Struts2 /#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/15/learn-more-about-Struts2 /">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/17/sort-the-score-of-students/">展开全文 >></a>
         </p>
       
 
@@ -1134,6 +1127,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -1146,7 +1143,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1154,7 +1151,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1162,11 +1159,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1175,6 +1168,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1198,15 +1195,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1226,15 +1223,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1247,6 +1244,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">LevelDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1310,15 +1311,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

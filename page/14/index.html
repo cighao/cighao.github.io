@@ -175,29 +175,29 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-introduction-of-Struts2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-interceptor-of-struts" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/15/introduction-of-Struts2/">初识 Struts2</a>
+      <a class="article-title" href="/2015/12/16/interceptor-of-struts/">Struts2 拦截器浅析</a>
     </h1>
   
 
         
-        <a href="/2015/12/15/introduction-of-Struts2/" class="archive-article-date">
-  	<time datetime="2015-12-15T05:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-15</time>
+        <a href="/2015/12/16/interceptor-of-struts/" class="archive-article-date">
+  	<time datetime="2015-12-16T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-Struts2-的体系结构"><a href="#1-Struts2-的体系结构" class="headerlink" title="1. Struts2 的体系结构"></a>1. Struts2 的体系结构</h2><p>从一个高水平看，Struts 2 是一个 pull-MVC（或 MVC2）框架。Struts 2 的模型-视图-控制器模式由下面的<br>五个核心部件实现：<strong>动作，拦截器，值栈/OGNL，结果/结果类型，视图技术。</strong><br>Struts 2 与传统的 MVC 框架稍有不同，其中动作担任模型的角色，而不是控制器的角色，虽然有一些重叠。<br>下图是关于 Struts2 体系结构的一个描绘<br><img src="/img/articles/struts.jpg" alt="Struts2 体系结构"></p>
+        <h2 id="1-Struts2-框架执行流程"><a href="#1-Struts2-框架执行流程" class="headerlink" title="1. Struts2 框架执行流程"></a>1. Struts2 框架执行流程</h2><p>下面这个是 Struts2 框架的一个流程图<br><img src="/img/articles/struts2.png" alt="Struts2执行流程"></p>
         
-          <a class="article-more-a" href="/2015/12/15/introduction-of-Struts2/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/16/interceptor-of-struts/#more">more >></a>
         
       
 
@@ -231,7 +231,180 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/15/introduction-of-Struts2/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/16/interceptor-of-struts/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-learn-more-about-Struts2 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/15/learn-more-about-Struts2 /">深入了解 Struts2</a>
+    </h1>
+  
+
+        
+        <a href="/2015/12/15/learn-more-about-Struts2 /" class="archive-article-date">
+  	<time datetime="2015-12-15T09:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-访问-Servlet"><a href="#1-访问-Servlet" class="headerlink" title="1. 访问 Servlet"></a>1. 访问 Servlet</h2><p>Struts2 提供了三种方式 让 action 访问 Servlet：<br>(1) ActionContext<br>(2) 实现 ***Aware接口<br>(3) ServletActionContext</p>
+<h2 id="2-动态方法调用"><a href="#2-动态方法调用" class="headerlink" title="2. 动态方法调用"></a>2. 动态方法调用</h2><p>动态方法调用是为了解决一个 Action 对应多个请求的处理，以免 Action 太多。<br>这里用前面的  <a href="../../../../2015/12/14/first-project-of-struts2/">Struts2 的第一个小示例</a> 继续讨论。</p>
+        
+          <a class="article-more-a" href="/2015/12/15/learn-more-about-Struts2 /#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/12/15/learn-more-about-Struts2 /">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-introduction-of-Struts2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/14/introduction-of-Struts2/">初识 Struts2</a>
+    </h1>
+  
+
+        
+        <a href="/2015/12/14/introduction-of-Struts2/" class="archive-article-date">
+  	<time datetime="2015-12-14T18:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Struts2-的体系结构"><a href="#1-Struts2-的体系结构" class="headerlink" title="1. Struts2 的体系结构"></a>1. Struts2 的体系结构</h2><p>从一个高水平看，Struts 2 是一个 pull-MVC（或 MVC2）框架。Struts 2 的模型-视图-控制器模式由下面的<br>五个核心部件实现：<strong>动作，拦截器，值栈/OGNL，结果/结果类型，视图技术。</strong><br>Struts 2 与传统的 MVC 框架稍有不同，其中动作担任模型的角色，而不是控制器的角色，虽然有一些重叠。<br>下图是关于 Struts2 体系结构的一个描绘<br><img src="/img/articles/struts.jpg" alt="Struts2 体系结构"></p>
+        
+          <a class="article-more-a" href="/2015/12/14/introduction-of-Struts2/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/12/14/introduction-of-Struts2/">展开全文 >></a>
         </p>
       
 
@@ -268,13 +441,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/15/first-project-of-struts2/">第一个 Struts2 程序</a>
+      <a class="article-title" href="/2015/12/14/first-project-of-struts2/">第一个 Struts2 程序</a>
     </h1>
   
 
         
-        <a href="/2015/12/15/first-project-of-struts2/" class="archive-article-date">
-  	<time datetime="2015-12-15T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-15</time>
+        <a href="/2015/12/14/first-project-of-struts2/" class="archive-article-date">
+  	<time datetime="2015-12-14T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-14</time>
 </a>
         
       </header>
@@ -285,7 +458,7 @@
 <h2 id="1-Struts2-的环境需求"><a href="#1-Struts2-的环境需求" class="headerlink" title="1. Struts2 的环境需求"></a>1. Struts2 的环境需求</h2><p>Servlet API 2.4<br>JSP API 2.0<br>Java 5</p>
 <h2 id="2-第一个-struts2-项目的搭建"><a href="#2-第一个-struts2-项目的搭建" class="headerlink" title="2. 第一个 struts2 项目的搭建"></a>2. 第一个 struts2 项目的搭建</h2><p>step1. 首先我们在 myeclipse 下新建一个 web 工程，假设命名为 hellostruts</p>
         
-          <a class="article-more-a" href="/2015/12/15/first-project-of-struts2/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/14/first-project-of-struts2/#more">more >></a>
         
       
 
@@ -319,7 +492,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/15/first-project-of-struts2/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/14/first-project-of-struts2/">展开全文 >></a>
         </p>
       
 
@@ -356,13 +529,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/14/add-toc-to-hexo/">在 Hexo 中给文章添加目录</a>
+      <a class="article-title" href="/2015/12/13/add-toc-to-hexo/">在 Hexo 中给文章添加目录</a>
     </h1>
   
 
         
-        <a href="/2015/12/14/add-toc-to-hexo/" class="archive-article-date">
-  	<time datetime="2015-12-14T04:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-14</time>
+        <a href="/2015/12/13/add-toc-to-hexo/" class="archive-article-date">
+  	<time datetime="2015-12-13T17:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-13</time>
 </a>
         
       </header>
@@ -371,7 +544,7 @@
       
         <p>目录的样式可以参见下面的图片。动态效果可以打开本博客下的带有目录的文章查看。<br><img src="/img/articles/toc.jpg" alt="目录样式"></p>
         
-          <a class="article-more-a" href="/2015/12/14/add-toc-to-hexo/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/13/add-toc-to-hexo/#more">more >></a>
         
       
 
@@ -397,7 +570,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/14/add-toc-to-hexo/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/13/add-toc-to-hexo/">展开全文 >></a>
         </p>
       
 
@@ -434,13 +607,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/13/annotation-of-java/">全面解析 Java 注解</a>
+      <a class="article-title" href="/2015/12/12/annotation-of-java/">全面解析 Java 注解</a>
     </h1>
   
 
         
-        <a href="/2015/12/13/annotation-of-java/" class="archive-article-date">
-  	<time datetime="2015-12-13T03:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-13</time>
+        <a href="/2015/12/12/annotation-of-java/" class="archive-article-date">
+  	<time datetime="2015-12-12T16:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-12</time>
 </a>
         
       </header>
@@ -453,7 +626,7 @@
 <p>@Override<br>@Deprecated<br>@Suppvisewarnings</p>
 </blockquote>
         
-          <a class="article-more-a" href="/2015/12/13/annotation-of-java/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/12/annotation-of-java/#more">more >></a>
         
       
 
@@ -479,7 +652,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/13/annotation-of-java/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/12/annotation-of-java/">展开全文 >></a>
         </p>
       
 
@@ -516,13 +689,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/07/understand-pattern-under-reflection/">通过 Java 的反射了解集合泛型的本质</a>
+      <a class="article-title" href="/2015/12/06/understand-pattern-under-reflection/">通过 Java 的反射了解集合泛型的本质</a>
     </h1>
   
 
         
-        <a href="/2015/12/07/understand-pattern-under-reflection/" class="archive-article-date">
-  	<time datetime="2015-12-07T05:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-07</time>
+        <a href="/2015/12/06/understand-pattern-under-reflection/" class="archive-article-date">
+  	<time datetime="2015-12-06T18:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-06</time>
 </a>
         
       </header>
@@ -533,7 +706,7 @@
 <p>下面开始正题吧，以集合中的 ArrayList 为例来介绍吧。<br>当我们要新建一个 ArrayList 对象时可以用下面的语句：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList()</span><br></pre></td></tr></table></figure></p>
 <p>还可以在新建这个对象时给他规定 ArrayList 中对象的类型，比如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; list1 = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br></pre></td></tr></table></figure></p>
         
-          <a class="article-more-a" href="/2015/12/07/understand-pattern-under-reflection/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/06/understand-pattern-under-reflection/#more">more >></a>
         
       
 
@@ -559,7 +732,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/07/understand-pattern-under-reflection/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/06/understand-pattern-under-reflection/">展开全文 >></a>
         </p>
       
 
@@ -596,13 +769,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/07/load-class-dynamic-in-java/">Java 动态加载类</a>
+      <a class="article-title" href="/2015/12/06/load-class-dynamic-in-java/">Java 动态加载类</a>
     </h1>
   
 
         
-        <a href="/2015/12/07/load-class-dynamic-in-java/" class="archive-article-date">
-  	<time datetime="2015-12-07T03:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-07</time>
+        <a href="/2015/12/06/load-class-dynamic-in-java/" class="archive-article-date">
+  	<time datetime="2015-12-06T16:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-06</time>
 </a>
         
       </header>
@@ -613,7 +786,7 @@
 <p>在前面的介绍 <a href="../../../../2015/12/06/reflection-in-java/">Java反射机制</a> 时提到了 <strong><em>Class.forName()</em></strong> 函数，它不仅表示了类的类类型，还表示了动态加载类。</p>
 <h2 id="2-动态加载类具体分析"><a href="#2-动态加载类具体分析" class="headerlink" title="2. 动态加载类具体分析"></a>2. 动态加载类具体分析</h2><p>首先我们用一个案例来引入动态加载类的机制。<br>下面我们先编写一个类：<br>
         
-          <a class="article-more-a" href="/2015/12/07/load-class-dynamic-in-java/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/06/load-class-dynamic-in-java/#more">more >></a>
         
       
 
@@ -639,7 +812,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/07/load-class-dynamic-in-java/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/06/load-class-dynamic-in-java/">展开全文 >></a>
         </p>
       
 
@@ -676,13 +849,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/07/reflection-in-java/">Java 中的反射机制</a>
+      <a class="article-title" href="/2015/12/06/reflection-in-java/">Java 中的反射机制</a>
     </h1>
   
 
         
-        <a href="/2015/12/07/reflection-in-java/" class="archive-article-date">
-  	<time datetime="2015-12-07T00:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-07</time>
+        <a href="/2015/12/06/reflection-in-java/" class="archive-article-date">
+  	<time datetime="2015-12-06T13:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-06</time>
 </a>
         
       </header>
@@ -692,7 +865,7 @@
         <h2 id="1-什么是反射"><a href="#1-什么是反射" class="headerlink" title="1. 什么是反射"></a>1. 什么是反射</h2><p>Java 反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。</p>
 <p>Java反射机制主要提供了以下功能： 在运行时判断任意一个对象所属的类；在运行时构造任意一个类的对象；在运行时判断任意一个类所具有的成员变量和方法；在运行时调用任意一个对象的方法；生成动态代理。<br>
         
-          <a class="article-more-a" href="/2015/12/07/reflection-in-java/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/06/reflection-in-java/#more">more >></a>
         
       
 
@@ -718,7 +891,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/07/reflection-in-java/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/06/reflection-in-java/">展开全文 >></a>
         </p>
       
 
@@ -755,13 +928,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/06/online-number-in-javaweb/">Java Web 中基于监听器实现的在线人数统计</a>
+      <a class="article-title" href="/2015/12/05/online-number-in-javaweb/">Java Web 中基于监听器实现的在线人数统计</a>
     </h1>
   
 
         
-        <a href="/2015/12/06/online-number-in-javaweb/" class="archive-article-date">
-  	<time datetime="2015-12-06T04:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-06</time>
+        <a href="/2015/12/05/online-number-in-javaweb/" class="archive-article-date">
+  	<time datetime="2015-12-05T17:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-05</time>
 </a>
         
       </header>
@@ -771,7 +944,7 @@
         <p>关于监听器的基本介绍前面已经介绍过了，如果不清楚请<a href="../../../../2015/12/05/listener-of-javaweb/">点击这里</a></p>
 <h2 id="1-基本功能的实现"><a href="#1-基本功能的实现" class="headerlink" title="1. 基本功能的实现"></a>1. 基本功能的实现</h2><p>在线人数的统计可以通过统计当前 session 对象的个数来得到，因为每当一个用户登录的时候都会创建一个 session。前面我们已经介绍过了，继承了 <em>HttpSessionListener</em> 这个接口的监听器可以监听到 session 对象的创建和销毁的。当监听到有 session 对象创建时在线人数加一，监听到有 session 对象销毁时在线人数减一。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebListener</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHttpSessionListener</span> <span class="keyword">implements</span> <span class="title">HttpSessionListener</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> userNumber = <span class="number">0</span>;    <span class="comment">//在线用户总人数</span></span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionCreated</span><span class="params">(HttpSessionEvent arg0)</span> </span>&#123;</span><br><span class="line">		userNumber++;</span><br><span class="line">		arg0.getSession().getServletContext().setAttribute(<span class="string">"userNumber"</span>, userNumber);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionDestroyed</span><span class="params">(HttpSessionEvent arg0)</span> </span>&#123;</span><br><span class="line">		userNumber--;</span><br><span class="line">		arg0.getSession().getServletContext().setAttribute(<span class="string">"userNumber"</span>, userNumber);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
         
-          <a class="article-more-a" href="/2015/12/06/online-number-in-javaweb/#more">more >></a>
+          <a class="article-more-a" href="/2015/12/05/online-number-in-javaweb/#more">more >></a>
         
       
 
@@ -797,170 +970,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/06/online-number-in-javaweb/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-listener-of-javaweb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/06/listener-of-javaweb/">Java Web 之监听器</a>
-    </h1>
-  
-
-        
-        <a href="/2015/12/06/listener-of-javaweb/" class="archive-article-date">
-  	<time datetime="2015-12-06T02:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p><strong>监听器</strong>： 指专门用于对其他对象身上<em>发生的事件或状态改变</em>进行监听和相应处理的对象，当被监视的对象发生变化时，立即采取相应的行动。</p>
-<p>Web监听器既可以监听客户端的请求也可以监听服务器端的操作，主要监听的是<strong><em>ServletContext</em> , <em>ServletRequest</em> , <em>HttpSession</em></strong> 这三个对象。</p>
-<p>当一个Web应用程序中有多个监听器时，监听器的启动顺序是按照其在web.xml注册的顺序启动的。当一个web应用程序中既有监听器，又有过滤器，还有Servlet时，启动的优先级是: <strong>监听器 &gt; 过滤器 &gt; <em>Servlet</em></strong> 。</p>
-        
-          <a class="article-more-a" href="/2015/12/06/listener-of-javaweb/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/06/listener-of-javaweb/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-states-of-session" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/06/states-of-session/">Java Web 中 Session 的钝化和活化</a>
-    </h1>
-  
-
-        
-        <a href="/2015/12/06/states-of-session/" class="archive-article-date">
-  	<time datetime="2015-12-06T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对于 Session 中的对象，主要有两组状态：(1)绑定和解除绑定，(2)钝化和活化。</p>
-<p>Session的钝化机制: 本质就在于把服务器中不经常使用的 Session 对象暂时序列化到系统文件系统或是数据库系统中，当被使用时反序列化到内存中，整个过程由服务器自动完成。</p>
-        
-          <a class="article-more-a" href="/2015/12/06/states-of-session/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/06/states-of-session/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/12/05/online-number-in-javaweb/">展开全文 >></a>
         </p>
       
 
@@ -1108,6 +1118,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -1120,7 +1134,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1128,7 +1142,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1136,11 +1150,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1149,6 +1159,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1172,15 +1186,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1200,15 +1214,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1221,6 +1235,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">LevelDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1284,15 +1302,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

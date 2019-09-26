@@ -175,31 +175,112 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-disksim-with-ssdmodel-source-analysis-018-gc-analysis-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-draw-picture-with-matlab-001-line-style" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/">disksim with ssdmodel 源码解析（十八）：GC 分析(五)</a>
+      <a class="article-title" href="/2016/04/11/draw-picture-with-matlab-001-line-style/">matlab 画图（一）： 线条样式设计</a>
     </h1>
   
 
         
-        <a href="/2016/03/31/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/" class="archive-article-date">
-  	<time datetime="2016-03-31T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-31</time>
+        <a href="/2016/04/11/draw-picture-with-matlab-001-line-style/" class="archive-article-date">
+  	<time datetime="2016-04-11T16:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前面介绍了在没有 copyback 情况下利用贪心算法来实现 GC。今天来介绍一下在没有 copyback 的情况下利用随机算法来实现 GC 操作。</p>
-<p>接着理一理程序的流程：</p>
-<p><code>ssd_activate_elem()</code> —&gt; <code>ssd_invoke_element_cleaning()</code> —&gt; <code>_ssd_invoke_element_cleaning()</code> —&gt; <code>ssd_clean_element()</code> —&gt; <code>(if no copyback)</code> —&gt; <code>ssd_clean_element_no_copyback()</code> —&gt; <code>(if达到gc条件)</code> —&gt; <code>(if随机算法)</code> —&gt; <code>ssd_clean_blocks_random()</code></p>
+        <p><img src="/img/articles/matlab/matlab-pic-001.jpg" alt=""></p>
         
-          <a class="article-more-a" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/#more">more >></a>
+          <a class="article-more-a" href="/2016/04/11/draw-picture-with-matlab-001-line-style/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Matlab</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/04/11/draw-picture-with-matlab-001-line-style/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-with-ssdmodel-source-analysis-019-ssd-initialize" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-019-ssd-initialize/">disksim with ssdmodel 源码解析（十九）：ssd 的初始化</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/31/disksim-with-ssdmodel-source-analysis-019-ssd-initialize/" class="archive-article-date">
+  	<time datetime="2016-03-31T10:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ssd 的初始化是在 <code>ssd_init.c</code> 这个文件中完成的。</p>
+<p>入口是在 <code>ssd_initialize()</code> 这个函数这里。过程如下：</p>
+        
+          <a class="article-more-a" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-019-ssd-initialize/#more">more >></a>
         
       
 
@@ -229,7 +310,91 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-019-ssd-initialize/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-with-ssdmodel-source-analysis-018-gc-analysis-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/30/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/">disksim with ssdmodel 源码解析（十八）：GC 分析(五)</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/30/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/" class="archive-article-date">
+  	<time datetime="2016-03-30T17:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面介绍了在没有 copyback 情况下利用贪心算法来实现 GC。今天来介绍一下在没有 copyback 的情况下利用随机算法来实现 GC 操作。</p>
+<p>接着理一理程序的流程：</p>
+<p><code>ssd_activate_elem()</code> —&gt; <code>ssd_invoke_element_cleaning()</code> —&gt; <code>_ssd_invoke_element_cleaning()</code> —&gt; <code>ssd_clean_element()</code> —&gt; <code>(if no copyback)</code> —&gt; <code>ssd_clean_element_no_copyback()</code> —&gt; <code>(if达到gc条件)</code> —&gt; <code>(if随机算法)</code> —&gt; <code>ssd_clean_blocks_random()</code></p>
+        
+          <a class="article-more-a" href="/2016/03/30/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/30/disksim-with-ssdmodel-source-analysis-018-gc-analysis-5/">展开全文 >></a>
         </p>
       
 
@@ -266,13 +431,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-017-gc-analysis-4/">disksim with ssdmodel 源码解析（十七）：GC 分析(四)</a>
+      <a class="article-title" href="/2016/03/30/disksim-with-ssdmodel-source-analysis-017-gc-analysis-4/">disksim with ssdmodel 源码解析（十七）：GC 分析(四)</a>
     </h1>
   
 
         
-        <a href="/2016/03/31/disksim-with-ssdmodel-source-analysis-017-gc-analysis-4/" class="archive-article-date">
-  	<time datetime="2016-03-31T02:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-31</time>
+        <a href="/2016/03/30/disksim-with-ssdmodel-source-analysis-017-gc-analysis-4/" class="archive-article-date">
+  	<time datetime="2016-03-30T16:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-30</time>
 </a>
         
       </header>
@@ -287,7 +452,7 @@
 </ul>
 <p>除了这两种(或者三种吧)算法外，在 ssdmodel 实现中有 copyback 和没 copyback 的回收也是不一样的。</p>
         
-          <a class="article-more-a" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-017-gc-analysis-4/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/30/disksim-with-ssdmodel-source-analysis-017-gc-analysis-4/#more">more >></a>
         
       
 
@@ -317,7 +482,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/31/disksim-with-ssdmodel-source-analysis-017-gc-analysis-4/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/30/disksim-with-ssdmodel-source-analysis-017-gc-analysis-4/">展开全文 >></a>
         </p>
       
 
@@ -354,13 +519,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/30/the-note-of-SSD-studying-1/">SSD 编程学习笔记（一）</a>
+      <a class="article-title" href="/2016/03/29/the-note-of-SSD-studying-1/">SSD 编程学习笔记（一）</a>
     </h1>
   
 
         
-        <a href="/2016/03/30/the-note-of-SSD-studying-1/" class="archive-article-date">
-  	<time datetime="2016-03-30T05:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-30</time>
+        <a href="/2016/03/29/the-note-of-SSD-studying-1/" class="archive-article-date">
+  	<time datetime="2016-03-29T19:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-29</time>
 </a>
         
       </header>
@@ -373,7 +538,7 @@
 <p><strong>写操作的顺序</strong>：解决 SSD 上小的随机的写操作是一个很棘手的问题。</p>
 <p><strong>负载管理</strong>：SSD 的性能是受负载影响的。比如，有些设计对连续的负载有很好的性能，但是对非连续的负载就不能体现出很好的性能，反之亦然。</p>
         
-          <a class="article-more-a" href="/2016/03/30/the-note-of-SSD-studying-1/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/29/the-note-of-SSD-studying-1/#more">more >></a>
         
       
 
@@ -399,7 +564,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/30/the-note-of-SSD-studying-1/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/29/the-note-of-SSD-studying-1/">展开全文 >></a>
         </p>
       
 
@@ -436,13 +601,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/30/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/">disksim with ssdmodel 源码解析（十六）：GC 分析(三)</a>
+      <a class="article-title" href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/">disksim with ssdmodel 源码解析（十六）：GC 分析(三)</a>
     </h1>
   
 
         
-        <a href="/2016/03/30/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/" class="archive-article-date">
-  	<time datetime="2016-03-29T21:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-30</time>
+        <a href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/" class="archive-article-date">
+  	<time datetime="2016-03-29T11:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-29</time>
 </a>
         
       </header>
@@ -454,7 +619,7 @@
 <p>在 <code>ssd_clean.c</code> 中的 <code>ssd_clean_element()</code> 函数中会根据是否有 copyback 来调用不同的函数区执行 GC 操作。</p>
 <p>下面分别介绍在这两种情况下，达到什么条件时会触发 GC 操作。</p>
         
-          <a class="article-more-a" href="/2016/03/30/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/#more">more >></a>
         
       
 
@@ -484,7 +649,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/30/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/">展开全文 >></a>
         </p>
       
 
@@ -521,13 +686,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/28/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/">disksim with ssdmodel 源码解析（十五）：GC 分析(二)</a>
+      <a class="article-title" href="/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/">disksim with ssdmodel 源码解析（十五）：GC 分析(二)</a>
     </h1>
   
 
         
-        <a href="/2016/03/28/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/" class="archive-article-date">
-  	<time datetime="2016-03-28T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-28</time>
+        <a href="/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/" class="archive-article-date">
+  	<time datetime="2016-03-27T17:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-27</time>
 </a>
         
       </header>
@@ -538,7 +703,7 @@
 <p>普通 GC 是指当一个写请求到来时，如果这个 element 上没有空闲的 page 了或者空闲的 page 到达了预先设定的下限，那么就会触发相应的 GC 操作等 GC 结束后才会进行写入操作。很明显这是会影响响应时间的。</p>
 <p>后台 GC 是指当 SSD 处于空闲状态时，来检查 SSD 是否是需要进行 GC，如果不需要就不用进行 GC 了，如果要的话就进行 GC，由于这个时候 SSD 是处于空闲状态，这个时候进行 GC 操作就不会影响 SSD 的响应时间了。</p>
         
-          <a class="article-more-a" href="/2016/03/28/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/#more">more >></a>
         
       
 
@@ -568,7 +733,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/28/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/">展开全文 >></a>
         </p>
       
 
@@ -605,13 +770,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/25/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/">disksim with ssdmodel 源码解析（十四）：ssd_activate_elem函数分析</a>
+      <a class="article-title" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/">disksim with ssdmodel 源码解析（十四）：ssd_activate_elem函数分析</a>
     </h1>
   
 
         
-        <a href="/2016/03/25/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/" class="archive-article-date">
-  	<time datetime="2016-03-25T03:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-25</time>
+        <a href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/" class="archive-article-date">
+  	<time datetime="2016-03-24T17:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-24</time>
 </a>
         
       </header>
@@ -621,7 +786,7 @@
         <p>当一个请求经过一系列的处理后最终会发送到 element 上去，在 <code>ssd_media_access_request_element()</code> 函数中会把一个请求拆分成以 page 为大小的小请求，然后把这些小请求加入到 element 队列中，然后调用 <code>ssd_activate_elem()</code> 这个函数让 element 处理请求。下面主要分析 <code>ssd_activate_elem()</code> 这个函数是怎么处理请求的。</p>
 <p>关于 GC 操作的判断也是在这个函数中触发，这个函数中关于GC部分的内容前面已经介绍过了，不再重复。<strong>当没有进行 GC 操作且该 element 的请求队列中有请求时，会进行请求的处理</strong>。</p>
         
-          <a class="article-more-a" href="/2016/03/25/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/#more">more >></a>
         
       
 
@@ -651,7 +816,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/25/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/">展开全文 >></a>
         </p>
       
 
@@ -688,13 +853,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/">disksim with ssdmodel 源码解析（十三）：如何兼容64位系统</a>
+      <a class="article-title" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/">disksim with ssdmodel 源码解析（十三）：如何兼容64位系统</a>
     </h1>
   
 
         
-        <a href="/2016/03/24/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/" class="archive-article-date">
-  	<time datetime="2016-03-24T04:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-24</time>
+        <a href="/2016/03/23/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/" class="archive-article-date">
+  	<time datetime="2016-03-23T18:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
 </a>
         
       </header>
@@ -705,7 +870,7 @@
 <ul>
 <li>下载源码安装包<br>disksim 4.0: <a href="http://www.pdl.cmu.edu/DiskSim/" target="_blank" rel="noopener">http://www.pdl.cmu.edu/DiskSim/</a><br>SSD extension:<a href="http://research.microsoft.com/en-us/downloads/b41019e2-1d2b-44d8-b512-ba35ab814cd4/" target="_blank" rel="noopener"> http://research.microsoft.com/en-us/downloads/b41019e2-1d2b-44d8-b512-ba35ab814cd4/</a>
         
-          <a class="article-more-a" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/#more">more >></a>
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/#more">more >></a>
         
       
 
@@ -735,7 +900,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/">展开全文 >></a>
         </p>
       
 
@@ -778,7 +943,7 @@
 
         
         <a href="/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/" class="archive-article-date">
-  	<time datetime="2016-03-23T19:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
+  	<time datetime="2016-03-23T09:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
 </a>
         
       </header>
@@ -823,172 +988,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/">disksim with ssdmodel 源码解析（十一）：地址映射</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/" class="archive-article-date">
-  	<time datetime="2016-03-23T17:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> SSD 中的逻辑地址到物理地址的映射方式有很多中，这里主要是介绍 ssdmodel 中的映射方式。</p>
-<p>由于 SSD 与主机的接口使用的还是以前的 HDD 的接口，所以操作系统给 SSD 发出请求时仍然是以扇区(sector，512B)为单位。例如一条trace数据为 (0.0,0,512,8,0)，表示的是要对第512个扇区进行操作。由于 SSD 读写操作的基本单位时页(page, 4KB)，所以操作系统给 SSD 发请求时的地址通常都是 8 的整数倍。</p>
-<p>SSD 地址映射最简单的方式就是以页为单位一对一映射(类似cache的全相联映射)，当然这是很费内存的。在 ssdmodel 中为了减少内存开销，通常是以一个 element 为单位在其内部进行以 page 为单位的一一映射。 在 element(chip) 的元数据里面有一个 <code>lba_table[]</code> 的数组，表示的逻辑页到物理页的映射。比如 <code>lab_table[lpn] = ppn</code>，代表的是该 element 上的逻辑页号 lpn 对应着该 element 上的物理页号 ppn。</p>
-        
-          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-011-lpn2ppn-map/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-matplotlib-demo-004-text-and-label" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/22/matplotlib-demo-004-text-and-label/">matplotlib 画图（四）：text 和 label 的设置</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/22/matplotlib-demo-004-text-and-label/" class="archive-article-date">
-  	<time datetime="2016-03-22T17:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/articles/matplotlib/test-and-label.jpg" alt=""></p>
-        
-          <a class="article-more-a" href="/2016/03/22/matplotlib-demo-004-text-and-label/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Matplotlib</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/22/matplotlib-demo-004-text-and-label/">展开全文 >></a>
         </p>
       
 
@@ -1136,6 +1135,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -1148,7 +1151,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1156,7 +1159,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1164,11 +1167,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1177,6 +1176,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1200,15 +1203,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1228,15 +1231,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1249,6 +1252,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">LevelDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1312,15 +1319,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>

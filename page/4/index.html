@@ -175,30 +175,31 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-flashsim-source-analysis-03-bus-channel-interleaving" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-flashsim-source-analysis-05-initialization" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/12/flashsim-source-analysis-03-bus-channel-interleaving/">flashsim 源码分析（三）： 总线通道中的交叉</a>
+      <a class="article-title" href="/2016/11/22/flashsim-source-analysis-05-initialization/">flashsim 源码分析（五）： flashsim 的初始化</a>
     </h1>
   
 
         
-        <a href="/2016/11/12/flashsim-source-analysis-03-bus-channel-interleaving/" class="archive-article-date">
-  	<time datetime="2016-11-12T00:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-12</time>
+        <a href="/2016/11/22/flashsim-source-analysis-05-initialization/" class="archive-article-date">
+  	<time datetime="2016-11-22T13:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在 SSD 的读写中，很多过程都需要占用总线，有效利用总线的空闲时间可以降低 SSD 的响应时间。如果交叉地进行读写操作，这样可以提高总线的利用效率。</p>
-<p>每一个总线通道(bus channel)上连接一个 package 里的所有 die。每个总线通道都是独立和并行的，不同通道上的操作是互相不干扰的。</p>
+        <h3 id="flashsim-的配置"><a href="#flashsim-的配置" class="headerlink" title="flashsim 的配置"></a><strong>flashsim 的配置</strong></h3><p>flashsim 的源码目录下有个 <code>ssd.conf</code> 文件，对于 SSD 的一些参数可以在这个文件里面进行设置。还有一些默认的参数会在 <code>ssd_config.cpp</code> 文件中作为全局变量进行设置。</p>
+<p>当需要模拟一个 SSD 时，首先需要调用 <code>load_config()</code>， 这个函数会读取配置文件，将配置文件中的信息保存在一些全局变量中。</p>
+<h3 id="flashsim-的初始化"><a href="#flashsim-的初始化" class="headerlink" title="flashsim 的初始化"></a><strong>flashsim 的初始化</strong></h3>
         
-          <a class="article-more-a" href="/2016/11/12/flashsim-source-analysis-03-bus-channel-interleaving/#more">more >></a>
+          <a class="article-more-a" href="/2016/11/22/flashsim-source-analysis-05-initialization/#more">more >></a>
         
       
 
@@ -228,7 +229,173 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/12/flashsim-source-analysis-03-bus-channel-interleaving/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/11/22/flashsim-source-analysis-05-initialization/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-flashsim-source-analysis-04-achievement-of-bus-channel-lock" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/13/flashsim-source-analysis-04-achievement-of-bus-channel-lock/">flashsim 源码分析（四）： 总线上锁机制的实现</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/13/flashsim-source-analysis-04-achievement-of-bus-channel-lock/" class="archive-article-date">
+  	<time datetime="2016-11-13T13:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>flashsim 模拟器是事件驱动型的。每一个请求对应一个事件(event对象)。event 对象会在闪存内部的各个器件之间相互传递，从而来模拟闪存处理IO请求。</p>
+<p>前面介绍了，<a href="(../../../../2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/">总线通道(bus channel)中的交叉操作</a>)。现在结合源码来了解下，flashsim 是如何来模拟总线占用的。</p>
+        
+          <a class="article-more-a" href="/2016/11/13/flashsim-source-analysis-04-achievement-of-bus-channel-lock/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">flashsim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/13/flashsim-source-analysis-04-achievement-of-bus-channel-lock/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-flashsim-source-analysis-03-bus-channel-interleaving" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/">flashsim 源码分析（三）： 总线通道中的交叉</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/" class="archive-article-date">
+  	<time datetime="2016-11-11T13:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 SSD 的读写中，很多过程都需要占用总线，有效利用总线的空闲时间可以降低 SSD 的响应时间。如果交叉地进行读写操作，这样可以提高总线的利用效率。</p>
+<p>每一个总线通道(bus channel)上连接一个 package 里的所有 die。每个总线通道都是独立和并行的，不同通道上的操作是互相不干扰的。</p>
+        
+          <a class="article-more-a" href="/2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">flashsim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/">展开全文 >></a>
         </p>
       
 
@@ -265,13 +432,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/10/flashsim-source-analysis-02-object-oriented-component-design/">flashsim 源码分析（二）： flashsim 中的面向对象设计</a>
+      <a class="article-title" href="/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/">flashsim 源码分析（二）： flashsim 中的面向对象设计</a>
     </h1>
   
 
         
-        <a href="/2016/11/10/flashsim-source-analysis-02-object-oriented-component-design/" class="archive-article-date">
-  	<time datetime="2016-11-10T05:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-10</time>
+        <a href="/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/" class="archive-article-date">
+  	<time datetime="2016-11-09T18:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-09</time>
 </a>
         
       </header>
@@ -282,7 +449,7 @@
 <p>flashsim 所模拟的闪存的硬件架构如下图所示。</p>
 <p><img src="/img/articles/flashsim/flashsim-02-01.jpg" alt=""></p>
         
-          <a class="article-more-a" href="/2016/11/10/flashsim-source-analysis-02-object-oriented-component-design/#more">more >></a>
+          <a class="article-more-a" href="/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/#more">more >></a>
         
       
 
@@ -312,7 +479,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/10/flashsim-source-analysis-02-object-oriented-component-design/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/">展开全文 >></a>
         </p>
       
 
@@ -349,13 +516,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/09/flashsim-source-analysis-01-how-to-install-flashsim/">flashsim 源码分析（一）：安装 flashsim</a>
+      <a class="article-title" href="/2016/11/08/flashsim-source-analysis-01-how-to-install-flashsim/">flashsim 源码分析（一）：安装 flashsim</a>
     </h1>
   
 
         
-        <a href="/2016/11/09/flashsim-source-analysis-01-how-to-install-flashsim/" class="archive-article-date">
-  	<time datetime="2016-11-09T05:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-09</time>
+        <a href="/2016/11/08/flashsim-source-analysis-01-how-to-install-flashsim/" class="archive-article-date">
+  	<time datetime="2016-11-08T18:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
 </a>
         
       </header>
@@ -368,7 +535,7 @@
 <p>即使不推荐，还是介绍下吧，接下来介绍的是在 github 开源的可以独立运行的那个 flashsim。</p>
 <p>这个版本的 flashsim 是利用 C++ 开发的闪存模拟工具，同时还实现了几种不同的 FTL 算法。需要运行在 64 位的操作系统上。</p>
         
-          <a class="article-more-a" href="/2016/11/09/flashsim-source-analysis-01-how-to-install-flashsim/#more">more >></a>
+          <a class="article-more-a" href="/2016/11/08/flashsim-source-analysis-01-how-to-install-flashsim/#more">more >></a>
         
       
 
@@ -398,7 +565,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/09/flashsim-source-analysis-01-how-to-install-flashsim/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/11/08/flashsim-source-analysis-01-how-to-install-flashsim/">展开全文 >></a>
         </p>
       
 
@@ -435,13 +602,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/21/solve-eight-queens-problem-by-probability-algorithm/">利用概率算法求解八皇后问题</a>
+      <a class="article-title" href="/2016/10/20/solve-eight-queens-problem-by-probability-algorithm/">利用概率算法求解八皇后问题</a>
     </h1>
   
 
         
-        <a href="/2016/10/21/solve-eight-queens-problem-by-probability-algorithm/" class="archive-article-date">
-  	<time datetime="2016-10-21T03:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-21</time>
+        <a href="/2016/10/20/solve-eight-queens-problem-by-probability-algorithm/" class="archive-article-date">
+  	<time datetime="2016-10-20T17:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-20</time>
 </a>
         
       </header>
@@ -454,7 +621,7 @@
 <p>实验表明，这样地放置方法比回溯法更快。</p>
 <p><strong>还有一种优化就是对于一部分皇后随机放置，另一部分皇后采用回溯法放置，这样效果会更好。</strong></p>
         
-          <a class="article-more-a" href="/2016/10/21/solve-eight-queens-problem-by-probability-algorithm/#more">more >></a>
+          <a class="article-more-a" href="/2016/10/20/solve-eight-queens-problem-by-probability-algorithm/#more">more >></a>
         
       
 
@@ -480,7 +647,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/21/solve-eight-queens-problem-by-probability-algorithm/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/10/20/solve-eight-queens-problem-by-probability-algorithm/">展开全文 >></a>
         </p>
       
 
@@ -517,13 +684,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/21/solve-eight-queens-problem-by-backtracking-algorithm/">回溯法求解八皇后问题</a>
+      <a class="article-title" href="/2016/10/20/solve-eight-queens-problem-by-backtracking-algorithm/">回溯法求解八皇后问题</a>
     </h1>
   
 
         
-        <a href="/2016/10/21/solve-eight-queens-problem-by-backtracking-algorithm/" class="archive-article-date">
-  	<time datetime="2016-10-21T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-21</time>
+        <a href="/2016/10/20/solve-eight-queens-problem-by-backtracking-algorithm/" class="archive-article-date">
+  	<time datetime="2016-10-20T15:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-20</time>
 </a>
         
       </header>
@@ -532,7 +699,7 @@
       
         <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><strong>Problem</strong></h3><p>该问题是国际西洋棋棋手马克斯·贝瑟尔于1848年提出的，在8×8格的国际象棋上摆放八个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法。</p>
         
-          <a class="article-more-a" href="/2016/10/21/solve-eight-queens-problem-by-backtracking-algorithm/#more">more >></a>
+          <a class="article-more-a" href="/2016/10/20/solve-eight-queens-problem-by-backtracking-algorithm/#more">more >></a>
         
       
 
@@ -558,7 +725,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/21/solve-eight-queens-problem-by-backtracking-algorithm/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/10/20/solve-eight-queens-problem-by-backtracking-algorithm/">展开全文 >></a>
         </p>
       
 
@@ -601,7 +768,7 @@
 
         
         <a href="/2016/10/17/get-set-size-by-probability-algorithm/" class="archive-article-date">
-  	<time datetime="2016-10-17T16:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-17</time>
+  	<time datetime="2016-10-17T06:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-17</time>
 </a>
         
       </header>
@@ -676,13 +843,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/08/catalan-number/">神奇的卡特兰数</a>
+      <a class="article-title" href="/2016/10/07/catalan-number/">神奇的卡特兰数</a>
     </h1>
   
 
         
-        <a href="/2016/10/08/catalan-number/" class="archive-article-date">
-  	<time datetime="2016-10-07T22:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-08</time>
+        <a href="/2016/10/07/catalan-number/" class="archive-article-date">
+  	<time datetime="2016-10-07T12:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-07</time>
 </a>
         
       </header>
@@ -691,7 +858,7 @@
       
         <p>卡塔兰数是组合数学中一个常在各种计数问题中出现的数列。以比利时的数学家欧仁·查理·卡塔兰命名。</p>
         
-          <a class="article-more-a" href="/2016/10/08/catalan-number/#more">more >></a>
+          <a class="article-more-a" href="/2016/10/07/catalan-number/#more">more >></a>
         
       
 
@@ -721,7 +888,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/08/catalan-number/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/10/07/catalan-number/">展开全文 >></a>
         </p>
       
 
@@ -764,7 +931,7 @@
 
         
         <a href="/2016/08/23/paper-reading-04-buffer-management-algorithm-for-flash-memory/" class="archive-article-date">
-  	<time datetime="2016-08-23T19:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-23</time>
+  	<time datetime="2016-08-23T09:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-23</time>
 </a>
         
       </header>
@@ -809,173 +976,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/08/23/paper-reading-04-buffer-management-algorithm-for-flash-memory/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-paper-reading-03-cost-aware-buffer-management-for-flash" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/19/paper-reading-03-cost-aware-buffer-management-for-flash/">论文阅读：针对闪存的成本感知的缓冲区管理策略（DASFAA 2015）</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/19/paper-reading-03-cost-aware-buffer-management-for-flash/" class="archive-article-date">
-  	<time datetime="2016-08-19T19:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原文：Jiang Z, Zhang Y, Wang J, et al. A cost-aware buffer management policy for flash-based storage devices[C]. International Conference on Database Systems for Advanced Applications. Springer International Publishing, 2015: 175-190. <a href="http://link.springer.com/chapter/10.1007/978-3-319-18120-2_11" target="_blank" rel="noopener">[下载]</a></p>
-<h2 id="1-Abstract"><a href="#1-Abstract" class="headerlink" title="1. Abstract"></a><strong>1. Abstract</strong></h2><p>由于读写的不对称性，传统的基于磁盘的缓冲区管理策略在闪存中并不能达到最优。这篇文章提出了一种针对闪存的名叫 CARF 的成本感知的缓冲区管理策略。提出了一种新颖的低开销的能够准确地确定驱逐页的成本模型。而且，这个成本模型能区分读写操作，还有更好的扫描抵抗力(<strong>scan resistance</strong>)。基于人工的trace和基准测试的trace表明，CARF的性能比当前最好的闪存管理策略还要高27.9%。</p>
-        
-          <a class="article-more-a" href="/2016/08/19/paper-reading-03-cost-aware-buffer-management-for-flash/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文阅读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/19/paper-reading-03-cost-aware-buffer-management-for-flash/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leveldb-source-analysis-07-skiplist" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/17/leveldb-source-analysis-07-skiplist/">LevelDB 源码分析（七）：Skiplist</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/17/leveldb-source-analysis-07-skiplist/" class="archive-article-date">
-  	<time datetime="2016-08-17T17:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>LevelDB 中的 memtable 只是一个封装类，它的底层实现是一个跳表。跳表是一种基于随机数的平衡数据结构，其他的平衡数据结构还有红黑树、AVL树，但跳表的原理比它们简单很多。跳表有点像链表，只不过每个节点是多层结构，通过在每个节点中增加向前的指针提高查找效率。</p>
-<p>在 <code>/leveldb/db</code> 文件夹下有跳表的实现 <code>skiplist.h</code> 和跳表的测试程序 <code>skiplist_test.cc</code>。</p>
-<p>LevelDB 的 skiplist 是一个模板类，key 是跳表每个节点存储的信息类，跳表是一个顺序结构，comparator 是跳表 key 的比较器。</p>
-        
-          <a class="article-more-a" href="/2016/08/17/leveldb-source-analysis-07-skiplist/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">LevelDB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/17/leveldb-source-analysis-07-skiplist/">展开全文 >></a>
         </p>
       
 
@@ -1123,6 +1123,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -1135,7 +1139,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1143,7 +1147,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1151,11 +1155,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1164,6 +1164,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1187,15 +1191,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,15 +1219,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1236,6 +1240,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">LevelDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1299,15 +1307,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
             
             <div class="clearfix"></div>
