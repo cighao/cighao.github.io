@@ -74,7 +74,7 @@
 	        
 				<li><a href="/archives">所有文章</a></li>
 	        
-				<li><a href="/resume/resume.html">关于我</a></li>
+				<li><a href="/resume/resume-zh.html">关于我/About me</a></li>
 	        
 				<li><a href="/photo">相册</a></li>
 	        
@@ -156,7 +156,7 @@
 		        
 					<li style="width: 25%"><a href="/archives">所有文章</a></li>
 		        
-					<li style="width: 25%"><a href="/resume/resume.html">关于我</a></li>
+					<li style="width: 25%"><a href="/resume/resume-zh.html">关于我/About me</a></li>
 		        
 					<li style="width: 25%"><a href="/photo">相册</a></li>
 		        
@@ -174,6 +174,85 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-online-number-in-javaweb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/05/online-number-in-javaweb/">Java Web 中基于监听器实现的在线人数统计</a>
+    </h1>
+  
+
+        
+        <a href="/2015/12/05/online-number-in-javaweb/" class="archive-article-date">
+  	<time datetime="2015-12-05T17:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于监听器的基本介绍前面已经介绍过了，如果不清楚请<a href="../../../../2015/12/05/listener-of-javaweb/">点击这里</a></p>
+<h2 id="1-基本功能的实现"><a href="#1-基本功能的实现" class="headerlink" title="1. 基本功能的实现"></a>1. 基本功能的实现</h2><p>在线人数的统计可以通过统计当前 session 对象的个数来得到，因为每当一个用户登录的时候都会创建一个 session。前面我们已经介绍过了，继承了 <em>HttpSessionListener</em> 这个接口的监听器可以监听到 session 对象的创建和销毁的。当监听到有 session 对象创建时在线人数加一，监听到有 session 对象销毁时在线人数减一。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebListener</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHttpSessionListener</span> <span class="keyword">implements</span> <span class="title">HttpSessionListener</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> userNumber = <span class="number">0</span>;    <span class="comment">//在线用户总人数</span></span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionCreated</span><span class="params">(HttpSessionEvent arg0)</span> </span>&#123;</span><br><span class="line">		userNumber++;</span><br><span class="line">		arg0.getSession().getServletContext().setAttribute(<span class="string">"userNumber"</span>, userNumber);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionDestroyed</span><span class="params">(HttpSessionEvent arg0)</span> </span>&#123;</span><br><span class="line">		userNumber--;</span><br><span class="line">		arg0.getSession().getServletContext().setAttribute(<span class="string">"userNumber"</span>, userNumber);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2015/12/05/online-number-in-javaweb/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java Web</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/12/05/online-number-in-javaweb/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-listener-of-javaweb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -925,93 +1004,6 @@
 
 
   
-    <article id="post-solve-2-level-question-with-PSO" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/07/solve-2-level-question-with-PSO/">利用粒子群算法求解非线性二层规划问题</a>
-    </h1>
-  
-
-        
-        <a href="/2015/11/07/solve-2-level-question-with-PSO/" class="archive-article-date">
-  	<time datetime="2015-11-07T16:00:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-问题示例"><a href="#1-问题示例" class="headerlink" title="1. 问题示例"></a>1. 问题示例</h2><p>$ \min \limits_{x\ge0}{F(x,y)=-x_1^2-3*x_2-4*y_1+y_2^2} $<br>$ s.t. \quad x_1^2+2*x_2\le4 $</p>
-<p>$ \min \limits_{y\ge0}{f(x,y)=2*x_1^2+y_1^2-5*y_2} $<br>$s.t. \quad x_1^2-2*x_1+x_2^2-2*y_1+y_2\ge-3 $<br>$\quad \quad x_2^2+3*y_1-4*y_2\ge4 $</p>
-        
-          <a class="article-more-a" href="/2015/11/07/solve-2-level-question-with-PSO/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">粒子群算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">二层规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/11/07/solve-2-level-question-with-PSO/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
@@ -1315,6 +1307,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
               </li>
             
             <div class="clearfix"></div>

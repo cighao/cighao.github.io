@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://cighao.com/2019/09/19/cassandra-introduction-01-install%20and%20test/</loc>
+    <loc>http://cighao.com/2019/09/29/blogs-about-linux-io/</loc>
     
-    <lastmod>2019-10-06T07:06:28.137Z</lastmod>
+    <lastmod>2019-10-13T13:46:00.538Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cighao.com/resume/resume.html</loc>
+    <loc>http://cighao.com/resume/resume-en.html</loc>
     
-    <lastmod>2019-10-04T08:31:16.186Z</lastmod>
+    <lastmod>2019-10-13T13:33:30.969Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/resume/resume-zh.html</loc>
+    
+    <lastmod>2019-10-13T13:31:29.437Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2019/09/19/cassandra-introduction-01-install%20and%20test/</loc>
+    
+    <lastmod>2019-10-06T07:06:28.137Z</lastmod>
     
   </url>
   

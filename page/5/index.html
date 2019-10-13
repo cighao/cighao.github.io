@@ -74,7 +74,7 @@
 	        
 				<li><a href="/archives">所有文章</a></li>
 	        
-				<li><a href="/resume/resume.html">关于我</a></li>
+				<li><a href="/resume/resume-zh.html">关于我/About me</a></li>
 	        
 				<li><a href="/photo">相册</a></li>
 	        
@@ -156,7 +156,7 @@
 		        
 					<li style="width: 25%"><a href="/archives">所有文章</a></li>
 		        
-					<li style="width: 25%"><a href="/resume/resume.html">关于我</a></li>
+					<li style="width: 25%"><a href="/resume/resume-zh.html">关于我/About me</a></li>
 		        
 					<li style="width: 25%"><a href="/photo">相册</a></li>
 		        
@@ -174,6 +174,93 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-paper-reading-04-buffer-management-algorithm-for-flash-memory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/23/paper-reading-04-buffer-management-algorithm-for-flash-memory/">论文阅读：基于闪存的缓冲区管理算法</a>
+    </h1>
+  
+
+        
+        <a href="/2016/08/23/paper-reading-04-buffer-management-algorithm-for-flash-memory/" class="archive-article-date">
+  	<time datetime="2016-08-23T09:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SSD和传统的磁盘相比，有着许多不同的特性，比如读写不对称性，异地更新，先擦除后写入等。当为闪存设计缓存策略时，我们应该充分考虑到这些特性，如果直接把针对磁盘设计的缓冲区管理算法应用到闪存上，并不能充分发挥算法的性能。</p>
+<p>这篇文章主要介绍了目前学术界关于闪存缓冲区管理的一些算法设计。前面部分介绍的是传统的缓冲区管理算法，后面部分介绍的是基于闪存优化的缓冲区管理算法。</p>
+        
+          <a class="article-more-a" href="/2016/08/23/paper-reading-04-buffer-management-algorithm-for-flash-memory/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文阅读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/08/23/paper-reading-04-buffer-management-algorithm-for-flash-memory/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-paper-reading-03-cost-aware-buffer-management-for-flash" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -903,93 +990,6 @@
 
 
   
-    <article id="post-paper-reading-02-the-multilevel-parallelism-inside-SSDs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/20/paper-reading-02-the-multilevel-parallelism-inside-SSDs/">论文阅读：SSD内部多级并行性的探索和利用（TOC 2013）</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/20/paper-reading-02-the-multilevel-parallelism-inside-SSDs/" class="archive-article-date">
-  	<time datetime="2016-07-20T09:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原文：Hu Y, Jiang H, Feng D, et al. Exploring and Exploiting the Multilevel Parallelism Inside SSDs for Improved Performance and Endurance[J]. IEEE Transactions on Computers, 2013, 62(6):1141-1155. <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6165265" target="_blank" rel="noopener">[下载]</a></p>
-<h2 id="1-Abstract"><a href="#1-Abstract" class="headerlink" title="1. Abstract"></a><strong>1. Abstract</strong></h2><p>假设 SSD 内部有四个级别的并行性：<strong>通道并行性</strong>，<strong>chip并行性</strong>，<strong>die并行性</strong>和<strong>plane并行性</strong>，那么要如何去利用这些不同级别的并行性来提高 SSD 的性能呢。反过来，这个问题又是主要由这三个内在因素决定的：<strong>advanced commands</strong>，<strong>allocation schemes</strong> 和 <strong>4个并行性的优先级</strong>。该篇论文通过实验分析了这三个因素对 SSD 性能的影响。得出了如下结论：（1）提供不同 advanced command 的 flash 可以在 SSD 内部开发出不同级别的并行性，他们可以降低也可以提高 SSD 的性能，这取决于你怎么使用这些并行性。（2）不同的物理页映射方式会使用不同的 advanced command，从而具有不同级别的内在并行性，会对 SSD 性能产生不同的影响。（3）在三个内在因素中，4个级别的并行性的优先级顺序对 SSD性能产生的影响最大。4个级别的并行性最好的优先顺序是：通道并行性，die级别并行性，plane级别并行性，chip级别并行性。</p>
-        
-          <a class="article-more-a" href="/2016/07/20/paper-reading-02-the-multilevel-parallelism-inside-SSDs/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文阅读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/20/paper-reading-02-the-multilevel-parallelism-inside-SSDs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1293,6 +1293,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
               </li>
             
             <div class="clearfix"></div>
