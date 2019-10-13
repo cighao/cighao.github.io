@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cighao.com/"/>
-  <updated>2019-10-13T13:46:00.538Z</updated>
+  <updated>2019-10-13T13:49:25.053Z</updated>
   <id>http://cighao.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://cighao.com/2019/09/29/blogs-about-linux-io/"/>
     <id>http://cighao.com/2019/09/29/blogs-about-linux-io/</id>
     <published>2019-09-29T18:35:22.000Z</published>
-    <updated>2019-10-13T13:46:00.538Z</updated>
+    <updated>2019-10-13T13:49:25.053Z</updated>
     
     <content type="html"><![CDATA[<p>(1) xfs文件系统磁盘布局<br><a href="http://www.lenky.info/archives/tag/xfs/page/2" target="_blank" rel="noopener">http://www.lenky.info/archives/tag/xfs/page/2</a></p><p>(2) Linux fsync和fdatasync系统调用实现分析（Ext4文件系统）<br><a href="https://blog.csdn.net/luckyapple1028/article/details/61413724" target="_blank" rel="noopener">https://blog.csdn.net/luckyapple1028/article/details/61413724</a></p><p>(3) 文件IO系统调用内幕<br><a href="https://lrita.github.io/2019/03/13/the-internal-of-file-syscall/" target="_blank" rel="noopener">https://lrita.github.io/2019/03/13/the-internal-of-file-syscall/</a></p><a id="more"></a><p>(4) 深入理解Fsync<br><a href="https://www.cnblogs.com/hustcat/p/3283955.html" target="_blank" rel="noopener">https://www.cnblogs.com/hustcat/p/3283955.html</a></p>]]></content>
     
