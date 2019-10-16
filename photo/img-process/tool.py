@@ -27,6 +27,7 @@ def list_img_file(directory):
         if fileformat.lower() == "jpg" or fileformat.lower() == "jpeg" or fileformat.lower() == "png" or fileformat.lower() == "gif":
             new_list.append(filename)
     # print new_list
+    new_list.sort();
     return new_list
 
 def compress(choose, des_dir, src_dir, file_list):
@@ -59,6 +60,39 @@ def compress_photo():
     file_list_src = list_img_file(src_dir)
     compress('4', des_dir, src_dir, file_list_src)
 
+def print_json(file_list):
+    srcs = "["
+    links = "["
+    texts = "["
+    types = "["
+    sizes = "["
+    for filename in file_list:
+        name, fileformat = filename.split(".")
+        srcs = srcs + '"", '
+        links = links + '"' + name + '", '
+        texts = texts + '"", '
+        types = types + '"' + fileformat + '", '
+        sizes = sizes + '"", '
+    srcs = srcs[0:-2] + ']'
+    links = links[0:-2] + ']'
+    texts = texts[0:-2] + ']'
+    types = types[0:-2] + ']'
+    sizes = sizes[0:-2] + ']'
+    print('---------------------')
+    print('\t{')
+    print('\t\t"date": " ",')
+    print('\t\t"title": " ",')
+    print('\t\t"arr": {')
+    print('\t\t\t"year": "",')
+    print('\t\t\t"month": "",')
+    print('\t\t\t"src": ' + srcs + ',')
+    print('\t\t\t"link": ' + links + ',')
+    print('\t\t\t"text": ' + texts + ',')
+    print('\t\t\t"type": ' + types + ',')
+    print('\t\t\t"size": ' + sizes + ',')
+    print('\t\t}')
+    print('\t},')
+    print('---------------------')
 
 def cut_photo():
     """裁剪算法
@@ -70,7 +104,11 @@ def cut_photo():
     
     # business logic
     file_list = list_img_file(src_dir)
+    # print info for .json file
+    print('print info...')
+    print_json(file_list)
     #print file_list
+    print('cut...')
     if file_list:
         for infile in file_list:
             img = Image.open(src_dir+infile)
@@ -81,7 +119,8 @@ def cut_photo():
 
 if __name__ == "__main__":
     # 图片保存在 img 目录下
-    cut_photo()        # 裁剪图片 
+    cut_photo()        # 裁剪图片
+    print('compress...')
     compress_photo()   # 压缩图片
     
     
