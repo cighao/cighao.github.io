@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cighao.com/"/>
-  <updated>2019-10-14T10:07:49.931Z</updated>
+  <updated>2019-10-19T14:31:53.457Z</updated>
   <id>http://cighao.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://cighao.com/2019/09/29/blogs-about-linux-io/"/>
     <id>http://cighao.com/2019/09/29/blogs-about-linux-io/</id>
     <published>2019-09-29T18:35:22.000Z</published>
-    <updated>2019-10-14T10:07:49.931Z</updated>
+    <updated>2019-10-19T14:31:53.457Z</updated>
     
-    <content type="html"><![CDATA[<p>(1) xfs文件系统磁盘布局<br><a href="http://www.lenky.info/archives/tag/xfs/page/2" target="_blank" rel="noopener">http://www.lenky.info/archives/tag/xfs/page/2</a></p><p>(2) Linux fsync和fdatasync系统调用实现分析（Ext4文件系统）<br><a href="https://blog.csdn.net/luckyapple1028/article/details/61413724" target="_blank" rel="noopener">https://blog.csdn.net/luckyapple1028/article/details/61413724</a></p><p>(3) 文件IO系统调用内幕<br><a href="https://lrita.github.io/2019/03/13/the-internal-of-file-syscall/" target="_blank" rel="noopener">https://lrita.github.io/2019/03/13/the-internal-of-file-syscall/</a></p><a id="more"></a><p>(4) 深入理解Fsync<br><a href="https://www.cnblogs.com/hustcat/p/3283955.html" target="_blank" rel="noopener">https://www.cnblogs.com/hustcat/p/3283955.html</a></p><p>(5) Linux Direct IO机制分析<br><a href="http://oenhan.com/ext3-fs-directio" target="_blank" rel="noopener">http://oenhan.com/ext3-fs-directio</a></p><p>(6) Linux 内核写文件流程<br><a href="http://oenhan.com/linux-kernel-write" target="_blank" rel="noopener">http://oenhan.com/linux-kernel-write</a></p>]]></content>
+    <content type="html"><![CDATA[<p>(1) xfs文件系统磁盘布局<br><a href="http://www.lenky.info/archives/tag/xfs/page/2" target="_blank" rel="noopener">http://www.lenky.info/archives/tag/xfs/page/2</a></p><p>(2) Linux fsync和fdatasync系统调用实现分析（Ext4文件系统）<br><a href="https://blog.csdn.net/luckyapple1028/article/details/61413724" target="_blank" rel="noopener">https://blog.csdn.net/luckyapple1028/article/details/61413724</a></p><p>(3) 文件IO系统调用内幕<br><a href="https://lrita.github.io/2019/03/13/the-internal-of-file-syscall/" target="_blank" rel="noopener">https://lrita.github.io/2019/03/13/the-internal-of-file-syscall/</a></p><a id="more"></a><p>(4) 深入理解Fsync<br><a href="https://www.cnblogs.com/hustcat/p/3283955.html" target="_blank" rel="noopener">https://www.cnblogs.com/hustcat/p/3283955.html</a></p><p>(5) Linux Direct IO机制分析<br><a href="http://oenhan.com/ext3-fs-directio" target="_blank" rel="noopener">http://oenhan.com/ext3-fs-directio</a></p><p>(6) Linux 内核写文件流程<br><a href="http://oenhan.com/linux-kernel-write" target="_blank" rel="noopener">http://oenhan.com/linux-kernel-write</a></p><p>(7) Linux内核三驾马车之-IO管理<br><a href="https://blog.acean.vip/post/linux-kernel/gai-shu-linuxnei-he-san-jia-ma-che-zhi-ioguan-li#toc_29" target="_blank" rel="noopener">https://blog.acean.vip/post/linux-kernel/gai-shu-linuxnei-he-san-jia-ma-che-zhi-ioguan-li#toc_29</a></p><p>(8) 全链路分析数据落盘机制-文件系统层及块设备层<br><a href="http://blog.zw1m.com/tags/IO/" target="_blank" rel="noopener">http://blog.zw1m.com/tags/IO/</a></p><p>(9) Linux 中直接 I/O 机制的介绍<br><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-directio/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-cn-directio/</a></p><p>(10) direct IO中io合并的奇怪现象分析<br><a href="http://www.sysnote.org/2014/05/19/directio-merge/" target="_blank" rel="noopener">http://www.sysnote.org/2014/05/19/directio-merge/</a></p><p>(11) Linux 缓存写回机制<br><a href="http://oenhan.com/linux-cache-writeback" target="_blank" rel="noopener">http://oenhan.com/linux-cache-writeback</a></p><p>(12) 使用 FUSE 开发自己的文件系统<br><a href="https://www.ibm.com/developerworks/cn/linux/l-fuse/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-fuse/index.html</a></p>]]></content>
     
     <summary type="html">
     

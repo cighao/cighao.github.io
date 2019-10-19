@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/photo/ins.json</loc>
+    
+    <lastmod>2019-10-19T19:56:35.656Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/2019/09/29/blogs-about-linux-io/</loc>
+    
+    <lastmod>2019-10-19T14:31:53.457Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/2019/09/03/taobao-database-kernel/</loc>
     
     <lastmod>2019-10-19T08:40:19.164Z</lastmod>
@@ -9,23 +23,9 @@
   </url>
   
   <url>
-    <loc>http://cighao.com/photo/ins.json</loc>
-    
-    <lastmod>2019-10-16T11:35:12.420Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://cighao.com/2019/03/29/problems-in-dailylife/</loc>
     
     <lastmod>2019-10-14T12:50:11.452Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/2019/09/29/blogs-about-linux-io/</loc>
-    
-    <lastmod>2019-10-14T10:07:49.931Z</lastmod>
     
   </url>
   
