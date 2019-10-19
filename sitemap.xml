@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/2019/09/03/taobao-database-kernel/</loc>
+    
+    <lastmod>2019-10-19T08:40:19.164Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/photo/ins.json</loc>
     
     <lastmod>2019-10-16T11:35:12.420Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://cighao.com/2019/09/26/cassandra-introduction-03-commitlog-01/</loc>
     
     <lastmod>2019-09-26T06:34:45.211Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/2019/09/03/taobao-database-kernel/</loc>
-    
-    <lastmod>2019-09-04T12:45:17.257Z</lastmod>
     
   </url>
   
