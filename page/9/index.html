@@ -175,6 +175,260 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-with-ssdmodel-source-analysis-015-gc-analysis-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/">disksim with ssdmodel 源码解析（十五）：GC 分析(二)</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/" class="archive-article-date">
+  	<time datetime="2016-03-27T17:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-27</time>
+</a>
+        
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天主要介绍后台 GC 操作与普通 GC 操作的区别。</p>
+<p>普通 GC 是指当一个写请求到来时，如果这个 element 上没有空闲的 page 了或者空闲的 page 到达了预先设定的下限，那么就会触发相应的 GC 操作等 GC 结束后才会进行写入操作。很明显这是会影响响应时间的。</p>
+<p>后台 GC 是指当 SSD 处于空闲状态时，来检查 SSD 是否是需要进行 GC，如果不需要就不用进行 GC 了，如果要的话就进行 GC，由于这个时候 SSD 是处于空闲状态，这个时候进行 GC 操作就不会影响 SSD 的响应时间了。</p>
+        
+          <a class="article-more-a" href="/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/">disksim with ssdmodel 源码解析（十四）：ssd_activate_elem函数分析</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/" class="archive-article-date">
+  	<time datetime="2016-03-24T17:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-24</time>
+</a>
+        
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当一个请求经过一系列的处理后最终会发送到 element 上去，在 <code>ssd_media_access_request_element()</code> 函数中会把一个请求拆分成以 page 为大小的小请求，然后把这些小请求加入到 element 队列中，然后调用 <code>ssd_activate_elem()</code> 这个函数让 element 处理请求。下面主要分析 <code>ssd_activate_elem()</code> 这个函数是怎么处理请求的。</p>
+<p>关于 GC 操作的判断也是在这个函数中触发，这个函数中关于GC部分的内容前面已经介绍过了，不再重复。<strong>当没有进行 GC 操作且该 element 的请求队列中有请求时，会进行请求的处理</strong>。</p>
+        
+          <a class="article-more-a" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/">disksim with ssdmodel 源码解析（十三）：如何兼容64位系统</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/23/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/" class="archive-article-date">
+  	<time datetime="2016-03-23T18:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
+</a>
+        
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-写在前面"><a href="#1-写在前面" class="headerlink" title="1. 写在前面"></a>1. 写在前面</h2><p>linux 如没安装flex、bison的话，先要安装。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install bison flex</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>下载源码安装包<br>disksim 4.0: <a href="http://www.pdl.cmu.edu/DiskSim/" target="_blank" rel="noopener">http://www.pdl.cmu.edu/DiskSim/</a><br>SSD extension:<a href="http://research.microsoft.com/en-us/downloads/b41019e2-1d2b-44d8-b512-ba35ab814cd4/" target="_blank" rel="noopener"> http://research.microsoft.com/en-us/downloads/b41019e2-1d2b-44d8-b512-ba35ab814cd4/</a>
+        
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/23/disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-disksim-with-ssdmodel-source-analysis-012-write-requests" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -191,6 +445,7 @@
   	<time datetime="2016-03-23T09:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
 </a>
         
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -278,6 +533,7 @@
   	<time datetime="2016-03-23T07:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-23</time>
 </a>
         
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -362,6 +618,7 @@
   	<time datetime="2016-03-22T07:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
 </a>
         
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -444,6 +701,7 @@
   	<time datetime="2016-03-19T12:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -526,6 +784,7 @@
   	<time datetime="2016-03-19T09:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -610,6 +869,7 @@
   	<time datetime="2016-03-19T08:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -694,6 +954,7 @@
   	<time datetime="2016-03-19T07:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-19</time>
 </a>
         
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -760,259 +1021,9 @@
 
 
   
-    <article id="post-disksim-with-ssdmodel-source-analysis-007-block-arranged" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/">disksim with ssdmodel 源码解析（七）：block的组织形式</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/" class="archive-article-date">
-  	<time datetime="2016-03-18T18:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们知道，在一个SSD中会有很多的 element (也就是chip)，每个element中会有很多个 plane，每个 plane 中会包含很多个 block。</p>
-<p>在访问 SSD 时通常都会向设备发送需要访问的 block number ，因此了解 block 在 SSD 中的组织形式十分重要。在 disksim 的 ssdmodel 模块中一共定义了三种 block 在 SSD 中的组织形式。</p>
-<p>在 <code>ssd.h</code> 文件中我们可以看到三条宏定义，分别是：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_CONCAT    1 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_PAIRWISE_STRIPE 	2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PLANE_BLOCKS_FULL_STRIPE	3</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-matplotlib-demo-002-fill" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/17/matplotlib-demo-002-fill/">matplotlib 画图（二）：图形填充</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/17/matplotlib-demo-002-fill/" class="archive-article-date">
-  	<time datetime="2016-03-17T16:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/articles/matplotlib/fill.jpg" alt=""></p>
-        
-          <a class="article-more-a" href="/2016/03/17/matplotlib-demo-002-fill/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Matplotlib</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/17/matplotlib-demo-002-fill/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">disksim with ssdmodel 源码解析（六）：disksim_setup_disksim</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/" class="archive-article-date">
-  	<time datetime="2016-03-16T11:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>disksim_setup_disksim()</code> 是在 main 函数中被调用的，主要用来设置 disksim 各种参数，为磁盘模拟做准备。函数的源码在 <code>disksim.c</code> 文件中。对于函数的功能主要有以下几个方面：</p>
-<h3 id="1-设置对齐方式"><a href="#1-设置对齐方式" class="headerlink" title="1. 设置对齐方式"></a><strong>1. 设置对齐方式</strong></h3><p>通过调用 <code>setEndian()</code> 这个函数来设置大端对齐还是小端对齐。</p>
-        
-          <a class="article-more-a" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/16/disksim-with-ssdmodel-source-analysis-006-disksim_setup_disksim/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 
@@ -1321,6 +1332,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
               </li>
             
             <div class="clearfix"></div>

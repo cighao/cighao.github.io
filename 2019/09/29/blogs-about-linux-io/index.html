@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="陈浩的个人博客">
 <meta property="og:description" content="(1) xfs文件系统磁盘布局http://www.lenky.info/archives/tag/xfs/page/2 (2) Linux fsync和fdatasync系统调用实现分析（Ext4文件系统）https://blog.csdn.net/luckyapple1028/article/details/61413724 (3) 文件IO系统调用内幕https://lrita.github">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-19T14:31:53.457Z">
+<meta property="og:updated_time" content="2019-10-25T07:56:11.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux IO 相关资料">
 <meta name="twitter:description" content="(1) xfs文件系统磁盘布局http://www.lenky.info/archives/tag/xfs/page/2 (2) Linux fsync和fdatasync系统调用实现分析（Ext4文件系统）https://blog.csdn.net/luckyapple1028/article/details/61413724 (3) 文件IO系统调用内幕https://lrita.github">
@@ -194,6 +194,7 @@
   	<time datetime="2019-09-29T18:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
 </a>
         
+        <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -211,6 +212,11 @@
 <p>(10) direct IO中io合并的奇怪现象分析<br><a href="http://www.sysnote.org/2014/05/19/directio-merge/" target="_blank" rel="noopener">http://www.sysnote.org/2014/05/19/directio-merge/</a></p>
 <p>(11) Linux 缓存写回机制<br><a href="http://oenhan.com/linux-cache-writeback" target="_blank" rel="noopener">http://oenhan.com/linux-cache-writeback</a></p>
 <p>(12) 使用 FUSE 开发自己的文件系统<br><a href="https://www.ibm.com/developerworks/cn/linux/l-fuse/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-fuse/index.html</a></p>
+<p>(13) Linux 内核的文件 Cache 管理机制介绍<br><a href="https://www.ibm.com/developerworks/cn/linux/l-cache/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-cache/index.html</a></p>
+<p>(14) Linux Block Driver<br><a href="http://oliveryang.net/2016/04/linux-block-driver-basic-1/" target="_blank" rel="noopener">http://oliveryang.net/2016/04/linux-block-driver-basic-1/</a><br><a href="http://oliveryang.net/2016/04/linux-block-driver-basic-2/" target="_blank" rel="noopener">http://oliveryang.net/2016/04/linux-block-driver-basic-2/</a><br><a href="http://oliveryang.net/2016/04/linux-block-driver-basic-3/" target="_blank" rel="noopener">http://oliveryang.net/2016/04/linux-block-driver-basic-3/</a><br><a href="http://oliveryang.net/2016/04/linux-block-driver-basic-4/" target="_blank" rel="noopener">http://oliveryang.net/2016/04/linux-block-driver-basic-4/</a><br><a href="http://oliveryang.net/2016/10/linux-block-driver-basic-5/" target="_blank" rel="noopener">http://oliveryang.net/2016/10/linux-block-driver-basic-5/</a><br><a href="http://oliveryang.net/2016/10/linux-block-driver-basic-6/" target="_blank" rel="noopener">http://oliveryang.net/2016/10/linux-block-driver-basic-6/</a><br><a href="http://oliveryang.net/2016/10/linux-block-driver-basic-7/" target="_blank" rel="noopener">http://oliveryang.net/2016/10/linux-block-driver-basic-7/</a></p>
+<p>(15) Linux File System<br><a href="http://oliveryang.net/2016/05/linux-file-system-basic-1/" target="_blank" rel="noopener">http://oliveryang.net/2016/05/linux-file-system-basic-1/</a><br><a href="http://oliveryang.net/2016/05/linux-file-system-basic-2/" target="_blank" rel="noopener">http://oliveryang.net/2016/05/linux-file-system-basic-2/</a><br><a href="http://oliveryang.net/2016/05/linux-file-system-basic-3/" target="_blank" rel="noopener">http://oliveryang.net/2016/05/linux-file-system-basic-3/</a><br><a href="http://oliveryang.net/2016/05/linux-file-system-basic-4/" target="_blank" rel="noopener">http://oliveryang.net/2016/05/linux-file-system-basic-4/</a><br><a href="http://oliveryang.net/2016/05/linux-file-system-basic-5/" target="_blank" rel="noopener">http://oliveryang.net/2016/05/linux-file-system-basic-5/</a></p>
+<p>(16) 没有什么好神秘的: wait_on_page_bit<br><a href="https://www.cnblogs.com/honpey/p/4931962.html" target="_blank" rel="noopener">https://www.cnblogs.com/honpey/p/4931962.html</a></p>
+<p>(17) Linux通用块设备层<br><a href="http://www.ilinuxkernel.com/files/Linux.Generic.Block.Layer.pdf" target="_blank" rel="noopener">http://www.ilinuxkernel.com/files/Linux.Generic.Block.Layer.pdf</a></p>
 
       
 
@@ -330,6 +336,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/10/22/introduction-of-rocksdb-01-blogs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          RocksDB 的相关博客
+        
+      </div>
+    </a>
   
   
     <a href="/2019/09/26/cassandra-introduction-03-commitlog-01/" id="article-nav-older" class="article-nav-link-wrap">
@@ -696,6 +711,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
               </li>
             
             <div class="clearfix"></div>
