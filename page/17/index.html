@@ -111,6 +111,8 @@ var _hmt = _hmt || [];
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -156,6 +158,8 @@ var _hmt = _hmt || [];
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
 				</div>
 			</nav>
 
@@ -185,6 +189,172 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-date-object-of-javascript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/24/date-object-of-javascript/">JavaScript之日期和时间(date对象)</a>
+    </h1>
+  
+
+        
+        <a href="/2015/10/24/date-object-of-javascript/" class="archive-article-date">
+  	<time datetime="2015-10-24T17:48:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-创建具有当前日期和时间的Date对象"><a href="#1-创建具有当前日期和时间的Date对象" class="headerlink" title="1. 创建具有当前日期和时间的Date对象"></a>1. 创建具有当前日期和时间的Date对象</h2><p>在JavaScript时需要使用日期和时间时，需要先创建一个date对象，代码如下，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myDate= <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure></p>
+<p>变量myDate就是一个Date对象，包含了创建对象时的日期和时间信息。JavaScript提供了很多方法用于获取、设置和编辑Date对象里的数据。关于Date对象的方法可以看本文的最后。<br>
+        
+          <a class="article-more-a" href="/2015/10/24/date-object-of-javascript/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Web 前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/10/24/date-object-of-javascript/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-object-of-javascript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/22/object-of-javascript/">JavaScript之DOM对象和内置对象</a>
+    </h1>
+  
+
+        
+        <a href="/2015/10/22/object-of-javascript/" class="archive-article-date">
+  	<time datetime="2015-10-22T18:47:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-window-和document-对象"><a href="#1-window-和document-对象" class="headerlink" title="1. window 和document 对象"></a>1. window 和document 对象</h2><p>浏览器每次加载和显示页面时，都在内存里创建页面及其全部元素的一个内部表示体系，也就是DOM。在DOM 里，页面的元素具有一个逻辑化、层级化的结构，就像一个由父对象和子对象组成的树形结构。这些对象及其相互关系构成了Web 页面及显示页面的浏览器的抽象模型。每个对象都有“属性”列表来描述它，而利用JavaScript可以使用一些方法来操作这些属性。</p>
+<p>这个层级树的最顶端是浏览器window对象，它是DOM 树里一切对象的根。window对象具有一些子对象，如下图所示。图中第一个子对象是document，这也是最经常使用的对象。浏览器加载的任何HTML页面都会创建一个document对象，包含全部HTML内容及其他构成页面显示的资源。利用JavaScript以父子对象的形式就可以访问这些信息。这些对象都具有自己的属性和方法。<br><img src="/img/articles/objectofjavascript.jpg" alt="DOM对象"><br>
+        
+          <a class="article-more-a" href="/2015/10/22/object-of-javascript/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Web 前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/10/22/object-of-javascript/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-produce-number-of-combinations" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -823,173 +993,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2015/08/21/validateCode-of-java/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-c-file-operation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/20/c-file-operation/">C语言中的文件操作</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/20/c-file-operation/" class="archive-article-date">
-  	<time datetime="2015-08-20T13:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><p><strong>文件</strong>：记录在外部介质上的数据的集合。</p>
-<p><strong>分类</strong>：</p>
-<ul>
-<li>文本文件（存储的是ASCII码）</li>
-<li>二进制文件（存储的是二进制）</li>
-</ul>
-<p><strong>文件的指针</strong>：指向一个结构体的指针。（结构体主要包括：缓冲区地址、缓冲区当前存储的字符位置、对当前文件读还是写、是否出错等）<br>
-        
-          <a class="article-more-a" href="/2015/08/20/c-file-operation/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/20/c-file-operation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-decompose-prime-number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/29/decompose-prime-number/">分解质因数</a>
-    </h1>
-  
-
-        
-        <a href="/2015/03/29/decompose-prime-number/" class="archive-article-date">
-  	<time datetime="2015-03-29T18:35:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-03-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>转载自： <a href="http://www.2cto.com/kf/201311/258904.html" target="_blank" rel="noopener">http://www.2cto.com/kf/201311/258904.html</a></p>
-<h2 id="1-原理和方法"><a href="#1-原理和方法" class="headerlink" title="1. 原理和方法"></a>1. 原理和方法</h2><p>把一个合数分解为若干个质因数的乘积的形式，即求质因数的过程叫做分解质因数，分解质因数只针对合数。<br>求一个数分解质因数，要从最小的质数除起，一直除到结果为质数为止。分解质因数的算式的叫短除法，和除法的性质差不多，还可以用来求多个个数的公因式：<br>以24为例：<br>2 – 24<br>2 – 12<br>2 – 6<br>3 （3是质数，结束）<br>得出 $24=2*2*2*3 = 2^3*3$<br>可先用素数筛选法，筛选出符合条件的质因数，然后for循环遍历即可，通过一道题目来show一下这部分。<br>
-        
-          <a class="article-more-a" href="/2015/03/29/decompose-prime-number/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/03/29/decompose-prime-number/">展开全文 >></a>
         </p>
       
 

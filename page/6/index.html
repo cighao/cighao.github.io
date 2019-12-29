@@ -111,6 +111,8 @@ var _hmt = _hmt || [];
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
 			</div>
 		</nav>
 	</header>		
@@ -156,6 +158,8 @@ var _hmt = _hmt || [];
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
 				</div>
 			</nav>
 
@@ -185,6 +189,169 @@ var _hmt = _hmt || [];
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-leveldb-source-analysis-04-slice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/16/leveldb-source-analysis-04-slice/">LevelDB 源码分析（四）：Slice</a>
+    </h1>
+  
+
+        
+        <a href="/2016/08/16/leveldb-source-analysis-04-slice/" class="archive-article-date">
+  	<time datetime="2016-08-16T09:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>LevelDB 中的字符串并没有使用 <code>std:string</code>，而是将其封装成了Slice类， Slice 是非常简单的数据结构，它包括 size (字符串的长度)和一个指向外部字节数组的指针。</p>
+<p>返回一个 Slice 比返回 std:string 更加方便，因为我们不需要去复制大量原始的key和value的数据。</p>
+<p>使用 slice 之前必须要保证 slice 中指针指向的内存没有被收回。</p>
+        
+          <a class="article-more-a" href="/2016/08/16/leveldb-source-analysis-04-slice/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">LevelDB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/08/16/leveldb-source-analysis-04-slice/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leveldb-source-analysis-03-official-document" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/15/leveldb-source-analysis-03-official-document/">LevelDB 源码分析（三）：相关文档</a>
+    </h1>
+  
+
+        
+        <a href="/2016/08/15/leveldb-source-analysis-03-official-document/" class="archive-article-date">
+  	<time datetime="2016-08-15T13:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 leveldb 源码目录的 <code>doc</code> 目录下有关于 leveldb 的一些文档，这篇文章是对 <code>index.html</code> 文件的翻译。</p>
+<p>leveldb 库提供了一个持久化的 key-value 数据库。key 和 value 都是任意大小的字节数组。所有的 key 是根据用户指定的比较器有序的存储在 key-value 数据库中。</p>
+        
+          <a class="article-more-a" href="/2016/08/15/leveldb-source-analysis-03-official-document/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">LevelDB</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/08/15/leveldb-source-analysis-03-official-document/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-leveldb-source-analysis-02-structure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -806,167 +973,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/13/c-string-h/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-c-linux-socket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/12/c-linux-socket/">linux 下的 C socket 编程</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/12/c-linux-socket/" class="archive-article-date">
-  	<time datetime="2016-07-12T07:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>网络上的两个程序通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket。Socket 是应用层与 TCP/IP 协议族通信的中间软件抽象层，它是一组接口。</p>
-        
-          <a class="article-more-a" href="/2016/07/12/c-linux-socket/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Socket</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/12/c-linux-socket/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-delete-link-node-with-second-pointer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/09/delete-link-node-with-second-pointer/">利用二级指针删除链表节点</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/09/delete-link-node-with-second-pointer/" class="archive-article-date">
-  	<time datetime="2016-07-09T06:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>删除单向链表的某个节点的只要将前一个节点的 next 指向当前节点的 next 指向的对象，即下一个节点（即：prev-&gt;next = curr-&gt;next），然后释放当前节点。</p>
-<p>通常的做法是：首先判断删除的是不是头节点，然后还需要维护待删除节点的前一个节点的指针。</p>
-        
-          <a class="article-more-a" href="/2016/07/09/delete-link-node-with-second-pointer/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/09/delete-link-node-with-second-pointer/">展开全文 >></a>
         </p>
       
 
