@@ -190,6 +190,164 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">为 SSD 编程（2）：SSD的架构和基准</a>
+    </h1>
+  
+
+        
+        <a href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/" class="archive-article-date">
+  	<time datetime="2016-02-25T12:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本第二部分包含了“为SSD编程”的6个内容，包括1、2两节，你可以参考<a href="../../../../2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">目录</a>。这是我在阅读了各种关于SSD的文档之后，为了分享我所学到的东西写的一系列文章。如果你没有时间慢慢看，你可以直接跳转到<a href="../../../../2016/02/25/coding-for-ssds-part-6-a-summary-what-every-programmer-should-know-about-solid-state-drives/">第六部分</a>，这部分总结了所有其他部分的内容。</p>
+<p>在本部分，我将解释NAND闪存的基本知识、闪存单元类型、和基本SSD内部架构。同样包括了SSD基准和如何解释这些基准。</p>
+        
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-coding-for-ssds-part-1-introduction-and-table-of-contents" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">为 SSD 编程（1）：简介和目录</a>
+    </h1>
+  
+
+        
+        <a href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/" class="archive-article-date">
+  	<time datetime="2016-02-25T11:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>简介</strong></p>
+<p>我想为我的<a href="http://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/" target="_blank" rel="noopener">键值对存储项目</a>弄一个固态硬盘（SSD）最佳存储解决方案。为此，我必须确保我完全了解SSD是如何工作的，这样就可以优化我的hash表实例来适合SSD的内部特征。网上有很多不完全和相悖的的信息，找到关于SSD的可靠信息并不简单。为了找到适当的文献和基准以说服自己，我必须要进行大量的阅读。如果我要为SSD编程，我需要知道我在做什么。</p>
+        
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-fundamental-of-flash-memory" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -239,85 +397,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/02/25/fundamental-of-flash-memory/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-the-basic-principle-of-SSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/the-basic-principle-of-SSD/">SSD基本工作原理(转)</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/25/the-basic-principle-of-SSD/" class="archive-article-date">
-  	<time datetime="2016-02-25T08:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>SSD 主要由 SSD 控制器，FLASH 存储阵列，板上DRAM（可选），以及跟HOST接口（诸如SATA，SAS, PCIe等）组成。 </p>
-<p><img src="http://www.ssdfans.com/wp-content/uploads/2014/10/102814_0720_SSD1.png" alt=""></p>
-        
-          <a class="article-more-a" href="/2016/02/25/the-basic-principle-of-SSD/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/25/the-basic-principle-of-SSD/">展开全文 >></a>
         </p>
       
 
@@ -511,13 +590,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/05/regular-expressions-of-java/">Java 正则表达式(转)</a>
+      <a class="article-title" href="/2016/02/06/regular-expressions-of-java/">Java 正则表达式(转)</a>
     </h1>
   
 
         
-        <a href="/2016/02/05/regular-expressions-of-java/" class="archive-article-date">
-  	<time datetime="2016-02-05T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-05</time>
+        <a href="/2016/02/06/regular-expressions-of-java/" class="archive-article-date">
+  	<time datetime="2016-02-05T21:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-06</time>
 </a>
         
       </header>
@@ -531,7 +610,7 @@ var _hmt = _hmt || [];
 <p>Java正则表达式和Perl的是最为相似的。</p>
 <p>java.util.regex包主要包括以下三个类：<br>
         
-          <a class="article-more-a" href="/2016/02/05/regular-expressions-of-java/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/06/regular-expressions-of-java/#more">more >></a>
         
       
 
@@ -561,7 +640,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/05/regular-expressions-of-java/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/06/regular-expressions-of-java/">展开全文 >></a>
         </p>
       
 
@@ -844,13 +923,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/01/serialize-and-AntiSerialize-in-java/">Java 序列化与反序列化</a>
+      <a class="article-title" href="/2016/02/02/serialize-and-AntiSerialize-in-java/">Java 序列化与反序列化</a>
     </h1>
   
 
         
-        <a href="/2016/02/01/serialize-and-AntiSerialize-in-java/" class="archive-article-date">
-  	<time datetime="2016-02-01T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-01</time>
+        <a href="/2016/02/02/serialize-and-AntiSerialize-in-java/" class="archive-article-date">
+  	<time datetime="2016-02-02T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-02</time>
 </a>
         
       </header>
@@ -860,7 +939,7 @@ var _hmt = _hmt || [];
         <p>Java序列化是指把Java对象转换为字节序列的过程；而Java反序列化是指把字节序列恢复为Java对象的过程。</p>
 <h3 id="1-为什么需要序列化与反序列化"><a href="#1-为什么需要序列化与反序列化" class="headerlink" title="1. 为什么需要序列化与反序列化"></a><strong>1. 为什么需要序列化与反序列化</strong></h3><p>我们知道，当两个进程进行远程通信时，可以相互发送各种类型的数据，包括文本、图片、音频、视频等， 而这些数据都会以二进制序列的形式在网络上传送。那么当两个Java进程进行通信时，能否实现进程间的对象传送呢？答案是可以的。如何做到呢？这就需要Java序列化与反序列化了。换句话说，一方面，发送方需要把这个Java对象转换为字节序列，然后在网络上传送；另一方面，接收方需要从字节序列中恢复出Java对象。
         
-          <a class="article-more-a" href="/2016/02/01/serialize-and-AntiSerialize-in-java/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/02/serialize-and-AntiSerialize-in-java/#more">more >></a>
         
       
 
@@ -886,90 +965,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/01/serialize-and-AntiSerialize-in-java/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-page-layout-by-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/20/page-layout-by-CSS/">利用 CSS 进行网页布局</a>
-    </h1>
-  
-
-        
-        <a href="/2016/01/20/page-layout-by-CSS/" class="archive-article-date">
-  	<time datetime="2016-01-20T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这里主要主要介绍如何利用 CSS 来进行网页的<strong>一列</strong>，<strong>两列</strong>，<strong>三列</strong>和<strong>混合布局</strong></p>
-<h3 id="1-一列布局"><a href="#1-一列布局" class="headerlink" title="1. 一列布局"></a><strong>1. 一列布局</strong></h3>
-        
-          <a class="article-more-a" href="/2016/01/20/page-layout-by-CSS/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Web 前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/01/20/page-layout-by-CSS/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/02/serialize-and-AntiSerialize-in-java/">展开全文 >></a>
         </p>
       
 
@@ -1013,7 +1009,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Hao Chen
+    		&copy; 2020 Hao Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1318,6 +1314,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
               </li>
             
             <div class="clearfix"></div>

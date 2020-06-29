@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>Java 正则表达式(转) | 陈浩的个人博客</title>
+  <title>Archives: 2020 | 陈浩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来源于菜鸟教程 正则表达式定义了字符串的模式。 正则表达式可以用来搜索、编辑或处理文本。 正则表达式并不仅限于某一种语言，但是在每种语言中有细微的差别。 Java正则表达式和Perl的是最为相似的。 java.util.regex包主要包括以下三个类：">
-<meta name="keywords" content="Java,正则表达式">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java 正则表达式(转)">
-<meta property="og:url" content="http://cighao.com/2016/02/05/regular-expressions-of-java/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="陈浩的个人博客">
+<meta property="og:url" content="http://cighao.com/archives/2020/index.html">
 <meta property="og:site_name" content="陈浩的个人博客">
-<meta property="og:description" content="来源于菜鸟教程 正则表达式定义了字符串的模式。 正则表达式可以用来搜索、编辑或处理文本。 正则表达式并不仅限于某一种语言，但是在每种语言中有细微的差别。 Java正则表达式和Perl的是最为相似的。 java.util.regex包主要包括以下三个类：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2016-07-25T01:26:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 正则表达式(转)">
-<meta name="twitter:description" content="来源于菜鸟教程 正则表达式定义了字符串的模式。 正则表达式可以用来搜索、编辑或处理文本。 正则表达式并不仅限于某一种语言，但是在每种语言中有细微的差别。 Java正则表达式和Perl的是最为相似的。 java.util.regex包主要包括以下三个类：">
+<meta name="twitter:title" content="陈浩的个人博客">
   
     <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
   
@@ -193,521 +188,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-regular-expressions-of-java" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Java 正则表达式(转)
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/02/01/vancouver-cypress-mountain-ski/" class="archive-article-date">
+  	<time datetime="2020-02-01T08:55:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/02/01/vancouver-cypress-mountain-ski/">温哥华 Cypress Mountain  滑雪</a>
     </h1>
   
 
-        
-        <a href="/2016/02/05/regular-expressions-of-java/" class="archive-article-date">
-  	<time datetime="2016-02-05T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-        
-        <div style="width:100%;float:left;margin-bottom:25px;">
-	<div id="toc2" class="toc2-article" >
-		<div class="toc2-title">
-			<p>
-				<span> 目录 </span>
-				<a href="#" onclick="javascript:return openct(this);" title="展开">[+]</a>
-			</p>
-		</div>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-捕获组"><span class="toc-text">1. 捕获组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-实例"><span class="toc-text">2. 实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-正则表达式语法"><span class="toc-text">3. 正则表达式语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Matcher类的方法"><span class="toc-text">4. Matcher类的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-PatternSyntaxException-类的方法"><span class="toc-text">5. PatternSyntaxException 类的方法</span></a></li></ol>
-	</div>
-</div>
-
-<script>
-	function openct(e){    
-		if (e.innerHTML == '[+]') {
-			//document.getElementsByTagName("INPUT")[0].setAttribute("type","button");
-			//alert(e)
-			//$(e).attr('title', '收起').html('[-]');
-			//$(".toc2-article ol").show();
-			e.setAttribute('title', '收起')
-			e.innerHTML = '[-]';
-			ols = document.getElementById("toc2").getElementsByTagName("ol");
-			for(var i=0;i<ols.length;i++){
-				ols[i].style.display = "block";
-			}
-		} else {
-			//$(e).attr('title', '展开').html('[+]');
-			//$(".toc2-article ol").hide();
-			e.setAttribute('title', '展开')
-			e.innerHTML = '[+]';
-			ols = document.getElementById("toc2").getElementsByTagName("ol");
-			for(var i=0;i<ols.length;i++){
-				ols[i].style.display = "none";
-			}
-		}
-		e.blur();
-		return false;
-	}
-</script>
-      
-        <p>来源于<a href="http://www.runoob.com/" target="_blank" rel="noopener">菜鸟教程</a></p>
-<p>正则表达式定义了字符串的模式。</p>
-<p>正则表达式可以用来搜索、编辑或处理文本。</p>
-<p>正则表达式并不仅限于某一种语言，但是在每种语言中有细微的差别。</p>
-<p>Java正则表达式和Perl的是最为相似的。</p>
-<p>java.util.regex包主要包括以下三个类：<br><a id="more"></a></p>
-<ul>
-<li>Pattern类：<br>pattern对象是一个正则表达式的编译表示。Pattern类没有公共构造方法。要创建一个Pattern对象，你必须首先调用其公共静态编译方法，它返回一个Pattern对象。该方法接受一个正则表达式作为它的第一个参数。</li>
-<li>Matcher类：<br>Matcher对象是对输入字符串进行解释和匹配操作的引擎。与Pattern类一样，Matcher也没有公共构造方法。你需要调用Pattern对象的matcher方法来获得一个Matcher对象。</li>
-<li>PatternSyntaxException：<br>PatternSyntaxException是一个非强制异常类，它表示一个正则表达式模式中的语法错误。</li>
-</ul>
-<h3 id="1-捕获组"><a href="#1-捕获组" class="headerlink" title="1. 捕获组"></a><strong>1. 捕获组</strong></h3><p>捕获组是把多个字符当一个单独单元进行处理的方法，它通过对括号内的字符分组来创建。</p>
-<p>例如，正则表达式(dog) 创建了单一分组，组里包含”d”，”o”，和”g”。</p>
-<p>捕获组是通过从左至右计算其开括号来编号。例如，在表达式（（A）（B（C））），有四个这样的组：</p>
-<ul>
-<li>((A)(B(C)))</li>
-<li>(A)</li>
-<li>(B(C))</li>
-<li>(C)<br>可以通过调用matcher对象的groupCount方法来查看表达式有多少个分组。groupCount方法返回一个int值，表示matcher对象当前有多个捕获组。<br>还有一个特殊的组（组0），它总是代表整个表达式。该组不包括在groupCount的返回值中。</li>
-</ul>
-<h3 id="2-实例"><a href="#2-实例" class="headerlink" title="2. 实例"></a><strong>2. 实例</strong></h3><p>下面的例子说明如何从一个给定的字符串中找到数字串：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexMatches</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String args[] )</span></span>&#123;</span><br><span class="line">      <span class="comment">// 按指定模式在字符串查找</span></span><br><span class="line">      String line = <span class="string">"This order was placed for QT3000! OK?"</span>;</span><br><span class="line">      String pattern = <span class="string">"(.*)(\\d+)(.*)"</span></span><br><span class="line">      <span class="comment">// 创建 Pattern 对象</span></span><br><span class="line">      Pattern r = Pattern.compile(pattern);</span><br><span class="line">      <span class="comment">// 现在创建 matcher 对象</span></span><br><span class="line">      Matcher m = r.matcher(line);</span><br><span class="line">      <span class="keyword">if</span> (m.find( )) &#123;</span><br><span class="line">         System.out.println(<span class="string">"Found value: "</span> + m.group(<span class="number">0</span>) );</span><br><span class="line">         System.out.println(<span class="string">"Found value: "</span> + m.group(<span class="number">1</span>) );</span><br><span class="line">         System.out.println(<span class="string">"Found value: "</span> + m.group(<span class="number">2</span>) );</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         System.out.println(<span class="string">"NO MATCH"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>以上实例编译运行结果如下：</p>
-<blockquote>
-<p>Found value: This order was placed for QT3000! OK?<br>Found value: This order was placed for QT300<br>Found value: 0</p>
-</blockquote>
-<h3 id="3-正则表达式语法"><a href="#3-正则表达式语法" class="headerlink" title="3. 正则表达式语法"></a><strong>3. 正则表达式语法</strong></h3><table>
-<thead>
-<tr>
-<th style="text-align:center">符号</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">\</td>
-<td>将下一字符标记为特殊字符、文本、反向引用或八进制转义符。例如, “n”匹配字符 “n”. “\n”匹配换行符。序列 “\\”匹配 “\”，”\(“匹配 “(“。</td>
-</tr>
-<tr>
-<td style="text-align:center">^</td>
-<td>匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，^ 还会与 “\n” 或 “\r” 之后的位置匹配。</td>
-</tr>
-<tr>
-<td style="text-align:center">$</td>
-<td>匹配输入字符串结尾的位置。如果设置了 RegExp 对象的 Multiline 属性，$ 还会与 “\n”或 “\r”之前的位置匹配。</td>
-</tr>
-<tr>
-<td style="text-align:center">*</td>
-<td>零次或多次匹配前面的字符或子表达式。例如，zo* 匹配 “z” 和 “zoo”。* 等效于 {0,}。</td>
-</tr>
-<tr>
-<td style="text-align:center">+</td>
-<td>一次或多次匹配前面的字符或子表达式。例如, “zo+” 与 “zo” 和 “zoo” 匹配，但与 “z” 不匹配。+ 等效于 {1,}。</td>
-</tr>
-<tr>
-<td style="text-align:center">?</td>
-<td>零次或一次匹配前面的字符或子表达式。例如, “do(es)?” 匹配 “do” 或 “does” 中的 “do”。? 等效于 {0,1}。</td>
-</tr>
-<tr>
-<td style="text-align:center">{n}</td>
-<td>n 是非负整数。正好匹配 n 次。例如, “o{2}” 与 “Bob” 中的 “o” 不匹配，但与 “food” 中的两个 “o” 匹配。</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,}</td>
-<td>n 是非负整数。至少匹配 n 次。例如, “o{2,}”不匹配 “Bob”中的 “o”，而匹配 “foooood”中的所有 o。 “o{1,}” 等效于 “o+”。 “o{0,}”等效于 “o*”。</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,m}</td>
-<td>M 和 n 是非负整数，其中 n &lt;= m。匹配至少 n 次，至多 m 次。例如, “o{1,3}” 匹配 “fooooood” 中的头三个 o。 ‘o{0,1}’ 等效于 ‘o?’。注意：您不能将空格插入逗号和数字之间。</td>
-</tr>
-<tr>
-<td style="text-align:center">?</td>
-<td>当此字符紧随任何其他限定符（*、+、?、{n}、{n,}、{n,m}）之后时，匹配模式是 “非贪心的”。 “非贪心的”模式匹配搜索到的、尽可能短的字符串，而默认的”贪心的”模式匹配搜索到的、尽可能长的字符串。例如，在字符串 “oooo”中, “o+?”只匹配单个 “o”，而 “o+”匹配所有 “o”。</td>
-</tr>
-<tr>
-<td style="text-align:center">.</td>
-<td>匹配除 “\r\n”之外的任何单个字符。若要匹配包括 “\r\n”在内的任意字符，请使用诸如 “[\s\S]”之类的模式。</td>
-</tr>
-<tr>
-<td style="text-align:center">(pattern)</td>
-<td>匹配 pattern 并捕获该匹配的子表达式。可以使用 $0…$9 属性从结果”匹配”集合中检索捕获的匹配。若要匹配括号字符 “)”或者 “(“ ，请使用 “\)“ 或 “\(“ 。</td>
-</tr>
-<tr>
-<td style="text-align:center">(?:pattern)</td>
-<td>匹配 pattern 但不捕获该匹配的子表达式，即它是一个非捕获匹配，不存储供以后使用的匹配。这对于用 “or”字符 (&#124;) 组合模式部件的情况很有用。例如, ‘industr(?:y  &#124;  ies) 是比 ‘industry &#124; industries’ 更经济的表达式。</td>
-</tr>
-<tr>
-<td style="text-align:center">(?=pattern)</td>
-<td>执行正向预测先行搜索的子表达式，该表达式匹配处于匹配 pattern 的字符串的起始点的字符串。它是一个非捕获匹配，即不能捕获供以后使用的匹配。例如, ‘Windows (?=95  &#124;  98  &#124;  NT  &#124;  2000)’ 匹配”Windows 2000”中的 “Windows”，但不匹配 “Windows 3.1”中的 “Windows”。预测先行不占用字符，即发生匹配后，下一匹配的搜索紧随上一匹配之后，而不是在组成预测先行的字符后。</td>
-</tr>
-<tr>
-<td style="text-align:center">(?!pattern)</td>
-<td>执行反向预测先行搜索的子表达式，该表达式匹配不处于匹配 pattern 的字符串的起始点的搜索字符串。它是一个非捕获匹配，即不能捕获供以后使用的匹配。例如，’Windows (?!95  &#124;  98  &#124;  NT  &#124;  2000)’ 匹配”Windows 3.1”中的 “Windows”，但不匹配”Windows 2000”中的”Windows”。预测先行不占用字符，即发生匹配后，下一匹配的搜索紧随上一匹配之后，而不是在组成预测先行的字符后。</td>
-</tr>
-<tr>
-<td style="text-align:center">x &#124; y</td>
-<td>匹配 x 或 y。例如，’z  &#124;  food’ 匹配 “z”或 “food”。’(z &#124; f)ood’ 匹配 “zood”或 “food”。</td>
-</tr>
-<tr>
-<td style="text-align:center">[xyz]</td>
-<td>字符集。匹配包含的任一字符。例如, “[abc]”匹配 “plain”中的”a”。</td>
-</tr>
-<tr>
-<td style="text-align:center">[^xyz]</td>
-<td>反向字符集。匹配未包含的任何字符。例如, “[^abc]”匹配 “plain”中 “p”, “l”, “i”, “n”。</td>
-</tr>
-<tr>
-<td style="text-align:center">[a-z]</td>
-<td>字符范围。匹配指定范围内的任何字符。例如, “[a-z]”匹配”a”到”z”范围内的任何小写字母。</td>
-</tr>
-<tr>
-<td style="text-align:center">[^a-z]</td>
-<td>反向范围字符。匹配不在指定的范围内的任何字符。例如, “[^a-z]”匹配任何不在 “a”到 “z”范围内的任何字符。</td>
-</tr>
-<tr>
-<td style="text-align:center">\b</td>
-<td>匹配一个字边界，即字与空格间的位置。例如, “er\b”匹配 “never”中的”er”，但不匹配 “verb”中的 “er”。</td>
-</tr>
-<tr>
-<td style="text-align:center">\B</td>
-<td>非字边界匹配。 “er\B”匹配 “verb”中的 “er”，但不匹配 “never”中的 “er”。</td>
-</tr>
-<tr>
-<td style="text-align:center">\cx</td>
-<td>匹配 x 指示的控制字符。例如，\cM 匹配 Control-M 或回车符。x 的值必须在 A-Z 或 a-z 之间。如果不是这样，则假定 c 就是 “c”字符本身。</td>
-</tr>
-<tr>
-<td style="text-align:center">\d</td>
-<td>数字字符匹配。等效于 [0-9]。</td>
-</tr>
-<tr>
-<td style="text-align:center">\D</td>
-<td>非数字字符匹配。等效于 [^0-9]。</td>
-</tr>
-<tr>
-<td style="text-align:center">\f</td>
-<td>换页符匹配。等效于 \x0c 和 \cL。</td>
-</tr>
-<tr>
-<td style="text-align:center">\n</td>
-<td>换行符匹配。等效于 \x0a 和 \cJ。</td>
-</tr>
-<tr>
-<td style="text-align:center">\r</td>
-<td>匹配一个回车符。等效于 \x0d 和 \cM。</td>
-</tr>
-<tr>
-<td style="text-align:center">\s</td>
-<td>匹配任何空白字符，包括空格、制表符、换页符等。与 [ \f\n\r\t\v] 等效。</td>
-</tr>
-<tr>
-<td style="text-align:center">\S</td>
-<td>匹配任何非空白字符。与 [^ \f\n\r\t\v] 等效。</td>
-</tr>
-<tr>
-<td style="text-align:center">\t</td>
-<td>制表符匹配。与 \x09 和 \cI 等效。</td>
-</tr>
-<tr>
-<td style="text-align:center">\v</td>
-<td>垂直制表符匹配。与 \x0b 和 \cK 等效。</td>
-</tr>
-<tr>
-<td style="text-align:center">\w</td>
-<td>匹配任何字类字符，包括下划线。与”[A-Za-z0-9_]”等效。</td>
-</tr>
-<tr>
-<td style="text-align:center">\W</td>
-<td>与任何非单词字符匹配。与”[^A-Za-z0-9_]”等效。</td>
-</tr>
-<tr>
-<td style="text-align:center">\xn</td>
-<td>匹配 n，此处的 n 是一个十六进制转义码。十六进制转义码必须正好是两位数长。例如, “\x41”匹配 “A”。 “\x041”与 “\x04” &amp; “1”等效。允许在正则表达式中使用 ASCII 代码。</td>
-</tr>
-<tr>
-<td style="text-align:center">\num</td>
-<td>匹配 num，此处的 num 是一个正整数。到捕获匹配的反向引用。例如, “(.)\1”匹配两个连续的相同字符。</td>
-</tr>
-<tr>
-<td style="text-align:center">\n</td>
-<td>标识一个八进制转义码或反向引用。如果 \n 前面至少有 n 个捕获子表达式，那么 n 是反向引用。否则，如果 n 是八进制数 (0-7)，那么 n 是八进制转义码。</td>
-</tr>
-<tr>
-<td style="text-align:center">\nm</td>
-<td>标识一个八进制转义码或反向引用。如果 \nm 前面至少有 nm 个捕获子表达式，那么 nm 是反向引用。如果 \nm 前面至少有 n 个捕获，则 n 是反向引用，后面跟有字符 m。如果两种前面的情况都不存在，则 \nm 匹配八进制值 nm，其中 n 和 m 是八进制数字 (0-7)。</td>
-</tr>
-<tr>
-<td style="text-align:center">\nml</td>
-<td>当 n 是八进制数 (0-3)，m 和 l 是八进制数 (0-7) 时，匹配八进制转义码 nml。</td>
-</tr>
-<tr>
-<td style="text-align:center">\un</td>
-<td>匹配 n，其中 n 是以四位十六进制数表示的 Unicode 字符。例如，\u00A9 匹配版权符号 (©)。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-Matcher类的方法"><a href="#4-Matcher类的方法" class="headerlink" title="4. Matcher类的方法"></a><strong>4. Matcher类的方法</strong></h3><p><strong>索引方法</strong></p>
-<p>索引方法提供了有用的索引值，精确表明输入字符串中在哪能找到匹配：</p>
-<ol>
-<li>public int start()： 返回以前匹配的初始索引。</li>
-<li>public int start(int group)： 返回在以前的匹配操作期间，由给定组所捕获的子序列的初始索引</li>
-<li>public int end()：返回最后匹配字符之后的偏移量。</li>
-<li>public int end(int group)：返回在以前的匹配操作期间，由给定组所捕获子序列的最后字符之后的偏移量。</li>
-</ol>
-<p><strong>研究方法</strong></p>
-<p>研究方法用来检查输入字符串并返回一个布尔值，表示是否找到该模式：</p>
-<ol>
-<li>public boolean lookingAt()： 尝试将从区域开头开始的输入序列与该模式匹配。</li>
-<li>public boolean find()： 尝试查找与该模式匹配的输入序列的下一个子序列。</li>
-<li>public boolean find(int start）： 重置此匹配器，然后尝试查找匹配该模式、从指定索引开始的输入序列的下一个子序列。</li>
-<li>public boolean matches()：  尝试将整个区域与模式匹配。</li>
-</ol>
-<p><strong>替换方法</strong></p>
-<p>替换方法是替换输入字符串里文本的方法：</p>
-<ol>
-<li>public Matcher appendReplacement(StringBuffer sb, String replacement)： 实现非终端添加和替换步骤。</li>
-<li>public StringBuffer appendTail(StringBuffer sb)： 实现终端添加和替换步骤。</li>
-<li>public String replaceAll(String replacement) ：  替换模式与给定替换字符串相匹配的输入序列的每个子序列。</li>
-<li>public String replaceFirst(String replacement)：  替换模式与给定替换字符串匹配的输入序列的第一个子序列。</li>
-<li>public static String quoteReplacement(String s)： 返回指定字符串的字面替换字符串。这个方法返回一个字符串，就像传递给Matcher类的 appendReplacement 方法一个字面字符串一样工作。</li>
-</ol>
-<p><strong>start 和 end 方法</strong></p>
-<p>下面是一个对单词”cat”出现在输入字符串中出现次数进行计数的例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexMatches</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String REGEX = <span class="string">"\\bcat\\b"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String INPUT = <span class="string">"cat cat cat cattie cat"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String args[] )</span></span>&#123;</span><br><span class="line">       Pattern p = Pattern.compile(REGEX);</span><br><span class="line">       Matcher m = p.matcher(INPUT); <span class="comment">// 获取 matcher 对象</span></span><br><span class="line">       <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">while</span>(m.find()) &#123;</span><br><span class="line">         count++;</span><br><span class="line">         System.out.println(<span class="string">"Match number "</span>+count);</span><br><span class="line">         System.out.println(<span class="string">"start(): "</span>+m.start());</span><br><span class="line">         System.out.println(<span class="string">"end(): "</span>+m.end());</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>以上实例编译运行结果如下：</p>
-<blockquote>
-<p>Match number 1<br>start(): 0<br>end(): 3<br>Match number 2<br>start(): 4<br>end(): 7<br>Match number 3<br>start(): 8<br>end(): 11<br>Match number 4<br>start(): 19<br>end(): 22</p>
-</blockquote>
-<p>可以看到这个例子是使用单词边界，以确保字母 “c” “a” “t” 并非仅是一个较长的词的子串。它也提供了一些关于输入字符串中匹配发生位置的有用信息。<br>Start方法返回在以前的匹配操作期间，由给定组所捕获的子序列的初始索引，end方法最后一个匹配字符的索引加1。</p>
-<p><strong>matches 和 lookingAt 方法</strong></p>
-<p>matches 和lookingAt 方法都用来尝试匹配一个输入序列模式。它们的不同是matcher要求整个序列都匹配，而lookingAt 不要求。<br>这两个方法经常在输入字符串的开始使用。<br>我们通过下面这个例子，来解释这个功能：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexMatches</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String REGEX = <span class="string">"foo"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String INPUT = <span class="string">"fooooooooooooooooo"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Pattern pattern;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Matcher matcher;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String args[] )</span></span>&#123;</span><br><span class="line">       pattern = Pattern.compile(REGEX);</span><br><span class="line">       matcher = pattern.matcher(INPUT);</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">"Current REGEX is: "</span>+REGEX);</span><br><span class="line">       System.out.println(<span class="string">"Current INPUT is: "</span>+INPUT);</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">"lookingAt(): "</span>+matcher.lookingAt());</span><br><span class="line">       System.out.println(<span class="string">"matches(): "</span>+matcher.matches());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>以上实例编译运行结果如下：</p>
-<blockquote>
-<p>Current REGEX is: foo<br>Current INPUT is: fooooooooooooooooo<br>lookingAt(): true<br>matches(): false</p>
-</blockquote>
-<p><strong>replaceFirst 和 replaceAll 方法</strong></p>
-<p>replaceFirst 和replaceAll 方法用来替换匹配正则表达式的文本。不同的是，replaceFirst 替换首次匹配，replaceAll 替换所有匹配。<br>下面的例子来解释这个功能：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexMatches</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String REGEX = <span class="string">"dog"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String INPUT = <span class="string">"The dog says meow. "</span> + <span class="string">"All dogs say meow."</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String REPLACE = <span class="string">"cat"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       Pattern p = Pattern.compile(REGEX);</span><br><span class="line">       <span class="comment">// get a matcher object</span></span><br><span class="line">       Matcher m = p.matcher(INPUT); </span><br><span class="line">       INPUT = m.replaceAll(REPLACE);</span><br><span class="line">       System.out.println(INPUT);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>以上实例编译运行结果如下：</p>
-<blockquote>
-<p>The cat says meow. All cats say meow.</p>
-</blockquote>
-<p><strong>appendReplacement 和 appendTail 方法</strong></p>
-<p>Matcher 类也提供了appendReplacement 和appendTail 方法用于文本替换：<br>看下面的例子来解释这个功能：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexMatches</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> String REGEX = <span class="string">"a*b"</span>;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> String INPUT = <span class="string">"aabfooaabfooabfoob"</span>;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> String REPLACE = <span class="string">"-"</span>;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Pattern p = Pattern.compile(REGEX);</span><br><span class="line">      <span class="comment">// 获取 matcher 对象</span></span><br><span class="line">      Matcher m = p.matcher(INPUT);</span><br><span class="line">      StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">      <span class="keyword">while</span>(m.find())&#123;</span><br><span class="line">         m.appendReplacement(sb,REPLACE);</span><br><span class="line">      &#125;</span><br><span class="line">      m.appendTail(sb);</span><br><span class="line">      System.out.println(sb.toString());</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>以上实例编译运行结果如下：</p>
-<blockquote>
-<p>-foo-foo-foo-</p>
-</blockquote>
-<h3 id="5-PatternSyntaxException-类的方法"><a href="#5-PatternSyntaxException-类的方法" class="headerlink" title="5. PatternSyntaxException 类的方法"></a><strong>5. PatternSyntaxException 类的方法</strong></h3><p>PatternSyntaxException 是一个非强制异常类，它指示一个正则表达式模式中的语法错误。</p>
-<p>PatternSyntaxException 类提供了下面的方法来帮助我们查看发生了什么错误。</p>
-<ol>
-<li>public String getDescription()： 获取错误的描述。</li>
-<li>public int getIndex()：  获取错误的索引。</li>
-<li>public String getPattern()： 获取错误的正则表达式模式。</li>
-<li>public String getMessage()： 返回多行字符串，包含语法错误及其索引的描述、错误的正则表达式模式和模式中错误索引的可视化指示。</li>
-</ol>
-<p><br><br><br>转载自<a href="http://www.runoob.com/java/java-regular-expressions.html" target="_blank" rel="noopener">这里</a>.</p>
-
-      
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>无以生计，卖文苟延<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">旅行</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="https://img.fanhaobai.com/qrcode.php?url=http://cighao.com/2016/02/05/regular-expressions-of-java/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2016/02/14/optimization-of-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hexo 主题优化
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/02/04/visitors-increase-of-csdnblog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">利用 HttpClient 刷 CSDN 博客文章浏览量</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-捕获组"><span class="toc-number">1.</span> <span class="toc-text">1. 捕获组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-实例"><span class="toc-number">2.</span> <span class="toc-text">2. 实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-正则表达式语法"><span class="toc-number">3.</span> <span class="toc-text">3. 正则表达式语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Matcher类的方法"><span class="toc-number">4.</span> <span class="toc-text">4. Matcher类的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-PatternSyntaxException-类的方法"><span class="toc-number">5.</span> <span class="toc-text">5. PatternSyntaxException 类的方法</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-    <section id="comments">
-        <div id="disqus_thread"></div>
-        <script>
-          /**
-          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-          /*
-          var disqus_config = function () {
-            this.page.url = post.link;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = post.link; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-          };
-          */
-          (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://cighao.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-          })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                            
-    </section>
-  
-
-  
+    
 
 
           </div>
@@ -717,7 +251,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Hao Chen
+    		&copy; 2020 Hao Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -730,8 +264,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -1022,6 +556,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
               </li>
             
             <div class="clearfix"></div>

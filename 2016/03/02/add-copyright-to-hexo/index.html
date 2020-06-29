@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>Java 序列化与反序列化 | 陈浩的个人博客</title>
+  <title>在 Hexo 中给文章添加版权信息 | 陈浩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java序列化是指把Java对象转换为字节序列的过程；而Java反序列化是指把字节序列恢复为Java对象的过程。 1. 为什么需要序列化与反序列化我们知道，当两个进程进行远程通信时，可以相互发送各种类型的数据，包括文本、图片、音频、视频等， 而这些数据都会以二进制序列的形式在网络上传送。那么当两个Java进程进行通信时，能否实现进程间的对象传送呢？答案是可以的。如何做到呢？这就需要Java序列化与">
-<meta name="keywords" content="Java">
+  <meta name="description" content="step 1layout\_partial\post\ 目录下新建 copyright.ejs 内如如下： 12345&amp;lt;div class=&quot;article-footer-copyright&quot;&amp;gt;	添加你的版权信息&amp;lt;/div&amp;gt;">
+<meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 序列化与反序列化">
-<meta property="og:url" content="http://cighao.com/2016/02/01/serialize-and-AntiSerialize-in-java/index.html">
+<meta property="og:title" content="在 Hexo 中给文章添加版权信息">
+<meta property="og:url" content="http://cighao.com/2016/03/02/add-copyright-to-hexo/index.html">
 <meta property="og:site_name" content="陈浩的个人博客">
-<meta property="og:description" content="Java序列化是指把Java对象转换为字节序列的过程；而Java反序列化是指把字节序列恢复为Java对象的过程。 1. 为什么需要序列化与反序列化我们知道，当两个进程进行远程通信时，可以相互发送各种类型的数据，包括文本、图片、音频、视频等， 而这些数据都会以二进制序列的形式在网络上传送。那么当两个Java进程进行通信时，能否实现进程间的对象传送呢？答案是可以的。如何做到呢？这就需要Java序列化与">
+<meta property="og:description" content="step 1layout\_partial\post\ 目录下新建 copyright.ejs 内如如下： 12345&amp;lt;div class=&quot;article-footer-copyright&quot;&amp;gt;	添加你的版权信息&amp;lt;/div&amp;gt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2016-03-30T05:24:16.000Z">
+<meta property="og:updated_time" content="2016-04-11T11:54:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 序列化与反序列化">
-<meta name="twitter:description" content="Java序列化是指把Java对象转换为字节序列的过程；而Java反序列化是指把字节序列恢复为Java对象的过程。 1. 为什么需要序列化与反序列化我们知道，当两个进程进行远程通信时，可以相互发送各种类型的数据，包括文本、图片、音频、视频等， 而这些数据都会以二进制序列的形式在网络上传送。那么当两个Java进程进行通信时，能否实现进程间的对象传送呢？答案是可以的。如何做到呢？这就需要Java序列化与">
+<meta name="twitter:title" content="在 Hexo 中给文章添加版权信息">
+<meta name="twitter:description" content="step 1layout\_partial\post\ 目录下新建 copyright.ejs 内如如下： 12345&amp;lt;div class=&quot;article-footer-copyright&quot;&amp;gt;	添加你的版权信息&amp;lt;/div&amp;gt;">
   
     <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
   
@@ -193,95 +193,37 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-serialize-and-AntiSerialize-in-java" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-add-copyright-to-hexo" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java 序列化与反序列化
+      在 Hexo 中给文章添加版权信息
     </h1>
   
 
         
-        <a href="/2016/02/01/serialize-and-AntiSerialize-in-java/" class="archive-article-date">
-  	<time datetime="2016-02-01T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-01</time>
+        <a href="/2016/03/02/add-copyright-to-hexo/" class="archive-article-date">
+  	<time datetime="2016-03-02T04:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-        
-        <div style="width:100%;float:left;margin-bottom:25px;">
-	<div id="toc2" class="toc2-article" >
-		<div class="toc2-title">
-			<p>
-				<span> 目录 </span>
-				<a href="#" onclick="javascript:return openct(this);" title="展开">[+]</a>
-			</p>
-		</div>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-为什么需要序列化与反序列化"><span class="toc-text">1. 为什么需要序列化与反序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-如何序列化与反序列化"><span class="toc-text">2. 如何序列化与反序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-transient-关键字"><span class="toc-text">3. transient 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-如何手动序列化"><span class="toc-text">4. 如何手动序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-序列化中子类和父类构造函数的调用问题"><span class="toc-text">5. 序列化中子类和父类构造函数的调用问题</span></a></li></ol>
-	</div>
-</div>
-
-<script>
-	function openct(e){    
-		if (e.innerHTML == '[+]') {
-			//document.getElementsByTagName("INPUT")[0].setAttribute("type","button");
-			//alert(e)
-			//$(e).attr('title', '收起').html('[-]');
-			//$(".toc2-article ol").show();
-			e.setAttribute('title', '收起')
-			e.innerHTML = '[-]';
-			ols = document.getElementById("toc2").getElementsByTagName("ol");
-			for(var i=0;i<ols.length;i++){
-				ols[i].style.display = "block";
-			}
-		} else {
-			//$(e).attr('title', '展开').html('[+]');
-			//$(".toc2-article ol").hide();
-			e.setAttribute('title', '展开')
-			e.innerHTML = '[+]';
-			ols = document.getElementById("toc2").getElementsByTagName("ol");
-			for(var i=0;i<ols.length;i++){
-				ols[i].style.display = "none";
-			}
-		}
-		e.blur();
-		return false;
-	}
-</script>
       
-        <p>Java序列化是指把Java对象转换为字节序列的过程；而Java反序列化是指把字节序列恢复为Java对象的过程。</p>
-<h3 id="1-为什么需要序列化与反序列化"><a href="#1-为什么需要序列化与反序列化" class="headerlink" title="1. 为什么需要序列化与反序列化"></a><strong>1. 为什么需要序列化与反序列化</strong></h3><p>我们知道，当两个进程进行远程通信时，可以相互发送各种类型的数据，包括文本、图片、音频、视频等， 而这些数据都会以二进制序列的形式在网络上传送。那么当两个Java进程进行通信时，能否实现进程间的对象传送呢？答案是可以的。如何做到呢？这就需要Java序列化与反序列化了。换句话说，一方面，发送方需要把这个Java对象转换为字节序列，然后在网络上传送；另一方面，接收方需要从字节序列中恢复出Java对象。<a id="more"></a></p>
-<p>当我们明晰了为什么需要Java序列化和反序列化后，我们很自然地会想Java序列化的好处。其好处一是实现了数据的持久化，通过序列化可以把数据永久地保存到硬盘上（通常存放在文件里），二是，利用序列化实现远程通信，即在网络上传送对象的字节序列。(该部分内容引用自<a href="http://blog.csdn.net/wangloveall/article/details/7992448" target="_blank" rel="noopener">这里</a>)</p>
-<h3 id="2-如何序列化与反序列化"><a href="#2-如何序列化与反序列化" class="headerlink" title="2. 如何序列化与反序列化"></a><strong>2. 如何序列化与反序列化</strong></h3><p>序列化与反序列化分别用到了这两个流类 ObjectOutputStream 和 ObjectInputStream。</p>
-<p>如果要序列话一个对象的话这个对象还必须实现 Serializable 接口。下面举例来说明。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String stuno;</span><br><span class="line">	<span class="keyword">private</span> String stuname;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> stuage;  </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String stuno, String stuname, <span class="keyword">int</span> stuage)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.stuno = stuno;</span><br><span class="line">		<span class="keyword">this</span>.stuname = stuname;</span><br><span class="line">		<span class="keyword">this</span>.stuage = stuage;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面已经写好了一个类，并且这个类已经实现了 Serializable 接口，如果我们要序列化这个类的一个对象只要用下面的代码即可：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String file = <span class="string">"demo/obj.dat"</span>;</span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">Student stu = <span class="keyword">new</span> Student(<span class="string">"10001"</span>, <span class="string">"张三"</span>, <span class="number">20</span>);</span><br><span class="line">oos.writeObject(stu);</span><br><span class="line">oos.flush();</span><br><span class="line">oos.close();</span><br></pre></td></tr></table></figure>
-<p>上面的操作先实例化了一个 Student 对象，然后将这个对象序列化到了 demo 文件下的 obj.dat 文件中。</p>
-<p>接下来，如果我们要从刚才序列化的 obj.dat 文件中反序列化出一个对象来，用下面的代码即可实现：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String file = <span class="string">"demo/obj.dat"</span>;</span><br><span class="line">ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(file));</span><br><span class="line">Student stu = (Student)ois.readObject();</span><br><span class="line">ois.close();</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-transient-关键字"><a href="#3-transient-关键字" class="headerlink" title="3. transient 关键字"></a><strong>3. transient 关键字</strong></h3><p>上面的例子中，我们在序列化 Student 对象时，会把 Student 对象中的所有属性都序列化，反序列化时也是把所有属性都反序列化，但是如果对于某些属性我们不想让他序列化该怎么办呢，这个时候可以利用 transient 关键字去修饰这个属性，那么在默认的情况下，序列化的时候是不会去序列化这个属性的。比如上面的例子中，如果我们不需要序列化 stuage 属性时我们只要这样来修饰它就行了：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">int</span> stuage;</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-如何手动序列化"><a href="#4-如何手动序列化" class="headerlink" title="4. 如何手动序列化"></a><strong>4. 如何手动序列化</strong></h3><p>对于用 transient 关键字修饰的属性我们是不可以用 ObjectOutputStream 对象的 writeObject() 方法去自动序列化的，但是我们可以手动去序列话。还是用上面的例子来继续讨论。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String stuno;</span><br><span class="line">	<span class="keyword">private</span> String stuname;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">int</span> stuage;  <span class="comment">//该元素不会进行jvm默认的序列化</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String stuno, String stuname, <span class="keyword">int</span> stuage)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.stuno = stuno;</span><br><span class="line">		<span class="keyword">this</span>.stuname = stuname;</span><br><span class="line">		<span class="keyword">this</span>.stuage = stuage;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(java.io.ObjectOutputStream s)</span></span></span><br><span class="line"><span class="function">		        <span class="keyword">throws</span> java.io.IOException</span>&#123;</span><br><span class="line">		 s.defaultWriteObject();<span class="comment">//把jvm能默认序列化的元素进行序列化操作</span></span><br><span class="line">		 s.writeInt(stuage);<span class="comment">//自己完成stuage的序列化</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">readObject</span><span class="params">(java.io.ObjectInputStream s)</span></span></span><br><span class="line"><span class="function">		        <span class="keyword">throws</span> java.io.IOException, ClassNotFoundException</span>&#123;</span><br><span class="line">		  s.defaultReadObject();<span class="comment">//把jvm能默认反序列化的元素进行反序列化操作</span></span><br><span class="line">		  <span class="keyword">this</span>.stuage = s.readInt();<span class="comment">//自己完成stuage的反序列化操作</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个时候序列化与反序列化的操作跟之前的还是一样：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">String file = <span class="string">"demo/obj.dat"</span>;</span><br><span class="line"><span class="comment">//序列化</span></span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">Student stu = <span class="keyword">new</span> Student(<span class="string">"10001"</span>, <span class="string">"张三"</span>, <span class="number">20</span>);</span><br><span class="line">oos.writeObject(stu);</span><br><span class="line">oos.flush();</span><br><span class="line">oos.close();</span><br><span class="line"><span class="comment">//反序列化</span></span><br><span class="line">ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(file));</span><br><span class="line">Student stu1 = (Student)ois.readObject();</span><br><span class="line">System.out.println(stu1);</span><br><span class="line">ois.close();</span><br></pre></td></tr></table></figure></p>
-<h3 id="5-序列化中子类和父类构造函数的调用问题"><a href="#5-序列化中子类和父类构造函数的调用问题" class="headerlink" title="5. 序列化中子类和父类构造函数的调用问题"></a><strong>5. 序列化中子类和父类构造函数的调用问题</strong></h3><p>假设有三个类如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Foo</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"foo..."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo1</span> <span class="keyword">extends</span> <span class="title">Foo</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Foo1</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"foo1..."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo2</span> <span class="keyword">extends</span> <span class="title">Foo1</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Foo2</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"foo2..."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>序列化与反序列化的操作如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//序列化</span></span><br><span class="line">System.out.println(<span class="string">"----下面是序列化----"</span>);</span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">"demo/obj1.dat"</span>));</span><br><span class="line">Foo2 foo2 = <span class="keyword">new</span> Foo2();</span><br><span class="line">oos.writeObject(foo2);</span><br><span class="line">oos.flush();</span><br><span class="line">oos.close();</span><br><span class="line"><span class="comment">//反序列化</span></span><br><span class="line">System.out.println(<span class="string">"----下面是反序列化----"</span>);</span><br><span class="line">ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">"demo/obj1.dat"</span>));</span><br><span class="line">Foo2 foo21 = (Foo2)ois.readObject();</span><br><span class="line">ois.close();</span><br></pre></td></tr></table></figure>
-<p>控制台的输出如下：</p>
-<blockquote>
-<p>—-下面是序列化—-<br>foo…<br>foo1…<br>foo2…<br>—-下面是反序列化—-</p>
-</blockquote>
-<p>我们会发现一个有趣的现象就是在反序列化子类的过程中并没有调用父类的构造函数。</p>
-<p>其中的缘由我们再举个例子来探讨，假设有如下的三个类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Bar</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"bar"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar1</span> <span class="keyword">extends</span> <span class="title">Bar</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Bar1</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"bar1.."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bar2</span> <span class="keyword">extends</span> <span class="title">Bar1</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Bar2</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"bar2..."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>序列化与反序列化的操作如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//序列化</span></span><br><span class="line">System.out.println(<span class="string">"----下面是序列化----"</span>);</span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">"demo/obj1.dat"</span>));</span><br><span class="line">Bar2 bar2 = <span class="keyword">new</span> Bar2();</span><br><span class="line">oos.writeObject(bar2);</span><br><span class="line">oos.flush();</span><br><span class="line">oos.close();</span><br><span class="line"><span class="comment">//反序列化</span></span><br><span class="line">System.out.println(<span class="string">"----下面是反序列化----"</span>);</span><br><span class="line">ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">"demo/obj1.dat"</span>));</span><br><span class="line">Bar2 bar21 = (Bar2)ois.readObject();</span><br><span class="line">ois.close();</span><br></pre></td></tr></table></figure>
-<p>控制台的输出如下：</p>
-<blockquote>
-<p>bar<br>bar1..<br>bar2…<br>—-下面是反序列化—-<br>bar</p>
-</blockquote>
-<p>这次的结果跟上次的又不太一样，这是为什么呢，其实是这样的：<strong> 对子类对象进行反序列化操作时，如果其父类没有实现序列化接口那么其父类的构造函数会被调用</strong>。</p>
+        <h3 id="step-1"><a href="#step-1" class="headerlink" title="step 1"></a><strong>step 1</strong></h3><p><code>layout\_partial\post\</code> 目录下新建 <code>copyright.ejs</code> 内如如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"article-footer-copyright"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	添加你的版权信息</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="step-2"><a href="#step-2" class="headerlink" title="step 2"></a><strong>step 2</strong></h3><p><code>layout\_partial\article.ejs</code> 文件下添加如下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (!<span class="attr">index</span> &amp;&amp; <span class="attr">post.copyright</span>==<span class="string">true)&#123;</span> %&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">post</span>/<span class="attr">copyright</span>') %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="step-3"><a href="#step-3" class="headerlink" title="step 3"></a><strong>step 3</strong></h4><p><code>source\css\_partial\</code> 下新建 <code>copyright.styl</code> 内容如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.article-footer-copyright</span>&#123;</span><br><span class="line">   <span class="attribute">border-top</span>:<span class="number">1px</span> solid <span class="number">#d3d3d3</span>;</span><br><span class="line">   <span class="attribute">margin</span>: <span class="number">20px</span> auto;     </span><br><span class="line">   <span class="attribute">padding-left</span>:<span class="number">2em</span>;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.article-footer-copyright</span> <span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">font-size</span>:<span class="number">1.2em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.article-footer-copyright</span> <span class="selector-tag">span</span>,<span class="selector-class">.copyright</span> <span class="selector-tag">abbr</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#3d3d3d</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.copyright</span>&#123;</span><br><span class="line">	</span><br><span class="line">     <span class="attribute">font-weight</span>:bold;</span><br><span class="line">    <span class="attribute">color</span>:<span class="number">#FCB297</span>;</span><br><span class="line">       <span class="attribute">padding</span>:<span class="number">0.3em</span> <span class="number">0.5em</span>;</span><br><span class="line">       <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">1em</span> <span class="number">0</span>;</span><br><span class="line">       <span class="attribute">border-bottom</span>:none;</span><br><span class="line">       <span class="attribute">background-color</span>:<span class="number">#AAD2F0</span>;</span><br><span class="line">       <span class="attribute">-moz-border-radius</span>: <span class="number">1em</span>;</span><br><span class="line">       <span class="attribute">-webkit-border-radius</span>:<span class="number">1em</span>;</span><br><span class="line">       <span class="attribute">border-radius</span>: <span class="number">1em</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">-moz-box-shadow</span>:inset <span class="number">0px</span> <span class="number">1px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">#eeeeee</span>;</span><br><span class="line">  <span class="attribute">-webkit-box-shadow</span>:inset <span class="number">0px</span> <span class="number">1px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">#eeeeee</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>:inset <span class="number">0px</span> <span class="number">1px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">#eeeeee</span>;</span><br><span class="line">  <span class="attribute">background</span>:<span class="built_in">-webkit-gradient</span>( linear, left top, left bottom, color-stop(0.05, #aad2f0), <span class="built_in">color-stop</span>(1, #8bc1ed) );</span><br><span class="line">  <span class="attribute">background</span>:<span class="built_in">-moz-linear-gradient</span>( center top, #aad2f0 5%, #8bc1ed 100% );</span><br><span class="line">  <span class="comment">/* filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#aad2f0', endColorstr='#8bc1ed'); */</span></span><br><span class="line">  <span class="attribute">background-color</span>:<span class="number">#aad2f0</span>;</span><br><span class="line">  <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#dcdcdc</span>;</span><br><span class="line">  <span class="attribute">text-shadow</span>:<span class="number">1px</span> <span class="number">1px</span> <span class="number">0px</span> <span class="number">#eeeeee</span>;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.article-footer-copyright</span>&#123;</span><br><span class="line">	<span class="attribute">margin-top</span>:<span class="number">2em</span>;</span><br><span class="line">	<span class="attribute">padding</span>:<span class="number">1.5em</span>;</span><br><span class="line">	<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#d3d3d3</span>;</span><br><span class="line">	<span class="attribute">background-color</span>:<span class="number">#DEEBF7</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.article-footer-copyright</span> <span class="selector-tag">p</span>&#123;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">160%</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="step-4"><a href="#step-4" class="headerlink" title="step 4"></a><strong>step 4</strong></h3><p><code>source\css\styl.styl</code> 文件下新添如下代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">'_partial/copyright'</span></span><br></pre></td></tr></table></figure>
+<h3 id="step5"><a href="#step5" class="headerlink" title="step5 "></a><strong>step5 </strong></h3><p>完成！</p>
+<p>只要在需要添加版权信息的文章中，添加 <code>copyright: true</code> 即可显示版权信息。</p>
 
       
 
@@ -292,9 +234,9 @@ var _hmt = _hmt || [];
  
  <p>非商业转载请注明作者及出处。商业转载请联系作者本人。</p>
  
- <p>本文标题为: <a href="http://cighao.com/2016/02/01/serialize-and-AntiSerialize-in-java/">Java 序列化与反序列化</a> </p>
+ <p>本文标题为: <a href="http://cighao.com/2016/03/02/add-copyright-to-hexo/">在 Hexo 中给文章添加版权信息</a> </p>
  
- <p>本文链接为：<a href="http://cighao.com/2016/02/01/serialize-and-AntiSerialize-in-java/">http://cighao.com/2016/02/01/serialize-and-AntiSerialize-in-java/</a></p>
+ <p>本文链接为：<a href="http://cighao.com/2016/03/02/add-copyright-to-hexo/">http://cighao.com/2016/03/02/add-copyright-to-hexo/</a></p>
 
 </div>
       
@@ -340,7 +282,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
         		</li>
       		
 		</ul>
@@ -396,7 +338,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="https://img.fanhaobai.com/qrcode.php?url=http://cighao.com/2016/02/01/serialize-and-AntiSerialize-in-java/" alt="微信分享二维码">
+      <img src="https://img.fanhaobai.com/qrcode.php?url=http://cighao.com/2016/03/02/add-copyright-to-hexo/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -410,18 +352,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2016/02/03/java-io-stream/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/03/06/disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java 输入/输出流
+          disksim with ssdmodel 源码解析（二）：输入参数的介绍
         
       </div>
     </a>
   
   
-    <a href="/2016/01/20/page-layout-by-CSS/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">利用 CSS 进行网页布局</div>
+    <a href="/2016/03/01/introduction-of-map-in-python/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python 并行化之 map 函数的介绍</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -440,19 +382,6 @@ var _hmt = _hmt || [];
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-为什么需要序列化与反序列化"><span class="toc-number">1.</span> <span class="toc-text">1. 为什么需要序列化与反序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-如何序列化与反序列化"><span class="toc-number">2.</span> <span class="toc-text">2. 如何序列化与反序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-transient-关键字"><span class="toc-number">3.</span> <span class="toc-text">3. transient 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-如何手动序列化"><span class="toc-number">4.</span> <span class="toc-text">4. 如何手动序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-序列化中子类和父类构造函数的调用问题"><span class="toc-number">5.</span> <span class="toc-text">5. 序列化中子类和父类构造函数的调用问题</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
@@ -500,7 +429,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Hao Chen
+    		&copy; 2020 Hao Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -805,6 +734,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅行</a>
               </li>
             
             <div class="clearfix"></div>
