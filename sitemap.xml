@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/resume/resume-en.html</loc>
+    
+    <lastmod>2020-09-27T06:00:51.116Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cighao.com/resume/resume-zh.html</loc>
+    
+    <lastmod>2020-09-27T06:00:46.443Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/2019/03/29/problems-in-dailylife/</loc>
     
-    <lastmod>2020-04-20T11:48:09.399Z</lastmod>
+    <lastmod>2020-07-05T11:38:12.279Z</lastmod>
     
   </url>
   
@@ -103,20 +117,6 @@
     <loc>http://cighao.com/photo/index.html</loc>
     
     <lastmod>2019-10-13T13:53:49.263Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/resume/resume-en.html</loc>
-    
-    <lastmod>2019-10-13T13:33:30.969Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/resume/resume-zh.html</loc>
-    
-    <lastmod>2019-10-13T13:31:29.437Z</lastmod>
     
   </url>
   
