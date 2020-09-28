@@ -222,8 +222,8 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 <h2 id="2-安装步骤"><a href="#2-安装步骤" class="headerlink" title="2.安装步骤"></a>2.安装步骤</h2></li>
 </ul>
-<h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a><strong>Step 1</strong></h3><p>解压<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> tar xfz disksim-4.0-with-dixtrac.tar.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> disksim-4.0</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> unzip ../ssd-add-on.zip</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a><strong>Step 2</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> patch -p1 &lt; ssdmodel/ssd-patch</span></span><br></pre></td></tr></table></figure>
+<h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a><strong>Step 1</strong></h3><p>解压<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tar xfz disksim-4.0-with-dixtrac.tar.gz</span><br><span class="line"><span class="meta">$</span> cd disksim-4.0</span><br><span class="line"><span class="meta">$</span> unzip ../ssd-add-on.zip</span><br></pre></td></tr></table></figure></p>
+<h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a><strong>Step 2</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> patch -p1 &lt; ssdmodel/ssd-patch</span><br></pre></td></tr></table></figure>
 <h3 id="如果不想手动修改的话，可以直接调到-step5。"><a href="#如果不想手动修改的话，可以直接调到-step5。" class="headerlink" title="如果不想手动修改的话，可以直接调到 step5。"></a><strong>如果不想手动修改的话，可以直接调到 step5。</strong></h3><h3 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a><strong>Step 3</strong></h3><p>(1) 修改memsmodel/Makefile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mems_seektest: mems_seektest.o libmems_internals.a</span><br><span class="line">$(CC) -o $@ mems_seektest.o $(LDFLAGS) $(CFLAGS) -lmems_internals</span><br></pre></td></tr></table></figure></p>
 <p>将$(LDFLAGS)放到最后；</p>
 <p>(2).修改dixtrac/Makefile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LDFLAGS  = -L. -lm -l$(LIBNAME) -ldxtools \</span><br><span class="line">        $(LIBDISKSIM_LDFLAGS) \</span><br><span class="line">        $(MEMSMODEL_LDFLAGS) \</span><br><span class="line">        $(DISKMODEL_LDFLAGS) \</span><br><span class="line">        $(LIBPARAM_LDFLAGS) \</span><br><span class="line">        $(LIBDDBG_LDFLAGS) \</span><br><span class="line">        $(ST_LDFLAGS)</span><br></pre></td></tr></table></figure></p>
@@ -236,8 +236,8 @@ var _hmt = _hmt || [];
 <h3 id="step-5"><a href="#step-5" class="headerlink" title="step 5"></a><strong>step 5</strong></h3><p>如果你已经做了 step3 和 step4，请忽略此步骤。 </p>
 <p>上面的修改确实很麻烦，如果你没有进行上面的修改可以去我的github上下载patch文件。链接：<a href="https://github.com/cighao/disksim-4.0-with-ssdmodel-patch" target="_blank" rel="noopener">戳这里</a></p>
 <p>将下载后的文件复制到 disksim-4.0 目录下，然后运行 <code>patch -p1 &lt; modify-patch</code> 即可。</p>
-<h3 id="Step-6"><a href="#Step-6" class="headerlink" title="Step 6"></a><strong>Step 6</strong></h3><p>编译<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> make</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Step-7"><a href="#Step-7" class="headerlink" title=" Step 7"></a><strong> Step 7</strong></h3><p>测试安装是否成功<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> valid; ./runvalid</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> chmod a+x ../ssdmodel/valid/runvalid</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> ../ssdmodel/valid; ./runvalid</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Step-6"><a href="#Step-6" class="headerlink" title="Step 6"></a><strong>Step 6</strong></h3><p>编译<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make</span><br></pre></td></tr></table></figure></p>
+<h3 id="Step-7"><a href="#Step-7" class="headerlink" title=" Step 7"></a><strong> Step 7</strong></h3><p>测试安装是否成功<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd valid; ./runvalid</span><br><span class="line"><span class="meta">$</span> chmod a+x ../ssdmodel/valid/runvalid</span><br><span class="line"><span class="meta">$</span> cd ../ssdmodel/valid; ./runvalid</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -555,10 +555,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -571,15 +567,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,11 +583,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,6 +607,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Disksim</a>
               </li>
              
@@ -615,7 +619,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,11 +643,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">黑客</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">黑客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,19 +659,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,6 +680,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,10 +700,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">源代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -747,11 +747,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Nodejs</a>
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
