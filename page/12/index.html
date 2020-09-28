@@ -190,85 +190,6 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">为 SSD 编程（2）：SSD的架构和基准</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/" class="archive-article-date">
-  	<time datetime="2016-02-25T12:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本第二部分包含了“为SSD编程”的6个内容，包括1、2两节，你可以参考<a href="../../../../2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">目录</a>。这是我在阅读了各种关于SSD的文档之后，为了分享我所学到的东西写的一系列文章。如果你没有时间慢慢看，你可以直接跳转到<a href="../../../../2016/02/25/coding-for-ssds-part-6-a-summary-what-every-programmer-should-know-about-solid-state-drives/">第六部分</a>，这部分总结了所有其他部分的内容。</p>
-<p>在本部分，我将解释NAND闪存的基本知识、闪存单元类型、和基本SSD内部架构。同样包括了SSD基准和如何解释这些基准。</p>
-        
-          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-coding-for-ssds-part-1-introduction-and-table-of-contents" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -397,6 +318,85 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/02/25/fundamental-of-flash-memory/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-the-basic-principle-of-SSD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/25/the-basic-principle-of-SSD/">SSD基本工作原理(转)</a>
+    </h1>
+  
+
+        
+        <a href="/2016/02/25/the-basic-principle-of-SSD/" class="archive-article-date">
+  	<time datetime="2016-02-25T08:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SSD 主要由 SSD 控制器，FLASH 存储阵列，板上DRAM（可选），以及跟HOST接口（诸如SATA，SAS, PCIe等）组成。 </p>
+<p><img src="http://www.ssdfans.com/wp-content/uploads/2014/10/102814_0720_SSD1.png" alt=""></p>
+        
+          <a class="article-more-a" href="/2016/02/25/the-basic-principle-of-SSD/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/25/the-basic-principle-of-SSD/">展开全文 >></a>
         </p>
       
 
@@ -590,13 +590,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/06/regular-expressions-of-java/">Java 正则表达式(转)</a>
+      <a class="article-title" href="/2016/02/05/regular-expressions-of-java/">Java 正则表达式(转)</a>
     </h1>
   
 
         
-        <a href="/2016/02/06/regular-expressions-of-java/" class="archive-article-date">
-  	<time datetime="2016-02-05T21:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-06</time>
+        <a href="/2016/02/05/regular-expressions-of-java/" class="archive-article-date">
+  	<time datetime="2016-02-05T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-05</time>
 </a>
         
       </header>
@@ -610,7 +610,7 @@ var _hmt = _hmt || [];
 <p>Java正则表达式和Perl的是最为相似的。</p>
 <p>java.util.regex包主要包括以下三个类：<br>
         
-          <a class="article-more-a" href="/2016/02/06/regular-expressions-of-java/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/05/regular-expressions-of-java/#more">more >></a>
         
       
 
@@ -640,7 +640,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/06/regular-expressions-of-java/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/05/regular-expressions-of-java/">展开全文 >></a>
         </p>
       
 
@@ -923,13 +923,13 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/02/serialize-and-AntiSerialize-in-java/">Java 序列化与反序列化</a>
+      <a class="article-title" href="/2016/02/01/serialize-and-AntiSerialize-in-java/">Java 序列化与反序列化</a>
     </h1>
   
 
         
-        <a href="/2016/02/02/serialize-and-AntiSerialize-in-java/" class="archive-article-date">
-  	<time datetime="2016-02-02T01:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-02</time>
+        <a href="/2016/02/01/serialize-and-AntiSerialize-in-java/" class="archive-article-date">
+  	<time datetime="2016-02-01T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-01</time>
 </a>
         
       </header>
@@ -939,7 +939,7 @@ var _hmt = _hmt || [];
         <p>Java序列化是指把Java对象转换为字节序列的过程；而Java反序列化是指把字节序列恢复为Java对象的过程。</p>
 <h3 id="1-为什么需要序列化与反序列化"><a href="#1-为什么需要序列化与反序列化" class="headerlink" title="1. 为什么需要序列化与反序列化"></a><strong>1. 为什么需要序列化与反序列化</strong></h3><p>我们知道，当两个进程进行远程通信时，可以相互发送各种类型的数据，包括文本、图片、音频、视频等， 而这些数据都会以二进制序列的形式在网络上传送。那么当两个Java进程进行通信时，能否实现进程间的对象传送呢？答案是可以的。如何做到呢？这就需要Java序列化与反序列化了。换句话说，一方面，发送方需要把这个Java对象转换为字节序列，然后在网络上传送；另一方面，接收方需要从字节序列中恢复出Java对象。
         
-          <a class="article-more-a" href="/2016/02/02/serialize-and-AntiSerialize-in-java/#more">more >></a>
+          <a class="article-more-a" href="/2016/02/01/serialize-and-AntiSerialize-in-java/#more">more >></a>
         
       
 
@@ -965,7 +965,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/02/serialize-and-AntiSerialize-in-java/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/01/serialize-and-AntiSerialize-in-java/">展开全文 >></a>
         </p>
       
 
@@ -1105,18 +1105,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">遗传算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -1129,11 +1117,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+                <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">遗传算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1145,19 +1145,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1165,7 +1157,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1185,19 +1185,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java Web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
+                <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1217,11 +1213,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">Struts2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1233,7 +1229,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
+                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1242,6 +1246,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1273,19 +1281,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">端口扫描</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">二层规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">端口扫描</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1305,23 +1313,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
             
             <div class="clearfix"></div>

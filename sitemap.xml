@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://cighao.com/resume/resume-en.html</loc>
+    <loc>http://cighao.com/resume/resume-zh.html</loc>
     
-    <lastmod>2020-09-27T06:00:51.116Z</lastmod>
+    <lastmod>2020-09-28T09:12:04.088Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cighao.com/resume/resume-zh.html</loc>
+    <loc>http://cighao.com/resume/resume-en.html</loc>
     
-    <lastmod>2020-09-27T06:00:46.443Z</lastmod>
+    <lastmod>2020-09-28T09:12:01.073Z</lastmod>
     
   </url>
   
@@ -102,7 +102,7 @@
   <url>
     <loc>http://cighao.com/photo/ins.json</loc>
     
-    <lastmod>2019-10-19T19:56:35.656Z</lastmod>
+    <lastmod>2019-10-19T19:57:10.431Z</lastmod>
     
   </url>
   
@@ -177,7 +177,7 @@
   </url>
   
   <url>
-    <loc>http://cighao.com/2018/09/30/openstack-swift-study-07-ssbench/</loc>
+    <loc>http://cighao.com/2018/09/29/openstack-swift-study-07-ssbench/</loc>
     
     <lastmod>2018-09-29T08:28:34.000Z</lastmod>
     
@@ -583,7 +583,7 @@
   </url>
   
   <url>
-    <loc>http://cighao.com/2016/02/06/regular-expressions-of-java/</loc>
+    <loc>http://cighao.com/2016/02/05/regular-expressions-of-java/</loc>
     
     <lastmod>2016-07-25T01:26:30.000Z</lastmod>
     
@@ -744,7 +744,7 @@
   </url>
   
   <url>
-    <loc>http://cighao.com/2016/03/02/add-copyright-to-hexo/</loc>
+    <loc>http://cighao.com/2016/03/01/add-copyright-to-hexo/</loc>
     
     <lastmod>2016-04-11T11:54:36.000Z</lastmod>
     
@@ -772,7 +772,7 @@
   </url>
   
   <url>
-    <loc>http://cighao.com/2015/12/04/introduction-of-SA/</loc>
+    <loc>http://cighao.com/2015/12/03/introduction-of-SA/</loc>
     
     <lastmod>2016-04-11T11:52:38.000Z</lastmod>
     
@@ -982,7 +982,7 @@
   </url>
   
   <url>
-    <loc>http://cighao.com/2016/02/02/serialize-and-AntiSerialize-in-java/</loc>
+    <loc>http://cighao.com/2016/02/01/serialize-and-AntiSerialize-in-java/</loc>
     
     <lastmod>2016-03-30T05:24:16.000Z</lastmod>
     
