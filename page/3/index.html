@@ -85,8 +85,6 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/archives">所有文章/Archives</a></li>
 	        
-				<li><a href="/resume/resume-zh.html">关于我/About me</a></li>
-	        
 				<li><a href="/photo">相册/Photo</a></li>
 	        
 			</ul>
@@ -141,8 +139,6 @@ var _hmt = _hmt || [];
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -163,13 +159,11 @@ var _hmt = _hmt || [];
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页/Home</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页/Home</a></li>
 		        
-					<li style="width: 25%"><a href="/archives">所有文章/Archives</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives">所有文章/Archives</a></li>
 		        
-					<li style="width: 25%"><a href="/resume/resume-zh.html">关于我/About me</a></li>
-		        
-					<li style="width: 25%"><a href="/photo">相册/Photo</a></li>
+					<li style="width: 33.333333333333336%"><a href="/photo">相册/Photo</a></li>
 		        
 				</ul>
 			</nav>
@@ -186,6 +180,113 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-openstack-swift-study-06-start-proxy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/29/openstack-swift-study-06-start-proxy/">Openstack Swift学习(六)：服务启动源码分析</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/29/openstack-swift-study-06-start-proxy/" class="archive-article-date">
+  	<time datetime="2018-09-29T07:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先介绍下 swift 的代码结构：</p>
+<ul>
+<li>bin/: Executable scripts that are the processes run by the deployer</li>
+<li>doc/: Documentation</li>
+<li>etc/: Sample config files</li>
+<li>examples/: Config snippets used in the docs</li>
+<li>swift/: Core code<ul>
+<li>account/: account server</li>
+<li>cli/: code that backs some of the CLI tools in bin/</li>
+<li>common/: code shared by different modules<ul>
+<li>middleware/: “standard”, officially-supported middleware</li>
+<li>ring/: code implementing Swift’s ring</li>
+</ul>
+</li>
+<li>container/: container server</li>
+<li>locale/: internationalization (translation) data</li>
+<li>obj/: object server</li>
+<li>proxy/: proxy server</li>
+</ul>
+</li>
+<li>test/: Unit, functional, and probe tests</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/09/29/openstack-swift-study-06-start-proxy/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">openstack swift</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">分布式存储</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对象存储</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/29/openstack-swift-study-06-start-proxy/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-openstack-swift-study-05-debug" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -199,7 +300,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2018/09/29/openstack-swift-study-05-debug/" class="archive-article-date">
-  	<time datetime="2018-09-29T11:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-29</time>
+  	<time datetime="2018-09-29T06:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-29</time>
 </a>
         
       </header>
@@ -285,7 +386,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2018/09/29/openstack-swift-study-04-middleware/" class="archive-article-date">
-  	<time datetime="2018-09-29T10:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-29</time>
+  	<time datetime="2018-09-29T05:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-29</time>
 </a>
         
       </header>
@@ -372,7 +473,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2018/09/22/openstack-swift-study-03-log/" class="archive-article-date">
-  	<time datetime="2018-09-22T11:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-22</time>
+  	<time datetime="2018-09-22T06:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-22</time>
 </a>
         
       </header>
@@ -459,7 +560,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2018/07/20/openstack-swift-study-02-related documents/" class="archive-article-date">
-  	<time datetime="2018-07-20T11:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
+  	<time datetime="2018-07-20T06:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
 </a>
         
       </header>
@@ -546,7 +647,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2018/07/12/openstack-swift-study-01-install swift/" class="archive-article-date">
-  	<time datetime="2018-07-12T11:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
+  	<time datetime="2018-07-12T06:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
 </a>
         
       </header>
@@ -634,7 +735,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2017/09/16/translation-of-samsung-ssd-960-evo-review/" class="archive-article-date">
-  	<time datetime="2017-09-16T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-16</time>
+  	<time datetime="2017-09-16T09:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-16</time>
 </a>
         
       </header>
@@ -718,7 +819,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2017/09/12/translation-of-samsung-ssd-850-evo-review/" class="archive-article-date">
-  	<time datetime="2017-09-12T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
+  	<time datetime="2017-09-12T09:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
 </a>
         
       </header>
@@ -801,7 +902,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2017/08/26/translation-of-best-ssd/" class="archive-article-date">
-  	<time datetime="2017-08-26T14:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
+  	<time datetime="2017-08-26T09:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-26</time>
 </a>
         
       </header>
@@ -884,7 +985,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/2017/03/20/ssd-first-used-on-linux/" class="archive-article-date">
-  	<time datetime="2017-03-20T13:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
+  	<time datetime="2017-03-20T08:40:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
 </a>
         
       </header>
@@ -949,92 +1050,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-disksim-3.0-with-flashsim-source-analysis-06-garbage-collection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/">disksim-3.0 with flashsim 源码分析（六）：垃圾回收</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/" class="archive-article-date">
-  	<time datetime="2017-02-27T11:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>仍然以DFTL为例，在 <code>dftl.c</code> 文件中有一个 <code>opm_write（）</code> 函数，前面对这个函数也进行过介绍，这个函数主要是实现 dftl 的写操作逻辑。在这个函数中会进行 GC 操作的判断，先调用 <code>nand_get_free_blk(0)</code> 函数，如果返回 -1 ，则表示需要进行垃圾回收，当整个 SSD 的空闲页大于阈值的时候就停止垃圾回收。这部分的代码，如下所示：</p>
-        
-          <a class="article-more-a" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">flashsim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/27/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1049,7 +1064,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 Hao Chen
+    		&copy; 2021 Hao Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1137,18 +1152,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Web 前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -1161,15 +1164,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Web 前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1185,7 +1192,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Socket</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1193,7 +1208,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Cassandra</a>
+                <a href="javascript:void(0)" class="js-tag color3">图论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1217,11 +1232,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java Web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java Web</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">信号处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1245,15 +1264,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,11 +1284,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1281,11 +1296,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Matplotlib</a>
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">源代码</a>
+                <a href="javascript:void(0)" class="js-tag color1">Matplotlib</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1298,6 +1313,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对象存储</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">源代码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1317,19 +1336,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">端口扫描</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">二层规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color5">端口扫描</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
