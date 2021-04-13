@@ -180,6 +180,91 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-disksim-with-ssdmodel-source-analysis-003-how-to-run" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/">disksim with ssdmodel 源码解析（三）：初次使用介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/" class="archive-article-date">
+  	<time datetime="2016-03-12T06:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>disksim 是由卡内基梅隆大学开发的一个磁盘模拟器，其目的是：理解存储系统的性能，对新的存储结构进行评估。 包含许多存储元件的模型：<code>device drivers</code>, <code>buses</code>, <code>controllers</code>, <code>adapters</code>, <code>disk drives</code>。</p>
+<p>ssdmodel 是微软基于 disksim-4.0 开发的一个插件，主要是针对 SSD 的。</p>
+<p>前面已经介绍过了 <a href="../../../../2015/09/09/disksim-with-ssdmodel-source-analysis-001-how-to-install/">disksim-4.0 的安装</a>，包括安装 ssdmodel 模块。</p>
+<p>下面主要介绍下 disksim-4.0 的使用。</p>
+        
+          <a class="article-more-a" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/12/disksim-with-ssdmodel-source-analysis-003-how-to-run/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-disksim-with-ssdmodel-source-analysis-002-introduction-of-parameters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -921,85 +1006,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">为 SSD 编程（2）：SSD的架构和基准</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/" class="archive-article-date">
-  	<time datetime="2016-02-25T07:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本第二部分包含了“为SSD编程”的6个内容，包括1、2两节，你可以参考<a href="../../../../2016/02/25/coding-for-ssds-part-1-introduction-and-table-of-contents/">目录</a>。这是我在阅读了各种关于SSD的文档之后，为了分享我所学到的东西写的一系列文章。如果你没有时间慢慢看，你可以直接跳转到<a href="../../../../2016/02/25/coding-for-ssds-part-6-a-summary-what-every-programmer-should-know-about-solid-state-drives/">第六部分</a>，这部分总结了所有其他部分的内容。</p>
-<p>在本部分，我将解释NAND闪存的基本知识、闪存单元类型、和基本SSD内部架构。同样包括了SSD基准和如何解释这些基准。</p>
-        
-          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/25/coding-for-ssds-part-2-architecture-of-an-ssd-and-benchmarking/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
@@ -1315,6 +1321,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">NVMe</a>
               </li>
             
             <div class="clearfix"></div>
