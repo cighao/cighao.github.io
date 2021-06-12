@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/2019/09/03/taobao-database-kernel/</loc>
+    
+    <lastmod>2021-06-12T02:46:18.746Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/2020/04/12/create-nvme-namespace/</loc>
     
     <lastmod>2021-04-13T13:05:49.871Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>http://cighao.com/photo/ins.json</loc>
     
     <lastmod>2019-10-19T19:57:10.431Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/2019/09/03/taobao-database-kernel/</loc>
-    
-    <lastmod>2019-10-19T08:40:19.164Z</lastmod>
     
   </url>
   
