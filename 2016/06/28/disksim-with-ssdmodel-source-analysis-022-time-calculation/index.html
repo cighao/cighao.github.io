@@ -16,7 +16,7 @@
 <meta property="og:description" content="ssdmodel模块中，SSD 的读写和擦除时间都是通过计算算出来的。在配置文件中可以配置 SSD 相应的参数，程序中会通过相应的参数计算出读写一个 page 和擦除一个 block 所需的时间。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2016-06-28T06:23:22.000Z">
-<meta property="article:modified_time" content="2022-03-11T14:03:02.000Z">
+<meta property="article:modified_time" content="2022-03-13T16:29:36.930Z">
 <meta property="article:author" content="Hao Chen">
 <meta property="article:tag" content="SSD">
 <meta property="article:tag" content="Disksim">
@@ -220,7 +220,7 @@ var _hmt = _hmt || [];
 <p>已知 <code>page read latency = 0.025</code>，<code>page write latency = 0.2</code>，<code>chip xfer latency = 0.000025</code>，<code>page size = 8</code>，那么，</p>
 <p>$ read ;; time ;; cost &#x3D; 0.025 + 0.000025*(512+16)*8 &#x3D; 0.1306 ; ms $</p>
 <p>$ write ;; time ;; cost &#x3D; 0.2 + 0.000025*(512+16)*8 &#x3D; 0.3056 ; ms $</p>
-<p>** Note **</p>
+<p><strong>Note</strong></p>
 <p>SSD 在处理写请求的时候，如果这个写请求正好写在物理块的<strong>最后一个数据页</strong>上时，需要再写入一个页的元信息(通常一个物理块预留一个物理页作为元数据页，其他的页作为数据页)。</p>
 <p>写入一个元数据页时，时间通常要比写入一个数据页要快，因为元数据页中的有效数据通常只有一个 sector(512+16 Byte)。所以写入元数据页的时候数据传输时间比较少，这个时候  $ write ;; cost &#x3D;  page ;; write ;; latency + chip ;; xfer ;; latency * byte ;; per ;; sector $</p>
 <h3 id="擦除操作的时间"><a href="#擦除操作的时间" class="headerlink" title="** 擦除操作的时间 **"></a>** 擦除操作的时间 **</h3><p>擦除操作首先是将该物理块上的有效数据迁移到空闲的物理块上，然后再将整个物理块擦除。迁移的过程中涉及到数据的读写和传输。所以一次擦除操作的时间是不固定的，受这个物理块上的有效数据的数量的影响。</p>
@@ -668,10 +668,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://cighao.com/img/articles/paper-reading/paper-reading-01-01.jpg">
 <meta property="article:published_time" content="2016-07-19T09:19:22.000Z">
-<meta property="article:modified_time" content="2022-03-11T14:03:02.000Z">
+<meta property="article:modified_time" content="2022-03-13T16:33:30.697Z">
 <meta property="article:author" content="Hao Chen">
 <meta property="article:tag" content="SSD">
 <meta property="article:tag" content="论文阅读">
@@ -217,7 +217,7 @@ var _hmt = _hmt || [];
 				<a href="#" onclick="javascript:return openct(this);" title="展开">[+]</a>
 			</p>
 		</div>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Abstract"><span class="toc-text">1. Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="toc-text">2. 算法概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%83%AD%E5%BA%A6%E5%80%BC-PHF-%E7%9A%84%E9%A2%84%E6%B5%8B"><span class="toc-text">**3. 热度值(PHF)的预测 **</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">4. 算法实现</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Abstract"><span class="toc-text">1. Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="toc-text">2. 算法概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%83%AD%E5%BA%A6%E5%80%BC-PHF-%E7%9A%84%E9%A2%84%E6%B5%8B"><span class="toc-text">3. 热度值(PHF)的预测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">4. 算法实现</span></a></li></ol>
 	</div>
 </div>
 
@@ -267,7 +267,7 @@ var _hmt = _hmt || [];
 <p>PH: Predict Hot fitness value;<br>Sum_P: sum of frequency count of pages in protection list<br>Sum_E: sum of frequency count of pages in eviction list</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (Sum_P &gt; Sum_E)</span><br><span class="line">    return to the tail of eviction list;</span><br><span class="line">    M_SelectVictimPage()</span><br><span class="line">else</span><br><span class="line">    Performed the PSO algorithm in the directory list;</span><br><span class="line">Maintain 2/L logical pages with the top largest PH values of in the protection list;</span><br><span class="line">The remaining 2/L logical pages maintain in the eviction list;</span><br><span class="line">Return to the tail of eviction list;</span><br><span class="line">M_SelectVictimPage()</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-热度值-PHF-的预测"><a href="#3-热度值-PHF-的预测" class="headerlink" title="**3. 热度值(PHF)的预测 **"></a>**3. 热度值(PHF)的预测 **</h2><p>在缓存管理模块的目录列表中应用 PSO 算法，从而根据 PH 适应值把逻辑页分为两种类型，被预测为“热”数据和被预测为“冷”数据。PH适应值的计算方法如下：</p>
+<h2 id="3-热度值-PHF-的预测"><a href="#3-热度值-PHF-的预测" class="headerlink" title="3. 热度值(PHF)的预测"></a><strong>3. 热度值(PHF)的预测</strong></h2><p>在缓存管理模块的目录列表中应用 PSO 算法，从而根据 PH 适应值把逻辑页分为两种类型，被预测为“热”数据和被预测为“冷”数据。PH适应值的计算方法如下：</p>
 <p>$ PHfitness(i) &#x3D; impact(i,M) + impact(i)  $</p>
 <p>假设缓冲区总共有 L 个逻辑页，i,M 都是属于 L 的。 某个逻辑页 page_i 的 PHF 值是由缓冲区里访问频率最大的页 page_M 的频率和该逻辑页自身的频率 page_i 决定的。</p>
 <p>如下图所示，目录列表里一共有 L 个逻辑页。因为列表里的逻辑页是按顺序存放的，所以它们很有可能属于同一个请求。然而，把所有的这些逻辑页作为一个写操作的基本单位是不切实际的。因此，在本文中，我们假设连续页的任何子序列都属于同一个写操作。</p>
@@ -448,7 +448,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Abstract"><span class="toc-number">1.</span> <span class="toc-text">1. Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">2. 算法概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%83%AD%E5%BA%A6%E5%80%BC-PHF-%E7%9A%84%E9%A2%84%E6%B5%8B"><span class="toc-number">3.</span> <span class="toc-text">**3. 热度值(PHF)的预测 **</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">4. 算法实现</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Abstract"><span class="toc-number">1.</span> <span class="toc-text">1. Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AE%97%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">2. 算法概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%83%AD%E5%BA%A6%E5%80%BC-PHF-%E7%9A%84%E9%A2%84%E6%B5%8B"><span class="toc-number">3.</span> <span class="toc-text">3. 热度值(PHF)的预测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">4. 算法实现</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -732,10 +732,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">

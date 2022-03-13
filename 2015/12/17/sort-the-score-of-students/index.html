@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://cighao.com">
   <title>如何给数百万考生的成绩排序 | 陈浩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这个问题是在联系中科大的导师时被导师问到的，那个时候已经通过了中科大的免试研究生的面试，然后联系了一个导师，得知我人在合肥时让我去他办公室聊聊，其实大概就是了解下专业水平吧。问了很多问题，这是其中一个。虽然距离现在已经过去了好几个月，但是突然想到了这个问题，就想把它写下来。 下面来说说这个问题吧，忽略内存的问题，假设这些考试成绩是可以一次被装载进内存的。由于数据比较多，哪怕是利用快速排序算法，性能">
+  <meta name="description" content="假设这些考试成绩是可以一次被装载进内存的。由于数据比较多，哪怕是利用快速排序算法，性能也不是很好。其实这个时候我们可以好好分析下问题，被排序的对象是分数，分析下分数的特征，分数都是整数而且范围都在 0-100 之间。其实这个时候就应该要联想到桶排序了，下面来解决下这个问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何给数百万考生的成绩排序">
 <meta property="og:url" content="http://cighao.com/2015/12/17/sort-the-score-of-students/index.html">
 <meta property="og:site_name" content="陈浩的个人博客">
-<meta property="og:description" content="这个问题是在联系中科大的导师时被导师问到的，那个时候已经通过了中科大的免试研究生的面试，然后联系了一个导师，得知我人在合肥时让我去他办公室聊聊，其实大概就是了解下专业水平吧。问了很多问题，这是其中一个。虽然距离现在已经过去了好几个月，但是突然想到了这个问题，就想把它写下来。 下面来说说这个问题吧，忽略内存的问题，假设这些考试成绩是可以一次被装载进内存的。由于数据比较多，哪怕是利用快速排序算法，性能">
+<meta property="og:description" content="假设这些考试成绩是可以一次被装载进内存的。由于数据比较多，哪怕是利用快速排序算法，性能也不是很好。其实这个时候我们可以好好分析下问题，被排序的对象是分数，分析下分数的特征，分数都是整数而且范围都在 0-100 之间。其实这个时候就应该要联想到桶排序了，下面来解决下这个问题。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2015-12-17T09:13:22.000Z">
-<meta property="article:modified_time" content="2022-03-11T14:03:02.000Z">
+<meta property="article:modified_time" content="2022-03-13T16:24:06.731Z">
 <meta property="article:author" content="Hao Chen">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="排序">
@@ -206,8 +206,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这个问题是在联系中科大的导师时被导师问到的，那个时候已经通过了中科大的免试研究生的面试，然后联系了一个导师，得知我人在合肥时让我去他办公室聊聊，其实大概就是了解下专业水平吧。问了很多问题，这是其中一个。虽然距离现在已经过去了好几个月，但是突然想到了这个问题，就想把它写下来。</p>
-<p>下面来说说这个问题吧，忽略内存的问题，假设这些考试成绩是可以一次被装载进内存的。由于数据比较多，哪怕是利用快速排序算法，性能也不是很好。其实这个时候我们可以好好分析下问题，被排序的对象是分数，分析下分数的特征，分数都是整数而且范围都在 0-100 之间。其实这个时候就应该要联想到桶排序了，下面来解决下这个问题。</p>
+        <p>假设这些考试成绩是可以一次被装载进内存的。由于数据比较多，哪怕是利用快速排序算法，性能也不是很好。其实这个时候我们可以好好分析下问题，被排序的对象是分数，分析下分数的特征，分数都是整数而且范围都在 0-100 之间。其实这个时候就应该要联想到桶排序了，下面来解决下这个问题。</p>
 <span id="more"></span>
 
 <p>其实我们这里只需借助一个一维数组就可以解决这个问题。请确定你真的仔细想过再往下看哦。</p>
@@ -665,10 +664,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">

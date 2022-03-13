@@ -16,7 +16,7 @@
 <meta property="og:description" content="给定一组离散信号的序列，求其波峰和波谷的位置。 一.假设说明我们假设原始波形是有噪声的，所以先对原始波形进行滤波后再求它的波峰和波谷。求出来的波峰和波谷的位置也是按照滤波后的波形来求的。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2016-05-31T09:20:22.000Z">
-<meta property="article:modified_time" content="2022-03-11T14:03:02.000Z">
+<meta property="article:modified_time" content="2022-03-13T16:38:05.236Z">
 <meta property="article:author" content="Hao Chen">
 <meta property="article:tag" content="信号处理">
 <meta name="twitter:card" content="summary">
@@ -216,7 +216,7 @@ var _hmt = _hmt || [];
 </ul>
 <p>这种算法有个需要注意的地方法就是：如果A B两点的峰值相等，且他们都满足上面所说的（1）（2）两个条件，但是它们却只有一个能作为波峰，所以我们在这里默认第一次出现的是波峰。</p>
 <h3 id="2．求波谷"><a href="#2．求波谷" class="headerlink" title="2．求波谷"></a><strong>2．求波谷</strong></h3><p>将原始数据全部乘以-1，也就是将原始数据都变成它的相反数，然后再求出变换后的数据的波峰，这就等价于原始数据的波谷了。</p>
-<h3 id="三．算法实现"><a href="#三．算法实现" class="headerlink" title="**三．算法实现 **###"></a>**三．算法实现 **###</h3><p>求波峰和求波谷是一个相对的过程，原始数据的相反数的波峰就是原始数据的波谷，所以这里只介绍波峰的求解过程。</p>
+<h3 id="三．算法实现"><a href="#三．算法实现" class="headerlink" title="三．算法实现"></a><strong>三．算法实现</strong></h3><p>求波峰和求波谷是一个相对的过程，原始数据的相反数的波峰就是原始数据的波谷，所以这里只介绍波峰的求解过程。</p>
 <p><strong>Step1:</strong> 导入原始数据，并利用均值滤波法进行滤波。</p>
 <p><strong>Step2:</strong> 求出滤波后数据的极大值的序号，设为tmp_peak。</p>
 <p><strong>Step3:</strong> 设定幅度阈值e。（可以是滤波后数据极差乘以一个比例系数）</p>
@@ -654,10 +654,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">

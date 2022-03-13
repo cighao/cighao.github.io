@@ -16,7 +16,7 @@
 <meta property="og:description" content="写在前面 之前写过一些关于 Hexo 主题优化的文章，今天在这里把之前写的和新的东西做一个汇总，这样更加直观和便于查找。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2016-02-14T06:20:22.000Z">
-<meta property="article:modified_time" content="2022-03-11T14:03:02.000Z">
+<meta property="article:modified_time" content="2022-03-13T16:33:11.375Z">
 <meta property="article:author" content="Hao Chen">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -213,7 +213,7 @@ var _hmt = _hmt || [];
 				<a href="#" onclick="javascript:return openct(this);" title="展开">[+]</a>
 			</p>
 		</div>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E4%BA%BA%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD"><span class="toc-text">1. 添加访问人数统计功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BB%99%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95"><span class="toc-text">2. 给文章添加目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0-RSS"><span class="toc-text">3. 添加 RSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0-sitemap"><span class="toc-text">4. 添加 sitemap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%99%BE%E5%BA%A6%E9%93%BE%E6%8E%A5%E6%94%B6%E5%BD%95%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4"><span class="toc-text">** 5. 百度链接收录自动提交 **##</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%B7%BB%E5%8A%A0%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E6%8C%89%E9%92%AE"><span class="toc-text">6. 添加返回顶部按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%B7%BB%E5%8A%A0%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD"><span class="toc-text">7. 添加打赏功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF"><span class="toc-text">**8. 添加版权信息 **##</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E4%BA%BA%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD"><span class="toc-text">1. 添加访问人数统计功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BB%99%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95"><span class="toc-text">2. 给文章添加目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0-RSS"><span class="toc-text">3. 添加 RSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0-sitemap"><span class="toc-text">4. 添加 sitemap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%99%BE%E5%BA%A6%E9%93%BE%E6%8E%A5%E6%94%B6%E5%BD%95%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4"><span class="toc-text">5. 百度链接收录自动提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%B7%BB%E5%8A%A0%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E6%8C%89%E9%92%AE"><span class="toc-text">6. 添加返回顶部按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%B7%BB%E5%8A%A0%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD"><span class="toc-text">7. 添加打赏功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF"><span class="toc-text">8. 添加版权信息</span></a></li></ol>
 	</div>
 </div>
 
@@ -260,7 +260,7 @@ var _hmt = _hmt || [];
 <p>然后在 Hexo 根目录下的 _config.yml 里配置一下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">baidusitemap:</span><br><span class="line">    path: baidusitemap.xml</span><br></pre></td></tr></table></figure>
 <p>同上.</p>
-<h2 id="5-百度链接收录自动提交"><a href="#5-百度链接收录自动提交" class="headerlink" title="** 5. 百度链接收录自动提交 **##"></a>** 5. 百度链接收录自动提交 **##</h2><p>百度站长平台还提供了一个自动推送链接的功能，自动推送是百度站长平台为提高站点新增网页发现速度推出的工具，安装自动推送JS代码的网页，在页面被访问时，页面URL将立即被推送给百度。详情<a target="_blank" rel="noopener" href="http://zhanzhang.baidu.com/linksubmit/index?site=http://www.cighao.com/">请点击这里</a>。</p>
+<h2 id="5-百度链接收录自动提交"><a href="#5-百度链接收录自动提交" class="headerlink" title="5. 百度链接收录自动提交"></a><strong>5. 百度链接收录自动提交</strong></h2><p>百度站长平台还提供了一个自动推送链接的功能，自动推送是百度站长平台为提高站点新增网页发现速度推出的工具，安装自动推送JS代码的网页，在页面被访问时，页面URL将立即被推送给百度。详情<a target="_blank" rel="noopener" href="http://zhanzhang.baidu.com/linksubmit/index?site=http://www.cighao.com/">请点击这里</a>。</p>
 <p>以 yilia 主题为例：</p>
 <p>首先我们可以在 <code>yilia\layout\_partial\post</code> 文件夹下新建一个 <code>baidu_js_push.ejs</code> 文件，在其中写入百度自动推送代码，代码可以在官网上复制。</p>
 <p>然后我们在 <code>yilia\layout\_partial\left-col.ejs</code> 文件的最前面加入如下代码：</p>
@@ -283,7 +283,7 @@ var _hmt = _hmt || [];
 <p>将按钮图片复制到 <code>/themes/Yilia/source/img</code> 目录下，文件名为<code>totop.png</code>，页面足够长时，就看到按钮出现了。</p>
 <p>具体实现的代码和按钮图片可以参考<a href="../../../../2016/01/09/toTop-by-javascript/">这篇文章</a></p>
 <h2 id="7-添加打赏功能"><a href="#7-添加打赏功能" class="headerlink" title="7. 添加打赏功能"></a><strong>7. 添加打赏功能</strong></h2><p>内容较长，请<a href="../../../../2016/02/23/add-donate-to-hexo/">点击这里</a></p>
-<h2 id="8-添加版权信息"><a href="#8-添加版权信息" class="headerlink" title="**8. 添加版权信息 **##"></a>**8. 添加版权信息 **##</h2><p><a href="../../../../2016/03/01/add-copyright-to-hexo/">戳这里</a></p>
+<h2 id="8-添加版权信息"><a href="#8-添加版权信息" class="headerlink" title="8. 添加版权信息"></a><strong>8. 添加版权信息</strong></h2><p><a href="../../../../2016/03/01/add-copyright-to-hexo/">戳这里</a></p>
 </br>
 注：此文章会不定期更新!
       
@@ -439,7 +439,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E4%BA%BA%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD"><span class="toc-number">1.</span> <span class="toc-text">1. 添加访问人数统计功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BB%99%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95"><span class="toc-number">2.</span> <span class="toc-text">2. 给文章添加目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0-RSS"><span class="toc-number">3.</span> <span class="toc-text">3. 添加 RSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0-sitemap"><span class="toc-number">4.</span> <span class="toc-text">4. 添加 sitemap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%99%BE%E5%BA%A6%E9%93%BE%E6%8E%A5%E6%94%B6%E5%BD%95%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4"><span class="toc-number">5.</span> <span class="toc-text">** 5. 百度链接收录自动提交 **##</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%B7%BB%E5%8A%A0%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E6%8C%89%E9%92%AE"><span class="toc-number">6.</span> <span class="toc-text">6. 添加返回顶部按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%B7%BB%E5%8A%A0%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD"><span class="toc-number">7.</span> <span class="toc-text">7. 添加打赏功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF"><span class="toc-number">8.</span> <span class="toc-text">**8. 添加版权信息 **##</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0%E8%AE%BF%E9%97%AE%E4%BA%BA%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD"><span class="toc-number">1.</span> <span class="toc-text">1. 添加访问人数统计功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BB%99%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E7%9B%AE%E5%BD%95"><span class="toc-number">2.</span> <span class="toc-text">2. 给文章添加目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0-RSS"><span class="toc-number">3.</span> <span class="toc-text">3. 添加 RSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0-sitemap"><span class="toc-number">4.</span> <span class="toc-text">4. 添加 sitemap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%99%BE%E5%BA%A6%E9%93%BE%E6%8E%A5%E6%94%B6%E5%BD%95%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4"><span class="toc-number">5.</span> <span class="toc-text">5. 百度链接收录自动提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%B7%BB%E5%8A%A0%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E6%8C%89%E9%92%AE"><span class="toc-number">6.</span> <span class="toc-text">6. 添加返回顶部按钮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%B7%BB%E5%8A%A0%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD"><span class="toc-number">7.</span> <span class="toc-text">7. 添加打赏功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF"><span class="toc-number">8.</span> <span class="toc-text">8. 添加版权信息</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -723,10 +723,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">

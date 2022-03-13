@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://cighao.com/img/articles/paper-reading/paper-reading-04-01.jpg">
 <meta property="article:published_time" content="2016-08-23T04:19:22.000Z">
-<meta property="article:modified_time" content="2022-03-11T14:03:02.000Z">
+<meta property="article:modified_time" content="2022-03-13T16:34:48.418Z">
 <meta property="article:author" content="Hao Chen">
 <meta property="article:tag" content="SSD">
 <meta property="article:tag" content="论文阅读">
@@ -217,7 +217,7 @@ var _hmt = _hmt || [];
 				<a href="#" onclick="javascript:return openct(this);" title="展开">[+]</a>
 			</p>
 		</div>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU-K-%E7%AE%97%E6%B3%95"><span class="toc-text">LRU-K 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2Q-%E7%AE%97%E6%B3%95"><span class="toc-text">** 2Q 算法**</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CFLRU-%E7%AE%97%E6%B3%95"><span class="toc-text">** CFLRU 算法**</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2QW-Clock-%E7%AE%97%E6%B3%95"><span class="toc-text">** 2QW-Clock 算法 **</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU-K-%E7%AE%97%E6%B3%95"><span class="toc-text">LRU-K 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2Q-%E7%AE%97%E6%B3%95"><span class="toc-text">2Q 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CFLRU-%E7%AE%97%E6%B3%95"><span class="toc-text">CFLRU 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2QW-Clock-%E7%AE%97%E6%B3%95"><span class="toc-text">2QW-Clock 算法</span></a></li></ol>
 	</div>
 </div>
 
@@ -265,7 +265,7 @@ var _hmt = _hmt || [];
 </ul>
 <p>LRU-K具有LRU的优点，同时能够避免LRU的缺点，实际应用中LRU-2是综合各种因素后最优的选择，LRU-3或者更大的K值命中率会高，但适应性差，需要大量的数据访问才能将历史访问记录清除掉。</p>
 <p>(Refrence: <a target="_blank" rel="noopener" href="http://www.cnblogs.com/-OYK/archive/2012/12/05/2803317.html">http://www.cnblogs.com/-OYK/archive/2012/12/05/2803317.html</a>)</p>
-<h2 id="2Q-算法"><a href="#2Q-算法" class="headerlink" title="** 2Q 算法**"></a>** 2Q 算法**</h2><p>出处：<em>Johnson T, Shasha D. 2Q: A Low Overhead High Performance Buffer Management Replacement Algorithm[C]. International Conference on Very Large Data Bases. Morgan Kaufmann Publishers Inc. 1994:439-450.</em></p>
+<h2 id="2Q-算法"><a href="#2Q-算法" class="headerlink" title="2Q 算法"></a><strong>2Q 算法</strong></h2><p>出处：<em>Johnson T, Shasha D. 2Q: A Low Overhead High Performance Buffer Management Replacement Algorithm[C]. International Conference on Very Large Data Bases. Morgan Kaufmann Publishers Inc. 1994:439-450.</em></p>
 <p>LRU 算法每次替换的时候都是替换掉最近最久未被使用的页面，但是如果新加入的页面是冷数据，那么就会驱逐一个相对热的数据而加入了一个冷数据，而且这个冷数据还会驻留在缓冲区很久才会被替换掉，很显然这不是最优的。2Q算法可以解决这个问题。</p>
 <p><strong>简化的2Q算法</strong></p>
 <p>2Q算法维护两个列表，一个是 Al，采用先进先出原则，对于第一次访问的页面都放入到 Al 中，如果 Al 中的页面再次被访问，那么它有可能是热数据，则把它移到 Am 队列中，Am 队列采用LRU算法来管理。</p>
@@ -286,12 +286,12 @@ var _hmt = _hmt || [];
 <li>(4) 如果数据在LRU队列再次被访问，则将数据移到LRU队列头部；</li>
 <li>(5)LRU队列淘汰末尾的数据。</li>
 </ul>
-<h2 id="CFLRU-算法"><a href="#CFLRU-算法" class="headerlink" title="** CFLRU 算法**"></a>** CFLRU 算法**</h2><p>出处：<em>Park S Y, Jung D, Kang J U, et al. CFLRU: A replacement algorithm for flash memory[C]. International Conference on Compilers, Architecture, and Synthesis for Embedded Systems, CASES 2006, Seoul, Korea, October. 2006:234–241.</em></p>
+<h2 id="CFLRU-算法"><a href="#CFLRU-算法" class="headerlink" title="CFLRU 算法"></a><strong>CFLRU 算法</strong></h2><p>出处：<em>Park S Y, Jung D, Kang J U, et al. CFLRU: A replacement algorithm for flash memory[C]. International Conference on Compilers, Architecture, and Synthesis for Embedded Systems, CASES 2006, Seoul, Korea, October. 2006:234–241.</em></p>
 <p>闪存的读写操作在响应时间和能耗方面都具有不对称性，Clean-First LRU (CFLRU) 替换算法将这些不对称性考虑进去了。CFLRU 算法将LRU列表分为工作区(working region)和 clean-first 区。每次发生替换时，优先从 clean-first 区域中选择一个干净的页被替换掉。这样的做法就是故意将一部分脏的页留在缓冲区中，减少把脏页刷新到闪存所带来的写操作的数量。当替换一个新的页的时候可以直接将这个页剔除掉而不需要刷新到闪存中。</p>
 <p><img src="/img/articles/paper-reading/paper-reading-04-01.jpg" alt="Example of CFLRU algorithm"></p>
 <p>如上图所示，工作区(working region)主要是保存最近被访问的页面，cleaning-first主要是保存将要被替换的候选页面。当缓冲区满了需要选取一个页面被替换时，会从 cleaning-first 区的尾部开始寻找第一个干净的页，将它替换掉，如果没有找到，那么久在 clean-first 区的尾部找一个脏的页将其替换掉。</p>
 <p>clean-first 区的大小设置也是非常重要的，如果太大会造成缓冲区命中率过小，如果太小，会使大量的脏页被替换，从而带来更多的写操作。clean-first 区的大小可以一开始就根据经验值来指定，也可以在程序运行的时候来动态调整，这两种方式分别对应静态的CFLRU算法和动态的CFLRU算法。</p>
-<h2 id="2QW-Clock-算法"><a href="#2QW-Clock-算法" class="headerlink" title="** 2QW-Clock 算法 **"></a>** 2QW-Clock 算法 **</h2><p>出处：<em>He D, Wang F, Feng D, et al. 2QW-Clock: An Efficient SSD Buffer Management Algorithm[C]. IEEE, International Conference on High PERFORMANCE Computing. 2015:47-53.</em></p>
+<h2 id="2QW-Clock-算法"><a href="#2QW-Clock-算法" class="headerlink" title="2QW-Clock 算法"></a><strong>2QW-Clock 算法</strong></h2><p>出处：<em>He D, Wang F, Feng D, et al. 2QW-Clock: An Efficient SSD Buffer Management Algorithm[C]. IEEE, International Conference on High PERFORMANCE Computing. 2015:47-53.</em></p>
 <p>2QW-Clock(Two Queue Weight-Clock)算法吸取了 2Q 算法的优点，并对读写页面分别赋予不同的权值以此来反映闪存读写速度的不对称性。</p>
 <p>该算法对读写操作赋予了不同的权重，所以会避免想 CFLRU 算法一样使大量的只写一次的页面存在缓冲区中。(CFLRU 总是首先替换干净的页而忽略它们有可能在不久的将来还会被访问。)</p>
 <p>同时，该算法还结合了 2Q 算法，所以有很好的冷热数据区分能力和扫描阻抗能力(scan resistant)。</p>
@@ -465,7 +465,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU-K-%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">LRU-K 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2Q-%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">** 2Q 算法**</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CFLRU-%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">** CFLRU 算法**</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2QW-Clock-%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">** 2QW-Clock 算法 **</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU-K-%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">LRU-K 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2Q-%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">2Q 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CFLRU-%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">CFLRU 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2QW-Clock-%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">2QW-Clock 算法</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -749,10 +749,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
