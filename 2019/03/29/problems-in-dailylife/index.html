@@ -16,7 +16,7 @@
 <meta property="og:description" content="记录平时走过的坑。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-03-29T13:35:22.000Z">
-<meta property="article:modified_time" content="2022-03-11T14:03:02.000Z">
+<meta property="article:modified_time" content="2022-05-05T02:21:03.880Z">
 <meta property="article:author" content="Hao Chen">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="Tool">
@@ -278,7 +278,7 @@ var _hmt = _hmt || [];
 <p>(3) <code>source ~/.bash_profile</code></p>
 </br>
 
-<h3 id="6-ramdisk-使用"><a href="#6-ramdisk-使用" class="headerlink" title="6. ramdisk 使用"></a>6. ramdisk 使用</h3><p>创建挂载目录： <code>mkdir /home/chenhao/ramdisk</code><br>查看内存使用量: <code>htop</code><br>分配内存并挂载: <code>sudo mount -t tmpfs -o size=10240m ramdisk /home/chenhao/ramdisk</code><br>查看： df -h<br>修改 <code>/etc/fstab</code> 自动挂载: <code>ramdisk /home/chenhao/ramdisk  tmpfs   rw,relatime,size=10G 0 0</code></p>
+<h3 id="6-ramdisk-使用"><a href="#6-ramdisk-使用" class="headerlink" title="6. ramdisk 使用"></a>6. ramdisk 使用</h3><p>创建挂载目录： <code>mkdir /home/chenhao/ramdisk</code><br>查看内存使用量: <code>htop</code><br>分配内存并挂载: <code>sudo mount -t tmpfs -o size=10240m ramdisk /home/chenhao/ramdisk</code><br>查看： df -h<br>修改 <code>/etc/fstab</code> 自动挂载: <code>tmpfs /home/chenhao/ramdisk  tmpfs   rw,relatime,size=10G 0 0</code></p>
 </br>
 
 <h3 id="7-安装-tbb"><a href="#7-安装-tbb" class="headerlink" title="7. 安装 tbb"></a>7. 安装 tbb</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/intel/tbb.git</span><br><span class="line">cd tbb</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
@@ -788,10 +788,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -801,6 +797,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
