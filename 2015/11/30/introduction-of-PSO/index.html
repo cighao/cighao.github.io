@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
   <title>粒子群优化算法简介 | 陈浩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -46,7 +46,7 @@
 </script>
 
 
-</script>
+
 <!-- End Google Analytics -->
 
 
@@ -64,7 +64,7 @@ var _hmt = _hmt || [];
 
   <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -90,7 +90,7 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/archives">所有文章/Archives</a></li>
 	        
-				<li><a href="/resume/resume-en.html">关于我/About me</a></li>
+				<li><a href="/aboutme">关于我/About me</a></li>
 	        
 				<li><a href="/photo">相册/Photo</a></li>
 	        
@@ -108,11 +108,11 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="https://github.com/cighao" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://weibo.com/ch0422" title="weibo"><i class="icon-weibo"></i></a>
-		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="google" target="_blank" href="https://scholar.google.com/citations?user=7nX-H9MAAAAJ&hl" title="google"><i class="icon-google"></i></a>
 		        
 			</div>
 		</nav>
@@ -155,11 +155,11 @@ var _hmt = _hmt || [];
 					
 						<a class="github" target="_blank" href="https://github.com/cighao" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://weibo.com/ch0422" title="weibo"><i class="icon-weibo"></i></a>
-			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="google" target="_blank" href="https://scholar.google.com/citations?user=7nX-H9MAAAAJ&hl" title="google"><i class="icon-google"></i></a>
 			        
 				</div>
 			</nav>
@@ -172,7 +172,7 @@ var _hmt = _hmt || [];
 		        
 					<li style="width: 25%"><a href="/archives">所有文章/Archives</a></li>
 		        
-					<li style="width: 25%"><a href="/resume/resume-en.html">关于我/About me</a></li>
+					<li style="width: 25%"><a href="/aboutme">关于我/About me</a></li>
 		        
 					<li style="width: 25%"><a href="/photo">相册/Photo</a></li>
 		        
@@ -297,62 +297,10 @@ var _hmt = _hmt || [];
 <h3 id="Schaffer函数"><a href="#Schaffer函数" class="headerlink" title="Schaffer函数"></a><em>Schaffer</em>函数</h3><p>$F_2=f_i(x)=1+\frac{sin^2\sqrt{x_1^2+x_2^2}-0.5}{[1+0.001*(x_1^2+x_2^2)]^2}, \quad \quad -100 \le x_i\le100$<br>该函数是著名的 <em>Schaffer</em> 函数，由 <em>Schaffer</em> 提出，全局极大点是 $(0,0)$，在距离全局极大点大约3.14的范围内存在无限多的次全局极大点，函数强烈震荡的性态使其难于全局最优化，它的全局最小值为$F_2(0,0,)=0.5$。</p>
 <h2 id="5-编码"><a href="#5-编码" class="headerlink" title="5. 编码"></a>5. 编码</h2><h3 id="Matlab实现"><a href="#Matlab实现" class="headerlink" title="Matlab实现"></a>Matlab实现</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[xm,fv]</span>=<span class="title">PSO</span><span class="params">(fitness,N,c1,c2,w,M,D)</span></span></span><br><span class="line"><span class="comment">% fitness:待优化的目标函数</span></span><br><span class="line"><span class="comment">% N:粒子数目</span></span><br><span class="line"><span class="comment">% c1,c2:学习因子1，学习因子2</span></span><br><span class="line"><span class="comment">% w:惯性权重</span></span><br><span class="line"><span class="comment">% M:最大迭代次数</span></span><br><span class="line"><span class="comment">% D:问题的维数</span></span><br><span class="line"><span class="comment">% xm:目标函数取最小值时的自变量值</span></span><br><span class="line"><span class="comment">% fv:目标函数最小值</span></span><br><span class="line">format long;</span><br><span class="line"><span class="comment">%---------初始化种群的个体-------------</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:N</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:D</span><br><span class="line">        x(<span class="built_in">i</span>,<span class="built_in">j</span>)=<span class="built_in">randn</span>;</span><br><span class="line">        v(<span class="built_in">i</span>,<span class="built_in">j</span>)=<span class="built_in">randn</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%---------先计算各个粒子的适应度，并初始化pbest和gbest----------</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:N</span><br><span class="line">    p(<span class="built_in">i</span>)=fitness(x(<span class="built_in">i</span>,:)); <span class="comment">%每个粒子的适应度</span></span><br><span class="line">    pbest(<span class="built_in">i</span>,:)=x(<span class="built_in">i</span>,:); <span class="comment">%单个粒子最优位置</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">gbest=x(N,:); <span class="comment">%gbest为全局最优</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:(N<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">if</span> fitness(x(<span class="built_in">i</span>,:))&lt;fitness(gbest)</span><br><span class="line">        gbest=x(<span class="built_in">i</span>,:);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%---------进入主循环，按照公式依次迭代----------</span></span><br><span class="line"><span class="keyword">for</span> t=<span class="number">1</span>:M</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:N</span><br><span class="line">        v(<span class="built_in">i</span>,:)=w*v(<span class="built_in">i</span>,:)+c1*<span class="built_in">rand</span>*(pbest(<span class="built_in">i</span>,:)-x(<span class="built_in">i</span>,:))+c2*<span class="built_in">rand</span>*(gbest-x(<span class="built_in">i</span>,:));</span><br><span class="line">        x(<span class="built_in">i</span>,:)=x(<span class="built_in">i</span>,:)+v(<span class="built_in">i</span>,:);</span><br><span class="line">        <span class="keyword">if</span> fitness(x(<span class="built_in">i</span>,:))&lt;p(<span class="built_in">i</span>)</span><br><span class="line">            p(<span class="built_in">i</span>)=fitness(x(<span class="built_in">i</span>,:));</span><br><span class="line">            pbest(<span class="built_in">i</span>,:)=x(<span class="built_in">i</span>,:); <span class="comment">%更新pbest</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">if</span> p(<span class="built_in">i</span>)&lt;fitness(gbest)</span><br><span class="line">            gbest=pbest(<span class="built_in">i</span>,:); <span class="comment">%更新gbest</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">xm=gbest';</span><br><span class="line">fv=fitness(gbest);</span><br></pre></td></tr></table></figure>
 <h3 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"math.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdlib.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"time.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100  <span class="comment">//最大粒子数 </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> D 10  <span class="comment">//最大问题维数 </span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">fitness</span><span class="params">(<span class="keyword">double</span> x[],<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">double</span> <span class="params">(*funType)</span><span class="params">(<span class="keyword">double</span> [],<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">pso</span><span class="params">(funType fp,<span class="keyword">int</span> n,<span class="keyword">double</span> c1,<span class="keyword">double</span> c2,<span class="keyword">double</span> w,<span class="keyword">int</span> m,<span class="keyword">int</span> d,<span class="keyword">double</span> xbest[])</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> x[D];</span><br><span class="line">	<span class="keyword">double</span> f;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	n=<span class="number">2</span>; <span class="comment">//问题维数 </span></span><br><span class="line">	f = pso(fitness,<span class="number">40</span>,<span class="number">2.05</span>,<span class="number">2.05</span>,<span class="number">0.8</span>,<span class="number">2000</span>,n,x);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"最优的x为："</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%f "</span>,x[i]); </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"函数的最优值为：%f\n"</span>,f);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">fitness</span><span class="params">(<span class="keyword">double</span> x[],<span class="keyword">int</span> n)</span></span>&#123;  <span class="comment">//待优化函数,n表示x维数 </span></span><br><span class="line">	<span class="keyword">double</span> f = <span class="number">0</span>;</span><br><span class="line">	f = <span class="number">100</span>*(x[<span class="number">0</span>]*x[<span class="number">0</span>]-x[<span class="number">1</span>]*x[<span class="number">1</span>]) *(x[<span class="number">0</span>]*x[<span class="number">0</span>]-x[<span class="number">1</span>]*x[<span class="number">1</span>])+(<span class="number">1</span>-x[<span class="number">0</span>])*(<span class="number">1</span>-x[<span class="number">0</span>]);   <span class="comment">// Rosenbrock函数</span></span><br><span class="line">	                                                                 <span class="comment">// f(x)=100(x0^2-x1^2)^2+(1-x0)^2; </span></span><br><span class="line">	<span class="keyword">return</span> f;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	fp: 待优化的目标函数</span></span><br><span class="line"><span class="comment">	n: 粒子数目</span></span><br><span class="line"><span class="comment">	c1,c2: 学习因子1，学习因子2</span></span><br><span class="line"><span class="comment">	w: 惯性权重</span></span><br><span class="line"><span class="comment">	M: 最大迭代次数</span></span><br><span class="line"><span class="comment">	d: 问题的维数</span></span><br><span class="line"><span class="comment">	x: 返回的最优解 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">pso</span><span class="params">(funType fp,<span class="keyword">int</span> n,<span class="keyword">double</span> c1,<span class="keyword">double</span> c2,<span class="keyword">double</span> w,<span class="keyword">int</span> m,<span class="keyword">int</span> d,<span class="keyword">double</span> xbest[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j,t;</span><br><span class="line">	<span class="keyword">double</span> x[N][D],v[N][D];</span><br><span class="line">	<span class="keyword">double</span> gbest[D];   <span class="comment">//全局最优解</span></span><br><span class="line">	<span class="keyword">double</span> p[N];    <span class="comment">//粒子适应度</span></span><br><span class="line">	<span class="keyword">double</span> pbest[N][D]; <span class="comment">// 单个粒子最优位置 </span></span><br><span class="line">	<span class="comment">//step1.初始化种群的个体</span></span><br><span class="line">	srand((<span class="keyword">int</span>)time(<span class="number">0</span>)); </span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)          	</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;d;j++)&#123;</span><br><span class="line">			x[i][j] = rand()*<span class="number">1.0</span>/RAND_MAX;</span><br><span class="line">			v[i][j] = rand()*<span class="number">1.0</span>/RAND_MAX;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//step2. 计算粒子适应度，初始化p,pbest和gbest </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;d;i++)</span><br><span class="line">		gbest[i] = x[n<span class="number">-1</span>][i]; <span class="comment">// gbest为全局最优 </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		p[i] = fp(x[i],d);</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;d;j++)</span><br><span class="line">			pbest[i][j] = x[i][j];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(p[i]&lt;p[n<span class="number">-1</span>])&#123;</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;d;j++)</span><br><span class="line">				gbest[j] = x[i][j];</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//step3. 进入主循环，按照公式依次迭代 	</span></span><br><span class="line">	<span class="keyword">for</span>(t=<span class="number">0</span>;t&lt;m;t++)&#123;         </span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;d;j++)&#123;</span><br><span class="line">				v[i][j] = w*v[i][j] + c1*(rand()/RAND_MAX)*(pbest[i][j]-x[i][j]) + c2*(rand()/RAND_MAX)*(gbest[j]-x[i][j]); <span class="comment">//更新 </span></span><br><span class="line">				x[i][j] = x[i][j] + v[i][j];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(fp(x[i],d)&lt;p[i])&#123;</span><br><span class="line">				p[i] = fp(x[i],d);  <span class="comment">//更新p</span></span><br><span class="line">				<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;d;j++)</span><br><span class="line">					pbest[i][j] = x[i][j]; <span class="comment">//更新pbest</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(p[i]&lt;fp(gbest,d))&#123;</span><br><span class="line">				<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;d;j++)</span><br><span class="line">					gbest[j] = pbest[i][j];<span class="comment">//更新gbest</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125; </span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;d;i++) <span class="comment">//最优解 </span></span><br><span class="line">		xbest[i] = gbest[i];  </span><br><span class="line">	<span class="keyword">return</span> fp(gbest,d);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"enable":false,"clientID":"b8c74116f39d0a3bd0c5","clientSecret":"fc994352db407164b0df890b871c440c54bbb7c8","repo":"gitalk-comments-cighao","owner":"cighao","admin":"cighao"};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>
       
 
       
-        <div class="article-footer-copyright">
 
- <p>本文由&nbsp;<b>陈浩</b>&nbsp;发表于&nbsp<a href="http://cighao.com">陈浩的个人博客</a>&nbsp,采用<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">署名-非商业性使用-禁止演绎 3.0</a>进行许可。</p>
- 
- <p>非商业转载请注明作者及出处。商业转载请联系作者本人。</p>
- 
- <p>本文标题为: <a href="http://cighao.com/2015/11/30/introduction-of-PSO/">粒子群优化算法简介</a> </p>
- 
- <p>本文链接为：<a href="http://cighao.com/2015/11/30/introduction-of-PSO/">http://cighao.com/2015/11/30/introduction-of-PSO/</a></p>
-
-</div>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>无以生计，卖文苟延<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -497,6 +445,34 @@ var _hmt = _hmt || [];
   
 
   
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/./md5.min.js"></script>
+
+<script type="text/javascript">
+
+if(true){
+
+  var gitalk_id = md5(location.pathname);
+
+  var gitalk = new Gitalk({
+    clientID: 'b8c74116f39d0a3bd0c5',
+    clientSecret: 'fc994352db407164b0df890b871c440c54bbb7c8',
+    repo: 'gitalk-comments-cighao',
+    owner: 'cighao',
+    admin: ['cighao'],
+    id: gitalk_id.slice(0, 50),
+    title: '粒子群优化算法简介',
+    labels: [ '算法' ,  '粒子群算法' , ]
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+
 
 
           </div>
@@ -506,7 +482,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 Hao Chen
+    		&copy; 2024 Hao Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -622,15 +598,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NVMe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,23 +634,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,19 +650,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,11 +666,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -730,11 +710,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,7 +734,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -763,14 +747,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
   <title>利用模拟退火算法求解TSP问题 | 陈浩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -46,7 +46,7 @@
 </script>
 
 
-</script>
+
 <!-- End Google Analytics -->
 
 
@@ -64,7 +64,7 @@ var _hmt = _hmt || [];
 
   <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -90,7 +90,7 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/archives">所有文章/Archives</a></li>
 	        
-				<li><a href="/resume/resume-en.html">关于我/About me</a></li>
+				<li><a href="/aboutme">关于我/About me</a></li>
 	        
 				<li><a href="/photo">相册/Photo</a></li>
 	        
@@ -108,11 +108,11 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="https://github.com/cighao" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://weibo.com/ch0422" title="weibo"><i class="icon-weibo"></i></a>
-		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="google" target="_blank" href="https://scholar.google.com/citations?user=7nX-H9MAAAAJ&hl" title="google"><i class="icon-google"></i></a>
 		        
 			</div>
 		</nav>
@@ -155,11 +155,11 @@ var _hmt = _hmt || [];
 					
 						<a class="github" target="_blank" href="https://github.com/cighao" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://weibo.com/ch0422" title="weibo"><i class="icon-weibo"></i></a>
-			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="google" target="_blank" href="https://scholar.google.com/citations?user=7nX-H9MAAAAJ&hl" title="google"><i class="icon-google"></i></a>
 			        
 				</div>
 			</nav>
@@ -172,7 +172,7 @@ var _hmt = _hmt || [];
 		        
 					<li style="width: 25%"><a href="/archives">所有文章/Archives</a></li>
 		        
-					<li style="width: 25%"><a href="/resume/resume-en.html">关于我/About me</a></li>
+					<li style="width: 25%"><a href="/aboutme">关于我/About me</a></li>
 		        
 					<li style="width: 25%"><a href="/photo">相册/Photo</a></li>
 		        
@@ -217,62 +217,10 @@ var _hmt = _hmt || [];
 <p>(2)新解的产生<br>任选序号 u,v（u &lt; v）交换u与v之间的顺序产生新的路径</p>
 <h2 id="4-编码-C语言"><a href="#4-编码-C语言" class="headerlink" title="4. 编码(C语言)"></a>4. 编码(C语言)</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 利用模拟退火算法求解tsp问题 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"iostream"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"ctime"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"cstdio"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"cstdlib"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"cmath"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 10000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 10000000 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> E 0.000000001  <span class="comment">// 迭代误差 </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> L 20000    <span class="comment">// 迭代次数 </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> AT 0.999   <span class="comment">// 降温系数 </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> T 1       <span class="comment">// 初始温度 </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">element</span>&#123;</span>     <span class="comment">//用来排序的数据结构 </span></span><br><span class="line">		<span class="keyword">int</span> data;  <span class="comment">// 数据 </span></span><br><span class="line">		<span class="keyword">int</span> index;  <span class="comment">// 序号 </span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">tsp</span><span class="params">(<span class="keyword">int</span> d[][MAX], <span class="keyword">int</span> n, <span class="keyword">double</span> e,<span class="keyword">int</span> l,<span class="keyword">double</span> at,<span class="keyword">double</span> t,<span class="keyword">int</span> s0[])</span></span>;  <span class="comment">//利用模拟退火算法求解最短路径 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *a,<span class="keyword">const</span> <span class="keyword">void</span> *b)</span></span>; <span class="comment">//升序排列 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rand_of_n</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span>;  <span class="comment">//产生 1-n 的随机排列并存到 a[] 中</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">random</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="keyword">int</span> dis[MAX][MAX];   <span class="comment">// d[i][j] 表示客户i到客户j的距离，0 表示起始点 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j;</span><br><span class="line">	<span class="keyword">int</span> n=<span class="number">100</span>;  <span class="comment">// 点的个数 </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n;i++)     <span class="comment">// 随机产生距离 1-100</span></span><br><span class="line">		<span class="keyword">for</span>(j=i;j&lt;=n;j++)</span><br><span class="line">			<span class="keyword">if</span>(i==j)</span><br><span class="line">				dis[i][j]=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				dis[i][j]=dis[j][i]=random(<span class="number">1</span>,<span class="number">100</span>); </span><br><span class="line">	FILE*fp = fopen(<span class="string">"data.txt"</span>,<span class="string">"w"</span>);  <span class="comment">// 将距离存入文件中 </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n;i++)&#123;  </span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;=n;j++)</span><br><span class="line">			<span class="built_in">fprintf</span>(fp,<span class="string">"%d "</span>,dis[i][j]);</span><br><span class="line">		<span class="built_in">fprintf</span>(fp,<span class="string">"\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	fclose(fp); </span><br><span class="line">	<span class="keyword">int</span> sum,sum0,s0[MAX]; </span><br><span class="line">	sum0=<span class="number">0</span>;   <span class="comment">//顺序遍历时的路程 </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		sum0=sum0+dis[i][i+<span class="number">1</span>];</span><br><span class="line">	sum0=sum0+dis[n][<span class="number">0</span>];</span><br><span class="line">	sum=tsp(dis,n, E,L,AT,T,s0);</span><br><span class="line">	fp = fopen(<span class="string">"answer.txt"</span>,<span class="string">"w"</span>);  <span class="comment">//将结果存入文件中</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="built_in">fprintf</span>(fp,<span class="string">"%d "</span>,s0[i]);</span><br><span class="line">	fclose(fp); </span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"case"</span>&lt;&lt;<span class="string">"#: "</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"距离数组保存在文件data.txt中，优化后的访问顺序保存在文件answer.txt中"</span>&lt;&lt;<span class="built_in">endl</span>; </span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"顺序遍历总路程为："</span>&lt;&lt;sum0&lt;&lt;<span class="string">" 优化后为："</span>&lt;&lt;sum&lt;&lt;<span class="built_in">endl</span>; </span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *a,<span class="keyword">const</span> <span class="keyword">void</span> *b)</span></span>&#123;   <span class="comment">// 升序排序</span></span><br><span class="line">	<span class="keyword">return</span>((struct element*)a)-&gt;data - ((struct element*)b)-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rand_of_n</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">element</span> <span class="title">ele</span>[<span class="title">MAX</span>];</span></span><br><span class="line">	srand((<span class="keyword">int</span>)time(<span class="number">0</span>));  <span class="comment">// 初始化随机数种子 </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		ele[i].data=rand();  <span class="comment">// 随机生成一个数 </span></span><br><span class="line">		ele[i].index=i+<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	qsort(ele,n,<span class="keyword">sizeof</span>(ele[<span class="number">0</span>]),cmp);  <span class="comment">//排序 </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		a[i]=ele[i].index;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">random</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span></span>&#123;   <span class="comment">//产生m-n的随机数</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">double</span> x=(<span class="keyword">double</span>)rand()/RAND_MAX;</span><br><span class="line">	a=(<span class="keyword">int</span>)(x*(n-m)+<span class="number">0.5</span>)+m;</span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">tsp</span><span class="params">(<span class="keyword">int</span> d[][MAX], <span class="keyword">int</span> n, <span class="keyword">double</span> e,<span class="keyword">int</span> l,<span class="keyword">double</span> at,<span class="keyword">double</span> t,<span class="keyword">int</span> s0[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j,s[MAX],sum,temp;</span><br><span class="line">	sum=INF; </span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++)&#123;  <span class="comment">//利用蒙特卡洛方法产生初始解</span></span><br><span class="line">		rand_of_n(&amp;s[<span class="number">1</span>],n);</span><br><span class="line">		s[<span class="number">0</span>]=<span class="number">0</span>; s[n+<span class="number">1</span>]=<span class="number">0</span>;  <span class="comment">//第一个和最后一个点为起始点 </span></span><br><span class="line">		temp=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;=n;j++)</span><br><span class="line">			temp=temp+d[s[j]][s[j+<span class="number">1</span>]];</span><br><span class="line">		<span class="keyword">if</span>(temp&lt;sum)&#123;</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;=n+<span class="number">1</span>;j++)</span><br><span class="line">				s0[j]=s[j];</span><br><span class="line">			sum=temp;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;l;i++)&#123;    <span class="comment">//退火过程 </span></span><br><span class="line">		<span class="keyword">int</span> c1,c2;</span><br><span class="line">		c1=random(<span class="number">1</span>,n);</span><br><span class="line">		c2=random(<span class="number">1</span>,n);</span><br><span class="line">		<span class="keyword">if</span>(c1&gt;c2)&#123;</span><br><span class="line">			<span class="keyword">int</span> temp=c2; c2=c1; c1=temp;</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">if</span>(c1==c2)</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">int</span> df=d[s0[c1<span class="number">-1</span>]][s0[c2]] + d[s0[c1]][s0[c2+<span class="number">1</span>]] - d[s0[c1<span class="number">-1</span>]][s0[c1]] - d[s0[c2]][s0[c2+<span class="number">1</span>]]; <span class="comment">//计算代价函数</span></span><br><span class="line">		<span class="keyword">if</span>(df&lt;<span class="number">0</span>)&#123;  <span class="comment">//接受准则</span></span><br><span class="line">			<span class="keyword">while</span>(c1&lt;c2)&#123; </span><br><span class="line">				<span class="keyword">int</span> temp=s0[c2]; s0[c2]=s0[c1]; s0[c1]=temp;</span><br><span class="line">				c1++;</span><br><span class="line">				c2--;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			sum=sum+df;</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">exp</span>(-df/t)&gt;((<span class="keyword">double</span>)rand()/RAND_MAX))&#123;</span><br><span class="line">			<span class="keyword">while</span>(c1&lt;c2)&#123;</span><br><span class="line">				<span class="keyword">int</span> temp=s0[c2]; s0[c2]=s0[c1]; s0[c1]=temp;</span><br><span class="line">				c1++;</span><br><span class="line">				c2--;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			sum=sum+df;</span><br><span class="line">		&#125;</span><br><span class="line">		t=t*at;</span><br><span class="line">		<span class="keyword">if</span>(t&lt;e)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"enable":false,"clientID":"b8c74116f39d0a3bd0c5","clientSecret":"fc994352db407164b0df890b871c440c54bbb7c8","repo":"gitalk-comments-cighao","owner":"cighao","admin":"cighao"};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>
       
 
       
-        <div class="article-footer-copyright">
 
- <p>本文由&nbsp;<b>陈浩</b>&nbsp;发表于&nbsp<a href="http://cighao.com">陈浩的个人博客</a>&nbsp,采用<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">署名-非商业性使用-禁止演绎 3.0</a>进行许可。</p>
- 
- <p>非商业转载请注明作者及出处。商业转载请联系作者本人。</p>
- 
- <p>本文标题为: <a href="http://cighao.com/2015/12/04/solve-TSP-with-SA/">利用模拟退火算法求解TSP问题</a> </p>
- 
- <p>本文链接为：<a href="http://cighao.com/2015/12/04/solve-TSP-with-SA/">http://cighao.com/2015/12/04/solve-TSP-with-SA/</a></p>
-
-</div>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>无以生计，卖文苟延<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -404,6 +352,34 @@ var _hmt = _hmt || [];
   
 
   
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/./md5.min.js"></script>
+
+<script type="text/javascript">
+
+if(true){
+
+  var gitalk_id = md5(location.pathname);
+
+  var gitalk = new Gitalk({
+    clientID: 'b8c74116f39d0a3bd0c5',
+    clientSecret: 'fc994352db407164b0df890b871c440c54bbb7c8',
+    repo: 'gitalk-comments-cighao',
+    owner: 'cighao',
+    admin: ['cighao'],
+    id: gitalk_id.slice(0, 50),
+    title: '利用模拟退火算法求解TSP问题',
+    labels: [ '算法' ,  '模拟退火算法' , ]
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+
 
 
           </div>
@@ -413,7 +389,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 Hao Chen
+    		&copy; 2024 Hao Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -529,15 +505,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NVMe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,23 +541,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,19 +557,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,11 +573,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,11 +617,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -657,7 +641,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,14 +654,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">

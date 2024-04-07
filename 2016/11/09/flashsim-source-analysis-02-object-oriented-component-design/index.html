@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
   <title>flashsim 源码分析（二）： flashsim 中的面向对象设计 | 陈浩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -48,7 +48,7 @@
 </script>
 
 
-</script>
+
 <!-- End Google Analytics -->
 
 
@@ -66,7 +66,7 @@ var _hmt = _hmt || [];
 
   <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -92,7 +92,7 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/archives">所有文章/Archives</a></li>
 	        
-				<li><a href="/resume/resume-en.html">关于我/About me</a></li>
+				<li><a href="/aboutme">关于我/About me</a></li>
 	        
 				<li><a href="/photo">相册/Photo</a></li>
 	        
@@ -110,11 +110,11 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="https://github.com/cighao" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://weibo.com/ch0422" title="weibo"><i class="icon-weibo"></i></a>
-		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="google" target="_blank" href="https://scholar.google.com/citations?user=7nX-H9MAAAAJ&hl" title="google"><i class="icon-google"></i></a>
 		        
 			</div>
 		</nav>
@@ -157,11 +157,11 @@ var _hmt = _hmt || [];
 					
 						<a class="github" target="_blank" href="https://github.com/cighao" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://weibo.com/ch0422" title="weibo"><i class="icon-weibo"></i></a>
-			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="google" target="_blank" href="https://scholar.google.com/citations?user=7nX-H9MAAAAJ&hl" title="google"><i class="icon-google"></i></a>
 			        
 				</div>
 			</nav>
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
 		        
 					<li style="width: 25%"><a href="/archives">所有文章/Archives</a></li>
 		        
-					<li style="width: 25%"><a href="/resume/resume-en.html">关于我/About me</a></li>
+					<li style="width: 25%"><a href="/aboutme">关于我/About me</a></li>
 		        
 					<li style="width: 25%"><a href="/photo">相册/Photo</a></li>
 		        
@@ -213,7 +213,7 @@ var _hmt = _hmt || [];
       
         <p>flashsim 模拟器是单线程的，利用 C++ 实现的。采用了面向对象的设计，把闪存的中的硬件和软件设备都抽象成了类。</p>
 <p>flashsim 所模拟的闪存的硬件架构如下图所示。</p>
-<p><img src="/img/articles/flashsim/flashsim-02-01.jpg" alt=""></p>
+<p><img src="/img/articles/flashsim/flashsim-02-01.jpg" alt></p>
 <a id="more"></a>
 <h2 id="1-flashsim-中硬件的抽象"><a href="#1-flashsim-中硬件的抽象" class="headerlink" title="1. flashsim 中硬件的抽象"></a><strong>1. flashsim 中硬件的抽象</strong></h2><p>flashsim 中把闪存中的硬件分别抽象出了 10 个类：</p>
 <p><strong>SSD</strong>：SSD 类用来创建一个SSD模拟器。</p>
@@ -236,62 +236,10 @@ var _hmt = _hmt || [];
 <p><br></p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a><em>Reference</em></h2><p>Kim Y, Tauras B, Gupta A, et al. Flashsim: A simulator for nand flash-based solid-state drives[C]//Advances in System Simulation, 2009. SIMUL’09. First International Conference on. IEEE, 2009: 125-131.</p>
 
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"enable":false,"clientID":"b8c74116f39d0a3bd0c5","clientSecret":"fc994352db407164b0df890b871c440c54bbb7c8","repo":"gitalk-comments-cighao","owner":"cighao","admin":"cighao"};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>
       
 
       
-        <div class="article-footer-copyright">
 
- <p>本文由&nbsp;<b>陈浩</b>&nbsp;发表于&nbsp<a href="http://cighao.com">陈浩的个人博客</a>&nbsp,采用<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">署名-非商业性使用-禁止演绎 3.0</a>进行许可。</p>
- 
- <p>非商业转载请注明作者及出处。商业转载请联系作者本人。</p>
- 
- <p>本文标题为: <a href="http://cighao.com/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/">flashsim 源码分析（二）： flashsim 中的面向对象设计</a> </p>
- 
- <p>本文链接为：<a href="http://cighao.com/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/">http://cighao.com/2016/11/09/flashsim-source-analysis-02-object-oriented-component-design/</a></p>
-
-</div>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>无以生计，卖文苟延<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -423,6 +371,34 @@ var _hmt = _hmt || [];
   
 
   
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/./md5.min.js"></script>
+
+<script type="text/javascript">
+
+if(true){
+
+  var gitalk_id = md5(location.pathname);
+
+  var gitalk = new Gitalk({
+    clientID: 'b8c74116f39d0a3bd0c5',
+    clientSecret: 'fc994352db407164b0df890b871c440c54bbb7c8',
+    repo: 'gitalk-comments-cighao',
+    owner: 'cighao',
+    admin: ['cighao'],
+    id: gitalk_id.slice(0, 50),
+    title: 'flashsim 源码分析（二）： flashsim 中的面向对象设计',
+    labels: [ 'SSD' ,  'flashsim' , ]
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+
 
 
           </div>
@@ -432,7 +408,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 Hao Chen
+    		&copy; 2024 Hao Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -548,15 +524,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NVMe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,23 +560,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,19 +576,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,11 +592,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,11 +636,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,7 +660,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -689,14 +673,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">

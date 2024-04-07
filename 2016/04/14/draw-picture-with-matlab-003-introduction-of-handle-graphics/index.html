@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
   <title>matlab 画图（三）： 图形句柄 | 陈浩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -49,7 +49,7 @@
 </script>
 
 
-</script>
+
 <!-- End Google Analytics -->
 
 
@@ -67,7 +67,7 @@ var _hmt = _hmt || [];
 
   <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -93,7 +93,7 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/archives">所有文章/Archives</a></li>
 	        
-				<li><a href="/resume/resume-en.html">关于我/About me</a></li>
+				<li><a href="/aboutme">关于我/About me</a></li>
 	        
 				<li><a href="/photo">相册/Photo</a></li>
 	        
@@ -111,11 +111,11 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="https://github.com/cighao" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://weibo.com/ch0422" title="weibo"><i class="icon-weibo"></i></a>
-		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="google" target="_blank" href="https://scholar.google.com/citations?user=7nX-H9MAAAAJ&hl" title="google"><i class="icon-google"></i></a>
 		        
 			</div>
 		</nav>
@@ -158,11 +158,11 @@ var _hmt = _hmt || [];
 					
 						<a class="github" target="_blank" href="https://github.com/cighao" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://weibo.com/ch0422" title="weibo"><i class="icon-weibo"></i></a>
-			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="google" target="_blank" href="https://scholar.google.com/citations?user=7nX-H9MAAAAJ&hl" title="google"><i class="icon-google"></i></a>
 			        
 				</div>
 			</nav>
@@ -175,7 +175,7 @@ var _hmt = _hmt || [];
 		        
 					<li style="width: 25%"><a href="/archives">所有文章/Archives</a></li>
 		        
-					<li style="width: 25%"><a href="/resume/resume-en.html">关于我/About me</a></li>
+					<li style="width: 25%"><a href="/aboutme">关于我/About me</a></li>
 		        
 					<li style="width: 25%"><a href="/photo">相册/Photo</a></li>
 		        
@@ -323,7 +323,7 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
 <h3 id="1-1-对象级别"><a href="#1-1-对象级别" class="headerlink" title="1.1 对象级别"></a><strong>1.1 对象级别</strong></h3><p>不同对象分布在一个树形结构级别里，反映它们的独立性。例如，线对象是在轴对象的框架下的。依次，轴对象只存在于figure对象中。以下图表阐明了这种树形结构。</p>
-<p><img src="/img/articles/matlab/matlab-pic-003-1.jpg" alt=""></p>
+<p><img src="/img/articles/matlab/matlab-pic-003-1.jpg" alt></p>
 <h3 id="1-2-创建对象"><a href="#1-2-创建对象" class="headerlink" title="1.2 创建对象"></a><strong>1.2 创建对象</strong></h3><p>每个对象都有一个创建用的关联函数。这些函数与所创对象有相同名称。例如，text 函数创立文本对象，figure 函数创立 figure 窗口对象，等等。MATLAB的高级别的图形函数（例如plot和surf）会调用适当的低级别函数来作出它们各自的图形。对象创建函数与对象有相同名称。例如，创立轴的函数是axes 。</p>
 <h3 id="1-3-用对象操作的命令"><a href="#1-3-用对象操作的命令" class="headerlink" title="1.3 用对象操作的命令"></a><strong>1.3 用对象操作的命令</strong></h3><p>下表列出了操作对象常用的命令。</p>
 <table>
@@ -374,18 +374,18 @@ var _hmt = _hmt || [];
 <li>在现有的对象中设置属性值 </li>
 </ul>
 <h3 id="2-1-从作图命令设定属性"><a href="#2-1-从作图命令设定属性" class="headerlink" title="2.1 从作图命令设定属性"></a><strong>2.1 从作图命令设定属性</strong></h3><p>类似作图函数，在诸如 <code>plot</code>, <code>mesh</code>, 和 <code>surf</code> 的创建对象用的函数也可以指定对象属性值为变元。 </p>
-<p>例如，可以用创建线或表面的作图命令来指定属性名称和属性值为二元变元。命令<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(x,y,<span class="string">'LineWidth'</span>,<span class="number">1.5</span>)</span><br></pre></td></tr></table></figure></p>
+<p>例如，可以用创建线或表面的作图命令来指定属性名称和属性值为二元变元。命令<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'LineWidth'</span>,<span class="number">1.5</span>)</span><br></pre></td></tr></table></figure></p>
 <p>以 x 和 y 为变元作出数据图，用到具有 LineWidth 属性且设为1.5点（1点=1/72英寸）的线。可以用此法设定任何线对象。 </p>
 <h3 id="2-2-设定现有对象的属性"><a href="#2-2-设定现有对象的属性" class="headerlink" title="2.2 设定现有对象的属性"></a><strong>2.2 设定现有对象的属性</strong></h3><p>要修改现有对象属性值，可以用 <code>set</code> 命令，如若作图编辑模式已打开，则可用属性编辑器。属性编辑器对许多对象属性提供图形用户界面。</p>
-<p>很多作图命令可以返回所建对象的句柄，这样你可以用 set 命令修改对象。例如，下列语句创立一个5*5矩阵（创立5行，每行一列），然后设置 Marker 为正方形并设 MarkerFaceColor 为绿色。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h = plot(<span class="built_in">magic</span>(<span class="number">5</span>));</span><br><span class="line">set(h,<span class="string">'Marker'</span>,<span class="string">'s'</span>,MarkerFaceColor',<span class="string">'g'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>很多作图命令可以返回所建对象的句柄，这样你可以用 set 命令修改对象。例如，下列语句创立一个5*5矩阵（创立5行，每行一列），然后设置 Marker 为正方形并设 MarkerFaceColor 为绿色。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h = <span class="built_in">plot</span>(<span class="built_in">magic</span>(<span class="number">5</span>));</span><br><span class="line">set(h,<span class="string">'Marker'</span>,<span class="string">'s'</span>,MarkerFaceColor',<span class="string">'g'</span>)</span><br></pre></td></tr></table></figure></p>
 <p>在此情形下，h是一个包含5个句柄的向量，每个句柄代表图形中五行之一。语句 set 设置每一行的Marker 和 MarkerFaceColor 为同一个值。</p>
-<h3 id="2-3-设置多个属性值"><a href="#2-3-设置多个属性值" class="headerlink" title="2.3 设置多个属性值"></a><strong>2.3 设置多个属性值</strong></h3><p>若要对每条线的属性设置另一个值，可以用单元数组来储存所有数据并把它传给 set 命令。例如，创建一幅图并保存线句柄。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h = plot(<span class="built_in">magic</span>(<span class="number">5</span>));</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-3-设置多个属性值"><a href="#2-3-设置多个属性值" class="headerlink" title="2.3 设置多个属性值"></a><strong>2.3 设置多个属性值</strong></h3><p>若要对每条线的属性设置另一个值，可以用单元数组来储存所有数据并把它传给 set 命令。例如，创建一幅图并保存线句柄。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h = <span class="built_in">plot</span>(<span class="built_in">magic</span>(<span class="number">5</span>));</span><br></pre></td></tr></table></figure></p>
 <p>假如要对每条线添加不同的标记并对标记外观填上与线相同的颜色，则须定义两个单元数组，一个包含属性名，另一个则包含想设的属性值。 </p>
 <p>单元数组prop_name包含两个元素。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">prop_name(<span class="number">1</span>) = &#123;<span class="string">'Marker'</span>&#125;;</span><br><span class="line">prop_name(<span class="number">2</span>) = &#123;<span class="string">'MarkerFaceColor'</span>&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>prop_values 单元数组包含10个值-5个表示表示Marker标记属性，另5个表示MarkerFaceColor属性。注意prop_values是一个二维单元数组。第一维表示不同值赋给h中的哪个句柄，第二维表示值赋给哪个属性。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">prop_values(<span class="number">1</span>,<span class="number">1</span>) = &#123;<span class="string">'s'</span>&#125;;</span><br><span class="line">prop_values(<span class="number">1</span>,<span class="number">2</span>) = &#123;get(h(<span class="number">1</span>),<span class="string">'Color'</span>)&#125;;</span><br><span class="line">prop_values(<span class="number">2</span>,<span class="number">1</span>) = &#123;<span class="string">'d'</span>&#125;;</span><br><span class="line">prop_values(<span class="number">2</span>,<span class="number">2</span>) = &#123;get(h(<span class="number">2</span>),<span class="string">'Color'</span>)&#125;;</span><br><span class="line">prop_values(<span class="number">3</span>,<span class="number">1</span>) = &#123;<span class="string">'o'</span>&#125;;</span><br><span class="line">prop_values(<span class="number">3</span>,<span class="number">2</span>) = &#123;get(h(<span class="number">3</span>),<span class="string">'Color'</span>)&#125;;</span><br><span class="line">prop_values(<span class="number">4</span>,<span class="number">1</span>) = &#123;<span class="string">'p'</span>&#125;;</span><br><span class="line">prop_values(<span class="number">4</span>,<span class="number">2</span>) = &#123;get(h(<span class="number">4</span>),<span class="string">'Color'</span>)&#125;;</span><br><span class="line">prop_values(<span class="number">5</span>,<span class="number">1</span>) = &#123;<span class="string">'h'</span>&#125;;</span><br><span class="line">prop_values(<span class="number">5</span>,<span class="number">2</span>) = &#123;get(h(<span class="number">5</span>),<span class="string">'Color'</span>)&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>MarkerFaceColor 总是把值赋给对应的线的颜色的（该颜色通过用get命令设置线的Color（颜色）属性得到）。</p>
 <p>定义了单元数组后，调用set命令来指定新的属性值。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set(h,prop_name,prop_values)</span><br></pre></td></tr></table></figure></p>
-<p><img src="/img/articles/matlab/matlab-pic-003-2.jpg" alt=""></p>
+<p><img src="/img/articles/matlab/matlab-pic-003-2.jpg" alt></p>
 <h2 id="3-查找现有的对象句柄"><a href="#3-查找现有的对象句柄" class="headerlink" title="3. 查找现有的对象句柄"></a><strong>3. 查找现有的对象句柄</strong></h2><p>用命令 <code>findobj</code> 可以通过搜索带特定属性值的对象得到图形对象的句柄。用 findobj，可以指定任何属性组合的值，这样要从多个对象选出一个就变的容易。例如，可能需要找出带有正方标记蓝色外观的蓝线。</p>
 <p>也可以指定搜索哪个图形或轴。以下各节提供示例阐述如何用findobj命令。</p>
 <h3 id="3-1-查找所有某类型的对象"><a href="#3-1-查找所有某类型的对象" class="headerlink" title="3.1 查找所有某类型的对象"></a><strong>3.1 查找所有某类型的对象</strong></h3><p>由于所有对象都具有一个用来辨别类型的类型属性，你可以查找所有某特定类型对象事件的句柄。例如，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h = findobj(&apos;Type&apos;,&apos;line&apos;);</span><br></pre></td></tr></table></figure></p>
@@ -398,62 +398,10 @@ var _hmt = _hmt || [];
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set(findobj(<span class="string">'Type'</span>,<span class="string">'line'</span>,<span class="string">'Color'</span>,<span class="string">'red'</span>),<span class="string">'LineStyle'</span>,<span class="string">':'</span>)</span><br></pre></td></tr></table></figure>
 <p>找出所有红线及设定线型为点线。 </p>
 
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"enable":false,"clientID":"b8c74116f39d0a3bd0c5","clientSecret":"fc994352db407164b0df890b871c440c54bbb7c8","repo":"gitalk-comments-cighao","owner":"cighao","admin":"cighao"};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>
       
 
       
-        <div class="article-footer-copyright">
 
- <p>本文由&nbsp;<b>陈浩</b>&nbsp;发表于&nbsp<a href="http://cighao.com">陈浩的个人博客</a>&nbsp,采用<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">署名-非商业性使用-禁止演绎 3.0</a>进行许可。</p>
- 
- <p>非商业转载请注明作者及出处。商业转载请联系作者本人。</p>
- 
- <p>本文标题为: <a href="http://cighao.com/2016/04/14/draw-picture-with-matlab-003-introduction-of-handle-graphics/">matlab 画图（三）： 图形句柄</a> </p>
- 
- <p>本文链接为：<a href="http://cighao.com/2016/04/14/draw-picture-with-matlab-003-introduction-of-handle-graphics/">http://cighao.com/2016/04/14/draw-picture-with-matlab-003-introduction-of-handle-graphics/</a></p>
-
-</div>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>无以生计，卖文苟延<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -598,6 +546,34 @@ var _hmt = _hmt || [];
   
 
   
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/./md5.min.js"></script>
+
+<script type="text/javascript">
+
+if(true){
+
+  var gitalk_id = md5(location.pathname);
+
+  var gitalk = new Gitalk({
+    clientID: 'b8c74116f39d0a3bd0c5',
+    clientSecret: 'fc994352db407164b0df890b871c440c54bbb7c8',
+    repo: 'gitalk-comments-cighao',
+    owner: 'cighao',
+    admin: ['cighao'],
+    id: gitalk_id.slice(0, 50),
+    title: 'matlab 画图（三）： 图形句柄',
+    labels: [ 'Matlab' ,  '画图' , ]
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+
 
 
           </div>
@@ -607,7 +583,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 Hao Chen
+    		&copy; 2024 Hao Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -723,15 +699,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NVMe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -743,23 +735,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -775,19 +751,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,11 +767,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -831,11 +811,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -851,7 +835,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,14 +848,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">

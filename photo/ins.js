@@ -113,11 +113,25 @@
 
     var render = function render(res) {
       var ulTmpl = "";
-      for (var j = 0, len2 = res.list.length; j < len2; j++) {
+      for (var j = 0, len1 = res.list.length; j < len1; j++) {
+        if(res.list[j].display != undefined && res.list[j].display == "no") continue;
+
         var title = res.list[j].title;
         var data = res.list[j].arr;
         var liTmpl = "";
-        for (var i = 0, len = data.link.length; i < len; i++) {
+        for (var i = 0, len2 = data.link.length; i < len2; i++) {
+
+          let skip = new Boolean(false);
+          if(res.list[j].deleted != undefined){
+            for(var k = 0, len3 = res.list[j].deleted.length; k < len3; k++){
+              if(data.link[i] == res.list[j].deleted[k]){
+                skip = true;
+                break;
+              }
+            }
+          }
+          if(skip == true) continue;
+
           var minSrc = 'img-min/' + data.link[i] + '.jpg';
           // exif 标记了旋转
           // 使用七牛存储时，imageMogr2/auto-orient 可以解决图片旋转问题
@@ -132,7 +146,7 @@
           var data_size = data.size[i];
 
 
-          liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
+          liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">\
                 <a href="' + src + '" itemprop="contentUrl" data-size="' + data_size + '" data-type="' + type + '" data-target="' + target + '">\
                   <img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
                 </a>\
@@ -152,7 +166,7 @@
         ulTmpl = ulTmpl + '<br>'
 
       }
-      document.querySelector('.instagram').innerHTML = '<div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery">' + ulTmpl + '</div>';
+      document.querySelector('.instagram').innerHTML = '<div class="photos" itemscope itemtype="http://schema.org/ImageGallery">' + ulTmpl + '</div>';
       createVideoIncon();
       _view2.default.init();
     };
@@ -878,12 +892,3 @@
   }
   /******/
 ]);
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"enable":false,"clientID":"b8c74116f39d0a3bd0c5","clientSecret":"fc994352db407164b0df890b871c440c54bbb7c8","repo":"gitalk-comments-cighao","owner":"cighao","admin":"cighao"};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
   <title>Cassandra 介绍（三）：Commitlog 介绍（1） | 陈浩的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -60,7 +60,7 @@
 </script>
 
 
-</script>
+
 <!-- End Google Analytics -->
 
 
@@ -78,7 +78,7 @@ var _hmt = _hmt || [];
 
   <script data-ad-client="ca-pub-8292818691717230" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -104,7 +104,7 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/archives">所有文章/Archives</a></li>
 	        
-				<li><a href="/resume/resume-en.html">关于我/About me</a></li>
+				<li><a href="/aboutme">关于我/About me</a></li>
 	        
 				<li><a href="/photo">相册/Photo</a></li>
 	        
@@ -122,11 +122,11 @@ var _hmt = _hmt || [];
 				
 					<a class="github" target="_blank" href="https://github.com/cighao" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://weibo.com/ch0422" title="weibo"><i class="icon-weibo"></i></a>
-		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="google" target="_blank" href="https://scholar.google.com/citations?user=7nX-H9MAAAAJ&hl" title="google"><i class="icon-google"></i></a>
 		        
 			</div>
 		</nav>
@@ -169,11 +169,11 @@ var _hmt = _hmt || [];
 					
 						<a class="github" target="_blank" href="https://github.com/cighao" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://weibo.com/ch0422" title="weibo"><i class="icon-weibo"></i></a>
-			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/cighao/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="google" target="_blank" href="https://scholar.google.com/citations?user=7nX-H9MAAAAJ&hl" title="google"><i class="icon-google"></i></a>
 			        
 				</div>
 			</nav>
@@ -186,7 +186,7 @@ var _hmt = _hmt || [];
 		        
 					<li style="width: 25%"><a href="/archives">所有文章/Archives</a></li>
 		        
-					<li style="width: 25%"><a href="/resume/resume-en.html">关于我/About me</a></li>
+					<li style="width: 25%"><a href="/aboutme">关于我/About me</a></li>
 		        
 					<li style="width: 25%"><a href="/photo">相册/Photo</a></li>
 		        
@@ -264,93 +264,41 @@ var _hmt = _hmt || [];
 </script>
       
         <p>与 commitlog 相关的类如下：</p>
-<p><img src="/img/articles/cassandra/03/image001.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image001.png" alt></p>
 <a id="more"></a>
 <h2 id="1-CommitLog-Service-线程后台-sync"><a href="#1-CommitLog-Service-线程后台-sync" class="headerlink" title="1. CommitLog Service 线程后台 sync"></a>1. CommitLog Service 线程后台 sync</h2><p>AbstractCommitLogService 类中的 start() 函数新建 SyncRunnable 线程，并运行该线程。</p>
-<p><img src="/img/articles/cassandra/03/image002.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image002.png" alt></p>
 <p>该线程运行的函数是 run(), run() 中不停调用 sync(). sync() 利用 parkNanos() 周期性进行 sync 操作， 但这只对 group 和 periodical 的 commitlog 有效，对于 batch 的 commitlog 会在 BatchCommitLogService 类的 maybeWaitForSync() 函数中显示调用 unpark() 唤醒线程。</p>
-<p><img src="/img/articles/cassandra/03/image003.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image003.png" alt></p>
 <h2 id="2-CommitLog-构建-CommitLog-Service-和-CommitLog-Manager"><a href="#2-CommitLog-构建-CommitLog-Service-和-CommitLog-Manager" class="headerlink" title="2. CommitLog 构建 CommitLog Service 和 CommitLog Manager"></a>2. CommitLog 构建 CommitLog Service 和 CommitLog Manager</h2><p>CommitLog 类中，利用 construct() 生成一个具体的 AbstractCommitLogService 类和一个 AbstractCommitLogSegmentManager 类。</p>
-<p><img src="/img/articles/cassandra/03/image004.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image004.png" alt></p>
 <p>executor 是一个具体的 AbstractCommitLogService 类， PeriodicCommitLogService, BatchCommitLogService 和 GroupCommitLogService 中的一个。</p>
 <p>segmentManager 是一个具体的 AbstractCommitLogSegmentManager 类， CommitLogSegmentManagerCDC 和 CommitLogSegmentManagerStandard 中的一个。</p>
 <p>最后 CommitLog 调用 start() 启动 segmentManager.start() 和 executor.start() </p>
 <p>executor.start() 也就是调用 AbstractCommitLogService 的 start() 函数启动一个线程周期性执行 sync() 操作。</p>
 <p>segmentManager.start() 也就是调用 AbstractCommitLogSegmentManager 的 start() 函数，启动一个后台线程分配 CommitLogSegment</p>
-<p><img src="/img/articles/cassandra/03/image005.png" alt=""></p>
-<h2 id="3-何时写-CommitLog"><a href="#3-何时写-CommitLog" class="headerlink" title="3. 何时写 CommitLog"></a>3. 何时写 CommitLog</h2><p><img src="/img/articles/cassandra/03/image006.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image005.png" alt></p>
+<h2 id="3-何时写-CommitLog"><a href="#3-何时写-CommitLog" class="headerlink" title="3. 何时写 CommitLog"></a>3. 何时写 CommitLog</h2><p><img src="/img/articles/cassandra/03/image006.png" alt></p>
 <p>运行到 1341 行时的函数栈如下图所示。1341行新建了一个线程，在1347行时运行。</p>
-<p><img src="/img/articles/cassandra/03/image007.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image007.png" alt></p>
 <p>beginWrite() 中调用 CommitLog.instance.add(mutation) 写入 commitlog。</p>
-<p><img src="/img/articles/cassandra/03/image008.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image008.png" alt></p>
 <p>运行到 CommitLog.instance.add(mutation) 时的函数栈如下：</p>
-<p><img src="/img/articles/cassandra/03/image009.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image009.png" alt></p>
 <p>CommitLog.instance.add() 函数实现 commitlog 的提交</p>
-<p><img src="/img/articles/cassandra/03/image010.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image010.png" alt></p>
 <h2 id="4-等待-commitlog-持久化完成"><a href="#4-等待-commitlog-持久化完成" class="headerlink" title="4. 等待 commitlog 持久化完成"></a>4. 等待 commitlog 持久化完成</h2><p>上图中的 executor.finishWriteFor(alloc) 会调用 AbstractCommitLogService 的 finishWriteFor() , 从而调用相应子类的 maybeWaitForSync()。</p>
 <p>BatchCommitLogService 中的 maybeWaitForSync() 函数会调用 requestExtraSync() 唤醒 sync 线程进行 sync。然后调用 awaitDiskSync() 等待 commitlog 持久化完成。</p>
-<p><img src="/img/articles/cassandra/03/image011.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image011.png" alt></p>
 <p>GroupCommitLogService 中的 maybeWaitForSync() 函数会调用 awaitDiskSync() 等待 commitlog 持久化完成, 依赖后台 sync 线程的周期性 sync 操作。</p>
-<p><img src="/img/articles/cassandra/03/image012.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image012.png" alt></p>
 <p>PeriodicCommitLogService中的 maybeWaitForSync() 函数， blockWhenSyncLagsNanos 是 periodic commitlog 的周期， expectedSyncTime = System.nanoTime() - blockWhenSyncLagsNanos，表示 expectedSyncTime 之前的 commitlog 应该要持久化完。 lastSyncedAt 表示上次持久化的时间。 调用 awaitSyncAt() 等待 expectedSyncTime 之前的 commitlong 持久化完。</p>
-<p><img src="/img/articles/cassandra/03/image013.png" alt=""></p>
+<p><img src="/img/articles/cassandra/03/image013.png" alt></p>
 
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"enable":false,"clientID":"b8c74116f39d0a3bd0c5","clientSecret":"fc994352db407164b0df890b871c440c54bbb7c8","repo":"gitalk-comments-cighao","owner":"cighao","admin":"cighao"};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>
       
 
       
-        <div class="article-footer-copyright">
 
- <p>本文由&nbsp;<b>陈浩</b>&nbsp;发表于&nbsp<a href="http://cighao.com">陈浩的个人博客</a>&nbsp,采用<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">署名-非商业性使用-禁止演绎 3.0</a>进行许可。</p>
- 
- <p>非商业转载请注明作者及出处。商业转载请联系作者本人。</p>
- 
- <p>本文标题为: <a href="http://cighao.com/2019/09/26/cassandra-introduction-03-commitlog-01/">Cassandra 介绍（三）：Commitlog 介绍（1）</a> </p>
- 
- <p>本文链接为：<a href="http://cighao.com/2019/09/26/cassandra-introduction-03-commitlog-01/">http://cighao.com/2019/09/26/cassandra-introduction-03-commitlog-01/</a></p>
-
-</div>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>无以生计，卖文苟延<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -491,6 +439,34 @@ var _hmt = _hmt || [];
   
 
   
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="/./md5.min.js"></script>
+
+<script type="text/javascript">
+
+if(true){
+
+  var gitalk_id = md5(location.pathname);
+
+  var gitalk = new Gitalk({
+    clientID: 'b8c74116f39d0a3bd0c5',
+    clientSecret: 'fc994352db407164b0df890b871c440c54bbb7c8',
+    repo: 'gitalk-comments-cighao',
+    owner: 'cighao',
+    admin: ['cighao'],
+    id: gitalk_id.slice(0, 50),
+    title: 'Cassandra 介绍（三）：Commitlog 介绍（1）',
+    labels: [ 'Cassandra' , ]
+})
+gitalk.render('gitalk-container')
+}
+</script>
+
+  
+
 
 
           </div>
@@ -500,7 +476,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 Hao Chen
+    		&copy; 2024 Hao Chen
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -616,15 +592,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSD</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NVMe</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,23 +628,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">计算机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,19 +644,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -692,11 +660,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
+                <a href="javascript:void(0)" class="js-tag color2">模拟退火算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Neo4j</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SPDK</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,11 +704,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -744,7 +728,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -757,14 +741,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅行</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">
