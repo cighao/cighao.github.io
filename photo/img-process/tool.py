@@ -14,7 +14,7 @@ SIZE_more_small_small = 3.0
 
 
 # 图片路径, 裁剪压缩后覆盖原来图片
-IMG_PATH = "img/"
+IMG_PATH = "img-min/"
 
 img_sizes = list()
 
