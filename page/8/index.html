@@ -186,89 +186,6 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/">disksim with ssdmodel 源码解析（十四）：ssd_activate_elem函数分析</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/" class="archive-article-date">
-  	<time datetime="2016-03-24T12:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当一个请求经过一系列的处理后最终会发送到 element 上去，在 <code>ssd_media_access_request_element()</code> 函数中会把一个请求拆分成以 page 为大小的小请求，然后把这些小请求加入到 element 队列中，然后调用 <code>ssd_activate_elem()</code> 这个函数让 element 处理请求。下面主要分析 <code>ssd_activate_elem()</code> 这个函数是怎么处理请求的。</p>
-<p>关于 GC 操作的判断也是在这个函数中触发，这个函数中关于GC部分的内容前面已经介绍过了，不再重复。<strong>当没有进行 GC 操作且该 element 的请求队列中有请求时，会进行请求的处理</strong>。</p>
-        
-          <a class="article-more-a" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/#more">more >></a>
-        
-      
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Disksim</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-disksim-with-ssdmodel-source-analysis-013-use-it-on-64bit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -994,6 +911,88 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-matplotlib-demo-002-fill" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/17/matplotlib-demo-002-fill/">matplotlib 画图（二）：图形填充</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/17/matplotlib-demo-002-fill/" class="archive-article-date">
+  	<time datetime="2016-03-17T11:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/articles/matplotlib/fill.jpg" alt></p>
+        
+          <a class="article-more-a" href="/2016/03/17/matplotlib-demo-002-fill/#more">more >></a>
+        
+      
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">画图</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Matplotlib</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/17/matplotlib-demo-002-fill/">展开全文 >></a>
         </p>
       
 
