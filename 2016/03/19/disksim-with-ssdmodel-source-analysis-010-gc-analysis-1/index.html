@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim with ssdmodel 源码解析（十）：GC分析(一) | 陈浩的个人博客</title>
+  <title>disksim with ssdmodel 源码解析（十）：GC分析(一) | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="垃圾回收(gc)是 SSD 中很重要的一个过程，在 ssdmodel 模块中进行垃圾回收，是在 ssd_activate_elem() 函数中触发的。每次有请求过来时，都会进行垃圾回收的判断，当满足一定的要求时就会进行垃圾回收，垃圾回收结束之后，会退出该函数，并不会继续处理进来的请求，请求会放在下一次来完成，如果没有达到垃圾回收的条件，那么会响应该请求。整个流程如下：">
 <meta name="keywords" content="SSD,Disksim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim with ssdmodel 源码解析（十）：GC分析(一)">
 <meta property="og:url" content="http://cighao.com/2016/03/19/disksim-with-ssdmodel-source-analysis-010-gc-analysis-1/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="垃圾回收(gc)是 SSD 中很重要的一个过程，在 ssdmodel 模块中进行垃圾回收，是在 ssd_activate_elem() 函数中触发的。每次有请求过来时，都会进行垃圾回收的判断，当满足一定的要求时就会进行垃圾回收，垃圾回收结束之后，会退出该函数，并不会继续处理进来的请求，请求会放在下一次来完成，如果没有达到垃圾回收的条件，那么会响应该请求。整个流程如下：">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://cighao.com/img/articles/disksim/gc1.jpg">
@@ -24,7 +24,7 @@
 <meta name="twitter:description" content="垃圾回收(gc)是 SSD 中很重要的一个过程，在 ssdmodel 模块中进行垃圾回收，是在 ssd_activate_elem() 函数中触发的。每次有请求过来时，都会进行垃圾回收的判断，当满足一定的要求时就会进行垃圾回收，垃圾回收结束之后，会退出该函数，并不会继续处理进来的请求，请求会放在下一次来完成，如果没有达到垃圾回收的条件，那么会响应该请求。整个流程如下：">
 <meta name="twitter:image" content="http://cighao.com/img/articles/disksim/gc1.jpg">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

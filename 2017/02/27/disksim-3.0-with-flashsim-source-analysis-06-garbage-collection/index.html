@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim-3.0 with flashsim 源码分析（六）：垃圾回收 | 陈浩的个人博客</title>
+  <title>disksim-3.0 with flashsim 源码分析（六）：垃圾回收 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="仍然以DFTL为例，在 dftl.c 文件中有一个 opm_write（） 函数，前面对这个函数也进行过介绍，这个函数主要是实现 dftl 的写操作逻辑。在这个函数中会进行 GC 操作的判断，先调用 nand_get_free_blk(0) 函数，如果返回 -1 ，则表示需要进行垃圾回收，当整个 SSD 的空闲页大于阈值的时候就停止垃圾回收。这部分的代码，如下所示：">
 <meta name="keywords" content="SSD,Disksim,flashsim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim-3.0 with flashsim 源码分析（六）：垃圾回收">
 <meta property="og:url" content="http://cighao.com/2017/02/27/disksim-3.0-with-flashsim-source-analysis-06-garbage-collection/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="仍然以DFTL为例，在 dftl.c 文件中有一个 opm_write（） 函数，前面对这个函数也进行过介绍，这个函数主要是实现 dftl 的写操作逻辑。在这个函数中会进行 GC 操作的判断，先调用 nand_get_free_blk(0) 函数，如果返回 -1 ，则表示需要进行垃圾回收，当整个 SSD 的空闲页大于阈值的时候就停止垃圾回收。这部分的代码，如下所示：">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-02-27T05:56:02.000Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="disksim-3.0 with flashsim 源码分析（六）：垃圾回收">
 <meta name="twitter:description" content="仍然以DFTL为例，在 dftl.c 文件中有一个 opm_write（） 函数，前面对这个函数也进行过介绍，这个函数主要是实现 dftl 的写操作逻辑。在这个函数中会进行 GC 操作的判断，先调用 nand_get_free_blk(0) 函数，如果返回 -1 ，则表示需要进行垃圾回收，当整个 SSD 的空闲页大于阈值的时候就停止垃圾回收。这部分的代码，如下所示：">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

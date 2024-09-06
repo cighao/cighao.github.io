@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim with ssdmodel 源码解析（十六）：GC 分析(三) | 陈浩的个人博客</title>
+  <title>disksim with ssdmodel 源码解析（十六）：GC 分析(三) | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天这篇文章主要介绍什么时候会触发 GC。 判断是否需要进行 GC 操作是分为两种不同的情况来判断的：有 copyback 和没有 copyback 。 在 ssd_clean.c 中的 ssd_clean_element() 函数中会根据是否有 copyback 来调用不同的函数区执行 GC 操作。 下面分别介绍在这两种情况下，达到什么条件时会触发 GC 操作。">
 <meta name="keywords" content="SSD,Disksim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim with ssdmodel 源码解析（十六）：GC 分析(三)">
 <meta property="og:url" content="http://cighao.com/2016/03/29/disksim-with-ssdmodel-source-analysis-016-gc-analysis-3/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="今天这篇文章主要介绍什么时候会触发 GC。 判断是否需要进行 GC 操作是分为两种不同的情况来判断的：有 copyback 和没有 copyback 。 在 ssd_clean.c 中的 ssd_clean_element() 函数中会根据是否有 copyback 来调用不同的函数区执行 GC 操作。 下面分别介绍在这两种情况下，达到什么条件时会触发 GC 操作。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://cighao.com/img/articles/disksim/gc3.jpg">
@@ -23,7 +23,7 @@
 <meta name="twitter:description" content="今天这篇文章主要介绍什么时候会触发 GC。 判断是否需要进行 GC 操作是分为两种不同的情况来判断的：有 copyback 和没有 copyback 。 在 ssd_clean.c 中的 ssd_clean_element() 函数中会根据是否有 copyback 来调用不同的函数区执行 GC 操作。 下面分别介绍在这两种情况下，达到什么条件时会触发 GC 操作。">
 <meta name="twitter:image" content="http://cighao.com/img/articles/disksim/gc3.jpg">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

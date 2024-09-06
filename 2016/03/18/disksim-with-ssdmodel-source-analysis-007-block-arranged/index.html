@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim with ssdmodel 源码解析（七）：block的组织形式 | 陈浩的个人博客</title>
+  <title>disksim with ssdmodel 源码解析（七）：block的组织形式 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="我们知道，在一个SSD中会有很多的 element (也就是chip)，每个element中会有很多个 plane，每个 plane 中会包含很多个 block。 在访问 SSD 时通常都会向设备发送需要访问的 block number ，因此了解 block 在 SSD 中的组织形式十分重要。在 disksim 的 ssdmodel 模块中一共定义了三种 block 在 SSD 中的组织形式。">
 <meta name="keywords" content="SSD,Disksim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim with ssdmodel 源码解析（七）：block的组织形式">
 <meta property="og:url" content="http://cighao.com/2016/03/18/disksim-with-ssdmodel-source-analysis-007-block-arranged/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="我们知道，在一个SSD中会有很多的 element (也就是chip)，每个element中会有很多个 plane，每个 plane 中会包含很多个 block。 在访问 SSD 时通常都会向设备发送需要访问的 block number ，因此了解 block 在 SSD 中的组织形式十分重要。在 disksim 的 ssdmodel 模块中一共定义了三种 block 在 SSD 中的组织形式。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://cighao.com/img/articles/disksim/blockrange1.jpg">
@@ -25,7 +25,7 @@
 <meta name="twitter:description" content="我们知道，在一个SSD中会有很多的 element (也就是chip)，每个element中会有很多个 plane，每个 plane 中会包含很多个 block。 在访问 SSD 时通常都会向设备发送需要访问的 block number ，因此了解 block 在 SSD 中的组织形式十分重要。在 disksim 的 ssdmodel 模块中一共定义了三种 block 在 SSD 中的组织形式。">
 <meta name="twitter:image" content="http://cighao.com/img/articles/disksim/blockrange1.jpg">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim-3.0 with flashsim 源码分析（二）：DFTL 中的 cache | 陈浩的个人博客</title>
+  <title>disksim-3.0 with flashsim 源码分析（二）：DFTL 中的 cache | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="DFTL[1] 是一个页级映射的 FTL，它将映射表存在闪存中，并将一部分映射表放在 SSD 的缓存中。缓存中的映射表经常会被换进换出，DFTL 中采用了  segmented-LRU[2] 的方式管理缓存。">
 <meta name="keywords" content="SSD,Disksim,flashsim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim-3.0 with flashsim 源码分析（二）：DFTL 中的 cache">
 <meta property="og:url" content="http://cighao.com/2016/12/10/disksim-3.0-with-flashsim-source-analysis-02-DFTL-cache/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="DFTL[1] 是一个页级映射的 FTL，它将映射表存在闪存中，并将一部分映射表放在 SSD 的缓存中。缓存中的映射表经常会被换进换出，DFTL 中采用了  segmented-LRU[2] 的方式管理缓存。">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2016-12-10T08:09:40.000Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="disksim-3.0 with flashsim 源码分析（二）：DFTL 中的 cache">
 <meta name="twitter:description" content="DFTL[1] 是一个页级映射的 FTL，它将映射表存在闪存中，并将一部分映射表放在 SSD 的缓存中。缓存中的映射表经常会被换进换出，DFTL 中采用了  segmented-LRU[2] 的方式管理缓存。">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

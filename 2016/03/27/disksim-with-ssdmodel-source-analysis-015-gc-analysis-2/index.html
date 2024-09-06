@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim with ssdmodel 源码解析（十五）：GC 分析(二) | 陈浩的个人博客</title>
+  <title>disksim with ssdmodel 源码解析（十五）：GC 分析(二) | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天主要介绍后台 GC 操作与普通 GC 操作的区别。 普通 GC 是指当一个写请求到来时，如果这个 element 上没有空闲的 page 了或者空闲的 page 到达了预先设定的下限，那么就会触发相应的 GC 操作等 GC 结束后才会进行写入操作。很明显这是会影响响应时间的。 后台 GC 是指当 SSD 处于空闲状态时，来检查 SSD 是否是需要进行 GC，如果不需要就不用进行 GC 了，如果">
 <meta name="keywords" content="SSD,Disksim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim with ssdmodel 源码解析（十五）：GC 分析(二)">
 <meta property="og:url" content="http://cighao.com/2016/03/27/disksim-with-ssdmodel-source-analysis-015-gc-analysis-2/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="今天主要介绍后台 GC 操作与普通 GC 操作的区别。 普通 GC 是指当一个写请求到来时，如果这个 element 上没有空闲的 page 了或者空闲的 page 到达了预先设定的下限，那么就会触发相应的 GC 操作等 GC 结束后才会进行写入操作。很明显这是会影响响应时间的。 后台 GC 是指当 SSD 处于空闲状态时，来检查 SSD 是否是需要进行 GC，如果不需要就不用进行 GC 了，如果">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-10-28T10:58:44.712Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="disksim with ssdmodel 源码解析（十五）：GC 分析(二)">
 <meta name="twitter:description" content="今天主要介绍后台 GC 操作与普通 GC 操作的区别。 普通 GC 是指当一个写请求到来时，如果这个 element 上没有空闲的 page 了或者空闲的 page 到达了预先设定的下限，那么就会触发相应的 GC 操作等 GC 结束后才会进行写入操作。很明显这是会影响响应时间的。 后台 GC 是指当 SSD 处于空闲状态时，来检查 SSD 是否是需要进行 GC，如果不需要就不用进行 GC 了，如果">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

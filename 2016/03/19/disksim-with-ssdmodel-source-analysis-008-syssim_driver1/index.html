@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim with ssdmodel 源码解析（八）：syssim_driver 系统级接口(一) | 陈浩的个人博客</title>
+  <title>disksim with ssdmodel 源码解析（八）：syssim_driver 系统级接口(一) | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="disksim 提供了一个系统级的调用接口，我们调用这个接口可以不停的给 disksim 发送请求，当请求完成时接口会触发一个回调函数做相应的操作。下面重点来介绍下这个接口。 接口的实现是在 src/syssim_driver.c 这个文件中。调用方式是 syssim &amp;lt;parameters file&amp;gt; &amp;lt;output file&amp;gt; &amp;lt;max. block number">
 <meta name="keywords" content="SSD,Disksim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim with ssdmodel 源码解析（八）：syssim_driver 系统级接口(一)">
 <meta property="og:url" content="http://cighao.com/2016/03/19/disksim-with-ssdmodel-source-analysis-008-syssim_driver1/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="disksim 提供了一个系统级的调用接口，我们调用这个接口可以不停的给 disksim 发送请求，当请求完成时接口会触发一个回调函数做相应的操作。下面重点来介绍下这个接口。 接口的实现是在 src/syssim_driver.c 这个文件中。调用方式是 syssim &amp;lt;parameters file&amp;gt; &amp;lt;output file&amp;gt; &amp;lt;max. block number">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2016-03-29T14:02:04.000Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="disksim with ssdmodel 源码解析（八）：syssim_driver 系统级接口(一)">
 <meta name="twitter:description" content="disksim 提供了一个系统级的调用接口，我们调用这个接口可以不停的给 disksim 发送请求，当请求完成时接口会触发一个回调函数做相应的操作。下面重点来介绍下这个接口。 接口的实现是在 src/syssim_driver.c 这个文件中。调用方式是 syssim &amp;lt;parameters file&amp;gt; &amp;lt;output file&amp;gt; &amp;lt;max. block number">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

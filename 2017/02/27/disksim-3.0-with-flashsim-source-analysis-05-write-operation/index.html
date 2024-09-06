@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim-3.0 with flashsim 源码分析（五）：写操作 | 陈浩的个人博客</title>
+  <title>disksim-3.0 with flashsim 源码分析（五）：写操作 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="flashsim中读写操作的函数调用流程是： callFsim()  –&amp;gt;  send_flash_request() –&amp;gt; opm_write() –&amp;gt; nand_page_write()。 callFsim(): 主要解决的是缓冲区中映射表的查找和替换。send_flash_request(): 通过判断当前使用的是什么类型的FTL，然后将读写请求发送到该 FTL 中去处理。">
 <meta name="keywords" content="SSD,Disksim,flashsim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim-3.0 with flashsim 源码分析（五）：写操作">
 <meta property="og:url" content="http://cighao.com/2017/02/27/disksim-3.0-with-flashsim-source-analysis-05-write-operation/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="flashsim中读写操作的函数调用流程是： callFsim()  –&amp;gt;  send_flash_request() –&amp;gt; opm_write() –&amp;gt; nand_page_write()。 callFsim(): 主要解决的是缓冲区中映射表的查找和替换。send_flash_request(): 通过判断当前使用的是什么类型的FTL，然后将读写请求发送到该 FTL 中去处理。">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-03-10T13:50:34.000Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="disksim-3.0 with flashsim 源码分析（五）：写操作">
 <meta name="twitter:description" content="flashsim中读写操作的函数调用流程是： callFsim()  –&amp;gt;  send_flash_request() –&amp;gt; opm_write() –&amp;gt; nand_page_write()。 callFsim(): 主要解决的是缓冲区中映射表的查找和替换。send_flash_request(): 通过判断当前使用的是什么类型的FTL，然后将读写请求发送到该 FTL 中去处理。">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

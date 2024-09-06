@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍 | 陈浩的个人博客</title>
+  <title>disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在 Disksim 中所有的工作都是由事件来完成，每个部件都有自己的事件，通过事件来驱动其他部件事件的状态的改变。 今天我们来看看 ssd.c 中的第一个函数 ssd_event_arrive(curr)，他是 ssdmodel 的入口函数。 在进入 ssd_event_arrive 函数后我们可以用 gdb 工具的 bt 命令来查看下函数的堆栈情况，看看是在什么函数里调用了 ssd_event_">
 <meta name="keywords" content="SSD,Disksim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍">
 <meta property="og:url" content="http://cighao.com/2016/03/13/disksim-with-ssdmodel-source-analysis-004-ssd_event_arrive/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="在 Disksim 中所有的工作都是由事件来完成，每个部件都有自己的事件，通过事件来驱动其他部件事件的状态的改变。 今天我们来看看 ssd.c 中的第一个函数 ssd_event_arrive(curr)，他是 ssdmodel 的入口函数。 在进入 ssd_event_arrive 函数后我们可以用 gdb 工具的 bt 命令来查看下函数的堆栈情况，看看是在什么函数里调用了 ssd_event_">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2016-04-20T05:55:54.000Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍">
 <meta name="twitter:description" content="在 Disksim 中所有的工作都是由事件来完成，每个部件都有自己的事件，通过事件来驱动其他部件事件的状态的改变。 今天我们来看看 ssd.c 中的第一个函数 ssd_event_arrive(curr)，他是 ssdmodel 的入口函数。 在进入 ssd_event_arrive 函数后我们可以用 gdb 工具的 bt 命令来查看下函数的堆栈情况，看看是在什么函数里调用了 ssd_event_">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim with ssdmodel 源码解析（十四）：ssd_activate_elem函数分析 | 陈浩的个人博客</title>
+  <title>disksim with ssdmodel 源码解析（十四）：ssd_activate_elem函数分析 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="当一个请求经过一系列的处理后最终会发送到 element 上去，在 ssd_media_access_request_element() 函数中会把一个请求拆分成以 page 为大小的小请求，然后把这些小请求加入到 element 队列中，然后调用 ssd_activate_elem() 这个函数让 element 处理请求。下面主要分析 ssd_activate_elem() 这个函数是怎么处理">
 <meta name="keywords" content="SSD,Disksim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim with ssdmodel 源码解析（十四）：ssd_activate_elem函数分析">
 <meta property="og:url" content="http://cighao.com/2016/03/24/disksim-with-ssdmodel-source-analysis-014-ssd_activate_elem/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="当一个请求经过一系列的处理后最终会发送到 element 上去，在 ssd_media_access_request_element() 函数中会把一个请求拆分成以 page 为大小的小请求，然后把这些小请求加入到 element 队列中，然后调用 ssd_activate_elem() 这个函数让 element 处理请求。下面主要分析 ssd_activate_elem() 这个函数是怎么处理">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2016-03-29T14:05:02.000Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="disksim with ssdmodel 源码解析（十四）：ssd_activate_elem函数分析">
 <meta name="twitter:description" content="当一个请求经过一系列的处理后最终会发送到 element 上去，在 ssd_media_access_request_element() 函数中会把一个请求拆分成以 page 为大小的小请求，然后把这些小请求加入到 element 队列中，然后调用 ssd_activate_elem() 这个函数让 element 处理请求。下面主要分析 ssd_activate_elem() 这个函数是怎么处理">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

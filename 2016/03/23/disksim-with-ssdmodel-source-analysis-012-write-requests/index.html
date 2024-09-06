@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>disksim with ssdmodel 源码解析（十二）：写操作分析 | 陈浩的个人博客</title>
+  <title>disksim with ssdmodel 源码解析（十二）：写操作分析 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这里主要介绍的如何写入具体的一个页，而不是介绍写请求的整个流程(这个后面会介绍)。 回顾前面的知识，在 ssdmodel 在每个 element 的元数据中都有一个 lba_table[] 表来维持该 element 中的逻辑地址到物理地址的映射关系，下标表示逻辑地址，值表示物理地址。 在每个 block 的元数据中还有一个 page[] 表，表的大小等于 block 中 page 的数量，pag">
 <meta name="keywords" content="SSD,Disksim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="disksim with ssdmodel 源码解析（十二）：写操作分析">
 <meta property="og:url" content="http://cighao.com/2016/03/23/disksim-with-ssdmodel-source-analysis-012-write-requests/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="这里主要介绍的如何写入具体的一个页，而不是介绍写请求的整个流程(这个后面会介绍)。 回顾前面的知识，在 ssdmodel 在每个 element 的元数据中都有一个 lba_table[] 表来维持该 element 中的逻辑地址到物理地址的映射关系，下标表示逻辑地址，值表示物理地址。 在每个 block 的元数据中还有一个 page[] 表，表的大小等于 block 中 page 的数量，pag">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2017-04-19T06:12:58.000Z">
@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="disksim with ssdmodel 源码解析（十二）：写操作分析">
 <meta name="twitter:description" content="这里主要介绍的如何写入具体的一个页，而不是介绍写请求的整个流程(这个后面会介绍)。 回顾前面的知识，在 ssdmodel 在每个 element 的元数据中都有一个 lba_table[] 表来维持该 element 中的逻辑地址到物理地址的映射关系，下标表示逻辑地址，值表示物理地址。 在每个 block 的元数据中还有一个 page[] 表，表的大小等于 block 中 page 的数量，pag">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">

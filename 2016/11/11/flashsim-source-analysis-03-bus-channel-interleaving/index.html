@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <title>flashsim 源码分析（三）： 总线通道中的交叉 | 陈浩的个人博客</title>
+  <title>flashsim 源码分析（三）： 总线通道中的交叉 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在 SSD 的读写中，很多过程都需要占用总线，有效利用总线的空闲时间可以降低 SSD 的响应时间。如果交叉地进行读写操作，这样可以提高总线的利用效率。 每一个总线通道(bus channel)上连接一个 package 里的所有 die。每个总线通道都是独立和并行的，不同通道上的操作是互相不干扰的。">
 <meta name="keywords" content="SSD,flashsim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="flashsim 源码分析（三）： 总线通道中的交叉">
 <meta property="og:url" content="http://cighao.com/2016/11/11/flashsim-source-analysis-03-bus-channel-interleaving/index.html">
-<meta property="og:site_name" content="陈浩的个人博客">
+<meta property="og:site_name" content="Hao Chen&#39;s Blog">
 <meta property="og:description" content="在 SSD 的读写中，很多过程都需要占用总线，有效利用总线的空闲时间可以降低 SSD 的响应时间。如果交叉地进行读写操作，这样可以提高总线的利用效率。 每一个总线通道(bus channel)上连接一个 package 里的所有 die。每个总线通道都是独立和并行的，不同通道上的操作是互相不干扰的。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://cighao.com/img/articles/flashsim/flashsim-03-01.jpg">
@@ -24,7 +24,7 @@
 <meta name="twitter:description" content="在 SSD 的读写中，很多过程都需要占用总线，有效利用总线的空闲时间可以降低 SSD 的响应时间。如果交叉地进行读写操作，这样可以提高总线的利用效率。 每一个总线通道(bus channel)上连接一个 package 里的所有 die。每个总线通道都是独立和并行的，不同通道上的操作是互相不干扰的。">
 <meta name="twitter:image" content="http://cighao.com/img/articles/flashsim/flashsim-03-01.jpg">
   
-    <link rel="alternative" href="/atom.xml" title="陈浩的个人博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hao Chen&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">
