@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cighao.com/photo/index.html</loc>
+    
+    <lastmod>2024-09-06T16:55:24.284Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cighao.com/2019/03/29/problems-in-dailylife/</loc>
     
     <lastmod>2024-07-18T16:04:57.922Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://cighao.com/2019/09/03/taobao-database-kernel/</loc>
     
     <lastmod>2022-02-27T07:48:11.277Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cighao.com/photo/index.html</loc>
-    
-    <lastmod>2021-10-23T04:57:12.886Z</lastmod>
     
   </url>
   
