@@ -293,9 +293,9 @@ var _hmt = _hmt || [];
 <p><code>lscpu</code> 可以查看 CPU 的具体信息</p>
 <h3 id="15-Mac-下-brew-切换为国内源"><a href="#15-Mac-下-brew-切换为国内源" class="headerlink" title="15. Mac 下 brew 切换为国内源"></a>15. Mac 下 brew 切换为国内源</h3><p>参考：<a href="https://cloud.tencent.com/developer/article/1614039" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1614039</a></p>
 <p>替换为阿里源</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看 brew.git 当前源</span><br><span class="line"><span class="meta">$</span> cd "$(brew --repo)" &amp;&amp; git remote -v</span><br><span class="line">origin    https://github.com/Homebrew/brew.git (fetch)</span><br><span class="line">origin    https://github.com/Homebrew/brew.git (push)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看 homebrew-core.git 当前源</span><br><span class="line"><span class="meta">$</span> cd "$(brew --repo homebrew/core)" &amp;&amp; git remote -v</span><br><span class="line">origin    https://github.com/Homebrew/homebrew-core.git (fetch)</span><br><span class="line">origin    https://github.com/Homebrew/homebrew-core.git (push)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 修改 brew.git 为阿里源</span><br><span class="line"><span class="meta">$</span> git -C "$(brew --repo)" remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 修改 homebrew-core.git 为阿里源</span><br><span class="line"><span class="meta">$</span> git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> zsh 替换 brew bintray 镜像</span><br><span class="line"><span class="meta">$</span> echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles' &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="meta">$</span> source ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> bash 替换 brew bintray 镜像</span><br><span class="line"><span class="meta">$</span> echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles' &gt;&gt; ~/.bash_profile</span><br><span class="line"><span class="meta">$</span> source ~/.bash_profile</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 刷新源</span><br><span class="line"><span class="meta">$</span> brew update</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看 brew.git 当前源</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>"</span> &amp;&amp; git remote -v</span></span><br><span class="line">origin    https://github.com/Homebrew/brew.git (fetch)</span><br><span class="line">origin    https://github.com/Homebrew/brew.git (push)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看 homebrew-core.git 当前源</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> <span class="string">"<span class="variable">$(brew --repo homebrew/core)</span>"</span> &amp;&amp; git remote -v</span></span><br><span class="line">origin    https://github.com/Homebrew/homebrew-core.git (fetch)</span><br><span class="line">origin    https://github.com/Homebrew/homebrew-core.git (push)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改 brew.git 为阿里源</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git -C <span class="string">"<span class="variable">$(brew --repo)</span>"</span> remote <span class="built_in">set</span>-url origin https://mirrors.aliyun.com/homebrew/brew.git</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改 homebrew-core.git 为阿里源</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git -C <span class="string">"<span class="variable">$(brew --repo homebrew/core)</span>"</span> remote <span class="built_in">set</span>-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> zsh 替换 brew bintray 镜像</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles'</span> &gt;&gt; ~/.zshrc</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> ~/.zshrc</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> bash 替换 brew bintray 镜像</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles'</span> &gt;&gt; ~/.bash_profile</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> ~/.bash_profile</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 刷新源</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew update</span></span><br></pre></td></tr></table></figure>
 <p>重置为官方源</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 重置 brew.git 为官方源</span><br><span class="line"><span class="meta">$</span> git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 重置 homebrew-core.git 为官方源</span><br><span class="line"><span class="meta">$</span> git -C "$(brew --repo homebrew/core)" remote set-url origin https://github.com/Homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 重置 homebrew-cask.git 为官方源</span><br><span class="line"><span class="meta">$</span> git -C "$(brew --repo homebrew/cask)" remote set-url origin https://github.com/Homebrew/homebrew-cask</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> zsh 注释掉 HOMEBREW_BOTTLE_DOMAIN 配置</span><br><span class="line"><span class="meta">$</span> vi ~/.zshrc</span><br><span class="line"><span class="meta">#</span> export HOMEBREW_BOTTLE_DOMAIN=xxxxxxxxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> bash 注释掉 HOMEBREW_BOTTLE_DOMAIN 配置</span><br><span class="line"><span class="meta">$</span> vi ~/.bash_profile</span><br><span class="line"><span class="meta">#</span> export HOMEBREW_BOTTLE_DOMAIN=xxxxxxxxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 刷新源</span><br><span class="line"><span class="meta">$</span> brew update</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 重置 brew.git 为官方源</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git -C <span class="string">"<span class="variable">$(brew --repo)</span>"</span> remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/brew.git</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 重置 homebrew-core.git 为官方源</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git -C <span class="string">"<span class="variable">$(brew --repo homebrew/core)</span>"</span> remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/homebrew-core.git</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 重置 homebrew-cask.git 为官方源</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git -C <span class="string">"<span class="variable">$(brew --repo homebrew/cask)</span>"</span> remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/homebrew-cask</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> zsh 注释掉 HOMEBREW_BOTTLE_DOMAIN 配置</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vi ~/.zshrc</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=xxxxxxxxx</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> bash 注释掉 HOMEBREW_BOTTLE_DOMAIN 配置</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vi ~/.bash_profile</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=xxxxxxxxx</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 刷新源</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew update</span></span><br></pre></td></tr></table></figure>
 <h3 id="16-MacOS安装不同版本-node"><a href="#16-MacOS安装不同版本-node" class="headerlink" title="16. MacOS安装不同版本 node"></a>16. MacOS安装不同版本 node</h3><p>参考：<a href="https://juejin.cn/post/7043972066424389662" target="_blank" rel="noopener">https://juejin.cn/post/7043972066424389662</a></p>
 <p>首先安装n模块：<code>sudo npm install -g n</code><br>升级node.js到最新稳定版: <code>sudo n stable</code><br>升级到最新版: <code>sudo n latest</code><br>可以跟随版本号,升级到任意版本: <code>sudo n v0.10.26</code> or <code>sudo n 0.10.26</code><br>切换使用版本: <code>sudo n 7.10.0</code><br>删除制定版本: <code>sudo n rm 7.10.0</code><br>用制定的版本执行脚本: <code>n use 7.10.0 some.js</code><br>可以查看所有已安装的node版本: <code>sudo n</code></p>
 <h3 id="17-yum-dnf-出现-Config-error-Connection-refused-None"><a href="#17-yum-dnf-出现-Config-error-Connection-refused-None" class="headerlink" title="17. yum/dnf 出现 Config error: Connection refused: None"></a>17. yum/dnf 出现 Config error: Connection refused: None</h3><p>系统的网络是通的，是可以curl和ping通公网的。而且即使 yum clean all 也会报错。</p>
@@ -607,10 +607,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Matlab</a>
               </li>
              
@@ -623,15 +619,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">计算机</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Linux IO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,15 +639,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Disksim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">flashsim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NVMe</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,6 +652,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">论文阅读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Disksim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">flashsim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,15 +683,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">粒子群算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,7 +703,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
+                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -711,7 +711,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RocksDB</a>
+                <a href="javascript:void(0)" class="js-tag color1">Ngrok</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,7 +739,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -743,7 +747,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">端口扫描</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -751,11 +755,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tool</a>
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+                <a href="javascript:void(0)" class="js-tag color5">端口扫描</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,10 +772,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
