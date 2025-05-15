@@ -6,6 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
+  <link rel="canonical" href="http://cighao.com">
   <title>disksim with ssdmodel 源码解析（四）：ssd_event_arrive 函数的介绍 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在 Disksim 中所有的工作都是由事件来完成，每个部件都有自己的事件，通过事件来驱动其他部件事件的状态的改变。 今天我们来看看 ssd.c 中的第一个函数 ssd_event_arrive(curr)，他是 ssdmodel 的入口函数。 在进入 ssd_event_arrive 函数后我们可以用 gdb 工具的 bt 命令来查看下函数的堆栈情况，看看是在什么函数里调用了 ssd_event_">

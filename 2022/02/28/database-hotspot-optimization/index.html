@@ -6,6 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
+  <link rel="canonical" href="http://cighao.com">
   <title>数据库中的热点行优化 (SIGMOD&#39;21 Paper 解读) | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="数据库中的热点指的是一小部分记录会被大量的事务频繁读写，这在并发控制时会造成大量的竞争。热点记录的更新在现实生活中非常常见，比如在电商场景中，秒杀或限购时，会存在大量事务短时间内频繁更新某一行数据，比如更新库存。本文接下来会先介绍 SIGMOD 2021 上的一篇优化热点竞争问题的论文，Releasing Locks As Early As You Can: Reducing Contention">

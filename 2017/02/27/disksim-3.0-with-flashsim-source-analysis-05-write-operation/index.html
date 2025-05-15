@@ -6,6 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
+  <link rel="canonical" href="http://cighao.com">
   <title>disksim-3.0 with flashsim 源码分析（五）：写操作 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="flashsim中读写操作的函数调用流程是： callFsim()  –&amp;gt;  send_flash_request() –&amp;gt; opm_write() –&amp;gt; nand_page_write()。 callFsim(): 主要解决的是缓冲区中映射表的查找和替换。send_flash_request(): 通过判断当前使用的是什么类型的FTL，然后将读写请求发送到该 FTL 中去处理。">

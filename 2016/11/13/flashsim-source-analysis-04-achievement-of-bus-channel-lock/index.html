@@ -6,6 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
+  <link rel="canonical" href="http://cighao.com">
   <title>flashsim 源码分析（四）： 总线上锁机制的实现 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="flashsim 模拟器是事件驱动型的。每一个请求对应一个事件(event对象)。event 对象会在闪存内部的各个器件之间相互传递，从而来模拟闪存处理IO请求。 前面介绍了，总线通道(bus channel)中的交叉操作)。现在结合源码来了解下，flashsim 是如何来模拟总线占用的。">

@@ -6,6 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
+  <link rel="canonical" href="http://cighao.com">
   <title>disksim-3.0 with flashsim 源码分析（二）：DFTL 中的 cache | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="DFTL[1] 是一个页级映射的 FTL，它将映射表存在闪存中，并将一部分映射表放在 SSD 的缓存中。缓存中的映射表经常会被换进换出，DFTL 中采用了  segmented-LRU[2] 的方式管理缓存。">

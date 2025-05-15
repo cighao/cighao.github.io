@@ -6,6 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
+  <link rel="canonical" href="http://cighao.com">
   <title>disksim with ssdmodel 源码解析（十二）：写操作分析 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这里主要介绍的如何写入具体的一个页，而不是介绍写请求的整个流程(这个后面会介绍)。 回顾前面的知识，在 ssdmodel 在每个 element 的元数据中都有一个 lba_table[] 表来维持该 element 中的逻辑地址到物理地址的映射关系，下标表示逻辑地址，值表示物理地址。 在每个 block 的元数据中还有一个 page[] 表，表的大小等于 block 中 page 的数量，pag">
