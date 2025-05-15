@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <link rel="canonical" href="http://cighao.com">
+  
   <title>disksim with ssdmodel 源码解析（十一）：地址映射 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="SSD 中的逻辑地址到物理地址的映射方式有很多中，这里主要是介绍 ssdmodel 中的映射方式。 由于 SSD 与主机的接口使用的还是以前的 HDD 的接口，所以操作系统给 SSD 发出请求时仍然是以扇区(sector，512B)为单位。例如一条trace数据为 (0.0,0,512,8,0)，表示的是要对第512个扇区进行操作。由于 SSD 读写操作的基本单位时页(page, 4KB)，所以">

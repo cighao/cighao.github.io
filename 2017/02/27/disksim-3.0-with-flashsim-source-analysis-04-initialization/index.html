@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <link rel="canonical" href="http://cighao.com">
+  
   <title>disksim-3.0 with flashsim 源码分析（四）：初始化 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在 disksim_main.c  中会先调用 disksim_initialize_disksim_structure() 和 disksim_setup_disksim() 来初始化 disksim。然后调用 initFlash() 来初始化闪存。 下面主要介绍闪存的初始化过程。 ninitFlash() 函数主要分为两个步骤，首先是调用 nand_init() 初始化闪存基本信息，然后调用">

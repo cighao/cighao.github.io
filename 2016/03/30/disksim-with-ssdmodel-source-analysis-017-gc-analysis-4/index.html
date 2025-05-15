@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <link rel="canonical" href="http://cighao.com">
+  
   <title>disksim with ssdmodel 源码解析（十七）：GC 分析(四) | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前面介绍的大多都是 GC 操作的判断逻辑之类的，今天主要介绍在 ssdmodel 中是如何具体实现 GC 操作的。 在 ssdmodel 中实现 GC 的算法大概分为两种（准确的说应该是三种吧）。  随机算法：在回收某个 element(或plane)的时候随机在其中选择一个符合要求的 block 进行回收。 贪心算法：在回收某个 element(或plane)的时候从其中选择有效页最少的 blo">

@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <link rel="canonical" href="http://cighao.com">
+  
   <title>flashsim 源码分析（三）： 总线通道中的交叉 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在 SSD 的读写中，很多过程都需要占用总线，有效利用总线的空闲时间可以降低 SSD 的响应时间。如果交叉地进行读写操作，这样可以提高总线的利用效率。 每一个总线通道(bus channel)上连接一个 package 里的所有 die。每个总线通道都是独立和并行的，不同通道上的操作是互相不干扰的。">

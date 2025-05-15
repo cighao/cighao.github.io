@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <link rel="canonical" href="http://cighao.com">
+  
   <title>disksim with ssdmodel 源码解析（九）：syssim_driver 系统级接口(二) | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前面介绍了 syssim_driver 这个 disksim 系统级接口。程序的作者留给我们的只是应用该接口的一个小例子。例子有很多的局限性，所以我们要通过一些修改才能唯我所用。 原程序最大的局限性就在于，每次发送请求都是等上一个请求全部完成了才发送下一个请求。很显然这是不切实际的，所以这一块是要我们修改的。还有一点就是要将原程序中随机生成的 trace 数据改成我们自定义的数据，可以改成从文件中">

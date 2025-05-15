@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <link rel="canonical" href="http://cighao.com">
+  
   <title>disksim with ssdmodel 源码解析（七）：block的组织形式 | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="我们知道，在一个SSD中会有很多的 element (也就是chip)，每个element中会有很多个 plane，每个 plane 中会包含很多个 block。 在访问 SSD 时通常都会向设备发送需要访问的 block number ，因此了解 block 在 SSD 中的组织形式十分重要。在 disksim 的 ssdmodel 模块中一共定义了三种 block 在 SSD 中的组织形式。">

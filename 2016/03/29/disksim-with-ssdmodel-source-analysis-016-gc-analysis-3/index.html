@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://cighao.com">
-  <link rel="canonical" href="http://cighao.com">
+  
   <title>disksim with ssdmodel 源码解析（十六）：GC 分析(三) | Hao Chen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今天这篇文章主要介绍什么时候会触发 GC。 判断是否需要进行 GC 操作是分为两种不同的情况来判断的：有 copyback 和没有 copyback 。 在 ssd_clean.c 中的 ssd_clean_element() 函数中会根据是否有 copyback 来调用不同的函数区执行 GC 操作。 下面分别介绍在这两种情况下，达到什么条件时会触发 GC 操作。">
