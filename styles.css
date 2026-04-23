@@ -230,7 +230,8 @@ section[id] {
   content: "\E61B";
 }
 
-.icon-scholar svg {
+.icon-scholar svg,
+.icon-email svg {
   display: block;
   width: 18px;
   height: 18px;
