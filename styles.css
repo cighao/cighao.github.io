@@ -1,10 +1,3 @@
-@font-face {
-  font-family: "cighao-iconfont";
-  src:
-    url("http://cighao.com/fonts/iconfont.8c627f.woff") format("woff"),
-    url("http://cighao.com/fonts/iconfont.16acc2.ttf") format("truetype");
-}
-
 :root {
   --paper: #f7f1e8;
   --paper-deep: #efe5d7;
@@ -210,32 +203,21 @@ section[id] {
   transform: translateY(-1px);
 }
 
-.social-icon {
-  font-family: "cighao-iconfont" !important;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  font-size: 17px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-github::before {
-  content: "\E735";
-}
-
-.icon-zhihu::before {
-  content: "\E61B";
-}
-
+.icon-github svg,
+.icon-zhihu svg,
 .icon-scholar svg,
 .icon-email svg {
   display: block;
   width: 18px;
   height: 18px;
   fill: currentColor;
+}
+
+.icon-zhihu text {
+  fill: currentColor;
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .layout {
