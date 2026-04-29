@@ -340,6 +340,30 @@ h2 {
   font-weight: 700;
 }
 
+.author-email-marker {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  margin-left: 2px;
+  color: #7b4a88;
+  vertical-align: -0.15em;
+}
+
+.author-email-marker svg {
+  display: block;
+  width: 1.08em;
+  height: 1.08em;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0.45;
+  paint-order: stroke fill;
+}
+
+.authors .note .author-email-marker {
+  margin-left: 0;
+  margin-right: 2px;
+}
+
 .pub-meta-line {
   margin: 6px 0 0;
   color: var(--muted);
