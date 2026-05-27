@@ -155,6 +155,9 @@ section[id] {
 
 .about-copy p {
   margin: 0;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
 }
 
 .about-copy a {
