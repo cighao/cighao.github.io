@@ -1,0 +1,65 @@
+.conference-section { padding: 32px; }
+.conference-section [hidden] { display: none !important; }
+.conference-header { display: flex; align-items: center; }
+.map-intro { margin: 8px 0 0; color: #6f7972; font-size: 13px; }
+.map-frame { min-width: 0; display: flex; flex-direction: column; border: 1px solid #d8e0d9; border-radius: 14px; overflow: hidden; background: #edf3f2; }
+.map-stage { position: relative; width: 100%; aspect-ratio: 1000 / 450; overflow: hidden; isolation: isolate; }
+.map-stage.is-draggable { cursor: grab; touch-action: none; user-select: none; }
+.map-stage.is-dragging, .map-stage.is-dragging .map-pin { cursor: grabbing; }
+.map-stage:focus-visible { outline: 2px solid var(--green); outline-offset: -3px; }
+.conference-world { display: block; width: 100%; height: 100%; }
+.map-graticule { fill: none; stroke: #d6e2df; stroke-width: .6; opacity: .7; }
+.map-countries { stroke: #f6f8f1; stroke-width: .7; stroke-linejoin: round; }
+.map-ocean-name { text-anchor: middle; fill: #8fa6a7; font: italic 10px Georgia, serif; letter-spacing: 2.2px; }
+.map-pins { position: absolute; inset: 0; pointer-events: none; }
+.map-pin { position: absolute; display: grid; place-items: center; width: 38px; height: 38px; padding: 0; transform: translate(-50%, -50%); cursor: pointer; border: 0; border-radius: 50%; background: transparent; pointer-events: auto; color: #24483e; z-index: 1; }
+.map-pin-dot { width: 9px; height: 9px; border-radius: 50%; background: #245e50; border: 2px solid #f9fcf4; box-shadow: 0 1px 4px #243f3e40; transition: box-shadow 160ms, background 160ms; }
+.map-pin-label { position: absolute; top: 50%; transform: translateY(-50%); white-space: nowrap; font-size: 10px; font-weight: 650; padding: 1px 5px; border-radius: 3px; background: #f8fcf4c9; pointer-events: none; }
+.map-pin-city, .map-pin-conferences { display: inline; line-height: 1.4; }
+.map-pin-conferences { font-size: .9em; font-weight: 400; }
+.label-right { left: 26px; }
+.label-left { right: 26px; }
+.map-pin.is-selected { z-index: 2; }
+.map-pin.is-selected .map-pin-dot { background: #b6773e; box-shadow: 0 0 0 5px #b6773e29, 0 0 0 6px #b6773e75; }
+.map-pin.is-selected .map-pin-label { color: #754921; background: #fff9eeed; }
+.map-pin:hover .map-pin-dot { box-shadow: 0 0 0 6px #245e5026; }
+.map-pin:focus-visible { outline: 2px solid var(--green); outline-offset: 0; z-index: 3; }
+.map-controls { position: absolute; display: flex; right: 12px; bottom: 12px; border: 1px solid #d1dcd6; border-radius: 7px; background: #fffcf4ee; overflow: hidden; }
+.map-controls button { width: 31px; height: 31px; padding: 0; border: 0; border-right: 1px solid #e1e6df; background: transparent; color: var(--green); font-size: 19px; cursor: pointer; }
+.map-controls button:last-child { border: 0; }
+.map-controls button:disabled { opacity: .35; cursor: default; }
+.map-controls button:hover:not(:disabled) { background: #dfe9df; }
+.conference-body { display: block; margin-top: 22px; }
+.map-records { display: grid; gap: 0; list-style: none; margin: 22px 0 0; padding: 0; }
+.map-record { display: block; padding: 10px 12px; font-size: .9rem; line-height: 1.75; overflow-wrap: anywhere; border-bottom: 1px solid var(--line); border-left: 3px solid transparent; border-radius: 6px; transition: background 150ms, border-color 150ms; scroll-margin-top: 120px; }
+.map-record:last-child { border-bottom-color: transparent; }
+.map-record.is-active { border-left-color: var(--green); background: var(--green-soft); }
+.map-record-title { font-weight: 600; }
+.map-record-separator { color: var(--muted); }
+.map-record-venue { color: var(--green); white-space: nowrap; }
+.map-record-location { color: var(--muted); white-space: nowrap; }
+.map-record a:hover { color: var(--green); text-decoration: underline; }
+.map-selection-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.map-empty { color: var(--muted); font-size: 13px; }
+.conference-section button:focus-visible, .conference-section a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+@media (max-width: 1024px) {
+  .nav { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; width: 100%; }
+  .nav a { white-space: nowrap; flex: none; }
+}
+@media (max-width: 520px) {
+  .map-record { padding: 10px 8px; }
+  .conference-section { padding: 19px 14px; }
+  .conference-header { align-items: flex-start; }
+  .map-intro { font-size: 11px; }
+  .map-pin-label { font-size: 8px; padding: 0 3px; }
+  .map-pin:not(.is-selected):not(:focus-visible) .map-pin-label { display: none; }
+  .map-pin-dot { width: 8px; height: 8px; }
+  .label-right { left: 25px; }
+  .label-left { right: 25px; }
+  .map-controls { right: 6px; bottom: 6px; }
+  .map-controls button { width: 28px; height: 28px; }
+  .nav a { padding: 7px 10px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-pin-dot, .map-record { transition: none; }
+}
